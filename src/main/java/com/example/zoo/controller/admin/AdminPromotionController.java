@@ -3,6 +3,7 @@ package com.example.zoo.controller.admin;
 import com.example.zoo.dto.PromotionDTO;
 import com.example.zoo.entity.Promotion;
 import com.example.zoo.entity.Product;
+import com.example.zoo.entity.Category;
 import com.example.zoo.enums.PromotionType;
 import com.example.zoo.service.PromotionService;
 import com.example.zoo.service.ProductService;
@@ -155,8 +156,13 @@ public class AdminPromotionController {
         promotionDTO.setCode(promotion.getCode());
         promotionDTO.setMinOrderAmount(promotion.getMinOrderAmount());
         promotionDTO.setMaxUsage(promotion.getMaxUsage());
+        promotionDTO.setBuyQuantity(promotion.getBuyQuantity());
+        promotionDTO.setGetQuantity(promotion.getGetQuantity());
         promotionDTO.setProductIds(promotion.getProducts().stream()
                 .map(Product::getId)
+                .toList());
+        promotionDTO.setCategoryIds(promotion.getCategories().stream()
+                .map(Category::getId)
                 .toList());
 
         model.addAttribute("promotionDTO", promotionDTO);

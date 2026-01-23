@@ -50,4 +50,14 @@ public class PromotionDTO {
     private Integer maxUsage;
 
     private List<Long> productIds;
+
+    private List<Long> categoryIds;
+
+    private List<Long> brandIds;
+
+    @Min(value = 1, message = "Ilość kupowanych produktów musi być większa od 0")
+    private Integer buyQuantity;
+
+    @Min(value = 1, message = "Ilość otrzymywanych produktów musi być większa od 0")
+    private Integer getQuantity;
 }

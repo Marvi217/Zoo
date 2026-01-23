@@ -47,22 +47,22 @@
                 <span th:text="${error}">Wystąpił błąd</span>
             </div>
 
-            <!-- VALIDATION ERRORS -->
-            <div th:if="${#fields.hasErrors('*')}" class="alert alert-error">
-                <span class="alert-icon">❌</span>
-                <div>
-                    <strong>Formularz zawiera błędy:</strong>
-                    <ul style="margin: 5px 0 0 20px;">
-                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Błąd walidacji</li>
-                    </ul>
-                </div>
-            </div>
-
             <!-- FORM -->
             <form th:action="@{/admin/brands/edit/{id}(id=${brandDTO.id})}"
                   method="post"
                   th:object="${brandDTO}"
                   enctype="multipart/form-data">
+
+                <!-- VALIDATION ERRORS -->
+                <div th:if="${#fields.hasErrors('*')}" class="alert alert-error">
+                    <span class="alert-icon">❌</span>
+                    <div>
+                        <strong>Formularz zawiera błędy:</strong>
+                        <ul style="margin: 5px 0 0 20px;">
+                            <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Błąd walidacji</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <input type="hidden" th:field="*{id}">
 
@@ -195,11 +195,6 @@
                             <div>
                                 <div style="font-size: 32px; font-weight: bold; color: var(--brand-green);" th:text="${brand.products.size()}">0</div>
                                 <div style="color: var(--text-muted);">Produktów w tej marce</div>
-                            </div>
-                            <div>
-                                <div style="font-size: 32px; font-weight: bold; color: var(--brand-green);"
-                                     th:text="${#temporals.format(brand.createdAt, 'dd.MM.yyyy')}">01.01.2024</div>
-                                <div style="color: var(--text-muted);">Data dodania</div>
                             </div>
                         </div>
                     </div>

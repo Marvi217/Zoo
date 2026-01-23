@@ -327,6 +327,32 @@
                                 <span class="error-message" th:if="${#fields.hasErrors('discountAmount')}" th:errors="*{discountAmount}"></span>
                             </div>
 
+                            <div class="form-group" id="buyQuantityField" style="display: none;">
+                                <label for="buyQuantity">Kup ilość (X)</label>
+                                <input type="number"
+                                       id="buyQuantity"
+                                       th:field="*{buyQuantity}"
+                                       class="form-control"
+                                       placeholder="np. 2"
+                                       min="1"
+                                       step="1">
+                                <small class="form-hint">Ile produktów klient musi kupić</small>
+                                <span class="error-message" th:if="${#fields.hasErrors('buyQuantity')}" th:errors="*{buyQuantity}"></span>
+                            </div>
+
+                            <div class="form-group" id="getQuantityField" style="display: none;">
+                                <label for="getQuantity">Otrzymaj ilość (Y)</label>
+                                <input type="number"
+                                       id="getQuantity"
+                                       th:field="*{getQuantity}"
+                                       class="form-control"
+                                       placeholder="np. 1"
+                                       min="1"
+                                       step="1">
+                                <small class="form-hint">Ile produktów klient otrzyma gratis</small>
+                                <span class="error-message" th:if="${#fields.hasErrors('getQuantity')}" th:errors="*{getQuantity}"></span>
+                            </div>
+
                             <div class="form-group" id="minOrderField">
                                 <label for="minOrderAmount">Minimalna wartość zamówienia (zł)</label>
                                 <input type="number"
@@ -527,6 +553,8 @@
                             </div>
 
                             <div id="hiddenProductInputs"></div>
+                            <div id="hiddenCategoryInputs"></div>
+                            <div id="hiddenBrandInputs"></div>
                         </div>
                     </div>
                 </div>
@@ -546,14 +574,35 @@
     /* =========================================
        1. INICJALIZACJA DANYCH (THYMELEAF)
        ========================================= */
-    // Pobieramy listę wszystkich produktów i ID produktów już przypisanych (dla edycji)
-    /*<![CDATA[*/
-    const allProducts = /*[[${products}]]*/ [];
-    const initialProductIds = /*[[${promotionDTO.productIds}]]*/ [];
-    /*]]>*/
+    // Uproszczone tablice z tylko potrzebnymi polami do uniknięcia problemów z serializacją
+    const allProducts = [];
+    /*[# th:each="p : ${products}"]*/
+    allProducts.push({
+        id: /*[[${p.id}]]*/ 0,
+        name: /*[[${p.name}]]*/ "",
+        categoryId: /*[[${p.subcategory?.category?.id}]]*/ null,
+        subcategoryId: /*[[${p.subcategory?.id}]]*/ null,
+        brandId: /*[[${p.brand?.id}]]*/ null
+    });
+    /*[/]*/
 
-    // Główny stan aplikacji - Mapa: ID produktu -> Nazwa produktu
-    let selectedProducts = new Map();
+    const allCategories = [];
+    /*[# th:each="c : ${categories}"]*/
+    allCategories.push({ id: /*[[${c.id}]]*/ 0, name: /*[[${c.name}]]*/ "" });
+    /*[/]*/
+
+    const allBrands = [];
+    /*[# th:each="b : ${brands}"]*/
+    allBrands.push({ id: /*[[${b.id}]]*/ 0, name: /*[[${b.name}]]*/ "" });
+    /*[/]*/
+
+    const initialProductIds = /*[[${promotionDTO.productIds}]]*/ [];
+    const initialCategoryIds = /*[[${promotionDTO.categoryIds}]]*/ [];
+
+    // Główny stan aplikacji
+    let selectedProducts = new Map();  // ID produktu -> Nazwa produktu
+    let selectedCategories = new Set(); // ID kategorii
+    let selectedBrands = new Set();     // ID marki
 
     /* =========================================
        2. CYKL ŻYCIA STRONY
@@ -574,9 +623,17 @@
             });
             // Po załadowaniu danych, odświeżamy widok
             updateSelectedProductsList();
+        }
 
-            // Opcjonalnie: Zaznacz checkboxy kategorii/marek (logika uproszczona)
-            // Można to pominąć, jeśli nie chcesz automatycznie zaznaczać grup przy edycji
+        // Przywracanie zaznaczonych kategorii (tryb edycji)
+        if (initialCategoryIds && initialCategoryIds.length > 0) {
+            initialCategoryIds.forEach(id => {
+                selectedCategories.add(id.toString());
+                // Zaznacz checkbox kategorii
+                const checkbox = document.querySelector(`#categories-tab input[type="checkbox"][value="${id}"]`);
+                if (checkbox) checkbox.checked = true;
+            });
+            updateHiddenInputs();
         }
     });
 
@@ -589,17 +646,33 @@
 
         const percentageField = document.getElementById('percentageField');
         const amountField = document.getElementById('amountField');
-        // minOrderField jest zazwyczaj widoczny zawsze, ale można go ukryć dla darmowej dostawy
+        const buyQuantityField = document.getElementById('buyQuantityField');
+        const getQuantityField = document.getElementById('getQuantityField');
+        const minOrderField = document.getElementById('minOrderField');
 
-        // Reset
+        // Reset - hide all conditional fields
         if(percentageField) percentageField.style.display = 'none';
         if(amountField) amountField.style.display = 'none';
+        if(buyQuantityField) buyQuantityField.style.display = 'none';
+        if(getQuantityField) getQuantityField.style.display = 'none';
+        if(minOrderField) minOrderField.style.display = 'block';
 
-        // Logika wyświetlania
-        if (type === 'PERCENTAGE' || type === 'PERCENTAGE_DISCOUNT') {
-            if(percentageField) percentageField.style.display = 'block';
-        } else if (type === 'FIXED_AMOUNT' || type === 'FIXED_DISCOUNT' || type === 'BUNDLE_DISCOUNT') {
-            if(amountField) amountField.style.display = 'block';
+        // Logika wyświetlania na podstawie typu rabatu
+        switch(type) {
+            case 'PERCENTAGE_DISCOUNT':
+                if(percentageField) percentageField.style.display = 'block';
+                break;
+            case 'FIXED_AMOUNT_DISCOUNT':
+            case 'BUNDLE_DISCOUNT':
+                if(amountField) amountField.style.display = 'block';
+                break;
+            case 'BUY_X_GET_Y':
+                if(buyQuantityField) buyQuantityField.style.display = 'block';
+                if(getQuantityField) getQuantityField.style.display = 'block';
+                break;
+            case 'FREE_SHIPPING':
+                // Dla darmowej dostawy nie potrzeba dodatkowych pól rabatowych
+                break;
         }
     }
 
@@ -722,7 +795,15 @@
 
     //wrappery dla Twojego HTML (onchange="selectCategory(this)")
     function selectCategory(checkbox) {
-        toggleGroupSelection(checkbox.value, 'category', checkbox.checked);
+        const categoryId = checkbox.value;
+        if (checkbox.checked) {
+            selectedCategories.add(categoryId);
+        } else {
+            selectedCategories.delete(categoryId);
+        }
+        // Dodaj/usuń produkty z tej kategorii
+        toggleGroupSelection(categoryId, 'category', checkbox.checked);
+        updateHiddenInputs();
     }
 
     function selectSubcategory(checkbox) {
@@ -730,7 +811,43 @@
     }
 
     function selectBrand(checkbox) {
-        toggleGroupSelection(checkbox.value, 'brand', checkbox.checked);
+        const brandId = checkbox.value;
+        if (checkbox.checked) {
+            selectedBrands.add(brandId);
+        } else {
+            selectedBrands.delete(brandId);
+        }
+        // Dodaj/usuń produkty tej marki
+        toggleGroupSelection(brandId, 'brand', checkbox.checked);
+        updateHiddenInputs();
+    }
+
+    // Funkcja do aktualizacji ukrytych inputów dla kategorii i marek
+    function updateHiddenInputs() {
+        const hiddenCategoryInputs = document.getElementById('hiddenCategoryInputs');
+        const hiddenBrandInputs = document.getElementById('hiddenBrandInputs');
+
+        // Reset kontenerów
+        if (hiddenCategoryInputs) hiddenCategoryInputs.innerHTML = '';
+        if (hiddenBrandInputs) hiddenBrandInputs.innerHTML = '';
+
+        // Generuj hidden inputs dla kategorii
+        selectedCategories.forEach(id => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'categoryIds';
+            input.value = id;
+            if (hiddenCategoryInputs) hiddenCategoryInputs.appendChild(input);
+        });
+
+        // Generuj hidden inputs dla marek
+        selectedBrands.forEach(id => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'brandIds';
+            input.value = id;
+            if (hiddenBrandInputs) hiddenBrandInputs.appendChild(input);
+        });
     }
 
     /* =========================================

@@ -89,14 +89,31 @@ public class PromotionService {
                 .priority(0)
                 .stackable(false)
                 .featured(false)
+                .buyQuantity(dto.getBuyQuantity())
+                .getQuantity(dto.getGetQuantity())
                 .build();
 
         // Przypisz produkty jeśli podano
+        Set<Product> productsSet = new HashSet<>();
         if (dto.getProductIds() != null && !dto.getProductIds().isEmpty()) {
-            Set<Product> products = new HashSet<>(
-                    productRepository.findAllById(dto.getProductIds())
+            productsSet.addAll(productRepository.findAllById(dto.getProductIds()));
+        }
+
+        // Przypisz produkty z marek jeśli podano
+        if (dto.getBrandIds() != null && !dto.getBrandIds().isEmpty()) {
+            for (Long brandId : dto.getBrandIds()) {
+                List<Product> brandProducts = productRepository.findByBrandId(brandId);
+                productsSet.addAll(brandProducts);
+            }
+        }
+        promotion.setProducts(productsSet);
+
+        // Przypisz kategorie jeśli podano
+        if (dto.getCategoryIds() != null && !dto.getCategoryIds().isEmpty()) {
+            Set<Category> categories = new HashSet<>(
+                    categoryRepository.findAllById(dto.getCategoryIds())
             );
-            promotion.setProducts(products);
+            promotion.setCategories(categories);
         }
 
         Promotion saved = promotionRepository.save(promotion);
@@ -136,15 +153,34 @@ public class PromotionService {
         promotion.setCode(dto.getCode());
         promotion.setMinOrderAmount(dto.getMinOrderAmount());
         promotion.setMaxUsage(dto.getMaxUsage());
+        promotion.setBuyQuantity(dto.getBuyQuantity());
+        promotion.setGetQuantity(dto.getGetQuantity());
 
         // Aktualizuj produkty
-        if (dto.getProductIds() != null) {
-            promotion.getProducts().clear();
-            if (!dto.getProductIds().isEmpty()) {
-                Set<Product> products = new HashSet<>(
-                        productRepository.findAllById(dto.getProductIds())
+        // Aktualizuj produkty - zbierz wszystkie produkty (z ID i z marek) do jednego Set
+        Set<Product> productsSet = new HashSet<>();
+        if (dto.getProductIds() != null && !dto.getProductIds().isEmpty()) {
+            productsSet.addAll(productRepository.findAllById(dto.getProductIds()));
+        }
+
+        // Dodaj produkty z marek jeśli podano
+        if (dto.getBrandIds() != null && !dto.getBrandIds().isEmpty()) {
+            for (Long brandId : dto.getBrandIds()) {
+                List<Product> brandProducts = productRepository.findByBrandId(brandId);
+                productsSet.addAll(brandProducts);
+            }
+        }
+        promotion.getProducts().clear();
+        promotion.setProducts(productsSet);
+
+        // Aktualizuj kategorie
+        if (dto.getCategoryIds() != null) {
+            promotion.getCategories().clear();
+            if (!dto.getCategoryIds().isEmpty()) {
+                Set<Category> categories = new HashSet<>(
+                        categoryRepository.findAllById(dto.getCategoryIds())
                 );
-                promotion.setProducts(products);
+                promotion.setCategories(categories);
             }
         }
 

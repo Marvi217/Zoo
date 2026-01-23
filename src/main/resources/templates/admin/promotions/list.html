@@ -113,7 +113,7 @@
                                 </td>
                                 <td class="actions-col">
                                     <div class="action-buttons" style="display: flex; gap: 5px;">
-                                        <a th:href="@{/admin/promotions/edit/{id}(id=${promo.id})}" class="action-btn edit">✏️</a>
+                                        <a th:href="@{/admin/promotions/{id}/edit(id=${promo.id})}" class="action-btn edit">✏️</a>
                                         <form th:action="@{/admin/promotions/delete/{id}(id=${promo.id})}" method="post"
                                               onsubmit="return confirm('Czy na pewno chcesz usunąć tę promocję?')">
                                             <button type="submit" class="action-btn delete" style="border:none; background:none; cursor:pointer;">🗑️</button>
