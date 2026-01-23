@@ -384,4 +384,24 @@ public class AdminPromotionController {
         }
         return "redirect:/admin/promotions/" + id;
     }
+
+    /**
+     * Usunięcie promocji - endpoint GET
+     */
+    @GetMapping("/delete/{id}")
+    public String deletePromotionGet(
+            @PathVariable Long id,
+            RedirectAttributes redirectAttributes) {
+        try {
+            Promotion promotion = promotionService.getPromotionById(id);
+            String promotionName = promotion.getName();
+            promotionService.deletePromotion(id);
+            redirectAttributes.addFlashAttribute("success",
+                    "Promocja '" + promotionName + "' została usunięta pomyślnie");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error",
+                    "Nie można usunąć promocji: " + e.getMessage());
+        }
+        return "redirect:/admin/promotions";
+    }
 }
