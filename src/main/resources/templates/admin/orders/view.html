@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'Zamówienie #' + ${order.id} + ' - Panel Admina'">Szczegóły Zamówienia</title>
+    <link rel="stylesheet" th:href="@{/css/admin-styles.css}">
+</head>
+<body>
+<div class="admin-wrapper">
+    <aside th:replace="~{fragments/admin-fragments :: sidebar('orders')}"></aside>
+
+    <main class="admin-main">
+        <div class="admin-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Zamówienie <span th:text="'#' + ${order.id}">#123</span></h1>
+                    <p class="page-subtitle" th:text="'Złożone: ' + ${#temporals.format(order.orderDate, 'dd.MM.yyyy HH:mm')}"></p>
+                </div>
+                <div class="page-actions">
+                    <a th:href="@{/admin/orders}" class="btn btn-secondary">Powrót do listy</a>
+                    <a th:href="@{/admin/orders/{id}/edit(id=${order.id})}" class="btn btn-primary">Edytuj dane</a>
+                </div>
+            </div>
+
+            <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+            <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+
+                <div class="order-left">
+                    <div class="card">
+                        <div class="card-header"><h2 class="card-title">Produkty</h2></div>
+                        <div class="card-body" style="padding: 0;">
+                            <table class="admin-table">
+                                <thead>
+                                <tr>
+                                    <th>Produkt</th>
+                                    <th>Cena jedn.</th>
+                                    <th>Ilość</th>
+                                    <th>Suma</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="item : ${order.items}">
+                                    <td>
+                                        <div style="font-weight: 600;" th:text="${item.product.name}">Produkt</div>
+                                        <small style="color: gray;" th:text="'SKU: ' + ${item.product.id}"></small>
+                                    </td>
+                                    <td th:text="${#numbers.formatDecimal(item.price, 1, 2)} + ' zł'">0.00 zł</td>
+                                    <td th:text="${item.quantity}">1</td>
+                                    <td th:text="${#numbers.formatDecimal(item.price * item.quantity, 1, 2)} + ' zł'">0.00 zł</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="3" style="text-align: right; font-weight: bold;">Łącznie:</td>
+                                    <td style="font-weight: bold; font-size: 1.1em; color: var(--brand-green);"
+                                        th:text="${#numbers.formatDecimal(order.totalAmount, 1, 2)} + ' zł'">0.00 zł</td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top: 20px;">
+                        <div class="card-header"><h2 class="card-title">Logistyka</h2></div>
+                        <div class="card-body">
+                            <form th:action="@{/admin/orders/{id}/tracking(id=${order.id})}" method="post" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 15px; align-items: flex-end;">
+                                <div>
+                                    <label>Przewoźnik</label>
+                                    <select name="carrier" class="form-control" required>
+                                        <option value="" disabled th:selected="${order.deliveryMethod == null}">Wybierz...</option>
+                                        <option th:each="method : ${T(com.example.zoo.enums.DeliveryMethod).values()}"
+                                                th:value="${method}"
+                                                th:text="${method}"
+                                                th:selected="${method == order.deliveryMethod}"></option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label>Numer przesyłki</label>
+                                    <input type="text" name="trackingNumber" th:value="${order.trackingNumber}" class="form-control" placeholder="np. 123456789" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Zapisz i wyślij</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-right">
+                    <div class="card">
+                        <div class="card-header"><h2 class="card-title">Zarządzanie statusem</h2></div>
+                        <div class="card-body">
+                            <form th:action="@{/admin/orders/{id}/status(id=${order.id})}" method="post" style="margin-bottom: 20px;">
+                                <label>Status zamówienia</label>
+                                <select name="status" class="form-control" onchange="this.form.submit()">
+                                    <option th:each="st : ${orderStatuses}"
+                                            th:value="${st}"
+                                            th:text="${st.displayName}"
+                                            th:selected="${st == order.status}"></option>
+                                </select>
+                            </form>
+
+                            <form th:action="@{/admin/orders/{id}/payment-status(id=${order.id})}" method="post">
+                                <label>Status płatności</label>
+                                <select name="paymentStatus" class="form-control" onchange="this.form.submit()">
+                                    <option th:each="ps : ${paymentStatuses}"
+                                            th:value="${ps}"
+                                            th:text="${ps.displayName}"
+                                            th:selected="${ps == order.paymentStatus}"></option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top: 20px;">
+                        <div class="card-header"><h2 class="card-title">Klient</h2></div>
+                        <div class="card-body">
+                            <p><strong th:text="${order.user.firstName + ' ' + order.user.lastName}">Jan Kowalski</strong></p>
+                            <p style="color: var(--text-muted); font-size: 14px;" th:text="${order.user.email}">jan@email.com</p>
+                            <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+                            <h4 style="font-size: 14px; text-transform: uppercase; color: gray;">Adres dostawy</h4>
+                            <p>
+                                <span th:text="${order.shippingAddress.street}">Ulica</span><br>
+                                <span th:text="${order.shippingAddress.zipCode}">00-000</span>
+                                <span th:text="${order.shippingAddress.city}">Miasto</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <form th:action="@{/admin/orders/{id}/cancel(id=${order.id})}" method="post"
+                              onsubmit="return confirm('Czy na pewno chcesz anulować to zamówienie?')">
+                            <button type="submit" class="btn btn-error" style="width: 100%;">Anuluj zamówienie</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
