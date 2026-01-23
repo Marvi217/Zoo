@@ -56,6 +56,12 @@ public class OrderService {
         }
 
         for (Order order : orders) {
+            // Pomijaj zamówienia anulowane, nieudane i zwrócone
+            if (order.getStatus() == OrderStatus.CANCELLED || 
+                order.getStatus() == OrderStatus.FAILED || 
+                order.getStatus() == OrderStatus.REFUNDED) {
+                continue;
+            }
             String date = order.getOrderDate().toLocalDate().toString();
             stats.put(date, stats.getOrDefault(date, 0.0) + order.getTotalAmount().doubleValue());
         }
