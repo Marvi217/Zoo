@@ -115,20 +115,7 @@
                                       class="error-message">Błąd</span>
                             </div>
 
-                            <!-- Strona internetowa -->
-                            <div class="form-group">
-                                <label for="website" class="form-label">Strona internetowa</label>
-                                <input type="url"
-                                       id="website"
-                                       th:field="*{website}"
-                                       class="form-control"
-                                       th:classappend="${#fields.hasErrors('website')} ? 'is-invalid' : ''"
-                                       placeholder="https://www.przyklad.pl">
-                                <small class="form-text">Pełny adres URL strony marki</small>
-                                <span th:if="${#fields.hasErrors('website')}"
-                                      th:errors="*{website}"
-                                      class="error-message">Błąd</span>
-                            </div>
+
 
                             <!-- Status aktywności -->
                             <div class="form-group">

@@ -56,8 +56,15 @@ public class OrderService {
         }
 
         for (Order order : orders) {
+            // Licz tylko zamówienia opłacone (paymentStatus = PAID)
+            if (order.getPaymentStatus() != PaymentStatus.PAID) {
+                continue;
+            }
             String date = order.getOrderDate().toLocalDate().toString();
-            stats.put(date, stats.getOrDefault(date, 0.0) + order.getTotalAmount().doubleValue());
+            // Przychód = totalAmount - deliveryCost (koszt dostawy nie jest zyskiem)
+            BigDecimal deliveryCost = order.getDeliveryCost() != null ? order.getDeliveryCost() : BigDecimal.ZERO;
+            BigDecimal revenue = order.getTotalAmount().subtract(deliveryCost);
+            stats.put(date, stats.getOrDefault(date, 0.0) + revenue.doubleValue());
         }
         return stats;
     }
@@ -948,6 +955,23 @@ public class OrderService {
     public BigDecimal getTotalRevenue() {
         BigDecimal revenue = orderRepository.sumTotalRevenue();
         return revenue != null ? revenue : BigDecimal.ZERO;
+    }
+
+    // ==================== SPRAWDZANIE ZAKUPU PRODUKTU ====================
+
+    /**
+     * Sprawdź czy użytkownik kupił produkt i może go ocenić
+     * (zamówienie dostarczone lub zwrócone)
+     */
+    public boolean canUserReviewProduct(Long userId, Long productId) {
+        return orderRepository.hasUserPurchasedProduct(userId, productId);
+    }
+
+    /**
+     * Pobierz produkty które użytkownik może ocenić
+     */
+    public List<Product> getReviewableProductsForUser(Long userId) {
+        return orderRepository.findReviewableProductsForUser(userId);
     }
 
 }

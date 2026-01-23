@@ -549,7 +549,7 @@
 
                 <!-- Szczegóły produktu -->
                 <div class="item-details">
-                    <span class="item-brand" th:text="${item.product.brand?.name}">Marka</span>
+                    <span class="item-brand" th:if="${item.product.brand != null}" th:text="${item.product.brand.name}">Marka</span>
                     <h3 th:text="${item.product.name}">Nazwa produktu</h3>
                     <p th:text="${item.product.shortDescription}">Opis produktu</p>
                 </div>

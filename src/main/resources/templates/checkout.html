@@ -275,6 +275,23 @@
                         </div>
                     </div>
 
+                    <!-- VOUCHER CODE -->
+                    <div class="method-group">
+                        <span class="method-title">🎟️ Kod rabatowy</span>
+                        <div class="form-group">
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" name="voucherCode" id="voucherCode"
+                                       placeholder="Wpisz kod rabatowy"
+                                       style="flex: 1; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px;">
+                                <button type="button" onclick="applyVoucher()"
+                                        style="background: var(--brand-green); color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                                    Zastosuj
+                                </button>
+                            </div>
+                            <div id="voucherMessage" style="margin-top: 8px; font-size: 14px;"></div>
+                        </div>
+                    </div>
+
                     <div class="method-group">
                         <span class="method-title">💳 Wybierz formę płatności</span>
                         <label class="option-item">
@@ -299,10 +316,20 @@
                     <span th:text="${item.product.name} + ' x' + ${item.quantity}">Produkt</span>
                     <span th:text="${#numbers.formatDecimal(item.subtotal, 1, 2)} + ' zł'">0.00</span>
                 </div>
+                <div id="discountRow" style="display: none;" class="summary-item">
+                    <span style="color: var(--accent-orange);">🎟️ Rabat:</span>
+                    <span id="discountAmount" style="color: var(--accent-orange);">-0.00 zł</span>
+                </div>
+                <div class="summary-item">
+                    <span>Dostawa:</span>
+                    <span th:text="${total >= 199 ? 'GRATIS' : '14.99 zł'}">14.99 zł</span>
+                </div>
                 <div class="total-row">
                     <span>Razem:</span>
-                    <span th:text="${#numbers.formatDecimal(total + (total >= 199 ? 0 : 14.99), 1, 2)} + ' zł'">0.00</span>
+                    <span id="totalAmount" th:text="${#numbers.formatDecimal(total + (total >= 199 ? 0 : 14.99), 1, 2)} + ' zł'">0.00</span>
                 </div>
+                <input type="hidden" id="originalTotal" th:value="${total}">
+                <input type="hidden" id="deliveryCost" th:value="${total >= 199 ? 0 : 14.99}">
             </div>
         </aside>
     </div>
@@ -340,6 +367,49 @@
         newForm.querySelectorAll('input').forEach(i => {
             if(i.type !== 'checkbox' && i.type !== 'hidden') i.setAttribute('required', 'required');
         });
+    }
+
+    // Voucher code handling
+    let appliedDiscount = 0;
+
+    function applyVoucher() {
+        const code = document.getElementById('voucherCode').value.trim();
+        const messageDiv = document.getElementById('voucherMessage');
+
+        if (!code) {
+            messageDiv.innerHTML = '<span style="color: #dc2626;">⚠️ Wpisz kod rabatowy</span>';
+            return;
+        }
+
+        fetch('/checkout/validate-voucher?code=' + encodeURIComponent(code) + '&total=' + document.getElementById('originalTotal').value)
+            .then(response => response.json())
+            .then(data => {
+                if (data.valid) {
+                    appliedDiscount = data.discount;
+                    messageDiv.innerHTML = '<span style="color: #16a34a;">✓ ' + data.message + '</span>';
+
+                    // Show discount row
+                    document.getElementById('discountRow').style.display = 'flex';
+                    document.getElementById('discountAmount').textContent = '-' + appliedDiscount.toFixed(2) + ' zł';
+
+                    // Update total
+                    const originalTotal = parseFloat(document.getElementById('originalTotal').value);
+                    const deliveryCost = parseFloat(document.getElementById('deliveryCost').value);
+                    const newTotal = (originalTotal - appliedDiscount + deliveryCost).toFixed(2);
+                    document.getElementById('totalAmount').textContent = newTotal + ' zł';
+
+                    // Disable voucher input
+                    document.getElementById('voucherCode').disabled = true;
+                } else {
+                    messageDiv.innerHTML = '<span style="color: #dc2626;">⚠️ ' + data.message + '</span>';
+                    appliedDiscount = 0;
+                    document.getElementById('discountRow').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                messageDiv.innerHTML = '<span style="color: #dc2626;">⚠️ Błąd walidacji kodu</span>';
+                console.error('Error:', error);
+            });
     }
 
     // AUTO-START przy załadowaniu strony

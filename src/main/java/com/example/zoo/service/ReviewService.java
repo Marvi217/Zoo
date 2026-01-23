@@ -2,6 +2,7 @@ package com.example.zoo.service;
 
 import com.example.zoo.entity.Product;
 import com.example.zoo.entity.Review;
+import com.example.zoo.entity.User;
 import com.example.zoo.enums.ReviewStatus;
 import com.example.zoo.repository.ProductRepository;
 import com.example.zoo.repository.ReviewRepository;
@@ -45,6 +46,98 @@ public class ReviewService {
             product.setRating(avg);
             productRepository.save(product);
         }
+    }
+
+    /**
+     * Lista wulgarnych słów i ich zamienników
+     */
+    private static final java.util.Map<String, String> PROFANITY_FILTER = new java.util.HashMap<>() {{
+        put("chuj", "c***");
+        put("kurwa", "k***a");
+        put("kurwy", "k***y");
+        put("kurwą", "k***ą");
+        put("kurwie", "k***ie");
+        put("kurwę", "k***ę");
+        put("pierdol", "p*****l");
+        put("pierdolić", "p*****lić");
+        put("pierdolę", "p*****lę");
+        put("pierdoli", "p*****li");
+        put("jebać", "j***ć");
+        put("jebany", "j***ny");
+        put("jebana", "j***na");
+        put("jebane", "j***ne");
+        put("jebie", "j***e");
+        put("skurwysyn", "s*********n");
+        put("skurwiel", "s******l");
+        put("dupa", "d**a");
+        put("dupą", "d**ą");
+        put("dupę", "d**ę");
+        put("gówno", "g***o");
+        put("gówna", "g***a");
+        put("gównem", "g***em");
+        put("cholera", "ch***ra");
+        put("cholerny", "ch***rny");
+        put("cholerna", "ch***rna");
+        put("suka", "s**a");
+        put("suki", "s**i");
+        put("suką", "s**ą");
+    }};
+
+    /**
+     * Filtruj wulgarne słowa w tekście
+     */
+    private String filterProfanity(String text) {
+        if (text == null || text.isEmpty()) {
+            return text;
+        }
+
+        String filteredText = text;
+        for (java.util.Map.Entry<String, String> entry : PROFANITY_FILTER.entrySet()) {
+            // Case-insensitive replacement
+            filteredText = filteredText.replaceAll("(?i)" + java.util.regex.Pattern.quote(entry.getKey()), entry.getValue());
+        }
+        return filteredText;
+    }
+
+    /**
+     * Dodaj opinię od klienta (z walidacją zakupu)
+     */
+    @Transactional
+    public Review createCustomerReview(Long productId, User user, int rating, String comment) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Produkt nie istnieje"));
+
+        // Sprawdź czy użytkownik już ocenił ten produkt
+        if (reviewRepository.hasUserReviewedProduct(user.getId(), productId)) {
+            throw new RuntimeException("Już oceniłeś ten produkt");
+        }
+
+        // Filtruj wulgarne słowa w komentarzu
+        String filteredComment = filterProfanity(comment);
+
+        Review review = new Review();
+        review.setProduct(product);
+        review.setUser(user);
+        review.setRating(rating);
+        review.setComment(filteredComment);
+        review.setStatus(ReviewStatus.APPROVED); // Automatyczne zatwierdzenie
+
+        Review savedReview = reviewRepository.save(review);
+
+        // Przelicz średnią ocenę produktu (tylko zatwierdzone opinie)
+        updateProductRating(productId);
+
+        log.info("Użytkownik {} dodał opinię dla produktu {} (ocena: {})",
+                user.getEmail(), product.getName(), rating);
+
+        return savedReview;
+    }
+
+    /**
+     * Sprawdź czy użytkownik już ocenił produkt
+     */
+    public boolean hasUserReviewedProduct(Long userId, Long productId) {
+        return reviewRepository.hasUserReviewedProduct(userId, productId);
     }
 
     // ==================== NOWE METODY DLA PANELU ADMIN ====================
@@ -93,14 +186,22 @@ public class ReviewService {
     }
 
     /**
-     * Aktualizuj średnią ocenę produktu
+     * Aktualizuj średnią ocenę produktu (tylko zatwierdzone opinie)
      */
     @Transactional
     public void updateProductRating(Long productId) {
-        Double avg = reviewRepository.getAverageRatingForProduct(productId);
+        Double avg = reviewRepository.calculateApprovedAverageRatingForProduct(productId);
         Product product = productRepository.findById(productId).orElseThrow();
         product.setRating(avg != null ? avg : 0.0);
         productRepository.save(product);
+        log.info("Zaktualizowano ocenę produktu {} na {}", product.getName(), avg);
+    }
+
+    /**
+     * Pobierz liczbę zatwierdzonych opinii dla produktu
+     */
+    public long getApprovedReviewCountForProduct(Long productId) {
+        return reviewRepository.countApprovedReviewsByProductId(productId);
     }
 
     // ==================== STATYSTYKI ====================
@@ -209,7 +310,7 @@ public class ReviewService {
         return "reviews_export_" + System.currentTimeMillis() + ".csv";
     }
     public Double getAverageRating() {
-        Double avg = reviewRepository.findAverageRating();
+        Double avg = reviewRepository.findAverageApprovedRating();
         return avg != null ? avg : 0.0;
     }
 }

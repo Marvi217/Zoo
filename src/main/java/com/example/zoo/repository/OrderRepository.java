@@ -97,15 +97,15 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     /**
      * Suma wydanych pieniędzy przez użytkownika
      */
-    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.user = :user " +
-            "AND o.status NOT IN (com.example.zoo.enums.OrderStatus.CANCELLED, com.example.zoo.enums.OrderStatus.FAILED)")
+    @Query("SELECT SUM(o.totalAmount - o.deliveryCost) FROM Order o WHERE o.user = :user " +
+            "AND o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalSpentByUser(@Param("user") User user);
 
     /**
-     * Suma przychodów w przedziale czasowym
+     * Suma przychodów w przedziale czasowym (bez kosztów dostawy)
      */
-    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.orderDate BETWEEN :from AND :to " +
-            "AND o.status NOT IN (com.example.zoo.enums.OrderStatus.CANCELLED, com.example.zoo.enums.OrderStatus.FAILED)")
+    @Query("SELECT SUM(o.totalAmount - o.deliveryCost) FROM Order o WHERE o.orderDate BETWEEN :from AND :to " +
+            "AND o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalAmountByOrderDateBetween(
             @Param("from") LocalDateTime from,
             @Param("to") LocalDateTime to
@@ -351,13 +351,13 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // Jeśli masz pole paymentStatus w encji Order
     Page<Order> findByPaymentStatus(PaymentStatus paymentStatus, Pageable pageable);
 
-    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.status = com.example.zoo.enums.OrderStatus.DELIVERED OR o.status =  com.example.zoo.enums.OrderStatus.CONFIRMED")
+    @Query("SELECT SUM(o.totalAmount - o.deliveryCost) FROM Order o WHERE o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalRevenue();
 
-    @Query(value = "SELECT CAST(order_date AS DATE) as d, SUM(total_amount) " +
+    @Query(value = "SELECT CAST(order_date AS DATE) as d, SUM(total_amount - COALESCE(delivery_cost, 0)) " +
             "FROM orders " +
             "WHERE order_date >= DATEADD('DAY', -7, CURRENT_DATE) " +
-            "AND status <> 'CANCELLED' " +
+            "AND payment_status = 'PAID' " +
             "GROUP BY CAST(order_date AS DATE) " +
             "ORDER BY d ASC", nativeQuery = true)
     List<Object[]> findWeeklySalesRaw();
@@ -365,5 +365,24 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByStatusAndOrderDateBetween(OrderStatus status, LocalDateTime start, LocalDateTime end);
 
     List<Order> findByOrderDateBetween(LocalDateTime start, LocalDateTime end);
+
+    // ==================== SPRAWDZANIE ZAKUPU PRODUKTU ====================
+
+    /**
+     * Sprawdź czy użytkownik kupił produkt w zamówieniu które zostało dostarczone lub zwrócone
+     */
+    @Query("SELECT CASE WHEN COUNT(oi) > 0 THEN true ELSE false END " +
+            "FROM OrderItem oi JOIN oi.order o " +
+            "WHERE o.user.id = :userId AND oi.product.id = :productId " +
+            "AND o.status IN (com.example.zoo.enums.OrderStatus.DELIVERED, com.example.zoo.enums.OrderStatus.RETURNED)")
+    boolean hasUserPurchasedProduct(@Param("userId") Long userId, @Param("productId") Long productId);
+
+    /**
+     * Znajdź produkty z zamówień użytkownika które mogą być ocenione (dostarczone lub zwrócone)
+     */
+    @Query("SELECT DISTINCT oi.product FROM OrderItem oi JOIN oi.order o " +
+            "WHERE o.user.id = :userId " +
+            "AND o.status IN (com.example.zoo.enums.OrderStatus.DELIVERED, com.example.zoo.enums.OrderStatus.RETURNED)")
+    List<com.example.zoo.entity.Product> findReviewableProductsForUser(@Param("userId") Long userId);
 
 }

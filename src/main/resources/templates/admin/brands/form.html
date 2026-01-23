@@ -47,22 +47,22 @@
                 <span th:text="${error}">Wystąpił błąd</span>
             </div>
 
-            <!-- VALIDATION ERRORS -->
-            <div th:if="${#fields.hasErrors('*')}" class="alert alert-error">
-                <span class="alert-icon">❌</span>
-                <div>
-                    <strong>Formularz zawiera błędy:</strong>
-                    <ul style="margin: 5px 0 0 20px;">
-                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Błąd walidacji</li>
-                    </ul>
-                </div>
-            </div>
-
             <!-- FORM -->
             <form th:action="@{/admin/brands/new}"
                   method="post"
                   th:object="${brandDTO}"
                   enctype="multipart/form-data">
+
+                <!-- VALIDATION ERRORS -->
+                <div th:if="${#fields.hasErrors('*')}" class="alert alert-error">
+                    <span class="alert-icon">❌</span>
+                    <div>
+                        <strong>Formularz zawiera błędy:</strong>
+                        <ul style="margin: 5px 0 0 20px;">
+                            <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Błąd walidacji</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div class="card">
                     <div class="card-header">
@@ -113,20 +113,7 @@
                                       class="error-message">Błąd</span>
                             </div>
 
-                            <!-- Strona internetowa -->
-                            <div class="form-group">
-                                <label for="website" class="form-label">Strona internetowa</label>
-                                <input type="url"
-                                       id="website"
-                                       th:field="*{website}"
-                                       class="form-control"
-                                       th:classappend="${#fields.hasErrors('website')} ? 'is-invalid' : ''"
-                                       placeholder="https://www.przyklad.pl">
-                                <small class="form-text">Pełny adres URL strony marki</small>
-                                <span th:if="${#fields.hasErrors('website')}"
-                                      th:errors="*{website}"
-                                      class="error-message">Błąd</span>
-                            </div>
+
 
                             <!-- Status aktywności -->
                             <div class="form-group">

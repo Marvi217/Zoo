@@ -1,6 +1,7 @@
 package com.example.zoo.entity;
 
 import com.example.zoo.enums.ProductStatus;
+import com.example.zoo.enums.PromotionType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -241,7 +242,9 @@ public class Product {
     }
 
     /**
-     * Zwraca aktualnie aktywną promocję o najwyższym priorytecie
+     * Zwraca aktualnie aktywną promocję o najwyższym priorytecie.
+     * Tylko promocje automatyczne (bez kodu, typ PERCENTAGE_DISCOUNT lub BUY_X_GET_Y).
+     * FIXED_AMOUNT_DISCOUNT i promocje z kodem są stosowane tylko w checkout.
      */
     @Transient
     public Promotion getCurrentPromotion() {
@@ -251,6 +254,10 @@ public class Product {
 
         return promotions.stream()
                 .filter(Promotion::isCurrentlyActive)
+                // Tylko promocje automatyczne: bez kodu i typ PERCENTAGE_DISCOUNT lub BUY_X_GET_Y
+                .filter(p -> (p.getCode() == null || p.getCode().isEmpty()) &&
+                        (p.getType() == PromotionType.PERCENTAGE_DISCOUNT ||
+                                p.getType() == PromotionType.BUY_X_GET_Y))
                 .max((p1, p2) -> {
                     // Porównaj po priorytecie
                     int priorityCompare = Integer.compare(p1.getPriority(), p2.getPriority());
