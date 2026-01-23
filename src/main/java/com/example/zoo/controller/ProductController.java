@@ -114,7 +114,7 @@ public class ProductController {
 
         try {
             reviewService.createCustomerReview(id, currentUser, rating, comment);
-            redirectAttributes.addFlashAttribute("success", "Dziękujemy za opinię! Zostanie opublikowana po moderacji.");
+            redirectAttributes.addFlashAttribute("success", "Dziękujemy za opinię! Twoja recenzja została opublikowana.");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Błąd podczas dodawania opinii: " + e.getMessage());
         }

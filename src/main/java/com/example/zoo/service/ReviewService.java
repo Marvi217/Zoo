@@ -49,6 +49,57 @@ public class ReviewService {
     }
 
     /**
+     * Lista wulgarnych słów i ich zamienników
+     */
+    private static final java.util.Map<String, String> PROFANITY_FILTER = new java.util.HashMap<>() {{
+        put("chuj", "c***");
+        put("kurwa", "k***a");
+        put("kurwy", "k***y");
+        put("kurwą", "k***ą");
+        put("kurwie", "k***ie");
+        put("kurwę", "k***ę");
+        put("pierdol", "p*****l");
+        put("pierdolić", "p*****lić");
+        put("pierdolę", "p*****lę");
+        put("pierdoli", "p*****li");
+        put("jebać", "j***ć");
+        put("jebany", "j***ny");
+        put("jebana", "j***na");
+        put("jebane", "j***ne");
+        put("jebie", "j***e");
+        put("skurwysyn", "s*********n");
+        put("skurwiel", "s******l");
+        put("dupa", "d**a");
+        put("dupą", "d**ą");
+        put("dupę", "d**ę");
+        put("gówno", "g***o");
+        put("gówna", "g***a");
+        put("gównem", "g***em");
+        put("cholera", "ch***ra");
+        put("cholerny", "ch***rny");
+        put("cholerna", "ch***rna");
+        put("suka", "s**a");
+        put("suki", "s**i");
+        put("suką", "s**ą");
+    }};
+
+    /**
+     * Filtruj wulgarne słowa w tekście
+     */
+    private String filterProfanity(String text) {
+        if (text == null || text.isEmpty()) {
+            return text;
+        }
+        
+        String filteredText = text;
+        for (java.util.Map.Entry<String, String> entry : PROFANITY_FILTER.entrySet()) {
+            // Case-insensitive replacement
+            filteredText = filteredText.replaceAll("(?i)" + java.util.regex.Pattern.quote(entry.getKey()), entry.getValue());
+        }
+        return filteredText;
+    }
+
+    /**
      * Dodaj opinię od klienta (z walidacją zakupu)
      */
     @Transactional
@@ -61,12 +112,15 @@ public class ReviewService {
             throw new RuntimeException("Już oceniłeś ten produkt");
         }
 
+        // Filtruj wulgarne słowa w komentarzu
+        String filteredComment = filterProfanity(comment);
+
         Review review = new Review();
         review.setProduct(product);
         review.setUser(user);
         review.setRating(rating);
-        review.setComment(comment);
-        review.setStatus(ReviewStatus.PENDING); // Nowe opinie wymagają moderacji
+        review.setComment(filteredComment);
+        review.setStatus(ReviewStatus.APPROVED); // Automatyczne zatwierdzenie
 
         Review savedReview = reviewRepository.save(review);
 
