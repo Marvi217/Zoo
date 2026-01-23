@@ -61,7 +61,10 @@ public class OrderService {
                 continue;
             }
             String date = order.getOrderDate().toLocalDate().toString();
-            stats.put(date, stats.getOrDefault(date, 0.0) + order.getTotalAmount().doubleValue());
+            // Przychód = totalAmount - deliveryCost (koszt dostawy nie jest zyskiem)
+            BigDecimal deliveryCost = order.getDeliveryCost() != null ? order.getDeliveryCost() : BigDecimal.ZERO;
+            BigDecimal revenue = order.getTotalAmount().subtract(deliveryCost);
+            stats.put(date, stats.getOrDefault(date, 0.0) + revenue.doubleValue());
         }
         return stats;
     }

@@ -554,8 +554,11 @@
                            th:text="${product.description != null ? product.description : 'Brak opisu'}">Opis</p>
 
                         <div class="product-footer">
+                            <span class="old-price" th:if="${product.hasDiscount}" 
+                                  th:text="${#numbers.formatDecimal(product.oldPrice, 1, 2)} + ' zł'" 
+                                  style="text-decoration: line-through; color: #999; font-size: 14px;">0.00 zł</span>
                             <span class="product-price"
-                                  th:text="${#numbers.formatDecimal(product.price, 1, 2)} + ' zł'">0.00 zł</span>
+                                  th:text="${#numbers.formatDecimal(product.currentPrice, 1, 2)} + ' zł'">0.00 zł</span>
 
                             <!-- Formularz dodawania do koszyka -->
                             <form th:action="@{/cart/add}" method="post" style="margin: 0;">

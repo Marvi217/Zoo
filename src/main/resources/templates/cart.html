@@ -555,8 +555,12 @@
                 </div>
 
                 <!-- Cena jednostkowa -->
-                <div class="item-price"
-                     th:text="${#numbers.formatDecimal(item.product.price, 1, 2)} + ' zł'">0.00 zł</div>
+                <div class="item-price">
+                    <span th:if="${item.product.hasDiscount}" 
+                          style="text-decoration: line-through; color: #999; font-size: 12px; display: block;"
+                          th:text="${#numbers.formatDecimal(item.product.oldPrice, 1, 2)} + ' zł'">0.00 zł</span>
+                    <span th:text="${#numbers.formatDecimal(item.product.currentPrice, 1, 2)} + ' zł'">0.00 zł</span>
+                </div>
 
                 <!-- Kontrola ilości -->
                 <div class="quantity-control" th:data-product-id="${item.product.id}">

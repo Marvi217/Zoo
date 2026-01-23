@@ -97,14 +97,14 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     /**
      * Suma wydanych pieniędzy przez użytkownika
      */
-    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.user = :user " +
+    @Query("SELECT SUM(o.totalAmount - o.deliveryCost) FROM Order o WHERE o.user = :user " +
             "AND o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalSpentByUser(@Param("user") User user);
 
     /**
-     * Suma przychodów w przedziale czasowym
+     * Suma przychodów w przedziale czasowym (bez kosztów dostawy)
      */
-    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.orderDate BETWEEN :from AND :to " +
+    @Query("SELECT SUM(o.totalAmount - o.deliveryCost) FROM Order o WHERE o.orderDate BETWEEN :from AND :to " +
             "AND o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalAmountByOrderDateBetween(
             @Param("from") LocalDateTime from,
@@ -351,10 +351,10 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // Jeśli masz pole paymentStatus w encji Order
     Page<Order> findByPaymentStatus(PaymentStatus paymentStatus, Pageable pageable);
 
-    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
+    @Query("SELECT SUM(o.totalAmount - o.deliveryCost) FROM Order o WHERE o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalRevenue();
 
-    @Query(value = "SELECT CAST(order_date AS DATE) as d, SUM(total_amount) " +
+    @Query(value = "SELECT CAST(order_date AS DATE) as d, SUM(total_amount - COALESCE(delivery_cost, 0)) " +
             "FROM orders " +
             "WHERE order_date >= DATEADD('DAY', -7, CURRENT_DATE) " +
             "AND payment_status = 'PAID' " +

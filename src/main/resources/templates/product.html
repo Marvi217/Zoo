@@ -854,12 +854,12 @@
                 <div class="old-price" th:if="${product.hasDiscount}" th:text="${#numbers.formatDecimal(product.oldPrice, 1, 2)} + ' zł'">
                     252.00 zł
                 </div>
-                <div class="current-price" th:text="${#numbers.formatDecimal(product.price, 1, 2)} + ' zł'">
+                <div class="current-price" th:text="${#numbers.formatDecimal(product.currentPrice, 1, 2)} + ' zł'">
                     189.00 zł
                 </div>
                 <div class="price-info">
                     <span class="savings" th:if="${product.hasDiscount}">
-                        Oszczędzasz <span th:text="${#numbers.formatDecimal(product.oldPrice - product.price, 1, 2)}">63</span> zł!
+                        Oszczędzasz <span th:text="${#numbers.formatDecimal(product.savingsAmount, 1, 2)}">63</span> zł!
                     </span>
                     <span th:unless="${product.hasDiscount}">Najlepsza cena w ostatnich 30 dniach</span>
                 </div>

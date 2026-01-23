@@ -770,7 +770,7 @@
                               th:text="${#numbers.formatDecimal(product.oldPrice, 1, 2) + ' zł'}">0.00 zł</span>
 
                             <span class="product-price"
-                                  th:text="${#numbers.formatDecimal(product.price, 1, 2) + ' zł'}">0.00 zł</span>
+                                  th:text="${#numbers.formatDecimal(product.currentPrice, 1, 2) + ' zł'}">0.00 zł</span>
                         </div>
 
                         <form class="add-to-cart-form" style="display: inline;" onsubmit="event.preventDefault();">

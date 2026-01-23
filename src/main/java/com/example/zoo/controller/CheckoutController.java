@@ -8,9 +8,11 @@ import com.example.zoo.enums.DeliveryMethod;
 import com.example.zoo.repository.OrderRepository;
 import com.example.zoo.repository.UserRepository;
 import com.example.zoo.service.OrderService;
+import com.example.zoo.service.PromotionService;
 import com.example.zoo.service.UserAddressService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -22,7 +24,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/checkout")
@@ -33,6 +37,7 @@ public class CheckoutController {
     private final UserRepository userRepository;
     private final SecurityHelper securityHelper;
     private final UserAddressService addressService;
+    private final PromotionService promotionService;
 
     @GetMapping
     public String showCheckout(HttpSession session, Model model) {
@@ -60,6 +65,45 @@ public class CheckoutController {
         return "checkout";
     }
 
+    /**
+     * Walidacja kodu rabatowego (AJAX)
+     */
+    @GetMapping("/validate-voucher")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> validateVoucher(
+            @RequestParam String code,
+            @RequestParam BigDecimal total) {
+        
+        Map<String, Object> response = new HashMap<>();
+        
+        return promotionService.getPromotionByCode(code)
+                .map(promotion -> {
+                    if (!promotion.isCurrentlyActive()) {
+                        response.put("valid", false);
+                        response.put("message", "Ten kod promocyjny wygasł lub jest nieaktywny");
+                        return ResponseEntity.ok(response);
+                    }
+                    
+                    if (!promotion.isApplicableForAmount(total)) {
+                        response.put("valid", false);
+                        response.put("message", "Minimalna wartość zamówienia: " + promotion.getMinOrderAmount() + " zł");
+                        return ResponseEntity.ok(response);
+                    }
+                    
+                    BigDecimal discount = promotion.calculateDiscount(total);
+                    response.put("valid", true);
+                    response.put("discount", discount);
+                    response.put("promotionId", promotion.getId());
+                    response.put("message", "Kod zastosowany! Zniżka: " + discount.setScale(2) + " zł");
+                    return ResponseEntity.ok(response);
+                })
+                .orElseGet(() -> {
+                    response.put("valid", false);
+                    response.put("message", "Nieprawidłowy kod rabatowy");
+                    return ResponseEntity.ok(response);
+                });
+    }
+
     @PostMapping("/process")
     public String processCheckout(
             @RequestParam(required = false) String email,
@@ -73,6 +117,7 @@ public class CheckoutController {
             @RequestParam String paymentMethod,
             @RequestParam(required = false) Long addressId,
             @RequestParam(required = false) Boolean saveAddress,
+            @RequestParam(required = false) String voucherCode,
             @RequestParam(required = false) String addressLabel,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
@@ -198,7 +243,25 @@ public class CheckoutController {
             order.setItems(orderItems);
 
             order.setSubtotal(cart.getTotal());
-            order.setTotalAmount(cart.getTotal().add(deliveryCost));
+            
+            // Obsługa kodu rabatowego (voucher)
+            BigDecimal discountAmount = BigDecimal.ZERO;
+            if (voucherCode != null && !voucherCode.trim().isEmpty()) {
+                var promotionOpt = promotionService.getPromotionByCode(voucherCode.trim());
+                if (promotionOpt.isPresent()) {
+                    Promotion promotion = promotionOpt.get();
+                    if (promotion.isCurrentlyActive() && promotion.isApplicableForAmount(cart.getTotal())) {
+                        discountAmount = promotion.calculateDiscount(cart.getTotal());
+                        order.setPromotion(promotion);
+                        order.setDiscountAmount(discountAmount);
+                        
+                        // Zwiększ licznik użyć promocji
+                        promotion.setCurrentUsage(promotion.getCurrentUsage() + 1);
+                    }
+                }
+            }
+            
+            order.setTotalAmount(cart.getTotal().subtract(discountAmount).add(deliveryCost));
 
             orderService.save(order);
 
