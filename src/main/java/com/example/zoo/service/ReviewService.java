@@ -256,7 +256,7 @@ public class ReviewService {
         return "reviews_export_" + System.currentTimeMillis() + ".csv";
     }
     public Double getAverageRating() {
-        Double avg = reviewRepository.findAverageRating();
+        Double avg = reviewRepository.findAverageApprovedRating();
         return avg != null ? avg : 0.0;
     }
 }

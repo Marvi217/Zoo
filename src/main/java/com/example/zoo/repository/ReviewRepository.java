@@ -18,6 +18,9 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     @Query("SELECT AVG(r.rating) FROM Review r")
     Double findAverageRating();
 
+    @Query("SELECT AVG(r.rating) FROM Review r WHERE r.status = com.example.zoo.enums.ReviewStatus.APPROVED")
+    Double findAverageApprovedRating();
+
     // ==================== WYSZUKIWANIE PODSTAWOWE ====================
 
     List<Review> findByProductOrderByCreatedAtDesc(Product product);

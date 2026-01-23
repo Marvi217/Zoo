@@ -351,13 +351,13 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // Jeśli masz pole paymentStatus w encji Order
     Page<Order> findByPaymentStatus(PaymentStatus paymentStatus, Pageable pageable);
 
-    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.status = com.example.zoo.enums.OrderStatus.DELIVERED OR o.status =  com.example.zoo.enums.OrderStatus.CONFIRMED")
+    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.status NOT IN (com.example.zoo.enums.OrderStatus.CANCELLED, com.example.zoo.enums.OrderStatus.FAILED, com.example.zoo.enums.OrderStatus.REFUNDED)")
     BigDecimal sumTotalRevenue();
 
     @Query(value = "SELECT CAST(order_date AS DATE) as d, SUM(total_amount) " +
             "FROM orders " +
             "WHERE order_date >= DATEADD('DAY', -7, CURRENT_DATE) " +
-            "AND status <> 'CANCELLED' " +
+            "AND status NOT IN ('CANCELLED', 'FAILED', 'REFUNDED') " +
             "GROUP BY CAST(order_date AS DATE) " +
             "ORDER BY d ASC", nativeQuery = true)
     List<Object[]> findWeeklySalesRaw();
