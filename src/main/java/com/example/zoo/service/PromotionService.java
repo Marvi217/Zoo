@@ -89,6 +89,8 @@ public class PromotionService {
                 .priority(0)
                 .stackable(false)
                 .featured(false)
+                .buyQuantity(dto.getBuyQuantity())
+                .getQuantity(dto.getGetQuantity())
                 .build();
 
         // Przypisz produkty jeśli podano
@@ -97,6 +99,22 @@ public class PromotionService {
                     productRepository.findAllById(dto.getProductIds())
             );
             promotion.setProducts(products);
+        }
+
+        // Przypisz kategorie jeśli podano
+        if (dto.getCategoryIds() != null && !dto.getCategoryIds().isEmpty()) {
+            Set<Category> categories = new HashSet<>(
+                    categoryRepository.findAllById(dto.getCategoryIds())
+            );
+            promotion.setCategories(categories);
+        }
+
+        // Przypisz produkty z marek jeśli podano
+        if (dto.getBrandIds() != null && !dto.getBrandIds().isEmpty()) {
+            for (Long brandId : dto.getBrandIds()) {
+                List<Product> brandProducts = productRepository.findByBrandId(brandId);
+                promotion.getProducts().addAll(brandProducts);
+            }
         }
 
         Promotion saved = promotionRepository.save(promotion);
@@ -136,6 +154,8 @@ public class PromotionService {
         promotion.setCode(dto.getCode());
         promotion.setMinOrderAmount(dto.getMinOrderAmount());
         promotion.setMaxUsage(dto.getMaxUsage());
+        promotion.setBuyQuantity(dto.getBuyQuantity());
+        promotion.setGetQuantity(dto.getGetQuantity());
 
         // Aktualizuj produkty
         if (dto.getProductIds() != null) {
@@ -145,6 +165,25 @@ public class PromotionService {
                         productRepository.findAllById(dto.getProductIds())
                 );
                 promotion.setProducts(products);
+            }
+        }
+
+        // Aktualizuj kategorie
+        if (dto.getCategoryIds() != null) {
+            promotion.getCategories().clear();
+            if (!dto.getCategoryIds().isEmpty()) {
+                Set<Category> categories = new HashSet<>(
+                        categoryRepository.findAllById(dto.getCategoryIds())
+                );
+                promotion.setCategories(categories);
+            }
+        }
+
+        // Dodaj produkty z marek jeśli podano
+        if (dto.getBrandIds() != null && !dto.getBrandIds().isEmpty()) {
+            for (Long brandId : dto.getBrandIds()) {
+                List<Product> brandProducts = productRepository.findByBrandId(brandId);
+                promotion.getProducts().addAll(brandProducts);
             }
         }
 
