@@ -293,4 +293,16 @@ public class Promotion {
                 ", endDate=" + endDate +
                 '}';
     }
+
+    /**
+     * Convert empty string code to NULL before persist/update
+     * to avoid unique constraint violations (multiple NULLs are allowed, but multiple empty strings are not)
+     */
+    @PrePersist
+    @PreUpdate
+    private void normalizeCode() {
+        if (this.code != null && this.code.trim().isEmpty()) {
+            this.code = null;
+        }
+    }
 }
