@@ -6,6 +6,7 @@ import com.example.zoo.enums.OrderStatus;
 import com.example.zoo.enums.PaymentMethod;
 import com.example.zoo.enums.DeliveryMethod;
 import com.example.zoo.repository.OrderRepository;
+import com.example.zoo.repository.UserCartRepository;
 import com.example.zoo.repository.UserRepository;
 import com.example.zoo.service.OrderService;
 import com.example.zoo.service.PromotionService;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/checkout")
@@ -38,11 +40,57 @@ public class CheckoutController {
     private final SecurityHelper securityHelper;
     private final UserAddressService addressService;
     private final PromotionService promotionService;
+    private final UserCartRepository userCartRepository;
+
+    // Helper class to unify cart data for both session and database carts
+    private static class CartData {
+        BigDecimal total;
+        List<CartItem> items;
+        boolean isEmpty;
+        
+        CartData(BigDecimal total, List<CartItem> items, boolean isEmpty) {
+            this.total = total;
+            this.items = items;
+            this.isEmpty = isEmpty;
+        }
+    }
+    
+    private CartData getCartData(HttpSession session) {
+        User user = securityHelper.getCurrentUser(session);
+        
+        if (user != null) {
+            UserCart userCart = userCartRepository.findByUser(user).orElse(null);
+            if (userCart == null || userCart.isEmpty()) {
+                return new CartData(BigDecimal.ZERO, new ArrayList<>(), true);
+            }
+            List<CartItem> items = userCart.getItems().stream()
+                    .map(item -> new CartItem(item.getProduct(), item.getQuantity()))
+                    .collect(Collectors.toList());
+            return new CartData(userCart.getTotal(), items, false);
+        } else {
+            Cart cart = getSessionCart(session);
+            return new CartData(cart.getTotal(), cart.getItems(), cart.isEmpty());
+        }
+    }
+    
+    private void clearCart(HttpSession session) {
+        User user = securityHelper.getCurrentUser(session);
+        
+        if (user != null) {
+            userCartRepository.findByUser(user).ifPresent(userCart -> {
+                userCart.clear();
+                userCartRepository.save(userCart);
+            });
+        } else {
+            Cart cart = getSessionCart(session);
+            cart.clear();
+        }
+    }
 
     @GetMapping
     public String showCheckout(HttpSession session, Model model) {
-        Cart cart = getCart(session);
-        if (cart.isEmpty()) {
+        CartData cartData = getCartData(session);
+        if (cartData.isEmpty) {
             return "redirect:/cart";
         }
 
@@ -58,8 +106,8 @@ public class CheckoutController {
             model.addAttribute("savedAddresses", savedAddresses);
         }
 
-        model.addAttribute("cartItems", cart.getItems());
-        model.addAttribute("total", cart.getTotal());
+        model.addAttribute("cartItems", cartData.items);
+        model.addAttribute("total", cartData.total);
         model.addAttribute("isGuest", isGuest);
 
         return "checkout";
@@ -122,9 +170,9 @@ public class CheckoutController {
             HttpSession session,
             RedirectAttributes redirectAttributes) {
 
-        Cart cart = getCart(session);
+        CartData cartData = getCartData(session);
 
-        if (cart.isEmpty()) {
+        if (cartData.isEmpty) {
             redirectAttributes.addFlashAttribute("error", "Koszyk jest pusty");
             return "redirect:/cart";
         }
@@ -216,7 +264,7 @@ public class CheckoutController {
             }
             order.setDeliveryMethod(delivery);
 
-            BigDecimal deliveryCost = calculateDeliveryCost(delivery, cart.getTotal());
+            BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
             order.setDeliveryCost(deliveryCost);
 
             // Obsługa Metody Płatności
@@ -227,7 +275,7 @@ public class CheckoutController {
             }
 
             List<OrderItem> orderItems = new ArrayList<>();
-            for (var cartItem : cart.getItems()) {
+            for (var cartItem : cartData.items) {
                 OrderItem orderItem = new OrderItem();
                 orderItem.setOrder(order);
                 orderItem.setProduct(cartItem.getProduct());
@@ -242,7 +290,7 @@ public class CheckoutController {
             }
             order.setItems(orderItems);
 
-            order.setSubtotal(cart.getTotal());
+            order.setSubtotal(cartData.total);
             
             // Obsługa kodu rabatowego (voucher)
             BigDecimal discountAmount = BigDecimal.ZERO;
@@ -250,8 +298,8 @@ public class CheckoutController {
                 var promotionOpt = promotionService.getPromotionByCode(voucherCode.trim());
                 if (promotionOpt.isPresent()) {
                     Promotion promotion = promotionOpt.get();
-                    if (promotion.isCurrentlyActive() && promotion.isApplicableForAmount(cart.getTotal())) {
-                        discountAmount = promotion.calculateDiscount(cart.getTotal());
+                    if (promotion.isCurrentlyActive() && promotion.isApplicableForAmount(cartData.total)) {
+                        discountAmount = promotion.calculateDiscount(cartData.total);
                         order.setPromotion(promotion);
                         order.setDiscountAmount(discountAmount);
                         
@@ -261,7 +309,7 @@ public class CheckoutController {
                 }
             }
             
-            order.setTotalAmount(cart.getTotal().subtract(discountAmount).add(deliveryCost));
+            order.setTotalAmount(cartData.total.subtract(discountAmount).add(deliveryCost));
 
             orderService.save(order);
 
@@ -272,7 +320,7 @@ public class CheckoutController {
             System.out.println("Delivery Method: " + delivery);
             System.out.println("Address Saved: " + (Boolean.TRUE.equals(saveAddress) && currentUser != null ? "Yes" : "No"));
 
-            cart.clear();
+            clearCart(session);
 
             redirectAttributes.addFlashAttribute("orderNumber", order.getOrderNumber());
             redirectAttributes.addFlashAttribute("success", "Zamówienie zostało złożone!");
@@ -290,7 +338,7 @@ public class CheckoutController {
         return "order-success";
     }
 
-    private Cart getCart(HttpSession session) {
+    private Cart getSessionCart(HttpSession session) {
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null) {
             cart = new Cart();

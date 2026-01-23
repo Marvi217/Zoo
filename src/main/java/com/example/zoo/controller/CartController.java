@@ -1,7 +1,8 @@
 package com.example.zoo.controller;
 
-import com.example.zoo.entity.Cart;
-import com.example.zoo.entity.Product;
+import com.example.zoo.SecurityHelper;
+import com.example.zoo.entity.*;
+import com.example.zoo.repository.UserCartRepository;
 import com.example.zoo.service.ProductService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -12,8 +13,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/cart")
@@ -21,8 +25,11 @@ import java.util.Map;
 public class CartController {
 
     private final ProductService productService;
+    private final SecurityHelper securityHelper;
+    private final UserCartRepository userCartRepository;
 
-    private Cart getCart(HttpSession session) {
+    // Get session-based cart (for anonymous users)
+    private Cart getSessionCart(HttpSession session) {
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null) {
             cart = new Cart();
@@ -31,12 +38,53 @@ public class CartController {
         return cart;
     }
 
+    // Get or create database-backed cart for logged-in user
+    private UserCart getUserCart(User user) {
+        return userCartRepository.findByUser(user)
+                .orElseGet(() -> {
+                    UserCart newCart = new UserCart(user);
+                    return userCartRepository.save(newCart);
+                });
+    }
+
+    // Check if user is logged in
+    private boolean isLoggedIn(HttpSession session) {
+        return securityHelper.getCurrentUser(session) != null;
+    }
+
+    // Merge session cart to user cart on login
+    public void mergeSessionCartToUserCart(HttpSession session, User user) {
+        Cart sessionCart = (Cart) session.getAttribute("cart");
+        if (sessionCart != null && !sessionCart.isEmpty()) {
+            UserCart userCart = getUserCart(user);
+            for (CartItem item : sessionCart.getItems()) {
+                userCart.addItem(item.getProduct(), item.getQuantity());
+            }
+            userCartRepository.save(userCart);
+            session.removeAttribute("cart");
+        }
+    }
+
     // Wyświetl koszyk
     @GetMapping
     public String showCart(HttpSession session, Model model) {
-        Cart cart = getCart(session);
-        model.addAttribute("cartItems", cart.getItems());
-        model.addAttribute("total", cart.getTotal());
+        User user = securityHelper.getCurrentUser(session);
+        
+        if (user != null) {
+            // Logged-in user - use database cart
+            UserCart userCart = getUserCart(user);
+            // Convert UserCartItems to CartItems for template compatibility
+            List<CartItem> cartItems = userCart.getItems().stream()
+                    .map(item -> new CartItem(item.getProduct(), item.getQuantity()))
+                    .collect(Collectors.toList());
+            model.addAttribute("cartItems", cartItems);
+            model.addAttribute("total", userCart.getTotal());
+        } else {
+            // Anonymous user - use session cart
+            Cart cart = getSessionCart(session);
+            model.addAttribute("cartItems", cart.getItems());
+            model.addAttribute("total", cart.getTotal());
+        }
         return "cart";
     }
 
@@ -62,8 +110,17 @@ public class CartController {
                 return "redirect:/product/" + productId;
             }
 
-            Cart cart = getCart(session);
-            cart.addItem(product, quantity);
+            User user = securityHelper.getCurrentUser(session);
+            if (user != null) {
+                // Logged-in user - use database cart
+                UserCart userCart = getUserCart(user);
+                userCart.addItem(product, quantity);
+                userCartRepository.save(userCart);
+            } else {
+                // Anonymous user - use session cart
+                Cart cart = getSessionCart(session);
+                cart.addItem(product, quantity);
+            }
 
             redirectAttributes.addFlashAttribute("success", "Produkt dodany do koszyka!");
 
@@ -84,28 +141,59 @@ public class CartController {
             HttpSession session) {
 
         try {
-            Cart cart = getCart(session);
+            User user = securityHelper.getCurrentUser(session);
+            
+            if (user != null) {
+                // Logged-in user - use database cart
+                UserCart userCart = getUserCart(user);
+                
+                if ("increase".equals(action)) {
+                    userCart.getItems().stream()
+                            .filter(item -> item.getProduct().getId().equals(productId))
+                            .findFirst()
+                            .ifPresent(item -> {
+                                int newQty = item.getQuantity() + 1;
+                                if (newQty <= 99) {
+                                    item.setQuantity(newQty);
+                                }
+                            });
+                } else if ("decrease".equals(action)) {
+                    userCart.getItems().stream()
+                            .filter(item -> item.getProduct().getId().equals(productId))
+                            .findFirst()
+                            .ifPresent(item -> {
+                                int newQty = item.getQuantity() - 1;
+                                if (newQty > 0) {
+                                    item.setQuantity(newQty);
+                                }
+                            });
+                }
+                userCartRepository.save(userCart);
+            } else {
+                // Anonymous user - use session cart
+                Cart cart = getSessionCart(session);
 
-            if ("increase".equals(action)) {
-                cart.getItems().stream()
-                        .filter(item -> item.getProduct().getId().equals(productId))
-                        .findFirst()
-                        .ifPresent(item -> {
-                            int newQty = item.getQuantity() + 1;
-                            if (newQty <= 99) {
-                                item.setQuantity(newQty);
-                            }
-                        });
-            } else if ("decrease".equals(action)) {
-                cart.getItems().stream()
-                        .filter(item -> item.getProduct().getId().equals(productId))
-                        .findFirst()
-                        .ifPresent(item -> {
-                            int newQty = item.getQuantity() - 1;
-                            if (newQty > 0) {
-                                item.setQuantity(newQty);
-                            }
-                        });
+                if ("increase".equals(action)) {
+                    cart.getItems().stream()
+                            .filter(item -> item.getProduct().getId().equals(productId))
+                            .findFirst()
+                            .ifPresent(item -> {
+                                int newQty = item.getQuantity() + 1;
+                                if (newQty <= 99) {
+                                    item.setQuantity(newQty);
+                                }
+                            });
+                } else if ("decrease".equals(action)) {
+                    cart.getItems().stream()
+                            .filter(item -> item.getProduct().getId().equals(productId))
+                            .findFirst()
+                            .ifPresent(item -> {
+                                int newQty = item.getQuantity() - 1;
+                                if (newQty > 0) {
+                                    item.setQuantity(newQty);
+                                }
+                            });
+                }
             }
 
             return ResponseEntity.ok(Map.of(
@@ -130,8 +218,16 @@ public class CartController {
             HttpSession session) {
 
         try {
-            Cart cart = getCart(session);
-            cart.removeItem(productId);
+            User user = securityHelper.getCurrentUser(session);
+            
+            if (user != null) {
+                UserCart userCart = getUserCart(user);
+                userCart.removeItem(productId);
+                userCartRepository.save(userCart);
+            } else {
+                Cart cart = getSessionCart(session);
+                cart.removeItem(productId);
+            }
 
             return ResponseEntity.ok(Map.of(
                     "success", true,
@@ -146,15 +242,23 @@ public class CartController {
         }
     }
 
-    // Usuń produkt (link) - GET - TYLKO JEDNA METODA!
+    // Usuń produkt (link) - GET
     @GetMapping("/remove/{productId}")
     public String removeFromCart(
             @PathVariable Long productId,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
 
-        Cart cart = getCart(session);
-        cart.removeItem(productId);
+        User user = securityHelper.getCurrentUser(session);
+        
+        if (user != null) {
+            UserCart userCart = getUserCart(user);
+            userCart.removeItem(productId);
+            userCartRepository.save(userCart);
+        } else {
+            Cart cart = getSessionCart(session);
+            cart.removeItem(productId);
+        }
 
         redirectAttributes.addFlashAttribute("success", "Produkt usunięty z koszyka");
         return "redirect:/cart";
@@ -164,12 +268,28 @@ public class CartController {
     @GetMapping("/summary")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> getCartSummary(HttpSession session) {
-        Cart cart = getCart(session);
+        User user = securityHelper.getCurrentUser(session);
+        
+        BigDecimal subtotal;
+        int itemCount;
+        int itemsSize;
+        
+        if (user != null) {
+            UserCart userCart = getUserCart(user);
+            subtotal = userCart.getTotal();
+            itemCount = userCart.getTotalItems();
+            itemsSize = userCart.getItems().size();
+        } else {
+            Cart cart = getSessionCart(session);
+            subtotal = cart.getTotal();
+            itemCount = cart.getTotalItems();
+            itemsSize = cart.getItems().size();
+        }
 
         return ResponseEntity.ok(Map.of(
-                "subtotal", cart.getTotal(),
-                "itemCount", cart.getTotalItems(),
-                "items", cart.getItems().size()
+                "subtotal", subtotal,
+                "itemCount", itemCount,
+                "items", itemsSize
         ));
     }
 
@@ -177,15 +297,33 @@ public class CartController {
     @GetMapping("/count")
     @ResponseBody
     public ResponseEntity<Map<String, Integer>> getCartCount(HttpSession session) {
-        Cart cart = getCart(session);
-        return ResponseEntity.ok(Map.of("count", cart.getTotalItems()));
+        User user = securityHelper.getCurrentUser(session);
+        int count;
+        
+        if (user != null) {
+            UserCart userCart = getUserCart(user);
+            count = userCart.getTotalItems();
+        } else {
+            Cart cart = getSessionCart(session);
+            count = cart.getTotalItems();
+        }
+        
+        return ResponseEntity.ok(Map.of("count", count));
     }
 
     // Wyczyść koszyk
     @PostMapping("/clear")
     public String clearCart(HttpSession session, RedirectAttributes redirectAttributes) {
-        Cart cart = getCart(session);
-        cart.clear();
+        User user = securityHelper.getCurrentUser(session);
+        
+        if (user != null) {
+            UserCart userCart = getUserCart(user);
+            userCart.clear();
+            userCartRepository.save(userCart);
+        } else {
+            Cart cart = getSessionCart(session);
+            cart.clear();
+        }
 
         redirectAttributes.addFlashAttribute("success", "Koszyk został wyczyszczony");
         return "redirect:/cart";
@@ -199,18 +337,29 @@ public class CartController {
             HttpSession session) {
 
         try {
-            Cart cart = getCart(session);
             Product product = productService.getProductById(productId);
 
             if (product == null) {
                 return ResponseEntity.status(404).body("Nie znaleziono produktu");
             }
 
-            cart.addItem(product, quantity);
+            User user = securityHelper.getCurrentUser(session);
+            int totalItems;
+            
+            if (user != null) {
+                UserCart userCart = getUserCart(user);
+                userCart.addItem(product, quantity);
+                userCartRepository.save(userCart);
+                totalItems = userCart.getTotalItems();
+            } else {
+                Cart cart = getSessionCart(session);
+                cart.addItem(product, quantity);
+                totalItems = cart.getTotalItems();
+            }
 
             Map<String, Object> response = new HashMap<>();
             response.put("success", true);
-            response.put("totalItems", cart.getTotalItems());
+            response.put("totalItems", totalItems);
 
             return ResponseEntity.ok(response);
         } catch (Exception e) {
