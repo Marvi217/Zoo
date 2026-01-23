@@ -366,4 +366,23 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     List<Order> findByOrderDateBetween(LocalDateTime start, LocalDateTime end);
 
+    // ==================== SPRAWDZANIE ZAKUPU PRODUKTU ====================
+
+    /**
+     * Sprawdź czy użytkownik kupił produkt w zamówieniu które zostało dostarczone lub zwrócone
+     */
+    @Query("SELECT CASE WHEN COUNT(oi) > 0 THEN true ELSE false END " +
+            "FROM OrderItem oi JOIN oi.order o " +
+            "WHERE o.user.id = :userId AND oi.product.id = :productId " +
+            "AND o.status IN (com.example.zoo.enums.OrderStatus.DELIVERED, com.example.zoo.enums.OrderStatus.RETURNED)")
+    boolean hasUserPurchasedProduct(@Param("userId") Long userId, @Param("productId") Long productId);
+
+    /**
+     * Znajdź produkty z zamówień użytkownika które mogą być ocenione (dostarczone lub zwrócone)
+     */
+    @Query("SELECT DISTINCT oi.product FROM OrderItem oi JOIN oi.order o " +
+            "WHERE o.user.id = :userId " +
+            "AND o.status IN (com.example.zoo.enums.OrderStatus.DELIVERED, com.example.zoo.enums.OrderStatus.RETURNED)")
+    List<com.example.zoo.entity.Product> findReviewableProductsForUser(@Param("userId") Long userId);
+
 }

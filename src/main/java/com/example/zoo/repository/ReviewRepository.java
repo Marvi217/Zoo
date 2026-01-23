@@ -63,16 +63,28 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     // ==================== ŚREDNIA OCENA ====================
 
     /**
-     * Pobierz średnią ocenę produktu
+     * Pobierz średnią ocenę produktu (wszystkie opinie)
      */
     @Query("SELECT AVG(r.rating) FROM Review r WHERE r.product.id = :productId ")
     Double getAverageRatingForProduct(@Param("productId") Long productId);
+
+    /**
+     * Oblicz średnią ocenę produktu tylko z zatwierdzonych opinii
+     */
+    @Query("SELECT AVG(r.rating) FROM Review r WHERE r.product.id = :productId AND r.status = com.example.zoo.enums.ReviewStatus.APPROVED")
+    Double calculateApprovedAverageRatingForProduct(@Param("productId") Long productId);
 
     /**
      * Oblicz średnią ocenę produktu (alias)
      */
     @Query("SELECT AVG(r.rating) FROM Review r WHERE r.product.id = :productId " )
     Double calculateAverageRatingForProduct(@Param("productId") Long productId);
+
+    /**
+     * Zlicz zatwierdzone opinie produktu
+     */
+    @Query("SELECT COUNT(r) FROM Review r WHERE r.product.id = :productId AND r.status = com.example.zoo.enums.ReviewStatus.APPROVED")
+    long countApprovedReviewsByProductId(@Param("productId") Long productId);
 
     // ==================== WYSZUKIWANIE PO STATUSIE ====================
 

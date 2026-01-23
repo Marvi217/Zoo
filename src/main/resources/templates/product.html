@@ -586,6 +586,112 @@
             color: var(--text-dark);
         }
 
+        /* --- REVIEW FORM --- */
+        .review-form-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid var(--border-color);
+        }
+
+        .review-form-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--brand-green);
+        }
+
+        .star-rating-input {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .star-rating-input input[type="radio"] {
+            display: none;
+        }
+
+        .star-rating-input label {
+            font-size: 32px;
+            color: #d1d5db;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .star-rating-input label:hover,
+        .star-rating-input label:hover ~ label,
+        .star-rating-input input[type="radio"]:checked ~ label {
+            color: #fbbf24;
+        }
+
+        .star-rating-input:hover label {
+            color: #d1d5db;
+        }
+
+        .star-rating-input label:hover,
+        .star-rating-input label:hover ~ label {
+            color: #fbbf24;
+        }
+
+        .review-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 15px;
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+
+        .review-textarea:focus {
+            outline: none;
+            border-color: var(--brand-green);
+        }
+
+        .review-submit-btn {
+            background: var(--brand-green);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .review-submit-btn:hover {
+            background: #1e4230;
+        }
+
+        .review-info-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .review-info-message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+
+        .review-info-message.info {
+            background: #e0f2fe;
+            color: #0369a1;
+            border: 1px solid #7dd3fc;
+        }
+
+        .review-info-message.warning {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
         /* --- RELATED PRODUCTS --- */
         .related-products {
             margin-top: 60px;
@@ -739,7 +845,7 @@
                 </span>
                 <span class="rating-score" th:text="${#numbers.formatDecimal(product.rating, 1, 1)}">4.8</span>
                 <span class="rating-count">
-                    <a href="#reviews" th:text="'(' + ${product.reviewCount} + ' opinii)'">(124 opinii)</a>
+                    <a href="#reviews" th:text="'(' + ${reviewCount} + ' opinii)'">(124 opinii)</a>
                 </span>
             </div>
 
@@ -823,7 +929,7 @@
             <button class="tab-btn" onclick="switchTab(1)">Specyfikacja</button>
             <button class="tab-btn" onclick="switchTab(2)">Składniki</button>
             <button class="tab-btn" onclick="switchTab(3)" id="reviews">
-                Opinie (<span th:text="${product.reviewCount}">124</span>)
+                Opinie (<span th:text="${reviewCount}">124</span>)
             </button>
         </div>
 
@@ -881,7 +987,7 @@
                 <div class="overall-rating">
                     <div class="overall-score" th:text="${#numbers.formatDecimal(product.rating, 1, 1)}">4.8</div>
                     <div class="overall-stars">★★★★★</div>
-                    <div>Na podstawie <span th:text="${product.reviewCount}">124</span> opinii</div>
+                    <div>Na podstawie <span th:text="${reviewCount}">124</span> opinii</div>
                 </div>
 
                 <div class="rating-bars">
@@ -926,11 +1032,49 @@
             <!-- Reviews list -->
             <div th:each="review : ${reviews}" class="review-item">
                 <div class="review-header">
-                    <span class="reviewer-name" th:text="${review.user.name}">Anna K.</span>
+                    <span class="reviewer-name" th:text="${review.user.fullName}">Anna K.</span>
                     <span class="review-date" th:text="${#temporals.format(review.createdAt, 'dd MMMM yyyy')}">15 stycznia 2025</span>
                 </div>
                 <div class="review-stars" th:text="${'★'.repeat(review.rating) + '☆'.repeat(5 - review.rating)}">★★★★★</div>
                 <p class="review-text" th:text="${review.comment}">Świetna karma!</p>
+            </div>
+
+            <!-- REVIEW FORM -->
+            <div th:if="${success}" class="review-info-message success">
+                <span th:text="${success}">Dziękujemy za opinię!</span>
+            </div>
+            <div th:if="${error}" class="review-info-message warning">
+                <span th:text="${error}">Wystąpił błąd</span>
+            </div>
+
+            <div th:if="${canReview}" class="review-form-container">
+                <h4 class="review-form-title">✍️ Dodaj swoją opinię</h4>
+                <form th:action="@{/product/{id}/review(id=${product.id})}" method="post">
+                    <div class="star-rating-input" id="starRating">
+                        <input type="radio" name="rating" value="5" id="star5" required>
+                        <label for="star5" onclick="setRating(5)">★</label>
+                        <input type="radio" name="rating" value="4" id="star4">
+                        <label for="star4" onclick="setRating(4)">★</label>
+                        <input type="radio" name="rating" value="3" id="star3">
+                        <label for="star3" onclick="setRating(3)">★</label>
+                        <input type="radio" name="rating" value="2" id="star2">
+                        <label for="star2" onclick="setRating(2)">★</label>
+                        <input type="radio" name="rating" value="1" id="star1">
+                        <label for="star1" onclick="setRating(1)">★</label>
+                    </div>
+                    <textarea name="comment" class="review-textarea" 
+                              placeholder="Podziel się swoją opinią o produkcie... (opcjonalnie)"
+                              rows="4"></textarea>
+                    <button type="submit" class="review-submit-btn">📝 Dodaj opinię</button>
+                </form>
+            </div>
+
+            <div th:if="${hasReviewed}" class="review-info-message info">
+                ✅ Dziękujemy! Już oceniłeś ten produkt.
+            </div>
+
+            <div th:if="${not canReview and not hasReviewed}" class="review-info-message info">
+                ℹ️ Aby dodać opinię, musisz kupić i otrzymać ten produkt.
             </div>
         </div>
     </div>
@@ -1005,6 +1149,47 @@
             this.classList.add('active');
             document.getElementById('mainImage').textContent = this.textContent;
         });
+    });
+
+    // Star rating functionality
+    function setRating(value) {
+        document.getElementById('star' + value).checked = true;
+        const labels = document.querySelectorAll('.star-rating-input label');
+        labels.forEach((label, index) => {
+            const starValue = 5 - index;
+            if (starValue <= value) {
+                label.style.color = '#fbbf24';
+            } else {
+                label.style.color = '#d1d5db';
+            }
+        });
+    }
+
+    // Initialize star rating display
+    document.querySelectorAll('.star-rating-input label').forEach(label => {
+        label.addEventListener('mouseenter', function() {
+            const starValue = parseInt(this.previousElementSibling.value);
+            const labels = document.querySelectorAll('.star-rating-input label');
+            labels.forEach((l, index) => {
+                const sv = 5 - index;
+                if (sv <= starValue) {
+                    l.style.color = '#fbbf24';
+                } else {
+                    l.style.color = '#d1d5db';
+                }
+            });
+        });
+    });
+
+    document.querySelector('.star-rating-input')?.addEventListener('mouseleave', function() {
+        const checked = document.querySelector('.star-rating-input input:checked');
+        if (checked) {
+            setRating(parseInt(checked.value));
+        } else {
+            document.querySelectorAll('.star-rating-input label').forEach(l => {
+                l.style.color = '#d1d5db';
+            });
+        }
     });
 </script>
 

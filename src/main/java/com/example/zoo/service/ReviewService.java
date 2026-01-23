@@ -2,6 +2,7 @@ package com.example.zoo.service;
 
 import com.example.zoo.entity.Product;
 import com.example.zoo.entity.Review;
+import com.example.zoo.entity.User;
 import com.example.zoo.enums.ReviewStatus;
 import com.example.zoo.repository.ProductRepository;
 import com.example.zoo.repository.ReviewRepository;
@@ -45,6 +46,44 @@ public class ReviewService {
             product.setRating(avg);
             productRepository.save(product);
         }
+    }
+
+    /**
+     * Dodaj opinię od klienta (z walidacją zakupu)
+     */
+    @Transactional
+    public Review createCustomerReview(Long productId, User user, int rating, String comment) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Produkt nie istnieje"));
+
+        // Sprawdź czy użytkownik już ocenił ten produkt
+        if (reviewRepository.hasUserReviewedProduct(user.getId(), productId)) {
+            throw new RuntimeException("Już oceniłeś ten produkt");
+        }
+
+        Review review = new Review();
+        review.setProduct(product);
+        review.setUser(user);
+        review.setRating(rating);
+        review.setComment(comment);
+        review.setStatus(ReviewStatus.PENDING); // Nowe opinie wymagają moderacji
+
+        Review savedReview = reviewRepository.save(review);
+
+        // Przelicz średnią ocenę produktu (tylko zatwierdzone opinie)
+        updateProductRating(productId);
+
+        log.info("Użytkownik {} dodał opinię dla produktu {} (ocena: {})", 
+                user.getEmail(), product.getName(), rating);
+
+        return savedReview;
+    }
+
+    /**
+     * Sprawdź czy użytkownik już ocenił produkt
+     */
+    public boolean hasUserReviewedProduct(Long userId, Long productId) {
+        return reviewRepository.hasUserReviewedProduct(userId, productId);
     }
 
     // ==================== NOWE METODY DLA PANELU ADMIN ====================
@@ -93,14 +132,22 @@ public class ReviewService {
     }
 
     /**
-     * Aktualizuj średnią ocenę produktu
+     * Aktualizuj średnią ocenę produktu (tylko zatwierdzone opinie)
      */
     @Transactional
     public void updateProductRating(Long productId) {
-        Double avg = reviewRepository.getAverageRatingForProduct(productId);
+        Double avg = reviewRepository.calculateApprovedAverageRatingForProduct(productId);
         Product product = productRepository.findById(productId).orElseThrow();
         product.setRating(avg != null ? avg : 0.0);
         productRepository.save(product);
+        log.info("Zaktualizowano ocenę produktu {} na {}", product.getName(), avg);
+    }
+
+    /**
+     * Pobierz liczbę zatwierdzonych opinii dla produktu
+     */
+    public long getApprovedReviewCountForProduct(Long productId) {
+        return reviewRepository.countApprovedReviewsByProductId(productId);
     }
 
     // ==================== STATYSTYKI ====================

@@ -950,4 +950,21 @@ public class OrderService {
         return revenue != null ? revenue : BigDecimal.ZERO;
     }
 
+    // ==================== SPRAWDZANIE ZAKUPU PRODUKTU ====================
+
+    /**
+     * Sprawdź czy użytkownik kupił produkt i może go ocenić
+     * (zamówienie dostarczone lub zwrócone)
+     */
+    public boolean canUserReviewProduct(Long userId, Long productId) {
+        return orderRepository.hasUserPurchasedProduct(userId, productId);
+    }
+
+    /**
+     * Pobierz produkty które użytkownik może ocenić
+     */
+    public List<Product> getReviewableProductsForUser(Long userId) {
+        return orderRepository.findReviewableProductsForUser(userId);
+    }
+
 }
