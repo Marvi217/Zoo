@@ -199,19 +199,26 @@ public class PromotionService {
 
         Promotion promotion = getPromotionById(id);
 
-        // Sprawdź czy promocja nie była użyta w zamówieniach
-        if (!promotion.getOrders().isEmpty()) {
-            throw new RuntimeException(
-                    "Nie można usunąć promocji, która była użyta w zamówieniach. " +
-                            "Możesz ją zdezaktywować zamiast usuwać."
-            );
+        // Usuń powiązania z zamówieniami (ustaw null zamiast usuwania)
+        if (promotion.getOrders() != null && !promotion.getOrders().isEmpty()) {
+            promotion.getOrders().forEach(order -> order.setPromotion(null));
+            promotion.getOrders().clear();
         }
 
-        // Usuń powiązania z produktami
-        promotion.getProducts().forEach(product ->
-                product.getPromotions().remove(promotion)
-        );
-        promotion.getProducts().clear();
+        // Usuń powiązania z produktami (obie strony relacji)
+        if (promotion.getProducts() != null) {
+            promotion.getProducts().forEach(product -> {
+                if (product.getPromotions() != null) {
+                    product.getPromotions().remove(promotion);
+                }
+            });
+            promotion.getProducts().clear();
+        }
+
+        // Usuń powiązania z kategoriami
+        if (promotion.getCategories() != null) {
+            promotion.getCategories().clear();
+        }
 
         promotionRepository.delete(promotion);
         log.info("Usunięto promocję o ID: {}", id);
