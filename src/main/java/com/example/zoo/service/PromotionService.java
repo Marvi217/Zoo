@@ -208,26 +208,26 @@ public class PromotionService {
         // This avoids JPA relationship management issues
         
         // 1. Clear orders using this promotion
-        entityManager.createNativeQuery("UPDATE orders SET promotion_id = NULL WHERE promotion_id = :promotionId")
-                .setParameter("promotionId", id)
+        entityManager.createNativeQuery("UPDATE orders SET promotion_id = NULL WHERE promotion_id = ?1")
+                .setParameter(1, id)
                 .executeUpdate();
         
         // 2. Delete from promotion_products junction table
-        entityManager.createNativeQuery("DELETE FROM promotion_products WHERE promotion_id = :promotionId")
-                .setParameter("promotionId", id)
+        entityManager.createNativeQuery("DELETE FROM promotion_products WHERE promotion_id = ?1")
+                .setParameter(1, id)
                 .executeUpdate();
         
         // 3. Delete from promotion_categories junction table
-        entityManager.createNativeQuery("DELETE FROM promotion_categories WHERE promotion_id = :promotionId")
-                .setParameter("promotionId", id)
+        entityManager.createNativeQuery("DELETE FROM promotion_categories WHERE promotion_id = ?1")
+                .setParameter(1, id)
                 .executeUpdate();
         
         // 4. Flush to ensure all changes are committed before deleting the promotion
         entityManager.flush();
         
         // 5. Now delete the promotion itself
-        entityManager.createNativeQuery("DELETE FROM promotions WHERE id = :promotionId")
-                .setParameter("promotionId", id)
+        entityManager.createNativeQuery("DELETE FROM promotions WHERE id = ?1")
+                .setParameter(1, id)
                 .executeUpdate();
 
         log.info("Usunięto promocję o ID: {}", id);
