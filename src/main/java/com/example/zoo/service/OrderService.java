@@ -56,10 +56,8 @@ public class OrderService {
         }
 
         for (Order order : orders) {
-            // Pomijaj zamówienia anulowane, nieudane i zwrócone
-            if (order.getStatus() == OrderStatus.CANCELLED || 
-                order.getStatus() == OrderStatus.FAILED || 
-                order.getStatus() == OrderStatus.REFUNDED) {
+            // Licz tylko zamówienia opłacone (paymentStatus = PAID)
+            if (order.getPaymentStatus() != PaymentStatus.PAID) {
                 continue;
             }
             String date = order.getOrderDate().toLocalDate().toString();

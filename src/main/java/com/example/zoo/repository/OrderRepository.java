@@ -98,14 +98,14 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
      * Suma wydanych pieniędzy przez użytkownika
      */
     @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.user = :user " +
-            "AND o.status NOT IN (com.example.zoo.enums.OrderStatus.CANCELLED, com.example.zoo.enums.OrderStatus.FAILED)")
+            "AND o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalSpentByUser(@Param("user") User user);
 
     /**
      * Suma przychodów w przedziale czasowym
      */
     @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.orderDate BETWEEN :from AND :to " +
-            "AND o.status NOT IN (com.example.zoo.enums.OrderStatus.CANCELLED, com.example.zoo.enums.OrderStatus.FAILED)")
+            "AND o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalAmountByOrderDateBetween(
             @Param("from") LocalDateTime from,
             @Param("to") LocalDateTime to
@@ -351,13 +351,13 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // Jeśli masz pole paymentStatus w encji Order
     Page<Order> findByPaymentStatus(PaymentStatus paymentStatus, Pageable pageable);
 
-    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.status NOT IN (com.example.zoo.enums.OrderStatus.CANCELLED, com.example.zoo.enums.OrderStatus.FAILED, com.example.zoo.enums.OrderStatus.REFUNDED)")
+    @Query("SELECT SUM(o.totalAmount) FROM Order o WHERE o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalRevenue();
 
     @Query(value = "SELECT CAST(order_date AS DATE) as d, SUM(total_amount) " +
             "FROM orders " +
             "WHERE order_date >= DATEADD('DAY', -7, CURRENT_DATE) " +
-            "AND status NOT IN ('CANCELLED', 'FAILED', 'REFUNDED') " +
+            "AND payment_status = 'PAID' " +
             "GROUP BY CAST(order_date AS DATE) " +
             "ORDER BY d ASC", nativeQuery = true)
     List<Object[]> findWeeklySalesRaw();
