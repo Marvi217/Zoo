@@ -4,6 +4,7 @@ import com.example.zoo.dto.PromotionDTO;
 import com.example.zoo.entity.*;
 import com.example.zoo.enums.PromotionType;
 import com.example.zoo.repository.*;
+import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,7 @@ public class PromotionService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
+    private final EntityManager entityManager;
 
     // ==================== CRUD OPERATIONS ====================
 
@@ -197,30 +199,37 @@ public class PromotionService {
     public void deletePromotion(Long id) {
         log.info("Usuwanie promocji o ID: {}", id);
 
-        Promotion promotion = getPromotionById(id);
-
-        // Usuń powiązania z zamówieniami (ustaw null zamiast usuwania)
-        if (promotion.getOrders() != null && !promotion.getOrders().isEmpty()) {
-            promotion.getOrders().forEach(order -> order.setPromotion(null));
-            promotion.getOrders().clear();
+        // Verify the promotion exists
+        if (!promotionRepository.existsById(id)) {
+            throw new RuntimeException("Promocja o ID " + id + " nie została znaleziona");
         }
 
-        // Usuń powiązania z produktami (obie strony relacji)
-        if (promotion.getProducts() != null) {
-            promotion.getProducts().forEach(product -> {
-                if (product.getPromotions() != null) {
-                    product.getPromotions().remove(promotion);
-                }
-            });
-            promotion.getProducts().clear();
-        }
+        // Use native SQL to delete from junction tables first
+        // This avoids JPA relationship management issues
+        
+        // 1. Clear orders using this promotion
+        entityManager.createNativeQuery("UPDATE orders SET promotion_id = NULL WHERE promotion_id = :promotionId")
+                .setParameter("promotionId", id)
+                .executeUpdate();
+        
+        // 2. Delete from promotion_products junction table
+        entityManager.createNativeQuery("DELETE FROM promotion_products WHERE promotion_id = :promotionId")
+                .setParameter("promotionId", id)
+                .executeUpdate();
+        
+        // 3. Delete from promotion_categories junction table
+        entityManager.createNativeQuery("DELETE FROM promotion_categories WHERE promotion_id = :promotionId")
+                .setParameter("promotionId", id)
+                .executeUpdate();
+        
+        // 4. Flush to ensure all changes are committed before deleting the promotion
+        entityManager.flush();
+        
+        // 5. Now delete the promotion itself
+        entityManager.createNativeQuery("DELETE FROM promotions WHERE id = :promotionId")
+                .setParameter("promotionId", id)
+                .executeUpdate();
 
-        // Usuń powiązania z kategoriami
-        if (promotion.getCategories() != null) {
-            promotion.getCategories().clear();
-        }
-
-        promotionRepository.delete(promotion);
         log.info("Usunięto promocję o ID: {}", id);
     }
 
