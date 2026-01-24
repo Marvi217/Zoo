@@ -28,6 +28,6 @@ public class GlobalUserControllerAdvice {
 
     @ModelAttribute("globalCategories")
     public List<Category> addCategoriesToModel() {
-        return categoryService.getAllCategories();
+        return categoryService.getAllActiveCategories();
     }
 }
