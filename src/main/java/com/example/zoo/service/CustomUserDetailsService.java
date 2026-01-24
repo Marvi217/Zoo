@@ -1,0 +1,39 @@
+package com.example.zoo.service;
+
+import com.example.zoo.entity.User;
+import com.example.zoo.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import java.util.Collections;
+
+@Service
+@RequiredArgsConstructor
+public class CustomUserDetailsService implements UserDetailsService {
+
+    private final UserRepository userRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Nie znaleziono użytkownika: " + email));
+
+        if (!user.isActive()) {
+            throw new UsernameNotFoundException("Konto użytkownika jest nieaktywne");
+        }
+
+        return new org.springframework.security.core.userdetails.User(
+                user.getEmail(),
+                user.getPassword(),
+                user.isActive(),
+                true,
+                true,
+                true,
+                Collections.singletonList(new SimpleGrantedAuthority(user.getRoleForSecurity()))
+        );
+    }
+}
