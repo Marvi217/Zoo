@@ -489,15 +489,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/header :: navbar}"></div>
-<!-- CATEGORY MENU - DYNAMICZNE Z BAZY -->
-<div class="category-bar" th:if="${categories != null and !#lists.isEmpty(categories)}">
-    <a th:each="category : ${categories}"
-       th:href="@{/category/{slug}(slug=${category.slug})}"
-       class="category-link">
-        <span th:text="${category.icon}">📦</span>
-        <span th:text="${category.name}">Kategoria</span>
-    </a>
-</div>
+<div th:replace="~{fragments/header :: categoryBar}"></div>
 
 <!-- HERO SECTION -->
 <section class="hero-section">

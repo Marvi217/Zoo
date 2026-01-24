@@ -48,5 +48,15 @@
     </div>
 </nav>
 
+<!-- CATEGORY BAR FRAGMENT -->
+<div th:fragment="categoryBar" class="category-bar" th:if="${globalCategories != null and !#lists.isEmpty(globalCategories)}">
+    <a th:each="category : ${globalCategories}"
+       th:href="@{/category/{slug}(slug=${category.slug})}"
+       class="category-link">
+        <span th:text="${category.icon}">📦</span>
+        <span th:text="${category.name}">Kategoria</span>
+    </a>
+</div>
+
 </body>
 </html>
