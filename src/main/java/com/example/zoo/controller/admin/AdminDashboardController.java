@@ -55,8 +55,8 @@ public class AdminDashboardController {
         model.addAttribute("monthlySales", orderService.getMonthlySalesStats());
 
         // Kategorie i użytkownicy
-        //LocalDateTime thirtyDaysAgo = LocalDateTime.now().minusDays(30);
-        //model.addAttribute("newUsersThisMonth", userService.getNewUsersCount(thirtyDaysAgo, LocalDateTime.now()));
+        LocalDateTime thirtyDaysAgo = LocalDateTime.now().minusDays(30);
+        model.addAttribute("newUsersThisMonth", userService.getNewUsersCount(thirtyDaysAgo, LocalDateTime.now()));
         model.addAttribute("averageRating", reviewService.getAverageRating());
         model.addAttribute("topCategories", getCategoryStats());
 
