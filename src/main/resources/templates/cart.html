@@ -476,6 +476,32 @@
                 position: static;
             }
         }
+
+        /* CATEGORY BAR */
+        .category-bar {
+            background: white;
+            padding: 15px 5%;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .category-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .category-link:hover {
+            color: var(--brand-green);
+            border-bottom-color: var(--brand-green);
+        }
     </style>
 </head>
 <body>
@@ -517,6 +543,9 @@
         </a>
     </div>
 </nav>
+
+<!-- CATEGORY BAR -->
+<div th:replace="~{fragments/header :: categoryBar}"></div>
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">

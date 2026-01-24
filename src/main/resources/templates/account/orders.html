@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moje zamówienia - PetMarket</title>
+    <link rel="stylesheet" href="/css/public-styles.css">
     <link rel="stylesheet" href="/css/account-styles.css">
 </head>
 <body>
 <div th:replace="~{fragments/header :: navbar}"></div>
+<div th:replace="~{fragments/header :: categoryBar}"></div>
 <div class="account-container">
     <aside th:replace="~{fragments/account-sidebar :: sidebar('orders')}"></aside>
     <!-- MAIN CONTENT -->

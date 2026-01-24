@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${category.name} + ' - PetMarket'">Produkty - PetMarket</title>
+    <link rel="stylesheet" href="/css/public-styles.css">
     <style>
         :root {
             --brand-green: #2d5a3f;
@@ -666,6 +667,7 @@
 <body>
 
 <div th:replace="~{fragments/header :: navbar}"></div>
+<div th:replace="~{fragments/header :: categoryBar}"></div>
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">

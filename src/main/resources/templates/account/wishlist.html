@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ulubione produkty - PetMarket</title>
     <link rel="stylesheet" href="/css/account-styles.css">
+    <link rel="stylesheet" href="/css/public-styles.css">
     <style>
         /* Page-specific styles for wishlist.html */
         .content-header {
@@ -234,6 +235,7 @@
 <body>
 
 <div th:replace="~{fragments/header :: navbar}"></div>
+<div th:replace="~{fragments/header :: categoryBar}"></div>
 
 <div class="account-container">
     <aside th:replace="~{fragments/account-sidebar :: sidebar('wishlist')}"></aside>

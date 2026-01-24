@@ -16,40 +16,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/login")
 @RequiredArgsConstructor
 public class LoginController {
-    private final UserService userService;
 
     @GetMapping()
     public String showLoginPage() {
         return "login";
-    }
-
-    @PostMapping()
-    public String login(
-            @RequestParam String email,
-            @RequestParam String password,
-            HttpSession session,
-            RedirectAttributes redirectAttributes) {
-
-        try {
-            User user = userService.authenticate(email, password);
-
-            if (user != null) {
-                session.setAttribute("user", user);
-
-                if (user.getRole() == UserRole.ADMIN || user.getRole() == UserRole.SUPERUSER) {
-                    return "redirect:/admin/dashboard/main";
-                } else {
-                    return "redirect:/";
-                }
-            } else {
-                redirectAttributes.addFlashAttribute("error", "Nieprawidłowy email lub hasło");
-                return "redirect:/login";
-            }
-
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Błąd logowania");
-            return "redirect:/login";
-        }
     }
 
     @GetMapping("/logout")

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="'Zamówienie #' + ${order.orderNumber} + ' - PetMarket'">Szczegóły zamówienia - PetMarket</title>
     <link rel="stylesheet" href="/css/account-styles.css">
+    <link rel="stylesheet" href="/css/public-styles.css">
     <style>
         /* Page-specific styles for order-details.html */
         .order-container {
@@ -271,6 +272,7 @@
 <body>
 
 <div th:replace="~{fragments/header :: navbar}"></div>
+<div th:replace="~{fragments/header :: categoryBar}"></div>
 
 <div class="order-container">
 
