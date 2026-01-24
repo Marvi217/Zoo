@@ -1,5 +1,8 @@
 package com.example.zoo.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum PaymentStatus {
     PENDING("Oczekuje na płatność", "Płatność nie została jeszcze dokonana"),
     PROCESSING("Przetwarzanie", "Płatność jest przetwarzana"),
@@ -18,79 +21,38 @@ public enum PaymentStatus {
         this.description = description;
     }
 
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * Sprawdza czy płatność została pomyślnie zrealizowana
-     */
     public boolean isSuccessful() {
         return this == PAID;
     }
 
-    /**
-     * Sprawdza czy płatność wymaga działania
-     */
     public boolean requiresAction() {
         return this == PENDING || this == PROCESSING || this == FAILED;
     }
 
-    /**
-     * Sprawdza czy można dokonać zwrotu
-     */
     public boolean isRefundable() {
         return this == PAID;
     }
 
-    /**
-     * Zwraca kolor do wyświetlania w interfejsie
-     */
     public String getColor() {
-        switch (this) {
-            case PENDING:
-            case PROCESSING:
-                return "warning";
-            case PAID:
-                return "success";
-            case FAILED:
-            case CANCELLED:
-            case CHARGEBACK:
-                return "danger";
-            case REFUNDED:
-            case PARTIALLY_REFUNDED:
-                return "info";
-            default:
-                return "secondary";
-        }
+        return switch (this) {
+            case PENDING, PROCESSING -> "warning";
+            case PAID -> "success";
+            case FAILED, CANCELLED, CHARGEBACK -> "danger";
+            case REFUNDED, PARTIALLY_REFUNDED -> "info";
+            default -> "secondary";
+        };
     }
 
-    /**
-     * Zwraca ikonę Font Awesome
-     */
     public String getIcon() {
-        switch (this) {
-            case PENDING:
-                return "fa-clock";
-            case PROCESSING:
-                return "fa-spinner";
-            case PAID:
-                return "fa-check-circle";
-            case FAILED:
-                return "fa-times-circle";
-            case CANCELLED:
-                return "fa-ban";
-            case REFUNDED:
-            case PARTIALLY_REFUNDED:
-                return "fa-undo";
-            case CHARGEBACK:
-                return "fa-exclamation-triangle";
-            default:
-                return "fa-question-circle";
-        }
+        return switch (this) {
+            case PENDING -> "fa-clock";
+            case PROCESSING -> "fa-spinner";
+            case PAID -> "fa-check-circle";
+            case FAILED -> "fa-times-circle";
+            case CANCELLED -> "fa-ban";
+            case REFUNDED, PARTIALLY_REFUNDED -> "fa-undo";
+            case CHARGEBACK -> "fa-exclamation-triangle";
+            default -> "fa-question-circle";
+        };
     }
 }

@@ -36,7 +36,6 @@ public class LoginController {
             if (user != null) {
                 session.setAttribute("user", user);
 
-                // Przekierowanie w zależności od roli użytkownika
                 if (user.getRole() == UserRole.ADMIN || user.getRole() == UserRole.SUPERUSER) {
                     return "redirect:/admin/dashboard/main";
                 } else {

@@ -40,21 +40,12 @@ public class Subcategory {
     @Column(length = 500)
     private String description;
 
-    /**
-     * Czy subkategoria jest aktywna (widoczna w sklepie)
-     */
     @Column(nullable = false)
     private boolean active = true;
 
-    /**
-     * Kolejność wyświetlania (niższa liczba = wyższy priorytet)
-     */
     @Column(name = "display_order")
     private Integer displayOrder = 0;
 
-    /**
-     * URL obrazu subkategorii (opcjonalny)
-     */
     @Column(length = 500)
     private String imageUrl;
 
@@ -75,11 +66,6 @@ public class Subcategory {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    // ==================== KONSTRUKTORY ====================
-
-    /**
-     * Konstruktor podstawowy z wszystkimi głównymi polami
-     */
     public Subcategory(String name, String slug, String icon, String description, Category category) {
         this.name = name;
         this.slug = slug;
@@ -91,18 +77,10 @@ public class Subcategory {
         this.displayOrder = 0;
     }
 
-    /**
-     * Konstruktor bez opisu
-     */
     public Subcategory(String name, String slug, String icon, Category category) {
         this(name, slug, icon, null, category);
     }
 
-    // ==================== METODY BIZNESOWE ====================
-
-    /**
-     * Dodaj produkt do subkategorii
-     */
     public void addProduct(Product product) {
         if (products == null) {
             products = new ArrayList<>();
@@ -111,9 +89,6 @@ public class Subcategory {
         product.setSubcategory(this);
     }
 
-    /**
-     * Usuń produkt z subkategorii
-     */
     public void removeProduct(Product product) {
         if (products != null) {
             products.remove(product);
@@ -121,16 +96,10 @@ public class Subcategory {
         }
     }
 
-    /**
-     * Pobierz liczbę produktów
-     */
     public int getProductCount() {
         return products != null ? products.size() : 0;
     }
 
-    /**
-     * Pobierz liczbę dostępnych produktów
-     */
     public long getAvailableProductCount() {
         if (products == null) {
             return 0;
@@ -140,16 +109,10 @@ public class Subcategory {
                 .count();
     }
 
-    /**
-     * Sprawdź czy ma produkty
-     */
     public boolean hasProducts() {
         return products != null && !products.isEmpty();
     }
 
-    /**
-     * Pobierz listę dostępnych produktów
-     */
     public List<Product> getAvailableProducts() {
         if (products == null) {
             return new ArrayList<>();
@@ -159,46 +122,18 @@ public class Subcategory {
                 .toList();
     }
 
-    /**
-     * Sprawdź czy subkategoria jest pusta (bez produktów)
-     */
     public boolean isEmpty() {
         return !hasProducts();
     }
 
-    /**
-     * Sprawdź czy można usunąć subkategorię
-     */
     public boolean canBeDeleted() {
         return isEmpty();
     }
 
-    // ==================== METODY POMOCNICZE ====================
-
-    /**
-     * Generuj slug z nazwy
-     */
     public static String generateSlug(String name) {
-        if (name == null) {
-            return "";
-        }
-        return name.toLowerCase()
-                .replace("ą", "a")
-                .replace("ć", "c")
-                .replace("ę", "e")
-                .replace("ł", "l")
-                .replace("ń", "n")
-                .replace("ó", "o")
-                .replace("ś", "s")
-                .replace("ź", "z")
-                .replace("ż", "z")
-                .replaceAll("[^a-z0-9]+", "-")
-                .replaceAll("^-|-$", "");
+        return Brand.generateSlug(name);
     }
 
-    /**
-     * Automatycznie generuj slug z nazwy przed zapisem
-     */
     @PrePersist
     @PreUpdate
     private void generateSlugIfNeeded() {
@@ -210,8 +145,7 @@ public class Subcategory {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Subcategory)) return false;
-        Subcategory that = (Subcategory) o;
+        if (!(o instanceof Subcategory that)) return false;
         return id != null && id.equals(that.getId());
     }
 

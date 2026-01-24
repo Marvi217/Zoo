@@ -42,10 +42,6 @@ public class Product {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 
-    /**
-     * Cena promocyjna (opcjonalna, może być null)
-     * Jeśli jest ustawiona, nadpisuje obliczenia z promocji
-     */
     @Column(name = "discounted_price", precision = 10, scale = 2)
     private BigDecimal discountedPrice;
 
@@ -53,9 +49,6 @@ public class Product {
     @Column(name = "average_rating")
     private Double rating = 0.0;
 
-    /**
-     * Główny obraz produktu
-     */
     private String imageUrl;
 
     @Enumerated(EnumType.STRING)
@@ -66,18 +59,12 @@ public class Product {
     @Column(nullable = false)
     private Integer stockQuantity = 0;
 
-    /**
-     * SKU (Stock Keeping Unit) - unikalny identyfikator produktu
-     */
     @Column(length = 50, unique = true)
     private String sku;
 
     @Column(precision = 10, scale = 2)
     private BigDecimal weight;
 
-    /**
-     * Wymiary produktu (np. "10x20x30 cm")
-     */
     @Column(length = 100)
     private String dimensions;
 
@@ -92,24 +79,15 @@ public class Product {
     @JoinColumn(name = "subcategory_id")
     private Subcategory subcategory;
 
-    /**
-     * Opinie o produkcie
-     */
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @Builder.Default
     private List<Review> reviews = new ArrayList<>();
 
-    /**
-     * Dodatkowe obrazy produktu
-     */
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @OrderBy("displayOrder ASC")
     @Builder.Default
     private List<ProductImage> images = new ArrayList<>();
 
-    /**
-     * Promocje przypisane do tego produktu
-     */
     @ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
     @Builder.Default
     private Set<Promotion> promotions = new HashSet<>();
@@ -122,28 +100,16 @@ public class Product {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    // ==================== METODY BIZNESOWE ====================
-
-    /**
-     * Zwraca liczbę opinii
-     */
     public Integer getReviewCount() {
         return reviews != null ? reviews.size() : 0;
     }
 
-    /**
-     * Sprawdza czy produkt jest dostępny
-     */
     public boolean isAvailable() {
-        // Sprawdzamy czy produkt jest aktywny ORAZ czy mamy go na stanie
         return this.status == ProductStatus.ACTIVE &&
                 this.stockQuantity != null &&
                 this.stockQuantity > 0;
     }
 
-    /**
-     * Zmniejsza stan magazynowy
-     */
     public void decreaseStock(int quantity) {
         if (stockQuantity < quantity) {
             throw new IllegalStateException("Niewystarczająca ilość produktu w magazynie. " +
@@ -155,9 +121,6 @@ public class Product {
         }
     }
 
-    /**
-     * Zwiększa stan magazynowy
-     */
     public void increaseStock(int quantity) {
         stockQuantity += quantity;
         if (stockQuantity > 0 && status == ProductStatus.SOLDOUT) {
@@ -165,23 +128,15 @@ public class Product {
         }
     }
 
-    /**
-     * Sprawdza czy produkt ma aktywną promocję
-     */
     @Transient
     public boolean isHasDiscount() {
-        // Jeśli ustawiono ręcznie cenę promocyjną
         if (discountedPrice != null && discountedPrice.compareTo(price) < 0) {
             return true;
         }
 
-        // Sprawdź czy są aktywne promocje
         return getCurrentPromotion() != null;
     }
 
-    /**
-     * Zwraca starą cenę (przed rabatem)
-     */
     @Transient
     public BigDecimal getOldPrice() {
         if (isHasDiscount()) {
@@ -190,29 +145,20 @@ public class Product {
         return null;
     }
 
-    /**
-     * Zwraca aktualną cenę do zapłaty (z rabatem jeśli istnieje)
-     */
     @Transient
     public BigDecimal getCurrentPrice() {
-        // Najpierw sprawdź ręcznie ustawioną cenę promocyjną
         if (discountedPrice != null && discountedPrice.compareTo(price) < 0) {
             return discountedPrice;
         }
 
-        // Potem sprawdź promocje automatyczne
         Promotion promotion = getCurrentPromotion();
         if (promotion != null) {
             return promotion.calculateDiscountedPrice(price);
         }
 
-        // Zwróć normalną cenę
         return price;
     }
 
-    /**
-     * Zwraca procent zniżki
-     */
     @Transient
     public Integer getDiscountPercent() {
         if (!isHasDiscount()) {
@@ -230,9 +176,6 @@ public class Product {
         return percent.intValue();
     }
 
-    /**
-     * Zwraca kwotę zaoszczędzoną
-     */
     @Transient
     public BigDecimal getSavingsAmount() {
         if (!isHasDiscount()) {
@@ -241,11 +184,6 @@ public class Product {
         return price.subtract(getCurrentPrice());
     }
 
-    /**
-     * Zwraca aktualnie aktywną promocję o najwyższym priorytecie.
-     * Tylko promocje automatyczne (bez kodu, typ PERCENTAGE_DISCOUNT lub BUY_X_GET_Y).
-     * FIXED_AMOUNT_DISCOUNT i promocje z kodem są stosowane tylko w checkout.
-     */
     @Transient
     public Promotion getCurrentPromotion() {
         if (promotions == null || promotions.isEmpty()) {
@@ -254,17 +192,14 @@ public class Product {
 
         return promotions.stream()
                 .filter(Promotion::isCurrentlyActive)
-                // Tylko promocje automatyczne: bez kodu i typ PERCENTAGE_DISCOUNT lub BUY_X_GET_Y
                 .filter(p -> (p.getCode() == null || p.getCode().isEmpty()) &&
                         (p.getType() == PromotionType.PERCENTAGE_DISCOUNT ||
                                 p.getType() == PromotionType.BUY_X_GET_Y))
                 .max((p1, p2) -> {
-                    // Porównaj po priorytecie
                     int priorityCompare = Integer.compare(p1.getPriority(), p2.getPriority());
                     if (priorityCompare != 0) {
                         return priorityCompare;
                     }
-                    // Jeśli priorytet równy, wybierz większą zniżkę
                     BigDecimal discount1 = p1.calculateDiscount(price);
                     BigDecimal discount2 = p2.calculateDiscount(price);
                     return discount1.compareTo(discount2);
@@ -272,9 +207,6 @@ public class Product {
                 .orElse(null);
     }
 
-    /**
-     * Zwraca skrócony opis
-     */
     @Transient
     public String getShortDescription() {
         if (description == null || description.isEmpty()) {
@@ -285,9 +217,6 @@ public class Product {
                 description;
     }
 
-    /**
-     * Zwraca krótki opis dla kart produktu
-     */
     @Transient
     public String getCardDescription() {
         if (description == null || description.isEmpty()) {
@@ -298,17 +227,11 @@ public class Product {
                 description;
     }
 
-    /**
-     * Sprawdza czy stan magazynowy jest niski
-     */
     @Transient
     public boolean isLowStock() {
         return stockQuantity > 0 && stockQuantity <= 10;
     }
 
-    /**
-     * Zwraca status stanu magazynowego jako tekst
-     */
     @Transient
     public String getStockStatus() {
         if (stockQuantity == 0) {
@@ -322,9 +245,6 @@ public class Product {
         }
     }
 
-    /**
-     * Zwraca główny obraz lub pierwszy z listy obrazów
-     */
     @Transient
     public String getMainImageUrl() {
         if (imageUrl != null && !imageUrl.isEmpty()) {
@@ -342,9 +262,6 @@ public class Product {
         return "/images/no-image.png";
     }
 
-    /**
-     * Dodaje obraz do produktu
-     */
     public void addImage(ProductImage image) {
         if (images == null) {
             images = new ArrayList<>();
@@ -353,9 +270,6 @@ public class Product {
         image.setProduct(this);
     }
 
-    /**
-     * Usuwa obraz z produktu
-     */
     public void removeImage(ProductImage image) {
         if (images != null) {
             images.remove(image);
@@ -363,9 +277,6 @@ public class Product {
         }
     }
 
-    /**
-     * Dodaje opinię do produktu
-     */
     public void addReview(Review review) {
         if (reviews == null) {
             reviews = new ArrayList<>();
@@ -375,9 +286,6 @@ public class Product {
         recalculateRating();
     }
 
-    /**
-     * Przelicza średnią ocenę na podstawie opinii
-     */
     public void recalculateRating() {
         if (reviews == null || reviews.isEmpty()) {
             this.rating = 0.0;
@@ -393,8 +301,7 @@ public class Product {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Product)) return false;
-        Product product = (Product) o;
+        if (!(o instanceof Product product)) return false;
         return id != null && id.equals(product.getId());
     }
 

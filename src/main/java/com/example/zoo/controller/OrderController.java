@@ -39,14 +39,11 @@ public class OrderController {
 
     @PostMapping("/confirm")
     public String confirmOrder(@ModelAttribute Order order, Principal principal) {
-        // 1. Podstawowe dane zamówienia
         order.setOrderNumber("ORD-" + System.currentTimeMillis());
         order.setTotalAmount(cartService.getTotalPrice());
 
-        // Zmienione na PLACED (zgodnie z Twoim enumem)
         order.setStatus(OrderStatus.PENDING);
 
-        // 2. Mapowanie produktów z koszyka
         cartService.getProductsInCart().forEach((product, qty) -> {
             OrderItem item = new OrderItem();
             item.setProduct(product);
@@ -57,13 +54,10 @@ public class OrderController {
             order.getItems().add(item);
         });
 
-        // 3. Zapis zamówienia
         orderRepository.save(order);
 
-        // 4. Czyszczenie koszyka
         cartService.clear();
 
-        // 5. Przekierowanie do makiety płatności (używamy poprawnego parametru)
         return "redirect:/order/payment/mock?orderNumber=" + order.getOrderNumber();
     }
 

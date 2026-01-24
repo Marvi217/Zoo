@@ -79,13 +79,11 @@ function handleWishlist(button, event) {
     const heart = button.querySelector('.heart');
     const isFilled = heart.classList.contains('filled');
 
-    // Animacja
     button.style.transform = 'scale(1.2)';
     setTimeout(() => {
         button.style.transform = '';
     }, 200);
 
-    // Wyślij request do serwera
     fetch('/wishlist/toggle', {
         method: 'POST',
         headers: {
@@ -96,7 +94,6 @@ function handleWishlist(button, event) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Zmień stan serduszka
                 if (isFilled) {
                     heart.classList.remove('filled');
                     heart.classList.add('empty');
@@ -105,7 +102,6 @@ function handleWishlist(button, event) {
                     heart.classList.add('filled');
                 }
 
-                // Opcjonalnie: pokaż toast notification
                 showToast(isFilled ? 'Usunięto z ulubionych' : 'Dodano do ulubionych');
             }
         })
@@ -116,7 +112,6 @@ function handleWishlist(button, event) {
 }
 
 function showToast(message, type = 'success') {
-    // Stwórz toast notification
     const toast = document.createElement('div');
     toast.style.cssText = `
         position: fixed;
@@ -140,7 +135,6 @@ function showToast(message, type = 'success') {
     }, 2000);
 }
 
-// Animacje CSS
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {

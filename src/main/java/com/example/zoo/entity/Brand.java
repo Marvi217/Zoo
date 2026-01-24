@@ -6,7 +6,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Builder // Dodajemy, aby ułatwić tworzenie obiektów
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "brands")
@@ -23,24 +23,19 @@ public class Brand {
     private String slug;
 
     @Column(columnDefinition = "TEXT")
-    private String description; // Dodano
+    private String description;
 
     @Builder.Default
-    private boolean active = true; // Dodano
+    private boolean active = true;
 
-    private String logoUrl; // Dodano
-    private String website; // Dodano
-    private String country; // Dodano
+    private String logoUrl;
+    private String website;
+    private String country;
 
     @OneToMany(mappedBy = "brand")
-    @ToString.Exclude // Ważne przy @Data, zapobiega zapętleniu toString
+    @ToString.Exclude
     private List<Product> products;
 
-    // ==================== METODY POMOCNICZE ====================
-
-    /**
-     * Generuj slug z nazwy
-     */
     public static String generateSlug(String name) {
         if (name == null) {
             return "";
@@ -59,9 +54,6 @@ public class Brand {
                 .replaceAll("^-|-$", "");
     }
 
-    /**
-     * Automatycznie generuj slug z nazwy przed zapisem
-     */
     @PrePersist
     @PreUpdate
     private void generateSlugIfNeeded() {

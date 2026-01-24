@@ -42,7 +42,6 @@ public class CheckoutController {
     private final PromotionService promotionService;
     private final UserCartRepository userCartRepository;
 
-    // Helper class to unify cart data for both session and database carts
     private static class CartData {
         BigDecimal total;
         List<CartItem> items;
@@ -113,9 +112,6 @@ public class CheckoutController {
         return "checkout";
     }
 
-    /**
-     * Walidacja kodu rabatowego (AJAX)
-     */
     @GetMapping("/validate-voucher")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> validateVoucher(
@@ -181,13 +177,12 @@ public class CheckoutController {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             User currentUser = null;
 
-            // Sprawdzanie czy użytkownik jest zalogowany
             if (auth != null && auth.isAuthenticated() && !"anonymousUser".equals(auth.getPrincipal())) {
                 currentUser = userRepository.findByEmail(auth.getName()).orElse(null);
             }
 
             Order order = new Order();
-            order.setUser(currentUser); // Może być null dla gościa
+            order.setUser(currentUser);
             order.setOrderNumber(generateOrderNumber());
             order.setOrderDate(LocalDateTime.now());
             order.setStatus(OrderStatus.PENDING);
@@ -202,10 +197,8 @@ public class CheckoutController {
                 order.setGuestPhone(phone);
             }
 
-            // ✅ OBSŁUGA ADRESU - WYBÓR ZAPISANEGO LUB NOWY
             Address address = null;
 
-            // Jeśli użytkownik wybrał zapisany adres
             if (addressId != null && currentUser != null) {
                 UserAddress userAddress = addressService.getAddressById(addressId, currentUser)
                         .orElseThrow(() -> new IllegalArgumentException("Wybrany adres nie istnieje"));
@@ -216,7 +209,6 @@ public class CheckoutController {
                 address.setZipCode(userAddress.getZipCode());
                 address.setCountry(userAddress.getCountry());
             }
-            // Jeśli podano nowy adres
             else if (street != null && !street.isEmpty()) {
                 address = new Address();
                 address.setStreet(street);
@@ -224,7 +216,6 @@ public class CheckoutController {
                 address.setZipCode(zipCode);
                 address.setCountry(country != null ? country : "Poland");
 
-                // ✅ ZAPISZ ADRES JEŚLI UŻYTKOWNIK ZAZNACZY CHECKBOX
                 if (Boolean.TRUE.equals(saveAddress) && currentUser != null) {
                     try {
                         UserAddress newUserAddress = new UserAddress();
@@ -239,7 +230,6 @@ public class CheckoutController {
                         newUserAddress.setCountry(country != null ? country : "Poland");
                         newUserAddress.setPhoneNumber(phone);
 
-                        // ✅ OPCJA 3: Użyj zwróconej wartości
                         UserAddress savedAddress = addressService.saveAddress(newUserAddress, currentUser);
 
                         System.out.println("✓ Adres został zapisany dla przyszłych zamówień");
@@ -247,7 +237,6 @@ public class CheckoutController {
                         System.out.println("  - Label: " + savedAddress.getLabel());
                         System.out.println("  - Is Default: " + savedAddress.isDefault());
                     } catch (Exception e) {
-                        // Nie przerywaj procesu zamówienia jeśli zapisanie adresu się nie powiodło
                         System.err.println("⚠ Nie udało się zapisać adresu: " + e.getMessage());
                         e.printStackTrace();
                     }
@@ -267,7 +256,6 @@ public class CheckoutController {
             BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
             order.setDeliveryCost(deliveryCost);
 
-            // Obsługa Metody Płatności
             try {
                 order.setPaymentMethod(PaymentMethod.valueOf(paymentMethod));
             } catch (IllegalArgumentException e) {
@@ -292,7 +280,6 @@ public class CheckoutController {
 
             order.setSubtotal(cartData.total);
 
-            // Obsługa kodu rabatowego (voucher)
             BigDecimal discountAmount = BigDecimal.ZERO;
             if (voucherCode != null && !voucherCode.trim().isEmpty()) {
                 var promotionOpt = promotionService.getPromotionByCode(voucherCode.trim());
@@ -303,7 +290,6 @@ public class CheckoutController {
                         order.setPromotion(promotion);
                         order.setDiscountAmount(discountAmount);
 
-                        // Zwiększ licznik użyć promocji
                         promotion.setCurrentUsage(promotion.getCurrentUsage() + 1);
                     }
                 }

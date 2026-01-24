@@ -14,9 +14,6 @@ public enum UserRole {
         this.displayName = displayName;
     }
 
-    /**
-     * Zwraca rolę w formacie akceptowanym przez Spring Security (ROLE_...)
-     */
     public String getAuthority() {
         return "ROLE_" + this.name();
     }

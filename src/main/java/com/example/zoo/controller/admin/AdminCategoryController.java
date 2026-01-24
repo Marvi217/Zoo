@@ -48,9 +48,6 @@ public class AdminCategoryController {
         return "admin/categories/list";
     }
 
-    /**
-     * Formularz dodawania nowej kategorii
-     */
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         CategoryDTO categoryDTO = new CategoryDTO();
@@ -59,9 +56,6 @@ public class AdminCategoryController {
         return "admin/categories/form";
     }
 
-    /**
-     * Zapisywanie nowej kategorii
-     */
     @PostMapping
     public String createCategory(
             @Valid @ModelAttribute CategoryDTO categoryDTO,
@@ -92,9 +86,6 @@ public class AdminCategoryController {
         return "redirect:/admin/categories";
     }
 
-    /**
-     * Formularz edycji kategorii
-     */
     @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         Category category = categoryService.getCategoryById(id);
@@ -119,9 +110,6 @@ public class AdminCategoryController {
         return "admin/categories/form";
     }
 
-    /**
-     * Aktualizacja kategorii
-     */
     @PostMapping("/{id}")
     public String updateCategory(
             @PathVariable Long id,
@@ -154,9 +142,6 @@ public class AdminCategoryController {
         return "redirect:/admin/categories";
     }
 
-    /**
-     * Usuwanie kategorii
-     */
     @PostMapping("/{id}/delete")
     public String deleteCategory(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
@@ -169,9 +154,6 @@ public class AdminCategoryController {
         return "redirect:/admin/categories";
     }
 
-    /**
-     * Zmiana statusu aktywności kategorii
-     */
     @PostMapping("/{id}/toggle-active")
     @ResponseBody
     public String toggleActive(@PathVariable Long id) {
@@ -183,10 +165,6 @@ public class AdminCategoryController {
         }
     }
 
-    /**
-     * Przekierowanie do listy subkategorii dla danej kategorii
-     * Ta metoda przekierowuje do AdminSubcategoryController
-     */
     @GetMapping("/{id}/subcategories")
     public String redirectToSubcategories(@PathVariable Long id) {
         return "redirect:/admin/subcategories/category/" + id;

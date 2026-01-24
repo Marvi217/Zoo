@@ -27,10 +27,8 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     List<Order> findAllByOrderDateAfter(LocalDateTime date);
 
-    // Ta metoda przyda się do statystyk (np. getUserOrderStatistics)
     List<Order> findAllByUserId(Long userId);
 
-    // ==================== WYSZUKIWANIE PODSTAWOWE ====================
 
     @Query("SELECT o.user, COUNT(o), SUM(o.totalAmount) FROM Order o " +
             "WHERE o.orderDate BETWEEN :from AND :to AND o.user IS NOT NULL " +
@@ -39,9 +37,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
                                             @Param("to") LocalDateTime to,
                                             Pageable pageable);
 
-    /**
-     * Znajdź zamówienie po numerze
-     */
     Optional<Order> findByOrderNumber(String orderNumber);
 
     @Modifying
@@ -49,61 +44,29 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("UPDATE Order o SET o.status = :status WHERE o.id IN :ids")
     int updateStatusForIds(@Param("ids") List<Long> ids, @Param("status") OrderStatus status);
 
-    /**
-     * Znajdź zamówienia użytkownika
-     */
     List<Order> findByUserOrderByOrderDateDesc(User user);
 
-    /**
-     * Znajdź wszystkie zamówienia użytkownika
-     */
     List<Order> findAllByUserOrderByOrderDateDesc(User user);
 
     @Query("SELECT o.status, COUNT(o) FROM Order o WHERE o.orderDate BETWEEN :from AND :to GROUP BY o.status")
     List<Object[]> countOrdersByStatusInPeriod(@Param("from") LocalDateTime from, @Param("to") LocalDateTime to);
 
-    /**
-     * Znajdź ostatnie 3 zamówienia użytkownika
-     */
     List<Order> findTop3ByUserOrderByOrderDateDesc(User user);
 
-    /**
-     * Znajdź zamówienia gościa po email
-     */
     List<Order> findByGuestEmailOrderByOrderDateDesc(String email);
 
-    /**
-     * Znajdź zamówienia według statusu
-     */
     List<Order> findByStatusOrderByOrderDateDesc(OrderStatus status, Pageable pageable);
 
-    // ==================== STATYSTYKI ====================
-
-    /**
-     * Zlicz zamówienia użytkownika
-     */
     long countByUser(User user);
 
-    /**
-     * Zlicz zamówienia według statusu
-     */
     long countByStatus(OrderStatus status);
 
-    /**
-     * Zlicz zamówienia w przedziale czasowym
-     */
     long countByOrderDateBetween(LocalDateTime from, LocalDateTime to);
 
-    /**
-     * Suma wydanych pieniędzy przez użytkownika
-     */
     @Query("SELECT SUM(o.totalAmount - o.deliveryCost) FROM Order o WHERE o.user = :user " +
             "AND o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalSpentByUser(@Param("user") User user);
 
-    /**
-     * Suma przychodów w przedziale czasowym (bez kosztów dostawy)
-     */
     @Query("SELECT SUM(o.totalAmount - o.deliveryCost) FROM Order o WHERE o.orderDate BETWEEN :from AND :to " +
             "AND o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
     BigDecimal sumTotalAmountByOrderDateBetween(
@@ -111,19 +74,9 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             @Param("to") LocalDateTime to
     );
 
-    // ==================== OSTATNIE ZAMÓWIENIA ====================
-
-    /**
-     * Pobierz ostatnie zamówienia
-     */
     @Query("SELECT o FROM Order o ORDER BY o.orderDate DESC")
     List<Order> findRecentOrders(Pageable pageable);
 
-    // ==================== BESTSELLERY ====================
-
-    /**
-     * Znajdź najlepiej sprzedające się produkty
-     */
     @Query("SELECT oi.product, SUM(oi.quantity) as totalQuantity, " +
             "SUM(oi.price * oi.quantity) as totalRevenue " +
             "FROM OrderItem oi " +
@@ -139,11 +92,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             Pageable pageable
     );
 
-    // ==================== WYKRESY ====================
-
-    /**
-     * Pobierz dzienny przychód
-     */
     @Query("SELECT CAST(o.orderDate AS date) as orderDate, SUM(o.totalAmount) as revenue " +
             "FROM Order o " +
             "WHERE o.orderDate BETWEEN :from AND :to " +
@@ -156,9 +104,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             @Param("to") LocalDateTime to
     );
 
-    /**
-     * Pobierz dzienną liczbę zamówień
-     */
     @Query("SELECT CAST(o.orderDate AS date) as orderDate, COUNT(o) as orderCount " +
             "FROM Order o " +
             "WHERE o.orderDate BETWEEN :from AND :to " +
@@ -169,17 +114,9 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             @Param("to") LocalDateTime to
     );
 
-    /**
-     * Zlicz zamówienia według statusu
-     */
     @Query("SELECT o.status, COUNT(o) FROM Order o GROUP BY o.status")
     List<Object[]> countOrdersByStatus();
 
-    // ==================== FILTROWANIE ====================
-
-    /**
-     * Filtrowanie zaawansowane zamówień
-     */
     @Query("SELECT o FROM Order o WHERE " +
             "(:status IS NULL OR o.status = :status) AND " +
             "(:paymentStatus IS NULL OR o.paymentStatus = :paymentStatus) AND " +
@@ -201,9 +138,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             Pageable pageable
     );
 
-    /**
-     * Wyszukiwanie pełnotekstowe
-     */
     @Query("SELECT o FROM Order o WHERE " +
             "LOWER(o.orderNumber) LIKE LOWER(CONCAT('%', :query, '%')) OR " +
             "LOWER(o.guestEmail) LIKE LOWER(CONCAT('%', :query, '%')) OR " +
@@ -213,11 +147,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             "LOWER(o.user.lastName) LIKE LOWER(CONCAT('%', :query, '%'))")
     Page<Order> searchOrders(@Param("query") String query, Pageable pageable);
 
-    // ==================== TOP KLIENCI ====================
-
-    /**
-     * Znajdź top klientów (najwięcej zamówień i wydanych pieniędzy)
-     */
     @Query("SELECT o.user, COUNT(o) as orderCount, SUM(o.totalAmount) as totalSpent " +
             "FROM Order o " +
             "WHERE o.user IS NOT NULL " +
@@ -227,105 +156,52 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             "ORDER BY totalSpent DESC")
     List<Object[]> findTopCustomers(Pageable pageable);
 
-    // ==================== METODY PŁATNOŚCI I DOSTAWY ====================
-
-    /**
-     * Zlicz zamówienia według metody płatności
-     */
     @Query("SELECT o.paymentMethod, COUNT(o) FROM Order o " +
             "WHERE o.paymentMethod IS NOT NULL " +
             "GROUP BY o.paymentMethod")
     List<Object[]> countOrdersByPaymentMethod();
 
-    /**
-     * Zlicz zamówienia według metody dostawy
-     */
     @Query("SELECT o.deliveryMethod, COUNT(o) FROM Order o " +
             "WHERE o.deliveryMethod IS NOT NULL " +
             "GROUP BY o.deliveryMethod")
     List<Object[]> countOrdersByDeliveryMethod();
 
-    // ==================== CZAS REALIZACJI ====================
-
-    /**
-     * Oblicz średni czas realizacji zamówienia (od złożenia do dostarczenia)
-     */
-//    @Query("SELECT AVG(TIMESTAMPDIFF(HOUR, o.orderDate, o.deliveredAt)) " +
-//            "FROM Order o " +
-//            "WHERE o.deliveredAt IS NOT NULL")
-//    Double calculateAverageProcessingTime();
-
-    /**
-     * Znajdź zamówienia oczekujące dłużej niż określona liczba dni
-     */
     @Query("SELECT o FROM Order o WHERE o.status = 'PENDING' " +
             "AND o.orderDate < :threshold " +
             "ORDER BY o.orderDate ASC")
     List<Order> findPendingOrdersOlderThan(@Param("threshold") LocalDateTime threshold);
 
-    // ==================== PROMOCJE ====================
-
-    /**
-     * Znajdź zamówienia z promocją
-     */
     @Query("SELECT o FROM Order o WHERE o.promotion IS NOT NULL")
     Page<Order> findOrdersWithPromotion(Pageable pageable);
 
-    /**
-     * Zlicz użycia promocji
-     */
     @Query("SELECT COUNT(o) FROM Order o WHERE o.promotion.id = :promotionId")
     long countOrdersByPromotionId(@Param("promotionId") Long promotionId);
 
-    /**
-     * Suma zniżek z promocji
-     */
     @Query("SELECT SUM(o.discountAmount) FROM Order o WHERE o.promotion.id = :promotionId")
     BigDecimal sumDiscountByPromotionId(@Param("promotionId") Long promotionId);
 
-    // ==================== ZAAWANSOWANE STATYSTYKI ====================
-
-    /**
-     * Średnia wartość zamówienia
-     * "AND o.status NOT IN (com.example.zoo.enums.OrderStatus.CANCELLED, " +
-     *             "com.example.zoo.enums.OrderStatus.FAILED) " +
-     */
     @Query("SELECT AVG(o.totalAmount) FROM Order o " +
             "WHERE o.status NOT IN (com.example.zoo.enums.OrderStatus.CANCELLED, " + "com.example.zoo.enums.OrderStatus.FAILED) ")
     BigDecimal calculateAverageOrderValue();
 
-    /**
-     * Współczynnik konwersji (procent zamówień dostarczonych)
-     */
     @Query("SELECT " +
             "CAST(COUNT(CASE WHEN o.status = 'DELIVERED' THEN 1 END) AS double) / " +
             "CAST(COUNT(o) AS double) * 100 " +
             "FROM Order o")
     Double calculateConversionRate();
 
-    /**
-     * Zamówienia według godzin dnia
-     */
     @Query("SELECT HOUR(o.orderDate) as hour, COUNT(o) as orderCount " +
             "FROM Order o " +
             "GROUP BY HOUR(o.orderDate) " +
             "ORDER BY hour")
     List<Object[]> countOrdersByHourOfDay();
 
-    /**
-     * Zamówienia według dni tygodnia
-     */
     @Query("SELECT DAYOFWEEK(o.orderDate) as dayOfWeek, COUNT(o) as orderCount " +
             "FROM Order o " +
             "GROUP BY DAYOFWEEK(o.orderDate) " +
             "ORDER BY dayOfWeek")
     List<Object[]> countOrdersByDayOfWeek();
 
-    // ==================== ALERTY ====================
-
-    /**
-     * Znajdź zamówienia wymagające uwagi (stare oczekujące)
-     */
     @Query("SELECT o FROM Order o WHERE " +
             "(o.status = 'PENDING' AND o.orderDate < :pendingThreshold) OR " +
             "(o.status = 'PROCESSING' AND o.orderDate < :processingThreshold)")
@@ -334,11 +210,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             @Param("processingThreshold") LocalDateTime processingThreshold
     );
 
-    /**
-     * Znajdź zamówienia z problemami płatności
-     * NOT IN (com.example.zoo.enums.OrderStatus.CANCELLED, " +
-     *      *             "com.example.zoo.enums.OrderStatus.FAILED) "
-     */
     @Query("SELECT o FROM Order o WHERE o.paymentStatus IN (com.example.zoo.enums.PaymentStatus.FAILED, com.example.zoo.enums.PaymentStatus.PENDING) " +
             "AND o.orderDate < :threshold " +
             "ORDER BY o.orderDate ASC")
@@ -348,7 +219,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     List<Order> findByStatus(OrderStatus status);
 
-    // Jeśli masz pole paymentStatus w encji Order
     Page<Order> findByPaymentStatus(PaymentStatus paymentStatus, Pageable pageable);
 
     @Query("SELECT SUM(o.totalAmount - o.deliveryCost) FROM Order o WHERE o.paymentStatus = com.example.zoo.enums.PaymentStatus.PAID")
@@ -366,20 +236,12 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     List<Order> findByOrderDateBetween(LocalDateTime start, LocalDateTime end);
 
-    // ==================== SPRAWDZANIE ZAKUPU PRODUKTU ====================
-
-    /**
-     * Sprawdź czy użytkownik kupił produkt w zamówieniu które zostało dostarczone lub zwrócone
-     */
     @Query("SELECT CASE WHEN COUNT(oi) > 0 THEN true ELSE false END " +
             "FROM OrderItem oi JOIN oi.order o " +
             "WHERE o.user.id = :userId AND oi.product.id = :productId " +
             "AND o.status IN (com.example.zoo.enums.OrderStatus.DELIVERED, com.example.zoo.enums.OrderStatus.RETURNED)")
     boolean hasUserPurchasedProduct(@Param("userId") Long userId, @Param("productId") Long productId);
 
-    /**
-     * Znajdź produkty z zamówień użytkownika które mogą być ocenione (dostarczone lub zwrócone)
-     */
     @Query("SELECT DISTINCT oi.product FROM OrderItem oi JOIN oi.order o " +
             "WHERE o.user.id = :userId " +
             "AND o.status IN (com.example.zoo.enums.OrderStatus.DELIVERED, com.example.zoo.enums.OrderStatus.RETURNED)")

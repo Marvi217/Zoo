@@ -18,9 +18,6 @@ public class AdminReviewController {
 
     private final ReviewService reviewService;
 
-    /**
-     * Lista wszystkich opinii
-     */
     @GetMapping
     public String listReviews(
             @RequestParam(defaultValue = "0") int page,

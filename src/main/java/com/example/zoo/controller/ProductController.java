@@ -45,7 +45,6 @@ public class ProductController {
     public String showProduct(@PathVariable Long id, Model model, HttpSession session) {
         Product product = productService.getProductById(id);
 
-        // Pobierz tylko zatwierdzone opinie
         List<Review> reviews = reviewRepository.findByProductOrderByCreatedAtDesc(product)
                 .stream()
                 .filter(r -> r.getStatus() == ReviewStatus.APPROVED)
@@ -57,15 +56,12 @@ public class ProductController {
                 .limit(4)
                 .toList();
 
-        // Sprawdź czy zalogowany użytkownik może dodać opinię
         User currentUser = securityHelper.getCurrentUser(session);
         boolean canReview = false;
         boolean hasReviewed = false;
 
         if (currentUser != null) {
-            // Sprawdź czy użytkownik kupił produkt (zamówienie dostarczone lub zwrócone)
             canReview = orderService.canUserReviewProduct(currentUser.getId(), id);
-            // Sprawdź czy użytkownik już ocenił produkt
             hasReviewed = reviewService.hasUserReviewedProduct(currentUser.getId(), id);
         }
 
@@ -94,19 +90,16 @@ public class ProductController {
             return "redirect:/login?returnUrl=/product/" + id;
         }
 
-        // Sprawdź czy użytkownik kupił produkt
         if (!orderService.canUserReviewProduct(currentUser.getId(), id)) {
             redirectAttributes.addFlashAttribute("error", "Możesz oceniać tylko produkty które kupiłeś i otrzymałeś");
             return "redirect:/product/" + id;
         }
 
-        // Sprawdź czy użytkownik już ocenił
         if (reviewService.hasUserReviewedProduct(currentUser.getId(), id)) {
             redirectAttributes.addFlashAttribute("error", "Już oceniłeś ten produkt");
             return "redirect:/product/" + id;
         }
 
-        // Walidacja oceny
         if (rating < 1 || rating > 5) {
             redirectAttributes.addFlashAttribute("error", "Ocena musi być w zakresie 1-5");
             return "redirect:/product/" + id;

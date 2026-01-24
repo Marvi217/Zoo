@@ -16,23 +16,14 @@ public enum ReviewStatus {
         this.description = description;
     }
 
-    /**
-     * Sprawdza czy opinia jest widoczna publicznie
-     */
     public boolean isPublic() {
         return this == APPROVED;
     }
 
-    /**
-     * Sprawdza czy opinia wymaga moderacji
-     */
     public boolean requiresModeration() {
         return this == PENDING;
     }
 
-    /**
-     * Zwraca kolor do wyświetlania w interfejsie
-     */
     public String getColor() {
         return switch (this) {
             case PENDING -> "warning";
@@ -42,9 +33,6 @@ public enum ReviewStatus {
         };
     }
 
-    /**
-     * Zwraca ikonę Font Awesome
-     */
     public String getIcon() {
         return switch (this) {
             case PENDING -> "fa-clock";

@@ -3,9 +3,6 @@ package com.example.zoo.entity;
 import com.example.zoo.enums.PromotionType;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
@@ -294,10 +291,6 @@ public class Promotion {
                 '}';
     }
 
-    /**
-     * Convert empty string code to NULL before persist/update
-     * to avoid unique constraint violations (multiple NULLs are allowed, but multiple empty strings are not)
-     */
     @PrePersist
     @PreUpdate
     private void normalizeCode() {

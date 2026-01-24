@@ -41,9 +41,6 @@ public class AdminProductController {
     private final SubcategoryRepository subcategoryRepository;
     private final BrandRepository brandRepository;
 
-    /**
-     * Lista wszystkich produktów z paginacją i filtrowaniem
-     */
     @GetMapping
     public String listProducts(
             @RequestParam(defaultValue = "0") int page,
@@ -77,7 +74,6 @@ public class AdminProductController {
 
         System.out.println("Products found: " + products.getTotalElements());
 
-        // Przygotowanie danych dla widoku
         model.addAttribute("products", products);
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", products.getTotalPages());
@@ -88,7 +84,6 @@ public class AdminProductController {
         model.addAttribute("brands", brandService.getAllActiveBrands());
         model.addAttribute("statuses", ProductStatus.values());
 
-        // Zachowanie parametrów filtrowania
         model.addAttribute("search", search);
         model.addAttribute("selectedCategoryId", categoryId);
         model.addAttribute("selectedSubcategoryId", subcategoryId);
@@ -100,9 +95,6 @@ public class AdminProductController {
         return "admin/products";
     }
 
-    /**
-     * AJAX endpoint do pobierania subkategorii dla wybranej kategorii
-     */
     @GetMapping("/subcategories-by-category/{categoryId}")
     @ResponseBody
     public List<SubcategoryDTO> getSubcategoriesByCategory(@PathVariable Long categoryId) {
@@ -120,9 +112,6 @@ public class AdminProductController {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Formularz dodawania nowego produktu
-     */
     @GetMapping("/new")
     public String showCreateForm(Model model, HttpSession session) {
         System.out.println("=== NEW PRODUCT FORM CALLED ===");
@@ -144,9 +133,6 @@ public class AdminProductController {
         return "admin/products/form";
     }
 
-    /**
-     * Tworzenie nowego produktu
-     */
     @PostMapping
     public String createProduct(
             @Valid @ModelAttribute ProductDTO productDTO,
@@ -155,11 +141,7 @@ public class AdminProductController {
             RedirectAttributes redirectAttributes,
             Model model) {
 
-        System.out.println("=== CREATE PRODUCT CALLED ===");
-        System.out.println("ProductDTO: " + productDTO);
-
         if (result.hasErrors()) {
-            System.out.println("❌ VALIDATION ERRORS:");
             result.getAllErrors().forEach(error ->
                     System.out.println("  - " + error.getDefaultMessage())
             );
@@ -171,8 +153,6 @@ public class AdminProductController {
         }
 
         try {
-            System.out.println("✅ Creating product...");
-
             Product product = new Product();
             product.setName(productDTO.getName());
             product.setDescription(productDTO.getDescription());
@@ -184,7 +164,6 @@ public class AdminProductController {
             product.setWeight(productDTO.getWeight());
             product.setDimensions(productDTO.getDimensions());
 
-            // Pobierz relacje
             Category category = categoryRepository.findById(productDTO.getCategoryId())
                     .orElseThrow(() -> new RuntimeException("Kategoria nie znaleziona"));
             Subcategory subcategory = subcategoryRepository.findById(productDTO.getSubcategoryId())
@@ -197,9 +176,7 @@ public class AdminProductController {
             product.setBrand(brand);
 
             Product saved = productService.save(product);
-            System.out.println("✅ Product created with ID: " + saved.getId());
 
-            // Dodawanie obrazów
             if (images != null) {
                 for (MultipartFile image : images) {
                     if (!image.isEmpty()) {
@@ -213,7 +190,6 @@ public class AdminProductController {
             return "redirect:/admin/products";
 
         } catch (Exception e) {
-            System.err.println("❌ ERROR creating product:");
             e.printStackTrace();
 
             redirectAttributes.addFlashAttribute("error",
@@ -222,13 +198,8 @@ public class AdminProductController {
         }
     }
 
-    /**
-     * Formularz edycji produktu
-     */
     @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
-        System.out.println("=== EDIT PRODUCT FORM CALLED, ID: " + id + " ===");
-
         Product product = productService.getProductById(id);
 
         if (product == null) {
@@ -266,9 +237,6 @@ public class AdminProductController {
         return productDTO;
     }
 
-    /**
-     * Aktualizacja produktu
-     */
     @PostMapping("/{id}")
     public String updateProduct(
             @PathVariable Long id,
@@ -290,8 +258,7 @@ public class AdminProductController {
         try {
             Product product = productService.updateProduct(id, productDTO);
 
-            // Dodawanie nowych obrazów
-            if (images != null && images.length > 0) {
+            if (images != null) {
                 for (MultipartFile image : images) {
                     if (!image.isEmpty()) {
                         productImageService.addImage(product.getId(), image);
@@ -309,9 +276,6 @@ public class AdminProductController {
         }
     }
 
-    /**
-     * Widok zarządzania obrazami produktu
-     */
     @GetMapping("/{id}/images")
     public String manageImages(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         System.out.println("=== MANAGE IMAGES CALLED, ID: " + id + " ===");
@@ -329,9 +293,6 @@ public class AdminProductController {
         return "admin/products/images";
     }
 
-    /**
-     * Usuwanie obrazu produktu
-     */
     @PostMapping("/{productId}/images/{imageId}/delete")
     public String deleteImage(
             @PathVariable Long productId,
@@ -347,9 +308,6 @@ public class AdminProductController {
         return "redirect:/admin/products/" + productId + "/images";
     }
 
-    /**
-     * Ustawianie głównego obrazu produktu
-     */
     @PostMapping("/{productId}/images/{imageId}/set-main")
     public String setMainImage(
             @PathVariable Long productId,
@@ -365,9 +323,6 @@ public class AdminProductController {
         return "redirect:/admin/products/" + productId + "/images";
     }
 
-    /**
-     * Usuwanie produktu
-     */
     @PostMapping("/{id}/delete")
     public String deleteProduct(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
@@ -383,9 +338,6 @@ public class AdminProductController {
         return "redirect:/admin/products";
     }
 
-    /**
-     * Zmiana statusu produktu
-     */
     @PostMapping("/{id}/change-status")
     @ResponseBody
     public String changeStatus(@PathVariable Long id, @RequestParam ProductStatus status) {
@@ -397,9 +349,6 @@ public class AdminProductController {
         }
     }
 
-    /**
-     * Szybka aktualizacja ceny i zapasów
-     */
     @PostMapping("/{id}/quick-update")
     @ResponseBody
     public String quickUpdate(
@@ -415,9 +364,6 @@ public class AdminProductController {
         }
     }
 
-    /**
-     * Eksport produktów do CSV
-     */
     @GetMapping("/export")
     public String exportProducts(
             @RequestParam(required = false) String search,

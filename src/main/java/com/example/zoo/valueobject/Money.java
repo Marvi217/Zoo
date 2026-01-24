@@ -1,12 +1,12 @@
 package com.example.zoo.valueobject;
 
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-/**
- * Value Object representing money to avoid floating-point arithmetic issues
- */
+@Getter
 public class Money {
     private final BigDecimal amount;
     private final String currency;
@@ -62,14 +62,6 @@ public class Money {
     public boolean isLessThan(Money other) {
         validateCurrency(other);
         return this.amount.compareTo(other.amount) < 0;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public String getCurrency() {
-        return currency;
     }
 
     public double toDouble() {

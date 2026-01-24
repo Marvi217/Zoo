@@ -1,8 +1,3 @@
-/* ==============================================
-   PETMARKET - ADMIN PANEL STYLES
-   ============================================== */
-
-/* --- CSS VARIABLES --- */
 :root {
     --brand-green: #2d5a3f;
     --brand-light: #e9f0ec;
@@ -22,7 +17,6 @@
     --sidebar-width: 260px;
 }
 
-/* --- GLOBAL RESET --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -36,13 +30,11 @@ body {
     min-height: 100vh;
 }
 
-/* --- ADMIN LAYOUT --- */
 .admin-wrapper {
     display: flex;
     min-height: 100vh;
 }
 
-/* --- SIDEBAR --- */
 .admin-sidebar {
     width: var(--sidebar-width);
     background: linear-gradient(180deg, var(--brand-green) 0%, #1e4230 100%);
@@ -137,7 +129,6 @@ body {
     font-weight: bold;
 }
 
-/* --- MAIN CONTENT --- */
 .admin-main {
     flex: 1;
     margin-left: var(--sidebar-width);
@@ -146,7 +137,6 @@ body {
     flex-direction: column;
 }
 
-/* --- TOP BAR --- */
 .admin-topbar {
     background: white;
     padding: 15px 30px;
@@ -257,13 +247,11 @@ body {
     color: var(--text-muted);
 }
 
-/* --- PAGE CONTENT --- */
 .admin-content {
     padding: 30px;
     flex: 1;
 }
 
-/* --- PAGE HEADER --- */
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -288,7 +276,6 @@ body {
     gap: 12px;
 }
 
-/* --- BREADCRUMB --- */
 .breadcrumb {
     display: flex;
     align-items: center;
@@ -311,7 +298,6 @@ body {
     opacity: 0.5;
 }
 
-/* --- CARDS --- */
 .card {
     background: white;
     border-radius: 12px;
@@ -342,7 +328,6 @@ body {
     background: var(--bg-light);
 }
 
-/* --- STATS CARDS --- */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -396,7 +381,6 @@ body {
 .stat-change.positive { color: #16a34a; }
 .stat-change.negative { color: #dc2626; }
 
-/* --- TABLE --- */
 .table-container {
     overflow-x: auto;
 }
@@ -435,7 +419,6 @@ body {
     text-align: right;
 }
 
-/* --- BUTTONS --- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -514,7 +497,6 @@ body {
     justify-content: center;
 }
 
-/* --- FORMS --- */
 .form-group {
     margin-bottom: 20px;
 }
@@ -586,7 +568,6 @@ select.form-control {
     grid-template-columns: repeat(3, 1fr);
 }
 
-/* --- CHECKBOX & RADIO --- */
 .checkbox-wrapper,
 .radio-wrapper {
     display: flex;
@@ -602,7 +583,6 @@ select.form-control {
     accent-color: var(--brand-green);
 }
 
-/* --- SWITCH --- */
 .switch {
     position: relative;
     display: inline-block;
@@ -648,7 +628,6 @@ select.form-control {
     transform: translateX(24px);
 }
 
-/* --- ALERTS --- */
 .alert {
     padding: 16px 20px;
     border-radius: 8px;
@@ -687,7 +666,6 @@ select.form-control {
     border: 1px solid #e0f2fe;
 }
 
-/* --- BADGES --- */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -722,7 +700,6 @@ select.form-control {
     color: #374151;
 }
 
-/* --- PAGINATION --- */
 .pagination {
     display: flex;
     align-items: center;
@@ -758,7 +735,6 @@ select.form-control {
     cursor: not-allowed;
 }
 
-/* --- FILTER BAR --- */
 .filter-bar {
     display: flex;
     gap: 15px;
@@ -780,7 +756,6 @@ select.form-control {
     margin-left: auto;
 }
 
-/* --- MODAL --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -850,7 +825,6 @@ select.form-control {
     gap: 12px;
 }
 
-/* --- EMPTY STATE --- */
 .empty-state {
     text-align: center;
     padding: 60px 20px;
@@ -873,7 +847,6 @@ select.form-control {
     margin: 0 0 20px 0;
 }
 
-/* --- IMAGE UPLOAD --- */
 .image-upload-area {
     border: 2px dashed var(--border-color);
     border-radius: 12px;
@@ -934,7 +907,6 @@ select.form-control {
     font-size: 12px;
 }
 
-/* --- TABS --- */
 .tabs {
     display: flex;
     border-bottom: 2px solid #eee;
@@ -961,7 +933,6 @@ select.form-control {
     border-bottom-color: var(--brand-green);
 }
 
-/* --- ACTION BUTTONS --- */
 .action-buttons {
     display: flex;
     gap: 8px;
@@ -1009,7 +980,6 @@ select.form-control {
     color: white;
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
     .admin-sidebar {
         transform: translateX(-100%);
@@ -1065,12 +1035,6 @@ select.form-control {
         width: 200px;
     }
 
-    /* ==============================================
-   DODAJ TO NA KOŃCU admin-styles.css
-   DODATKOWE STYLE DLA FORMULARZA SUBKATEGORII
-   ============================================== */
-
-    /* --- FORM GRID LAYOUT --- */
     .form-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -1081,14 +1045,12 @@ select.form-control {
         grid-column: 1 / -1;
     }
 
-    /* --- FORM LABELS --- */
     .form-label.required::after {
         content: " *";
         color: #dc2626;
         margin-left: 2px;
     }
 
-    /* --- FORM TEXT --- */
     .form-text {
         font-size: 12px;
         color: var(--text-muted);
@@ -1096,7 +1058,6 @@ select.form-control {
         display: block;
     }
 
-    /* --- ERROR MESSAGES --- */
     .error-message {
         color: #dc2626;
         font-size: 12px;
@@ -1112,14 +1073,12 @@ select.form-control {
         box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
     }
 
-    /* --- FORM CHECK (dla checkbox) --- */
     .form-check {
         display: flex;
         align-items: center;
         gap: 10px;
     }
 
-    /* --- FORM ACTIONS --- */
     .form-actions {
         display: flex;
         gap: 12px;
@@ -1129,19 +1088,16 @@ select.form-control {
         margin-top: 20px;
     }
 
-    /* --- CARD HEADER H3 --- */
     .card-header h3 {
         margin: 0;
         font-size: 18px;
         font-weight: 600;
     }
 
-    /* --- DODATKI DLA ZMIENNYCH CSS --- */
     :root {
-        --text-primary: #333333; /* już masz --text-dark, ale dla kompatybilności */
+        --text-primary: #333333;
     }
 
-    /* --- RESPONSIVE FORM GRID --- */
     @media (max-width: 768px) {
         .form-grid {
             grid-template-columns: 1fr;
@@ -1157,10 +1113,9 @@ select.form-control {
         }
     }
 
-    /* --- ALERT ADDITIONAL STYLES --- */
     .alert {
         display: flex;
-        align-items: flex-start; /* zmiana z center na flex-start dla dłuższych komunikatów */
+        align-items: flex-start;
     }
 
     .alert ul {
@@ -1172,7 +1127,6 @@ select.form-control {
         margin: 2px 0;
     }
 
-    /* --- IMAGE PREVIEW STYLES --- */
     #imagePreviewContainer,
     #currentImage {
         max-width: 200px;
@@ -1182,7 +1136,6 @@ select.form-control {
         object-fit: cover;
     }
 
-    /* --- FLEX HELPERS FOR SLUG BUTTON --- */
     .form-group > div[style*="display: flex"] {
         display: flex;
         gap: 10px;

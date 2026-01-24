@@ -56,14 +56,10 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    // Guest checkout fields
     private String guestEmail;
     private String guestName;
     private String guestPhone;
 
-    /**
-     * Adres wysyłki
-     */
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "street", column = @Column(name = "shipping_street")),
@@ -73,9 +69,6 @@ public class Order {
     })
     private Address shippingAddress;
 
-    /**
-     * Adres rozliczeniowy (opcjonalny, jeśli różni się od wysyłkowego)
-     */
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "street", column = @Column(name = "billing_street")),
@@ -85,114 +78,61 @@ public class Order {
     })
     private Address billingAddress;
 
-    /**
-     * Pozycje zamówienia
-     */
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @Builder.Default
     private List<OrderItem> items = new ArrayList<>();
 
-    /**
-     * Suma wartości produktów (bez dostawy i zniżek)
-     */
     @Builder.Default
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal subtotal = BigDecimal.ZERO;
 
-    /**
-     * Całkowita kwota do zapłaty (z dostawą i po zniżkach)
-     */
     @Builder.Default
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal totalAmount = BigDecimal.ZERO;
 
-    /**
-     * Koszt dostawy
-     */
     @Builder.Default
     @Column(precision = 10, scale = 2)
     private BigDecimal deliveryCost = BigDecimal.ZERO;
 
-    /**
-     * Kwota zniżki z promocji
-     */
     @Builder.Default
     @Column(name = "discount_amount", precision = 10, scale = 2)
     private BigDecimal discountAmount = BigDecimal.ZERO;
 
-    /**
-     * Promocja zastosowana do zamówienia
-     */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "promotion_id")
     private Promotion promotion;
 
-    /**
-     * Kod promocyjny użyty w zamówieniu
-     */
     @Column(length = 50)
     private String promotionCode;
 
-    /**
-     * Notatki do zamówienia
-     */
     @Column(length = 1000)
     private String notes;
 
-    /**
-     * Notatki administracyjne (niewidoczne dla klienta)
-     */
     @Column(length = 1000)
     private String adminNotes;
 
-    /**
-     * Numer śledzenia przesyłki
-     */
     @Column(length = 100)
     private String trackingNumber;
 
-    /**
-     * Data anulowania
-     */
     private LocalDateTime cancelledAt;
 
-    /**
-     * Powód anulowania
-     */
     @Column(length = 500)
     private String cancellationReason;
 
-    /**
-     * Data dostarczenia
-     */
     private LocalDateTime deliveredAt;
 
-    /**
-     * Data ostatniej zmiany statusu
-     */
     private LocalDateTime statusChangedAt;
 
-    // ==================== METODY BIZNESOWE ====================
-
-    /**
-     * Sprawdza czy zamówienie zostało złożone przez gościa
-     */
     @Transient
     public boolean isGuestOrder() {
         return user == null && guestEmail != null;
     }
 
-    /**
-     * Zwraca email klienta (zarejestrowanego lub gościa)
-     */
     @Transient
     public String getCustomerEmail() {
         return user != null ? user.getEmail() : guestEmail;
     }
 
-    /**
-     * Zwraca imię i nazwisko klienta
-     */
     @Transient
     public String getCustomerName() {
         if (user != null) {
@@ -201,9 +141,6 @@ public class Order {
         return guestName;
     }
 
-    /**
-     * Dodaje pozycję do zamówienia
-     */
     public void addItem(OrderItem item) {
         if (items == null) {
             items = new ArrayList<>();
@@ -212,9 +149,6 @@ public class Order {
         item.setOrder(this);
     }
 
-    /**
-     * Usuwa pozycję z zamówienia
-     */
     public void removeItem(OrderItem item) {
         if (items != null) {
             items.remove(item);
@@ -222,27 +156,18 @@ public class Order {
         }
     }
 
-    /**
-     * Oblicza całkowitą kwotę zamówienia
-     */
     public void calculateTotal() {
-        // Suma wartości produktów
         BigDecimal itemsTotal = items.stream()
                 .map(item -> item.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
         this.subtotal = itemsTotal;
 
-        // Kwota po zniżce
         BigDecimal totalAfterDiscount = itemsTotal.subtract(discountAmount != null ? discountAmount : BigDecimal.ZERO);
 
-        // Całkowita kwota (z dostawą)
         this.totalAmount = totalAfterDiscount.add(deliveryCost != null ? deliveryCost : BigDecimal.ZERO);
     }
 
-    /**
-     * Zastosuj promocję do zamówienia
-     */
     public void applyPromotion(Promotion promo) {
         if (promo == null || !promo.isCurrentlyActive()) {
             return;
@@ -251,7 +176,6 @@ public class Order {
         this.promotion = promo;
         this.promotionCode = promo.getCode();
 
-        // Oblicz zniżkę
         switch (promo.getType()) {
             case PERCENTAGE_DISCOUNT:
                 if (promo.getDiscountPercentage() != null) {
@@ -268,7 +192,7 @@ public class Order {
 
             case FREE_SHIPPING:
                 this.deliveryCost = BigDecimal.ZERO;
-                this.discountAmount = BigDecimal.ZERO; // Zniżka jest w koszcie dostawy
+                this.discountAmount = BigDecimal.ZERO;
                 break;
 
             default:
@@ -279,9 +203,6 @@ public class Order {
         calculateTotal();
     }
 
-    /**
-     * Usuń promocję z zamówienia
-     */
     public void removePromotion() {
         this.promotion = null;
         this.promotionCode = null;
@@ -289,27 +210,19 @@ public class Order {
         calculateTotal();
     }
 
-    /**
-     * Zwraca nazwę wyświetlaną statusu
-     */
     @Transient
     public String getStatusDisplay() {
         return status != null ? status.getDisplayName() : "";
     }
 
-    /**
-     * Sprawdza czy zamówienie może być anulowane
-     */
     @Transient
     public boolean canBeCancelled() {
-        // Nie można anulować zamówień już anulowanych lub dostarczonych
         if (status == OrderStatus.CANCELLED ||
                 status == OrderStatus.DELIVERED ||
                 status == OrderStatus.RETURNED) {
             return false;
         }
 
-        // Można anulować tylko w ciągu 5 godzin od złożenia
         if (orderDate != null) {
             LocalDateTime fiveHoursAgo = LocalDateTime.now().minusHours(5);
             return orderDate.isAfter(fiveHoursAgo);
@@ -318,9 +231,6 @@ public class Order {
         return false;
     }
 
-    /**
-     * Zwraca liczbę godzin do wygaśnięcia możliwości anulowania
-     */
     @Transient
     public long getHoursUntilCancellationExpires() {
         if (orderDate == null) {
@@ -333,25 +243,16 @@ public class Order {
         return hours > 0 ? hours : 0;
     }
 
-    /**
-     * Sprawdza czy zamówienie jest opłacone
-     */
     @Transient
     public boolean isPaid() {
         return paymentStatus == PaymentStatus.PAID;
     }
 
-    /**
-     * Sprawdza czy zamówienie oczekuje na płatność
-     */
     @Transient
     public boolean isPendingPayment() {
         return paymentStatus == PaymentStatus.PENDING;
     }
 
-    /**
-     * Zlicz produkty w zamówieniu
-     */
     @Transient
     public int getTotalItemsCount() {
         if (items == null) {
@@ -362,14 +263,10 @@ public class Order {
                 .sum();
     }
 
-    /**
-     * Zmień status zamówienia
-     */
     public void changeStatus(OrderStatus newStatus) {
         this.status = newStatus;
         this.statusChangedAt = LocalDateTime.now();
 
-        // Automatyczne aktualizacje przy zmianie statusu
         if (newStatus == OrderStatus.CANCELLED) {
             this.cancelledAt = LocalDateTime.now();
         } else if (newStatus == OrderStatus.DELIVERED) {
@@ -378,14 +275,10 @@ public class Order {
         }
     }
 
-    /**
-     * Anuluj zamówienie
-     */
     public void cancel(String reason) {
         changeStatus(OrderStatus.CANCELLED);
         this.cancellationReason = reason;
 
-        // Przywróć stany magazynowe
         if (items != null) {
             items.forEach(item -> {
                 Product product = item.getProduct();
@@ -395,24 +288,17 @@ public class Order {
             });
         }
 
-        // Zmniejsz licznik użyć promocji
         if (promotion != null) {
             promotion.setCurrentUsage(promotion.getCurrentUsage() - 1);
         }
     }
 
-    /**
-     * Zwraca informację czy używano promocji
-     */
     @Transient
     public boolean hasPromotion() {
         return promotion != null ||
                 (discountAmount != null && discountAmount.compareTo(BigDecimal.ZERO) > 0);
     }
 
-    /**
-     * Zwraca opis zastosowanej promocji
-     */
     @Transient
     public String getPromotionDescription() {
         if (promotion != null) {
@@ -427,8 +313,7 @@ public class Order {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Order)) return false;
-        Order order = (Order) o;
+        if (!(o instanceof Order order)) return false;
         return id != null && id.equals(order.getId());
     }
 
@@ -447,6 +332,4 @@ public class Order {
                 ", orderDate=" + orderDate +
                 '}';
     }
-
-
 }

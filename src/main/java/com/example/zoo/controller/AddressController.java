@@ -40,9 +40,6 @@ public class AddressController {
         return "account/addresses";
     }
 
-    /**
-     * Zapisz nowy adres lub zaktualizuj istniejący
-     */
     @PostMapping("/save")
     public String saveAddress(
             @ModelAttribute UserAddress address,
@@ -71,9 +68,6 @@ public class AddressController {
         return "redirect:/account/addresses";
     }
 
-    /**
-     * Ustaw adres jako domyślny (AJAX)
-     */
     @PostMapping("/{id}/set-default")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> setAsDefault(
@@ -102,9 +96,6 @@ public class AddressController {
         return ResponseEntity.ok(response);
     }
 
-    /**
-     * Usuń adres
-     */
     @PostMapping("/{id}/delete")
     public String deleteAddress(
             @PathVariable Long id,
@@ -127,9 +118,6 @@ public class AddressController {
         return "redirect:/account/addresses";
     }
 
-    /**
-     * Pobierz adres do edycji (AJAX)
-     */
     @GetMapping("/{id}")
     @ResponseBody
     public ResponseEntity<UserAddress> getAddress(

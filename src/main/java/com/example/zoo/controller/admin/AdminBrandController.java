@@ -26,9 +26,6 @@ public class AdminBrandController {
 
     private final BrandService brandService;
 
-    /**
-     * Lista marek
-     */
     @GetMapping
     public String listBrands(
             @RequestParam(name = "page", defaultValue = "0") int page,
@@ -52,9 +49,6 @@ public class AdminBrandController {
         return "admin/brands/list";
     }
 
-    /**
-     * Formularz dodawania nowej marki
-     */
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         BrandDTO brandDTO = new BrandDTO();
@@ -63,9 +57,6 @@ public class AdminBrandController {
         return "admin/brands/form";
     }
 
-    /**
-     * Zapisywanie nowej marki
-     */
     @PostMapping("/new")
     public String createBrand(
             @Valid @ModelAttribute BrandDTO brandDTO,
@@ -98,9 +89,6 @@ public class AdminBrandController {
         return "redirect:/admin/brands";
     }
 
-    /**
-     * Formularz edycji marki
-     */
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         try {
@@ -127,9 +115,6 @@ public class AdminBrandController {
         }
     }
 
-    /**
-     * Aktualizacja marki
-     */
     @PostMapping("/edit/{id}")
     public String updateBrand(
             @PathVariable Long id,
@@ -169,9 +154,6 @@ public class AdminBrandController {
         return "redirect:/admin/brands";
     }
 
-    /**
-     * Usuwanie marki
-     */
     @PostMapping("/delete/{id}")
     public String deleteBrand(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
@@ -184,9 +166,6 @@ public class AdminBrandController {
         return "redirect:/admin/brands";
     }
 
-    /**
-     * Przełączanie statusu aktywności marki
-     */
     @PostMapping("/toggle/{id}")
     public String toggleBrandStatus(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {

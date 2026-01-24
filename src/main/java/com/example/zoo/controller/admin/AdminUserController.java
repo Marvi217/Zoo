@@ -27,9 +27,6 @@ public class AdminUserController {
     private final UserService userService;
     private final OrderService orderService;
 
-    /**
-     * Lista wszystkich użytkowników
-     */
     @GetMapping
     public String listUsers(
             @RequestParam(defaultValue = "0") int page,
@@ -61,9 +58,6 @@ public class AdminUserController {
         return "admin/users/list";
     }
 
-    /**
-     * Szczegóły użytkownika
-     */
     @GetMapping("/{id}")
     public String viewUser(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         User user = userService.getUserById(id);
@@ -80,9 +74,6 @@ public class AdminUserController {
         return "admin/users/view";
     }
 
-    /**
-     * Formularz tworzenia nowego użytkownika
-     */
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         UserDTO userDTO = new UserDTO();
@@ -95,9 +86,6 @@ public class AdminUserController {
         return "admin/users/form";
     }
 
-    /**
-     * Zapisywanie nowego użytkownika
-     */
     @PostMapping
     public String createUser(
             @Valid @ModelAttribute UserDTO userDTO,
@@ -127,9 +115,6 @@ public class AdminUserController {
         }
     }
 
-    /**
-     * Formularz edycji użytkownika
-     */
     @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         User user = userService.getUserById(id);
@@ -155,9 +140,6 @@ public class AdminUserController {
         return "admin/users/form";
     }
 
-    /**
-     * Aktualizacja użytkownika
-     */
     @PostMapping("/{id}")
     public String updateUser(
             @PathVariable Long id,
@@ -191,9 +173,6 @@ public class AdminUserController {
         }
     }
 
-    /**
-     * Zmiana hasła użytkownika
-     */
     @PostMapping("/{id}/change-password")
     public String changePassword(
             @PathVariable Long id,
@@ -216,9 +195,6 @@ public class AdminUserController {
         return "redirect:/admin/users/" + id;
     }
 
-    /**
-     * Aktywacja/dezaktywacja użytkownika
-     */
     @PostMapping("/{id}/toggle-active")
     @ResponseBody
     public String toggleActive(@PathVariable Long id) {
@@ -230,9 +206,6 @@ public class AdminUserController {
         }
     }
 
-    /**
-     * Zmiana roli użytkownika
-     */
     @PostMapping("/{id}/change-role")
     public String changeRole(
             @PathVariable Long id,
@@ -249,9 +222,6 @@ public class AdminUserController {
         return "redirect:/admin/users/" + id;
     }
 
-    /**
-     * Usuwanie użytkownika
-     */
     @PostMapping("/{id}/delete")
     public String deleteUser(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
@@ -267,9 +237,6 @@ public class AdminUserController {
         return "redirect:/admin/users";
     }
 
-    /**
-     * Eksport użytkowników do CSV
-     */
     @GetMapping("/users/export")
     public ResponseEntity<byte[]> exportUsers() {
         byte[] content = userService.generateUsersCsv();

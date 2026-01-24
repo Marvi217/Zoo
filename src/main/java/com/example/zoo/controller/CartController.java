@@ -28,7 +28,6 @@ public class CartController {
     private final SecurityHelper securityHelper;
     private final UserCartRepository userCartRepository;
 
-    // Get session-based cart (for anonymous users)
     private Cart getSessionCart(HttpSession session) {
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null) {
@@ -38,7 +37,6 @@ public class CartController {
         return cart;
     }
 
-    // Get or create database-backed cart for logged-in user
     private UserCart getUserCart(User user) {
         return userCartRepository.findByUser(user)
                 .orElseGet(() -> {
@@ -47,12 +45,10 @@ public class CartController {
                 });
     }
 
-    // Check if user is logged in
     private boolean isLoggedIn(HttpSession session) {
         return securityHelper.getCurrentUser(session) != null;
     }
 
-    // Merge session cart to user cart on login
     public void mergeSessionCartToUserCart(HttpSession session, User user) {
         Cart sessionCart = (Cart) session.getAttribute("cart");
         if (sessionCart != null && !sessionCart.isEmpty()) {
@@ -65,22 +61,18 @@ public class CartController {
         }
     }
 
-    // Wyświetl koszyk
     @GetMapping
     public String showCart(HttpSession session, Model model) {
         User user = securityHelper.getCurrentUser(session);
 
         if (user != null) {
-            // Logged-in user - use database cart
             UserCart userCart = getUserCart(user);
-            // Convert UserCartItems to CartItems for template compatibility
             List<CartItem> cartItems = userCart.getItems().stream()
                     .map(item -> new CartItem(item.getProduct(), item.getQuantity()))
                     .collect(Collectors.toList());
             model.addAttribute("cartItems", cartItems);
             model.addAttribute("total", userCart.getTotal());
         } else {
-            // Anonymous user - use session cart
             Cart cart = getSessionCart(session);
             model.addAttribute("cartItems", cart.getItems());
             model.addAttribute("total", cart.getTotal());
@@ -88,7 +80,6 @@ public class CartController {
         return "cart";
     }
 
-    // Dodaj produkt do koszyka
     @PostMapping("/add")
     public String addToCart(
             @RequestParam Long productId,
@@ -112,12 +103,10 @@ public class CartController {
 
             User user = securityHelper.getCurrentUser(session);
             if (user != null) {
-                // Logged-in user - use database cart
                 UserCart userCart = getUserCart(user);
                 userCart.addItem(product, quantity);
                 userCartRepository.save(userCart);
             } else {
-                // Anonymous user - use session cart
                 Cart cart = getSessionCart(session);
                 cart.addItem(product, quantity);
             }
@@ -132,7 +121,6 @@ public class CartController {
         return "redirect:" + (referer != null ? referer : "/");
     }
 
-    // Aktualizuj ilość (AJAX)
     @PostMapping("/update")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> updateCart(
@@ -144,7 +132,6 @@ public class CartController {
             User user = securityHelper.getCurrentUser(session);
 
             if (user != null) {
-                // Logged-in user - use database cart
                 UserCart userCart = getUserCart(user);
 
                 if ("increase".equals(action)) {
@@ -170,7 +157,6 @@ public class CartController {
                 }
                 userCartRepository.save(userCart);
             } else {
-                // Anonymous user - use session cart
                 Cart cart = getSessionCart(session);
 
                 if ("increase".equals(action)) {
@@ -210,7 +196,6 @@ public class CartController {
         }
     }
 
-    // Usuń produkt (AJAX) - POST
     @PostMapping("/remove/{productId}")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> removeFromCartAjax(
@@ -242,7 +227,6 @@ public class CartController {
         }
     }
 
-    // Usuń produkt (link) - GET
     @GetMapping("/remove/{productId}")
     public String removeFromCart(
             @PathVariable Long productId,
@@ -264,7 +248,6 @@ public class CartController {
         return "redirect:/cart";
     }
 
-    // Podsumowanie koszyka (AJAX)
     @GetMapping("/summary")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> getCartSummary(HttpSession session) {
@@ -293,7 +276,6 @@ public class CartController {
         ));
     }
 
-    // Liczba produktów (AJAX)
     @GetMapping("/count")
     @ResponseBody
     public ResponseEntity<Map<String, Integer>> getCartCount(HttpSession session) {
@@ -311,7 +293,6 @@ public class CartController {
         return ResponseEntity.ok(Map.of("count", count));
     }
 
-    // Wyczyść koszyk
     @PostMapping("/clear")
     public String clearCart(HttpSession session, RedirectAttributes redirectAttributes) {
         User user = securityHelper.getCurrentUser(session);

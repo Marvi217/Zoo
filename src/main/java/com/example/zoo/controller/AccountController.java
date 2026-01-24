@@ -78,8 +78,8 @@ public class AccountController {
     }
 
     @PostMapping("/profile/update")
-    public String updateProfile(@RequestParam String firstName, // Zmienione z name
-                                @RequestParam String lastName,  // Dodane
+    public String updateProfile(@RequestParam String firstName,
+                                @RequestParam String lastName,
                                 @RequestParam String phone,
                                 HttpSession session,
                                 RedirectAttributes redirectAttributes) {
@@ -93,7 +93,6 @@ public class AccountController {
 
                 userService.save(currentUser);
 
-                // Ważne: Jeśli trzymasz użytkownika w sesji, musisz go odświeżyć!
                 session.setAttribute("user", currentUser);
 
                 redirectAttributes.addFlashAttribute("success", "Dane zostały zaktualizowane!");
@@ -163,7 +162,7 @@ public class AccountController {
         if (currentUser == null) return "redirect:/login";
 
         try {
-            Order order = orderService.findById(id)
+            orderService.findById(id)
                     .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono zamówienia."));
 
             orderService.cancelOrder(id, currentUser);

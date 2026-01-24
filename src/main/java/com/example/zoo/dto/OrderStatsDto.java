@@ -7,6 +7,6 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 public class OrderStatsDto {
-    private long total;           // Liczba zamówień
-    private BigDecimal totalSpent; // Suma wydanych pieniędzy
+    private long total;
+    private BigDecimal totalSpent;
 }

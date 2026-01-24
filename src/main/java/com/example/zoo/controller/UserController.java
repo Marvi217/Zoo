@@ -12,19 +12,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.security.Principal;
-import java.util.Set;
 
 @Controller
 public class UserController {
 
     private final UserRepository userRepository;
-    private final OrderService orderService;
     private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userRepository, OrderService orderService, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.orderService = orderService;
         this.passwordEncoder = passwordEncoder;
     }
 

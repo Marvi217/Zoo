@@ -1,8 +1,3 @@
-/* ==============================================
-   PETMARKET - PUBLIC PAGES SHARED STYLES
-   ============================================== */
-
-/* --- CSS VARIABLES --- */
 :root {
     --brand-green: #2d5a3f;
     --brand-light: #e9f0ec;
@@ -17,7 +12,6 @@
     --error-text: #991b1b;
 }
 
-/* --- GLOBAL RESET --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -30,7 +24,6 @@ body {
     color: var(--text-dark);
 }
 
-/* --- NAVIGATION --- */
 .top-bar {
     background-color: var(--brand-green);
     color: white;
@@ -135,7 +128,6 @@ body {
     font-weight: bold;
 }
 
-/* --- BREADCRUMB --- */
 .breadcrumb {
     background: white;
     padding: 15px 5%;
@@ -153,7 +145,6 @@ body {
     color: var(--brand-green);
 }
 
-/* --- CATEGORY MENU --- */
 .category-bar {
     background: white;
     padding: 15px 5%;
@@ -179,7 +170,6 @@ body {
     border-bottom-color: var(--brand-green);
 }
 
-/* --- MAIN CONTAINER --- */
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -192,7 +182,6 @@ body {
     padding: 60px 20px;
 }
 
-/* --- SECTION TITLES --- */
 .section-title {
     font-size: 28px;
     font-weight: bold;
@@ -203,7 +192,6 @@ body {
     display: inline-block;
 }
 
-/* --- PRODUCTS GRID --- */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -300,7 +288,6 @@ body {
     cursor: not-allowed;
 }
 
-/* --- BUTTONS --- */
 .btn-primary {
     background-color: var(--brand-green);
     color: white;
@@ -355,7 +342,6 @@ body {
     background: #555;
 }
 
-/* --- ALERTS --- */
 .alert {
     padding: 14px 16px;
     border-radius: 8px;
@@ -388,7 +374,6 @@ body {
     border: 1px solid #fde68a;
 }
 
-/* --- FORM STYLES --- */
 .form-group {
     margin-bottom: 20px;
 }
@@ -444,7 +429,6 @@ body {
     color: var(--text-muted);
 }
 
-/* --- EMPTY STATE --- */
 .empty-state {
     text-align: center;
     padding: 60px 20px;
@@ -468,7 +452,6 @@ body {
     margin: 0 0 20px 0;
 }
 
-/* --- FOOTER --- */
 .footer {
     background: #1a1a1a;
     color: white;
@@ -525,7 +508,6 @@ footer {
     font-size: 14px;
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .navbar {
         flex-wrap: wrap;

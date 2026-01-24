@@ -19,10 +19,10 @@ public class UserAddress {
     private User user;
 
     @Column(nullable = false)
-    private String label; // np. "Dom", "Praca", "Rodzice"
+    private String label;
 
     @Column(nullable = false)
-    private String name; // Imię i nazwisko
+    private String name;
 
     @Column(nullable = false)
     private String street;

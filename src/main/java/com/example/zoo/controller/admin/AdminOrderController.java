@@ -32,9 +32,6 @@ public class AdminOrderController {
     private final OrderService orderService;
     private final SecurityHelper securityHelper;
 
-    /**
-     * Lista wszystkich zamówień z paginacją i filtrowaniem
-     */
     @GetMapping
     public String listOrders(
             @RequestParam(defaultValue = "0") int page,
@@ -70,27 +67,21 @@ public class AdminOrderController {
             orders = orderService.getAllOrders(pageRequest);
         }
 
-        // Statystyki dla kart
         model.addAttribute("pendingOrdersCount", orderService.getOrdersByStatus(OrderStatus.PENDING).size());
         model.addAttribute("processingOrdersCount", orderService.getOrdersByStatus(OrderStatus.PROCESSING).size());
         model.addAttribute("shippedOrdersCount", orderService.getOrdersByStatus(OrderStatus.SHIPPED).size());
         model.addAttribute("completedOrdersCount", orderService.getOrdersByStatus(OrderStatus.DELIVERED).size());
 
-        // Dane do widoku
         model.addAttribute("orders", orders);
         model.addAttribute("currentUser", currentUser);
         model.addAttribute("pendingOrders", orderService.getOrdersByStatus(OrderStatus.PENDING).size());
 
-        // Statusy do filtra
         model.addAttribute("orderStatuses", OrderStatus.values());
         model.addAttribute("paymentStatuses", PaymentStatus.values());
 
         return "admin/orders";
     }
 
-    /**
-     * Szczegóły zamówienia
-     */
     @GetMapping("/{id}")
     public String viewOrder(
             @PathVariable Long id,
@@ -120,9 +111,6 @@ public class AdminOrderController {
         return "admin/orders/view";
     }
 
-    /**
-     * Zmiana statusu zamówienia
-     */
     @PostMapping("/{id}/status")
     public String updateOrderStatus(
             @PathVariable Long id,
@@ -166,7 +154,7 @@ public class AdminOrderController {
         model.addAttribute("paymentStatuses", PaymentStatus.values());
         model.addAttribute("currentUser", currentUser);
 
-        return "admin/orders/edit"; // Ścieżka do pliku HTML
+        return "admin/orders/edit";
     }
 
     @PostMapping("/{id}/edit")
@@ -182,9 +170,6 @@ public class AdminOrderController {
         return "redirect:/admin/orders/" + id;
     }
 
-    /**
-     * Zmiana statusu płatności
-     */
     @PostMapping("/{id}/payment-status")
     public String updatePaymentStatus(
             @PathVariable Long id,
@@ -209,9 +194,6 @@ public class AdminOrderController {
         return "redirect:/admin/orders/" + id;
     }
 
-    /**
-     * Anulowanie zamówienia
-     */
     @PostMapping("/{id}/cancel")
     public String cancelOrder(
             @PathVariable Long id,
@@ -236,9 +218,6 @@ public class AdminOrderController {
         return "redirect:/admin/orders/" + id;
     }
 
-    /**
-     * Dodanie numeru przesyłki
-     */
     @PostMapping("/{id}/tracking")
     public String addTrackingNumber(
             @PathVariable Long id,
@@ -265,9 +244,6 @@ public class AdminOrderController {
         return "redirect:/admin/orders/" + id;
     }
 
-    /**
-     * Eksport zamówień do CSV
-     */
     @GetMapping("/export")
     public ResponseEntity<byte[]> exportOrders(
             @RequestParam(required = false) OrderStatus status,

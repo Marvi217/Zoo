@@ -48,7 +48,6 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    // ==================== WYSZUKIWANIE I FILTROWANIE ====================
 
     public User findByEmail(String email) {
         return userRepository.findByEmail(email).orElse(null);
@@ -66,7 +65,6 @@ public class UserService {
         return userRepository.searchUsers(query, pageable);
     }
 
-    // ==================== OPERACJE CRUD (Zgodne z UserDTO i User Entity) ====================
 
     @Transactional
     public User createUser(UserDTO userDTO) {
@@ -99,7 +97,6 @@ public class UserService {
         user.setRole(userDTO.getRole());
         user.setActive(userDTO.isActive());
 
-        // Zmiana emaila (tylko jeśli jest unikalny)
         if (!user.getEmail().equals(userDTO.getEmail())) {
             if (existsByEmail(userDTO.getEmail())) {
                 throw new RuntimeException("Email jest już zajęty");
@@ -115,18 +112,9 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    /**
-     * Zlicza nowych użytkowników zarejestrowanych w podanym okresie
-     */
     public long getNewUsersCount(LocalDateTime from, LocalDateTime to) {
         return userRepository.countByCreatedAtBetween(from, to);
     }
-
-    /**
-     * Zlicza użytkowników, którzy zalogowali się dzisiaj (od północy)
-     */
-
-    // ==================== ZARZĄDZANIE HASŁEM ====================
 
     @Transactional
     public void changePassword(Long id, String newPassword) {
@@ -145,8 +133,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-    // ==================== ZARZĄDZANIE STATUSEM I ROLĄ ====================
-
     @Transactional
     public void toggleActive(Long id) {
         User user = getUserById(id);
@@ -160,8 +146,6 @@ public class UserService {
         user.setRole(role);
         userRepository.save(user);
     }
-
-    // ==================== POMOCNICZE ====================
 
     public User getUserById(Long id) {
         return userRepository.findById(id)
@@ -177,8 +161,6 @@ public class UserService {
         return userRepository.count();
     }
 
-    // W UserService.java
-
     public Page<User> getAllUsers(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
@@ -186,11 +168,9 @@ public class UserService {
     public byte[] generateUsersCsv() {
         List<User> users = userRepository.findAll();
 
-        // Dodanie BOM dla UTF-8, aby Excel poprawnie czytał polskie znaki
         byte[] bom = new byte[]{(byte)0xEF, (byte)0xBB, (byte)0xBF};
 
         StringBuilder csvContent = new StringBuilder();
-        // Nagłówki (używamy średnika dla polskiej wersji Excela)
         csvContent.append("ID;Imię;Nazwisko;Email;Rola;Status\n");
 
         for (User user : users) {
@@ -205,7 +185,6 @@ public class UserService {
 
         byte[] csvBytes = csvContent.toString().getBytes(StandardCharsets.UTF_8);
 
-        // Łączymy BOM z danymi CSV
         ByteBuffer bb = ByteBuffer.allocate(bom.length + csvBytes.length);
         bb.put(bom);
         bb.put(csvBytes);

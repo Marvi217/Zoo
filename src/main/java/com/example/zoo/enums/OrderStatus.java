@@ -25,9 +25,6 @@ public enum OrderStatus {
         this.description = description;
     }
 
-    /**
-     * Sprawdza czy status oznacza zakończone zamówienie
-     */
     public boolean isFinalStatus() {
         return this == DELIVERED ||
                 this == CANCELLED ||
@@ -36,25 +33,16 @@ public enum OrderStatus {
                 this == FAILED;
     }
 
-    /**
-     * Sprawdza czy zamówienie można anulować w tym statusie
-     */
     public boolean isCancellable() {
         return this == PENDING ||
                 this == CONFIRMED ||
                 this == PROCESSING;
     }
 
-    /**
-     * Sprawdza czy zamówienie można edytować w tym statusie
-     */
     public boolean isEditable() {
         return this == PENDING;
     }
 
-    /**
-     * Zwraca kolor do wyświetlania w interfejsie
-     */
     public String getColor() {
         return switch (this) {
             case PENDING -> "warning";
@@ -62,14 +50,10 @@ public enum OrderStatus {
             case SHIPPED, IN_TRANSIT, OUT_FOR_DELIVERY -> "primary";
             case DELIVERED -> "success";
             case CANCELLED, FAILED -> "danger";
-            case RETURNED, REFUNDED -> "secondary";
             default -> "secondary";
         };
     }
 
-    /**
-     * Zwraca ikonę Font Awesome
-     */
     public String getIcon() {
         return switch (this) {
             case PENDING -> "fa-clock";
@@ -87,9 +71,6 @@ public enum OrderStatus {
         };
     }
 
-    /**
-     * Pobiera następny logiczny status
-     */
     public OrderStatus getNextStatus() {
         return switch (this) {
             case PENDING -> CONFIRMED;
@@ -99,7 +80,7 @@ public enum OrderStatus {
             case SHIPPED -> IN_TRANSIT;
             case IN_TRANSIT -> OUT_FOR_DELIVERY;
             case OUT_FOR_DELIVERY -> DELIVERED;
-            default -> null; // Brak następnego statusu
+            default -> null;
         };
     }
 }

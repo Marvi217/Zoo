@@ -59,15 +59,11 @@ public class FileStorageService {
         return "/" + directory + "/" + newFileName;
     }
 
-    /**
-     * Usuń plik
-     */
     public void deleteFile(String fileUrl) throws IOException {
         if (fileUrl == null || fileUrl.isEmpty()) {
             return;
         }
 
-        // Wyodrębnij nazwę pliku z URL
         String fileName = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
         String directory = extractDirectory(fileUrl);
 
@@ -81,9 +77,6 @@ public class FileStorageService {
         }
     }
 
-    /**
-     * Pobierz ścieżkę do katalogu uploadów
-     */
     private Path getUploadPath(String directory) {
         String baseDir = switch (directory.toLowerCase()) {
             case "products" -> productsUploadDir;
@@ -95,12 +88,7 @@ public class FileStorageService {
         return Paths.get(baseDir).toAbsolutePath().normalize();
     }
 
-    /**
-     * Wyodrębnij katalog z URL pliku
-     */
     private String extractDirectory(String fileUrl) {
-        // /products/image.jpg -> products
-        // /categories/cat.jpg -> categories
         String[] parts = fileUrl.split("/");
         if (parts.length >= 2) {
             return parts[1];
@@ -108,9 +96,6 @@ public class FileStorageService {
         return "uploads";
     }
 
-    /**
-     * Pobierz rozszerzenie pliku
-     */
     private String getFileExtension(String fileName) {
         int lastDotIndex = fileName.lastIndexOf('.');
         if (lastDotIndex > 0) {
@@ -119,9 +104,6 @@ public class FileStorageService {
         return "";
     }
 
-    /**
-     * Waliduj typ pliku (obrazy)
-     */
     public boolean isValidImageFile(MultipartFile file) {
         if (file == null || file.isEmpty()) {
             return false;
@@ -139,16 +121,10 @@ public class FileStorageService {
                 contentType.equals("image/webp");
     }
 
-    /**
-     * Waliduj rozmiar pliku
-     */
     public boolean isValidFileSize(MultipartFile file, long maxSizeInBytes) {
         return file != null && file.getSize() <= maxSizeInBytes;
     }
 
-    /**
-     * Pobierz rozmiar pliku w MB
-     */
     public double getFileSizeInMB(MultipartFile file) {
         if (file == null) {
             return 0;

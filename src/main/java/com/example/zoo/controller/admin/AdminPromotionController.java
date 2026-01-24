@@ -37,9 +37,6 @@ public class AdminPromotionController {
     private final CategoryService categoryService;
     private final BrandService brandService;
 
-    /**
-     * Lista wszystkich promocji
-     */
     @GetMapping
     public String listPromotions(
             @RequestParam(defaultValue = "0") int page,
@@ -75,9 +72,6 @@ public class AdminPromotionController {
         return "admin/promotions/list";
     }
 
-    /**
-     * Formularz tworzenia nowej promocji
-     */
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         PromotionDTO promotionDTO = new PromotionDTO();
@@ -94,9 +88,6 @@ public class AdminPromotionController {
         return "admin/promotions/form";
     }
 
-    /**
-     * Zapisywanie nowej promocji
-     */
     @PostMapping
     public String createPromotion(
             @Valid @ModelAttribute PromotionDTO promotionDTO,
@@ -131,9 +122,6 @@ public class AdminPromotionController {
         }
     }
 
-    /**
-     * Formularz edycji promocji
-     */
     @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         Promotion promotion = promotionService.getPromotionById(id);
@@ -175,9 +163,6 @@ public class AdminPromotionController {
         return "admin/promotions/form";
     }
 
-    /**
-     * Aktualizacja promocji
-     */
     @PostMapping("/{id}")
     public String updatePromotion(
             @PathVariable Long id,
@@ -215,9 +200,6 @@ public class AdminPromotionController {
         }
     }
 
-    /**
-     * Szczegóły promocji ze statystykami
-     */
     @GetMapping("/{id}")
     public String viewPromotion(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         Promotion promotion = promotionService.getPromotionById(id);
@@ -234,9 +216,6 @@ public class AdminPromotionController {
     }
 
 
-    /**
-     * Aktywacja/dezaktywacja promocji
-     */
     @PostMapping("/{id}/toggle-active")
     @ResponseBody
     public String toggleActive(@PathVariable Long id) {
@@ -248,9 +227,6 @@ public class AdminPromotionController {
         }
     }
 
-    /**
-     * Duplikowanie promocji
-     */
     @PostMapping("/{id}/duplicate")
     public String duplicatePromotion(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
@@ -265,9 +241,6 @@ public class AdminPromotionController {
         }
     }
 
-    /**
-     * Walidacja kodu promocyjnego (sprawdzenie czy kod jest unikalny)
-     */
     @GetMapping("/validate-code")
     @ResponseBody
     public boolean validateCode(
@@ -276,9 +249,6 @@ public class AdminPromotionController {
         return promotionService.isCodeUnique(code, excludeId);
     }
 
-    /**
-     * Pobierz produkty z kategorii (dla AJAX)
-     */
     @GetMapping("/category-products/{categoryId}")
     @ResponseBody
     public List<Map<String, Object>> getCategoryProducts(@PathVariable Long categoryId) {
@@ -294,9 +264,6 @@ public class AdminPromotionController {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Pobierz produkty z subkategorii (dla AJAX)
-     */
     @GetMapping("/subcategory-products/{subcategoryId}")
     @ResponseBody
     public List<Map<String, Object>> getSubcategoryProducts(@PathVariable Long subcategoryId) {
@@ -312,9 +279,6 @@ public class AdminPromotionController {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Pobierz produkty marki (dla AJAX)
-     */
     @GetMapping("/brand-products/{brandId}")
     @ResponseBody
     public List<Map<String, Object>> getBrandProducts(@PathVariable Long brandId) {
@@ -330,9 +294,6 @@ public class AdminPromotionController {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Zastosowanie promocji do produktów (masowa operacja)
-     */
     @PostMapping("/{id}/apply-to-products")
     public String applyToProducts(
             @PathVariable Long id,
@@ -349,9 +310,6 @@ public class AdminPromotionController {
         return "redirect:/admin/promotions/" + id;
     }
 
-    /**
-     * Usunięcie promocji z produktów
-     */
     @PostMapping("/{id}/remove-from-products")
     public String removeFromProducts(
             @PathVariable Long id,
@@ -368,9 +326,6 @@ public class AdminPromotionController {
         return "redirect:/admin/promotions/" + id;
     }
 
-    /**
-     * Usunięcie promocji - endpoint GET
-     */
     @PostMapping("/delete/{id}")
     public String deletePromotion(
             @PathVariable Long id,

@@ -47,7 +47,7 @@ public class AdminDashboardController {
         model.addAttribute("totalRevenue", orderService.getTotalRevenue());
 
         // KLUCZOWE DLA WYKRESU: Dzisiejszy przychód i sprzedaż z 30 dni
-        model.addAttribute("todayRevenue", orderService.getTodayRevenue()); // Musisz mieć tę metodę w serwisie
+        model.addAttribute("todayRevenue", orderService.getTodayRevenue());
         Map<String, Double> weeklySales = orderService.getWeeklySalesStats();
         model.addAttribute("weeklySales", weeklySales);
 
@@ -58,7 +58,7 @@ public class AdminDashboardController {
         LocalDateTime thirtyDaysAgo = LocalDateTime.now().minusDays(30);
         model.addAttribute("newUsersThisMonth", userService.getNewUsersCount(thirtyDaysAgo, LocalDateTime.now()));
         model.addAttribute("averageRating", reviewService.getAverageRating());
-        model.addAttribute("topCategories", getCategoryStats()); // Przeniesione do helpera poniżej
+        model.addAttribute("topCategories", getCategoryStats());
 
         model.addAttribute("recentOrders", orderService.getRecentOrders(5));
         model.addAttribute("currentUser", currentUser);
@@ -79,9 +79,6 @@ public class AdminDashboardController {
         return categoryStats;
     }
 
-    /**
-     * Strona zamówień
-     */
     @GetMapping("/orders")
     public String showOrders(HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         User currentUser = securityHelper.getCurrentUser(session);
@@ -95,9 +92,6 @@ public class AdminDashboardController {
         return "admin/orders";
     }
 
-    /**
-     * Strona produktów
-     */
     @GetMapping("/products")
     public String showProducts(HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         User currentUser = securityHelper.getCurrentUser(session);
@@ -111,9 +105,6 @@ public class AdminDashboardController {
         return "admin/products";
     }
 
-    /**
-     * Strona marek
-     */
     @GetMapping("/brands")
     public String showBrands(HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         User currentUser = securityHelper.getCurrentUser(session);
@@ -127,9 +118,6 @@ public class AdminDashboardController {
         return "admin/brands";
     }
 
-    /**
-     * Strona promocji
-     */
     @GetMapping("/promotions")
     public String showPromotions(HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         User currentUser = securityHelper.getCurrentUser(session);
@@ -143,9 +131,6 @@ public class AdminDashboardController {
         return "admin/promotions";
     }
 
-    /**
-     * Strona recenzji
-     */
     @GetMapping("/reviews")
     public String showReviews(HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         User currentUser = securityHelper.getCurrentUser(session);
@@ -160,9 +145,6 @@ public class AdminDashboardController {
         return "admin/reviews";
     }
 
-    /**
-     * Strona użytkowników
-     */
     @GetMapping("/users")
     public String showUsers(HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         User currentUser = securityHelper.getCurrentUser(session);
@@ -176,9 +158,6 @@ public class AdminDashboardController {
         return "admin/users";
     }
 
-    /**
-     * Strona ustawień
-     */
     @GetMapping("/settings")
     public String showSettings(HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         User currentUser = securityHelper.getCurrentUser(session);
@@ -192,12 +171,8 @@ public class AdminDashboardController {
         return "admin/settings";
     }
 
-    /**
-     * Helper method - ostatnia aktywność (przykładowa)
-     */
     private Map<String, Object> getRecentActivity() {
         Map<String, Object> activity = new HashMap<>();
-        // Tu można dodać rzeczywistą logikę pobierania aktywności z bazy
         activity.put("lastOrderTime", LocalDateTime.now().minusMinutes(5));
         activity.put("lastReviewTime", LocalDateTime.now().minusMinutes(12));
         activity.put("lastUserRegistration", LocalDateTime.now().minusMinutes(25));

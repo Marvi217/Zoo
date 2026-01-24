@@ -29,10 +29,8 @@ public class SubcategoryDTO {
     @NotNull(message = "Kategoria nadrzędna jest wymagana")
     private Long categoryId;
 
-    // Image
     private String imageUrl;
 
-    // Settings
     private boolean active = true;
 
     private Integer displayOrder = 0;

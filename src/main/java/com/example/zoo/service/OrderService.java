@@ -46,22 +46,18 @@ public class OrderService {
         LocalDateTime thirtyDaysAgo = LocalDateTime.now().minusDays(30);
         List<Order> orders = orderRepository.findAllByOrderDateAfter(thirtyDaysAgo);
 
-        // Grupowanie po dacie (np. "2024-01-22") i sumowanie przychodu
-        Map<String, Double> stats = new TreeMap<>(); // TreeMap posortuje klucze (daty) chronologicznie
+        Map<String, Double> stats = new TreeMap<>();
 
-        // Inicjalizacja mapy zerami dla każdego z ostatnich 30 dni (żeby nie było dziur na wykresie)
         for (int i = 30; i >= 0; i--) {
             String date = LocalDate.now().minusDays(i).toString();
             stats.put(date, 0.0);
         }
 
         for (Order order : orders) {
-            // Licz tylko zamówienia opłacone (paymentStatus = PAID)
             if (order.getPaymentStatus() != PaymentStatus.PAID) {
                 continue;
             }
             String date = order.getOrderDate().toLocalDate().toString();
-            // Przychód = totalAmount - deliveryCost (koszt dostawy nie jest zyskiem)
             BigDecimal deliveryCost = order.getDeliveryCost() != null ? order.getDeliveryCost() : BigDecimal.ZERO;
             BigDecimal revenue = order.getTotalAmount().subtract(deliveryCost);
             stats.put(date, stats.getOrDefault(date, 0.0) + revenue.doubleValue());
@@ -74,16 +70,10 @@ public class OrderService {
         Order existingOrder = orderRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Nie znaleziono zamówienia o ID: " + id));
 
-        // Aktualizujemy tylko pola edytowalne przez admina
         existingOrder.setStatus(details.getStatus());
         existingOrder.setPaymentStatus(details.getPaymentStatus());
 
-        // Zakładając, że masz takie pole w encji Order (na podstawie Twojego formularza)
-        // Jeśli nie masz pola adminNotes w encji, musisz je dodać
         existingOrder.setAdminNotes(details.getAdminNotes());
-
-        // Jeśli formularz zawierałby edycję adresu:
-        // existingOrder.setShippingAddress(details.getShippingAddress());
 
         orderRepository.save(existingOrder);
     }
@@ -92,8 +82,6 @@ public class OrderService {
     public Order save(Order order) {
         return orderRepository.save(order);
     }
-
-    // ==================== METODY ISTNIEJĄCE (zachowane) ====================
 
     public Optional<Order> findById(Long id) {
         return orderRepository.findById(id);
@@ -109,7 +97,6 @@ public class OrderService {
         Order order = getOrderById(id);
         order.setPaymentStatus(newStatus);
         orderRepository.save(order);
-        log.info("Zmieniono status płatności zamówienia {} na {}", id, newStatus);
     }
 
     @Transactional
@@ -120,10 +107,7 @@ public class OrderService {
         orderRepository.save(order);
     }
 
-    // W OrderService.java
-
     public Page<Order> getUserOrders(Long userId, Pageable pageable) {
-        // Zakładamy, że w OrderRepository masz metodę findByUserId
         return orderRepository.findByUserId(userId, pageable);
     }
 
@@ -144,7 +128,6 @@ public class OrderService {
         return stats;
     }
 
-    // Mocki dla powiadomień i dokumentów (do implementacji z bibliotekami i MailService)
     public void sendStatusChangeEmail(Long orderId, OrderStatus status) { log.info("Email wysłany: zmiana statusu na {}", status); }
     public void sendCancellationEmail(Long orderId, String reason) { log.info("Email wysłany: anulowanie z powodu {}", reason); }
     public String generateInvoice(Long id) { return "FV/" + id + "/" + LocalDate.now().getYear() + ".pdf"; }
@@ -173,11 +156,7 @@ public class OrderService {
         return savedOrder;
     }
 
-    /**
-     * Oblicza średnią wartość zamówienia (AOV) w podanym okresie
-     */
     public BigDecimal getAverageOrderValue(LocalDateTime from, LocalDateTime to) {
-        // Pobieramy sumę przychodów i liczbę zamówień w jednym okresie
         BigDecimal totalRevenue = orderRepository.sumTotalAmountByOrderDateBetween(from, to);
         long orderCount = orderRepository.countByOrderDateBetween(from, to);
 
@@ -185,19 +164,14 @@ public class OrderService {
             return BigDecimal.ZERO;
         }
 
-        // Dzielenie sumy przez liczbę zamówień z zaokrągleniem do 2 miejsc po przecinku
         return totalRevenue.divide(new BigDecimal(orderCount), 2, RoundingMode.HALF_UP);
     }
 
-    /**
-     * Pobiera statystyki statusów zamówień dla wykresu kołowego w raporcie
-     */
     public Map<OrderStatus, Long> getOrdersCountByStatusInPeriod(LocalDateTime from, LocalDateTime to) {
         List<Object[]> results = orderRepository.countOrdersByStatusInPeriod(from, to);
 
         Map<OrderStatus, Long> statusMap = new HashMap<>();
 
-        // Opcjonalnie: Inicjalizacja mapy zerami dla wszystkich dostępnych statusów
         for (OrderStatus status : OrderStatus.values()) {
             statusMap.put(status, 0L);
         }
@@ -251,7 +225,6 @@ public class OrderService {
             Product product = productService.getProductById(entry.getKey());
             Integer quantity = entry.getValue();
 
-            // Reserve stock
             productService.reserveStock(product.getId(), quantity);
 
             OrderItem item = new OrderItem();
@@ -276,7 +249,6 @@ public class OrderService {
     }
 
     public byte[] exportToCSV(OrderStatus status, LocalDateTime from, LocalDateTime to) {
-        // 1. Pobierz zamówienia według filtrów
         List<Order> orders;
         if (status != null) {
             orders = orderRepository.findByStatusAndOrderDateBetween(status, from, to);
@@ -284,9 +256,8 @@ public class OrderService {
             orders = orderRepository.findByOrderDateBetween(from, to);
         }
 
-        // 2. Buduj zawartość CSV
         StringBuilder csv = new StringBuilder();
-        csv.append("ID;Numer;Data;Klient;Suma;Status\n"); // Nagłówek
+        csv.append("ID;Numer;Data;Klient;Suma;Status\n");
 
         for (Order o : orders) {
             csv.append(o.getId()).append(";")
@@ -305,14 +276,11 @@ public class OrderService {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono zamówienia o ID: " + orderId));
 
-        // 1. Aktualizacja danych przesyłki
         order.setTrackingNumber(trackingNumber);
         order.setDeliveryMethod(carrier);
 
-        // 2. Automatyczna zmiana statusu na wysłane
         order.setStatus(OrderStatus.SHIPPED);
 
-        // 3. Dodanie notatki o wysyłce
         String shippingNote = String.format("[%s] Zamówienie wysłane. Przewoźnik: %s, Numer: %s",
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),
                 carrier,
@@ -322,7 +290,6 @@ public class OrderService {
                 order.getAdminNotes() + "\n" + shippingNote : shippingNote);
 
         orderRepository.save(order);
-        log.info("Zamówienie {} zostało oznaczone jako wysłane. Przewoźnik: {}", orderId, carrier);
     }
 
     @Transactional
@@ -330,7 +297,6 @@ public class OrderService {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Zamówienie o ID " + orderId + " nie istnieje"));
 
-        // Sprawdzenie uprawnień na podstawie Enuma (zamiast getRoles().contains())
         if (currentUser == null || currentUser.getRole() != UserRole.ADMIN) {
             throw new RuntimeException("Tylko administratorzy mogą zmieniać status zamówienia");
         }
@@ -393,12 +359,10 @@ public class OrderService {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new IllegalArgumentException("Zamówienie nie istnieje"));
 
-        // Sprawdzenie uprawnień (chyba że to Admin)
         if (user.getRole() != UserRole.ADMIN && !order.getUser().getId().equals(user.getId())) {
             throw new IllegalStateException("Nie masz uprawnień do tego zamówienia.");
         }
 
-        // Wywołanie bazowej logiki anulowania
         performCancellation(order, "Anulowano przez użytkownika: " + user.getEmail());
     }
 
@@ -410,18 +374,15 @@ public class OrderService {
         performCancellation(order, "Anulowano przez administratora. Powód: " + reason);
     }
 
-    // Wspólna logika (Prywatna)
     private void performCancellation(Order order, String note) {
         if (order.getStatus() == OrderStatus.CANCELLED) {
             throw new IllegalStateException("Zamówienie jest już anulowane.");
         }
 
-        // ✅ KLUCZOWE: Przywracanie stanów magazynowych
         for (OrderItem item : order.getItems()) {
             Product product = item.getProduct();
             if (product != null) {
                 product.setStockQuantity(product.getStockQuantity() + item.getQuantity());
-                // productRepository.save(product); // Nie jest konieczne przy @Transactional, ale bezpieczne
             }
         }
 
@@ -432,62 +393,42 @@ public class OrderService {
         orderRepository.save(order);
     }
 
-    // Filtrowanie po statusie zamówienia
     public Page<Order> findByStatus(OrderStatus status, Pageable pageable) {
         return orderRepository.findByStatus(status, pageable);
     }
 
-    // Filtrowanie po statusie płatności (jeśli masz takie pole w encji)
     public Page<Order> findByPaymentStatus(PaymentStatus paymentStatus, Pageable pageable) {
-        // Zakładam, że masz pole paymentStatus typu String lub Enum
         return orderRepository.findByPaymentStatus(paymentStatus, pageable);
     }
 
-    // Metoda dla statystyk (zwraca listę zamówień o danym statusie)
     public List<Order> getOrdersByStatus(OrderStatus status) {
         return orderRepository.findByStatus(status);
     }
 
-    // ==================== NOWE METODY DLA PANELU ADMIN ====================
-
-    // ==================== STATYSTYKI ZAMÓWIEŃ ====================
-
-    /**
-     * Zlicz zamówienia dzisiejsze
-     */
     public long getTodayOrdersCount() {
         LocalDateTime startOfDay = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0);
         LocalDateTime endOfDay = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59);
         return orderRepository.countByOrderDateBetween(startOfDay, endOfDay);
     }
 
-    /**
-     * Zlicz zamówienia oczekujące
-     */
     public long getPendingOrdersCount() {
         return orderRepository.countByStatus(OrderStatus.PENDING);
     }
 
-    /**
-     * Zlicz zamówienia w realizacji
-     */
     public long getProcessingOrdersCount() {
         return orderRepository.countByStatus(OrderStatus.PROCESSING);
     }
 
     @Transactional
     public void processItemReturn(Long orderId, Long itemId, Integer quantity, String reason) {
-        // 1. Pobierz zamówienie
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Zamówienie nie znalezione"));
 
-        // 2. Znajdź konkretną pozycję w zamówieniu
         OrderItem item = order.getItems().stream()
                 .filter(i -> i.getId().equals(itemId))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Nie znaleziono pozycji o ID: " + itemId));
 
-        // 3. Walidacja ilości
         if (quantity <= 0) {
             throw new IllegalArgumentException("Ilość zwracana musi być większa od zera");
         }
@@ -495,13 +436,8 @@ public class OrderService {
             throw new IllegalArgumentException("Nie można zwrócić więcej niż zakupiono (max: " + item.getQuantity() + ")");
         }
 
-        // 4. Zwiększ stan magazynowy produktu (powrót na półkę)
         productService.increaseStock(item.getProduct().getId(), quantity);
 
-        // 5. Zaktualizuj pozycję w zamówieniu (opcjonalnie - zależy czy robisz korektę faktury)
-        // Jeśli chcesz zachować historię, lepiej dodać pole 'returnedQuantity' do OrderItem
-
-        // 6. Dodaj notatkę o zwrocie
         String returnNote = String.format("ZWROT [%s]: Produkt: %s, Ilość: %d. Powód: %s",
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),
                 item.getProduct().getName(),
@@ -511,15 +447,9 @@ public class OrderService {
         order.setAdminNotes(order.getAdminNotes() != null ?
                 order.getAdminNotes() + "\n" + returnNote : returnNote);
 
-        // 7. Zapisz zmiany
         orderRepository.save(order);
-
-        log.info("Przetworzono zwrot dla zamówienia {}: {}x {}", orderId, quantity, item.getProduct().getName());
     }
 
-    /**
-     * Pobierz przychód dzisiejszy
-     */
     public BigDecimal getTodayRevenue() {
         LocalDateTime startOfDay = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0);
         LocalDateTime endOfDay = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59);
@@ -527,9 +457,6 @@ public class OrderService {
         return revenue != null ? revenue : BigDecimal.ZERO;
     }
 
-    /**
-     * Pobierz przychód tygodniowy
-     */
     public BigDecimal getWeekRevenue() {
         LocalDateTime weekAgo = LocalDateTime.now().minusWeeks(1);
         LocalDateTime now = LocalDateTime.now();
@@ -537,9 +464,6 @@ public class OrderService {
         return revenue != null ? revenue : BigDecimal.ZERO;
     }
 
-    /**
-     * Pobierz przychód miesięczny
-     */
     public BigDecimal getMonthRevenue() {
         LocalDateTime monthAgo = LocalDateTime.now().minusMonths(1);
         LocalDateTime now = LocalDateTime.now();
@@ -547,24 +471,15 @@ public class OrderService {
         return revenue != null ? revenue : BigDecimal.ZERO;
     }
 
-    /**
-     * Pobierz przychód w okresie
-     */
     public BigDecimal getRevenueInPeriod(LocalDateTime from, LocalDateTime to) {
         BigDecimal revenue = orderRepository.sumTotalAmountByOrderDateBetween(from, to);
         return revenue != null ? revenue : BigDecimal.ZERO;
     }
 
-    /**
-     * Zlicz zamówienia w okresie
-     */
     public long getOrdersCountInPeriod(LocalDateTime from, LocalDateTime to) {
         return orderRepository.countByOrderDateBetween(from, to);
     }
 
-    /**
-     * Oblicz procent wzrostu
-     */
     public Double calculateGrowthPercentage(BigDecimal previousValue, BigDecimal currentValue) {
         if (previousValue == null || previousValue.compareTo(BigDecimal.ZERO) == 0) {
             return currentValue.compareTo(BigDecimal.ZERO) > 0 ? 100.0 : 0.0;
@@ -576,9 +491,6 @@ public class OrderService {
         return percentage.doubleValue();
     }
 
-    /**
-     * Oblicz procent wzrostu (dla long)
-     */
     public Double calculateGrowthPercentage(long previousValue, long currentValue) {
         return calculateGrowthPercentage(
                 new BigDecimal(previousValue),
@@ -609,19 +521,10 @@ public class OrderService {
         return stats;
     }
 
-
-    // ==================== OSTATNIE ZAMÓWIENIA ====================
-
-    /**
-     * Pobierz ostatnie zamówienia
-     */
     public List<Order> getRecentOrders(int limit) {
         return orderRepository.findRecentOrders(PageRequest.of(0, limit));
     }
 
-    /**
-     * Pobierz oczekujące zamówienia
-     */
     public List<Order> getPendingOrders(int limit) {
         return orderRepository.findByStatusOrderByOrderDateDesc(
                 OrderStatus.PENDING,
@@ -629,11 +532,6 @@ public class OrderService {
         );
     }
 
-    // ==================== BESTSELLERY ====================
-
-    /**
-     * Pobierz najlepiej sprzedające się produkty
-     */
     public List<Map<String, Object>> getTopSellingProducts(LocalDateTime from, LocalDateTime to, int limit) {
         List<Object[]> results = orderRepository.findTopSellingProducts(from, to, PageRequest.of(0, limit));
 
@@ -646,11 +544,6 @@ public class OrderService {
         }).collect(Collectors.toList());
     }
 
-    // ==================== WYKRESY ====================
-
-    /**
-     * Pobierz dzienny przychód (dla wykresów)
-     */
     public Map<LocalDate, BigDecimal> getDailyRevenue(LocalDateTime from, LocalDateTime to) {
         List<Object[]> results = orderRepository.findDailyRevenue(from, to);
 
@@ -665,9 +558,6 @@ public class OrderService {
         return revenueMap;
     }
 
-    /**
-     * Pobierz dzienną liczbę zamówień (dla wykresów)
-     */
     public Map<LocalDate, Long> getDailyOrdersCount(LocalDateTime from, LocalDateTime to) {
         List<Object[]> results = orderRepository.findDailyOrdersCount(from, to);
 
@@ -682,9 +572,6 @@ public class OrderService {
         return ordersMap;
     }
 
-    /**
-     * Pobierz liczbę zamówień według statusu (dla wykresów kołowych)
-     */
     public Map<OrderStatus, Long> getOrdersCountByStatus() {
         List<Object[]> results = orderRepository.countOrdersByStatus();
 
@@ -699,18 +586,10 @@ public class OrderService {
         return statusMap;
     }
 
-    // ==================== FILTROWANIE I WYSZUKIWANIE ====================
-
-    /**
-     * Pobierz wszystkie zamówienia z paginacją
-     */
     public Page<Order> getAllOrders(Pageable pageable) {
         return orderRepository.findAll(pageable);
     }
 
-    /**
-     * Filtruj zamówienia
-     */
     public Page<Order> filterOrders(
             OrderStatus status,
             PaymentStatus paymentStatus,
@@ -722,18 +601,10 @@ public class OrderService {
         return orderRepository.filterOrders(status, paymentStatus, dateFrom, dateTo, search, pageable);
     }
 
-    /**
-     * Wyszukaj zamówienia
-     */
     public Page<Order> searchOrders(String query, Pageable pageable) {
         return orderRepository.searchOrders(query, pageable);
     }
 
-    // ==================== ZARZĄDZANIE STATUSEM (rozszerzone) ====================
-
-    /**
-     * Zmień status zamówienia (z notyfikacjami)
-     */
     @Transactional
     public void changeOrderStatus(Long orderId, OrderStatus newStatus, String note) {
         Order order = orderRepository.findById(orderId)
@@ -749,13 +620,8 @@ public class OrderService {
 
         orderRepository.save(order);
 
-        // TODO: Wyślij email o zmianie statusu
-        log.info("Zmieniono status zamówienia {} z {} na {}", orderId, oldStatus, newStatus);
     }
 
-    /**
-     * Anuluj zamówienie (przez admina)
-     */
     @Transactional
     public void adminCancelOrder(Long orderId, String reason) {
         Order order = orderRepository.findById(orderId)
@@ -763,31 +629,20 @@ public class OrderService {
 
         order.cancel(reason);
         orderRepository.save(order);
-
-        log.info("Admin anulował zamówienie {}: {}", orderId, reason);
     }
 
-    // ==================== RAPORTY ====================
-
-    /**
-     * Pobierz raport sprzedaży
-     */
     public Map<String, Object> getSalesReport(LocalDateTime from, LocalDateTime to) {
         Map<String, Object> report = new HashMap<>();
 
-        // Podstawowe statystyki
         long totalOrders = getOrdersCountInPeriod(from, to);
         BigDecimal totalRevenue = getRevenueInPeriod(from, to);
 
-        // Średnia wartość zamówienia
         BigDecimal avgOrderValue = totalOrders > 0 ?
                 totalRevenue.divide(new BigDecimal(totalOrders), 2, RoundingMode.HALF_UP) :
                 BigDecimal.ZERO;
 
-        // Zamówienia według statusu
         Map<OrderStatus, Long> ordersByStatus = getOrdersCountByStatus();
 
-        // Top produkty
         List<Map<String, Object>> topProducts = getTopSellingProducts(from, to, 10);
 
         report.put("totalOrders", totalOrders);
@@ -800,43 +655,30 @@ public class OrderService {
         return report;
     }
 
-    /**
-     * Pobierz top klientów
-     */
     public List<Map<String, Object>> getTopCustomers(int limit) {
         List<Object[]> results = orderRepository.findTopCustomers(PageRequest.of(0, limit));
 
         return results.stream().map(row -> {
             Map<String, Object> customerData = new HashMap<>();
-            customerData.put("user", row[0]); // User object
+            customerData.put("user", row[0]);
             customerData.put("orderCount", ((Number) row[1]).longValue());
             customerData.put("totalSpent", (BigDecimal) row[2]);
             return customerData;
         }).collect(Collectors.toList());
     }
 
-    // ==================== EKSPORT ====================
-
-    /**
-     * Eksportuj zamówienia do CSV
-     */
     public String exportToCSV(
             OrderStatus status,
             PaymentStatus paymentStatus,
             LocalDateTime dateFrom,
             LocalDateTime dateTo) {
 
-        log.info("Rozpoczynanie eksportu zamówień do CSV. Filtry - Status: {}, PaymentStatus: {}", status, paymentStatus);
-
-        // 1. Pobierz dane z bazy przy użyciu istniejącej metody filtrującej
-        // Używamy Pageable.unpaged(), aby pobrać wszystkie rekordy spełniające kryteria
         List<Order> orders = orderRepository.filterOrders(
                 status, paymentStatus, dateFrom, dateTo, null, org.springframework.data.domain.Pageable.unpaged()
         ).getContent();
 
         String filename = "orders_export_" + System.currentTimeMillis() + ".csv";
 
-        // 2. Generowanie treści CSV
         StringBuilder csvContent = new StringBuilder();
         csvContent.append("Numer Zamowienia;Data;Klient;Status;Status Platnosci;Suma\n");
 
@@ -852,10 +694,6 @@ public class OrderService {
             ));
         }
 
-        // 3. Zapis do pliku (w realnej aplikacji użyłbyś biblioteki np. OpenCSV lub zapisał do zasobu/dysku)
-        // Na potrzeby tego etapu zwracamy wygenerowaną nazwę
-        log.info("Wyeksportowano {} zamówień do pliku {}", orders.size(), filename);
-
         return filename;
     }
 
@@ -866,20 +704,10 @@ public class OrderService {
             return 0;
         }
 
-        log.info("Rozpoczynanie masowej zmiany statusu na {} dla {} zamówień", newStatus, orderIds.size());
-
-        // Wywołanie zoptymalizowanego zapytania w repozytorium
         int updatedCount = orderRepository.updateStatusForIds(orderIds, newStatus);
-
-        log.info("Pomyślnie zaktualizowano {} zamówień", updatedCount);
         return updatedCount;
     }
 
-    // ==================== STATYSTYKI ZAAWANSOWANE ====================
-
-    /**
-     * Pobierz statystyki zamówień według metody płatności
-     */
     public Map<PaymentMethod, Long> getOrdersByPaymentMethod() {
         List<Object[]> results = orderRepository.countOrdersByPaymentMethod();
 
@@ -893,9 +721,6 @@ public class OrderService {
         return paymentMap;
     }
 
-    /**
-     * Pobierz statystyki zamówień według metody dostawy
-     */
     public Map<DeliveryMethod, Long> getOrdersByDeliveryMethod() {
         List<Object[]> results = orderRepository.countOrdersByDeliveryMethod();
 
@@ -909,17 +734,6 @@ public class OrderService {
         return deliveryMap;
     }
 
-    /**
-     * Pobierz średni czas realizacji zamówienia
-     */
-//    public Double getAverageProcessingTime() {
-//        Double avgHours = orderRepository.calculateAverageProcessingTime();
-//        return avgHours != null ? avgHours : 0.0;
-//    }
-
-    /**
-     * Zlicz wszystkie zamówienia
-     */
     public long getTotalOrdersCount() {
         return orderRepository.count();
     }
@@ -929,7 +743,6 @@ public class OrderService {
     }
 
     public List<Map<String, Object>> getTopCustomers(LocalDateTime from, LocalDateTime to, int limit) {
-        // Implementacja pobierająca klientów z największą sumą zamówień w okresie
         List<Object[]> results = orderRepository.findTopCustomersInPeriod(from, to, PageRequest.of(0, limit));
         return results.stream().map(row -> Map.of(
                 "user", row[0],
@@ -945,7 +758,6 @@ public class OrderService {
     }
 
     public List<String> getOrderStatusHistory(Long orderId) {
-        // Jeśli nie masz tabeli historycznej, możesz zwracać adminNotes podzielone na linie
         Order order = getOrderById(orderId);
         return order.getAdminNotes() != null ?
                 Arrays.asList(order.getAdminNotes().split("\n")) :
@@ -957,21 +769,8 @@ public class OrderService {
         return revenue != null ? revenue : BigDecimal.ZERO;
     }
 
-    // ==================== SPRAWDZANIE ZAKUPU PRODUKTU ====================
-
-    /**
-     * Sprawdź czy użytkownik kupił produkt i może go ocenić
-     * (zamówienie dostarczone lub zwrócone)
-     */
     public boolean canUserReviewProduct(Long userId, Long productId) {
         return orderRepository.hasUserPurchasedProduct(userId, productId);
-    }
-
-    /**
-     * Pobierz produkty które użytkownik może ocenić
-     */
-    public List<Product> getReviewableProductsForUser(Long userId) {
-        return orderRepository.findReviewableProductsForUser(userId);
     }
 
 }

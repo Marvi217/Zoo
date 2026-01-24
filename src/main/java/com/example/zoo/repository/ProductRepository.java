@@ -40,17 +40,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE p.stockQuantity > 0 AND p.stockQuantity <= 10 ORDER BY p.stockQuantity ASC")
     List<Product> findLowStockProducts(Pageable pageable);
 
-    // 2. Pobieranie produktów, których nie ma na stanie
     List<Product> findByStockQuantity(Integer stockQuantity);
 
-    // 3. Liczenie aktywnych produktów (naprawione: countByStatus zamiast countByProductStatus)
     long countByStatus(ProductStatus status);
 
-    // 4. Liczenie produktów z niskim stanem
     @Query("SELECT COUNT(p) FROM Product p WHERE p.stockQuantity > 0 AND p.stockQuantity <= 10")
     long countLowStockProducts();
 
-    // 5. Liczenie produktów niedostępnych
     long countByStockQuantity(Integer stockQuantity);
 
     List<Product> findByNameContainingIgnoreCase(String name);

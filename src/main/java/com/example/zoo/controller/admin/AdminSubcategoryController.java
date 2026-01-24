@@ -27,9 +27,6 @@ public class AdminSubcategoryController {
     private final SubcategoryService subcategoryService;
     private final CategoryService categoryService;
 
-    /**
-     * Lista wszystkich subkategorii (strona ogólna)
-     */
     @GetMapping
     public String listAllSubcategories(
             @RequestParam(defaultValue = "0") int page,
@@ -38,7 +35,6 @@ public class AdminSubcategoryController {
             @RequestParam(required = false) Long categoryId,
             Model model) {
 
-        // Jeśli podano categoryId, przekieruj do widoku kategorii
         if (categoryId != null) {
             return "redirect:/admin/categories/" + categoryId + "/subcategories";
         }
@@ -53,7 +49,6 @@ public class AdminSubcategoryController {
             subcategories = subcategoryService.getAllSubcategories(pageRequest);
         }
 
-        // Pobierz wszystkie kategorie dla filtra
         model.addAttribute("categories", categoryService.getAllActiveCategories());
         model.addAttribute("subcategories", subcategories);
         model.addAttribute("currentPage", page);
@@ -62,9 +57,6 @@ public class AdminSubcategoryController {
         return "admin/subcategories/list";
     }
 
-    /**
-     * Lista subkategorii dla danej kategorii
-     */
     @GetMapping("/category/{categoryId}")
     public String listSubcategoriesByCategory(
             @PathVariable Long categoryId,
@@ -88,12 +80,9 @@ public class AdminSubcategoryController {
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", subcategories.getTotalPages());
 
-        return "admin/subcategories/form"; // To jest widok listy subkategorii dla kategorii
+        return "admin/subcategories/form";
     }
 
-    /**
-     * Formularz dodawania nowej subkategorii
-     */
     @GetMapping("/new")
     public String showCreateForm(
             @RequestParam(required = false) Long categoryId,
@@ -103,7 +92,6 @@ public class AdminSubcategoryController {
         SubcategoryDTO subcategoryDTO = new SubcategoryDTO();
         subcategoryDTO.setActive(true);
 
-        // Jeśli przekazano categoryId, ustaw je jako domyślne
         if (categoryId != null) {
             Category category = categoryService.getCategoryById(categoryId);
             if (category != null) {
@@ -115,16 +103,12 @@ public class AdminSubcategoryController {
             }
         }
 
-        // Pobierz wszystkie aktywne kategorie
         model.addAttribute("categories", categoryService.getAllActiveCategories());
         model.addAttribute("subcategoryDTO", subcategoryDTO);
 
         return "admin/subcategories/edit"; // Plik edit.html
     }
 
-    /**
-     * Zapisywanie nowej subkategorii
-     */
     @PostMapping
     public String createSubcategory(
             @Valid @ModelAttribute SubcategoryDTO subcategoryDTO,
@@ -137,7 +121,6 @@ public class AdminSubcategoryController {
             model.addAttribute("subcategoryDTO", subcategoryDTO);
             model.addAttribute("categories", categoryService.getAllActiveCategories());
 
-            // Dodaj selectedCategory jeśli jest categoryId
             if (subcategoryDTO.getCategoryId() != null) {
                 Category category = categoryService.getCategoryById(subcategoryDTO.getCategoryId());
                 model.addAttribute("selectedCategory", category);
@@ -151,7 +134,6 @@ public class AdminSubcategoryController {
             redirectAttributes.addFlashAttribute("success",
                     "Subkategoria '" + subcategory.getName() + "' została utworzona pomyślnie");
 
-            // Przekieruj do listy subkategorii danej kategorii
             return "redirect:/admin/subcategories/category/" + subcategoryDTO.getCategoryId();
         } catch (IOException e) {
             redirectAttributes.addFlashAttribute("error",
@@ -164,9 +146,6 @@ public class AdminSubcategoryController {
         }
     }
 
-    /**
-     * Formularz edycji subkategorii
-     */
     @GetMapping("/{id}/edit")
     public String showEditForm(
             @PathVariable Long id,
@@ -204,9 +183,6 @@ public class AdminSubcategoryController {
         return subcategoryDTO;
     }
 
-    /**
-     * Aktualizacja subkategorii
-     */
     @PostMapping("/{id}")
     public String updateSubcategory(
             @PathVariable Long id,
@@ -232,7 +208,6 @@ public class AdminSubcategoryController {
             redirectAttributes.addFlashAttribute("success",
                     "Subkategoria '" + subcategory.getName() + "' została zaktualizowana pomyślnie");
 
-            // Przekieruj do listy subkategorii danej kategorii
             return "redirect:/admin/subcategories/category/" + subcategoryDTO.getCategoryId();
         } catch (IOException e) {
             redirectAttributes.addFlashAttribute("error",
@@ -245,9 +220,6 @@ public class AdminSubcategoryController {
         }
     }
 
-    /**
-     * Usuwanie subkategorii
-     */
     @PostMapping("/{id}/delete")
     public String deleteSubcategory(
             @PathVariable Long id,
@@ -261,7 +233,6 @@ public class AdminSubcategoryController {
             subcategoryService.deleteSubcategory(id);
             redirectAttributes.addFlashAttribute("success", "Subkategoria została usunięta pomyślnie");
 
-            // Przekieruj do listy subkategorii danej kategorii
             if (parentCategoryId != null) {
                 return "redirect:/admin/subcategories/category/" + parentCategoryId;
             }
@@ -277,9 +248,6 @@ public class AdminSubcategoryController {
         }
     }
 
-    /**
-     * Zmiana statusu aktywności subkategorii
-     */
     @PostMapping("/{id}/toggle-active")
     @ResponseBody
     public String toggleActive(@PathVariable Long id) {
