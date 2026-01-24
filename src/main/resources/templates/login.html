@@ -1,117 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl" class="auth-page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logowanie - PetMarket</title>
     <link rel="stylesheet" href="/css/public-styles.css">
-    <style>
-        /* Page-specific styles for login.html */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .form-header .paw-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .form-header h1 {
-            margin: 0 0 10px 0;
-            font-size: 32px;
-            color: var(--brand-green);
-        }
-
-        .form-header p {
-            color: var(--text-muted);
-            font-size: 16px;
-            margin: 0;
-        }
-
-        .form-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .alert {
-            text-align: center;
-        }
-
-        .forgot-password {
-            display: block;
-            text-align: right;
-            font-size: 13px;
-            margin-top: 8px;
-            color: var(--brand-green);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-
-        .btn-login {
-            width: 100%;
-            background-color: var(--brand-green);
-            color: white;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .btn-login:hover {
-            opacity: 0.9;
-        }
-
-        .btn-login:active {
-            transform: scale(0.98);
-        }
-
-        .footer-link {
-            text-align: center;
-            margin-top: 25px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border-color);
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        .footer-link a {
-            color: var(--brand-green);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .footer-link a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .form-card {
-                padding: 30px 20px;
-            }
-
-            .form-header h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -187,7 +80,7 @@
         </form>
 
         <!-- Register Link -->
-        <div class="footer-link">
+        <div class="form-footer-link">
             Nie masz jeszcze konta? <a th:href="@{/register}">Zarejestruj się</a>
         </div>
     </div>
