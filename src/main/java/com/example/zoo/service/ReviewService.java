@@ -7,9 +7,6 @@ import com.example.zoo.enums.ReviewStatus;
 import com.example.zoo.repository.ProductRepository;
 import com.example.zoo.repository.ReviewRepository;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,11 +15,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ReviewService {
 
-    private ReviewRepository reviewRepository;
-    private ProductRepository productRepository;
+    private final ReviewRepository reviewRepository;
+    private final ProductRepository productRepository;
+
+    public ReviewService(ReviewRepository reviewRepository, ProductRepository productRepository) {
+        this.reviewRepository = reviewRepository;
+        this.productRepository = productRepository;
+    }
 
     @Transactional
     public void addReview(Long productId, Review review) {
@@ -84,7 +85,7 @@ public class ReviewService {
     }
 
     @Transactional
-    public Review createCustomerReview(Long productId, User user, int rating, String comment) {
+    public void createCustomerReview(Long productId, User user, int rating, String comment) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Produkt nie istnieje"));
 
@@ -101,10 +102,9 @@ public class ReviewService {
         review.setComment(filteredComment);
         review.setStatus(ReviewStatus.APPROVED);
 
-        Review savedReview = reviewRepository.save(review);
+        reviewRepository.save(review);
 
         updateProductRating(productId);
-        return savedReview;
     }
 
     public boolean hasUserReviewedProduct(Long userId, Long productId) {

@@ -1020,9 +1020,19 @@ footer {
     }
 }
 
-/* ========================================
-   CART PAGE
-   ======================================== */
+.product-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--accent-orange);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    z-index: 2;
+}
+
 
 .cart-container {
     max-width: 1200px;
