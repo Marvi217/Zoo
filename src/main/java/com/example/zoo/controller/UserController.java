@@ -56,13 +56,9 @@ public class UserController {
         boolean activated = userService.activateUser(code);
 
         if (activated) {
-            redirectAttributes.addFlashAttribute("success",
-                    "Twoje konto zostało aktywowane! Możesz się teraz zalogować.");
+            return "redirect:/login?activated=true";
         } else {
-            redirectAttributes.addFlashAttribute("error",
-                    "Nieprawidłowy lub wygasły kod aktywacyjny.");
+            return "redirect:/login?activation_error=true";
         }
-
-        return "redirect:/login";
     }
 }
