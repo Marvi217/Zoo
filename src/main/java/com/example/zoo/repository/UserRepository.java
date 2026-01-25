@@ -18,6 +18,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAllByOrderByCreatedAtDesc();
 
+    Optional<User> findByActivationCode(String activationCode);
+
     @Query("SELECT u FROM User u WHERE " +
             "(:role IS NULL OR u.role = :role) AND " +
             "(:active IS NULL OR u.active = :active)")

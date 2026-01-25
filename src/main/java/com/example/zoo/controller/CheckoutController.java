@@ -8,6 +8,7 @@ import com.example.zoo.enums.DeliveryMethod;
 import com.example.zoo.repository.OrderRepository;
 import com.example.zoo.repository.UserCartRepository;
 import com.example.zoo.repository.UserRepository;
+import com.example.zoo.service.EmailService;
 import com.example.zoo.service.OrderService;
 import com.example.zoo.service.PromotionService;
 import com.example.zoo.service.UserAddressService;
@@ -41,6 +42,7 @@ public class CheckoutController {
     private final UserAddressService addressService;
     private final PromotionService promotionService;
     private final UserCartRepository userCartRepository;
+    private final EmailService emailService;
 
     private static class CartData {
         BigDecimal total;
@@ -104,6 +106,8 @@ public class CheckoutController {
             model.addAttribute("user", user);
             model.addAttribute("savedAddresses", savedAddresses);
         }
+
+        emailService.sendSimpleMessage("test@o2.pl","Test mail","Test mail");
 
         model.addAttribute("cartItems", cartData.items);
         model.addAttribute("total", cartData.total);

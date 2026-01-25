@@ -43,6 +43,12 @@ public class User {
     @Column(nullable = false)
     private boolean active = true;
 
+    @Column(nullable = false, columnDefinition = "boolean default true")
+    private boolean enabled = true;
+
+    @Column
+    private String activationCode;
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 

@@ -16,6 +16,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +25,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final EmailService emailService;
 
     public User authenticate(String email, String password) {
         User user = userRepository.findByEmail(email)
@@ -46,6 +48,65 @@ public class UserService {
             }
         }
         return userRepository.save(user);
+    }
+
+    /**
+     * Registers a new user and sends an activation email.
+     * The user's enabled flag is set to false until they activate their account.
+     *
+     * @param user the user to register
+     * @return the registered user
+     */
+    @Transactional
+    public User register(User user) {
+        if (existsByEmail(user.getEmail())) {
+            throw new RuntimeException("Użytkownik o podanym emailu już istnieje");
+        }
+
+        // Encode password
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        // Set default role if not provided
+        if (user.getRole() == null) {
+            user.setRole(UserRole.USER);
+        }
+
+        // Generate activation code
+        String activationCode = UUID.randomUUID().toString();
+        user.setActivationCode(activationCode);
+
+        // User is not enabled until they activate their account
+        user.setEnabled(false);
+        user.setActive(true);
+
+        // Save user to database
+        User savedUser = userRepository.save(user);
+
+        // Send activation email
+        emailService.sendActivationEmail(user.getEmail(), activationCode);
+
+        log.info("User registered: {} with activation code: {}", user.getEmail(), activationCode);
+
+        return savedUser;
+    }
+
+    /**
+     * Activates a user account using the activation code.
+     *
+     * @param activationCode the activation code
+     * @return true if activation was successful, false otherwise
+     */
+    @Transactional
+    public boolean activateUser(String activationCode) {
+        return userRepository.findByActivationCode(activationCode)
+                .map(user -> {
+                    user.setEnabled(true);
+                    user.setActivationCode(null);
+                    userRepository.save(user);
+                    log.info("User activated: {}", user.getEmail());
+                    return true;
+                })
+                .orElse(false);
     }
 
 
