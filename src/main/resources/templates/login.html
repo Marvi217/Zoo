@@ -44,6 +44,11 @@
             ✗ <span th:text="#{login.error.activation}">Nieprawidłowy lub wygasły kod aktywacyjny.</span>
         </div>
 
+        <!-- ERROR MESSAGE - Konto nieaktywne -->
+        <div th:if="${param.disabled}" class="alert alert-error">
+            ✗ <span th:text="#{login.error.disabled}">Konto nie zostało aktywowane. Sprawdź swoją skrzynkę e-mail.</span>
+        </div>
+
         <!-- ERROR MESSAGE - Błędne dane -->
         <div th:if="${param.error}" class="alert alert-error">
             ✗ <span th:text="#{login.error.invalid}">Nieprawidłowy e-mail lub hasło.</span>

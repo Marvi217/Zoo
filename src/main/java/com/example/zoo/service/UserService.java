@@ -140,6 +140,7 @@ public class UserService {
         user.setPhone(userDTO.getPhone());
         user.setRole(userDTO.getRole() != null ? userDTO.getRole() : UserRole.USER);
         user.setActive(true);
+        user.setEnabled(true); // Admin-created users are enabled immediately
 
         if (userDTO.getPassword() != null && !userDTO.getPassword().isBlank()) {
             user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
