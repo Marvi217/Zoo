@@ -29,9 +29,24 @@
     <!-- FORM CARD -->
     <div class="form-card">
 
-        <!-- SUCCESS MESSAGE - Konto utworzone -->
-        <div th:if="${param.registered}" class="alert alert-success">
-            ✓ <span th:text="#{login.success.registered}">Konto zostało utworzone! Możesz się teraz zalogować.</span>
+        <!-- SUCCESS MESSAGE - Konto utworzone, wymaga aktywacji -->
+        <div th:if="${param.registered}" class="alert alert-info">
+            ✉️ <span th:text="#{login.success.registered}">Konto zostało utworzone! Sprawdź swoją skrzynkę e-mail, aby aktywować konto.</span>
+        </div>
+
+        <!-- SUCCESS MESSAGE - Konto aktywowane -->
+        <div th:if="${param.activated}" class="alert alert-success">
+            ✓ <span th:text="#{login.success.activated}">Konto zostało aktywowane! Możesz się teraz zalogować.</span>
+        </div>
+
+        <!-- ERROR MESSAGE - Nieprawidłowy kod aktywacyjny -->
+        <div th:if="${param.activation_error}" class="alert alert-error">
+            ✗ <span th:text="#{login.error.activation}">Nieprawidłowy lub wygasły kod aktywacyjny.</span>
+        </div>
+
+        <!-- ERROR MESSAGE - Konto nieaktywne -->
+        <div th:if="${param.disabled}" class="alert alert-error">
+            ✗ <span th:text="#{login.error.disabled}">Konto nie zostało aktywowane. Sprawdź swoją skrzynkę e-mail.</span>
         </div>
 
         <!-- ERROR MESSAGE - Błędne dane -->

@@ -19,6 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     private final CustomLoginSuccessHandler successHandler;
+    private final CustomLoginFailureHandler failureHandler;
 
     @Bean
     public AuthenticationManager authenticationManager(
@@ -54,6 +55,7 @@ public class SecurityConfig {
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
                         .successHandler(successHandler)
+                        .failureHandler(failureHandler)
                         .usernameParameter("username")
                         .passwordParameter("password")
                         .permitAll()
