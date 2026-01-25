@@ -127,4 +127,34 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT p.subcategory.name, COUNT(p), p.subcategory.slug FROM Product p WHERE p.category.slug = :categorySlug GROUP BY p.subcategory.name, p.subcategory.slug")
     List<Object[]> findSubcategoriesByCategorySlug(@Param("categorySlug") String categorySlug);
+
+    // Find bestselling products in a category (by rating)
+    @Query("SELECT p FROM Product p WHERE p.category.slug = :categorySlug " +
+            "AND p.status = 'ACTIVE' " +
+            "ORDER BY p.rating DESC")
+    List<Product> findBestsellingProductsByCategory(@Param("categorySlug") String categorySlug, Pageable pageable);
+
+    // Find products with active promotions in a category
+    @Query("SELECT DISTINCT p FROM Product p JOIN p.promotions promo " +
+            "WHERE p.category.slug = :categorySlug " +
+            "AND p.status = 'ACTIVE' " +
+            "AND promo.active = true " +
+            "AND (promo.startDate IS NULL OR promo.startDate <= CURRENT_TIMESTAMP) " +
+            "AND (promo.endDate IS NULL OR promo.endDate >= CURRENT_TIMESTAMP)")
+    List<Product> findPromotedProductsByCategory(@Param("categorySlug") String categorySlug, Pageable pageable);
+
+    // Find products with active promotions matching name
+    @Query("SELECT DISTINCT p FROM Product p JOIN p.promotions promo " +
+            "WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :query, '%')) " +
+            "AND p.status = 'ACTIVE' " +
+            "AND promo.active = true " +
+            "AND (promo.startDate IS NULL OR promo.startDate <= CURRENT_TIMESTAMP) " +
+            "AND (promo.endDate IS NULL OR promo.endDate >= CURRENT_TIMESTAMP)")
+    List<Product> findPromotedProductsByName(@Param("query") String query, Pageable pageable);
+
+    // Find bestselling products matching name (by rating)
+    @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :query, '%')) " +
+            "AND p.status = 'ACTIVE' " +
+            "ORDER BY p.rating DESC")
+    List<Product> findBestsellingProductsByName(@Param("query") String query, Pageable pageable);
 }

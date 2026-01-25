@@ -20,6 +20,10 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class SearchService {
 
+    private static final int MAX_SUGGESTIONS = 10;
+    private static final int MAX_HISTORY_SUGGESTIONS = 3;
+    private static final int MAX_CATEGORY_PRODUCTS = 3;
+
     private final ProductRepository productRepository;
     private final SearchHistoryRepository searchHistoryRepository;
     private final CategoryService categoryService;
@@ -74,7 +78,7 @@ public class SearchService {
 
     /**
      * Get search suggestions based on query prefix
-     * Priority: User history > Popular searches > Product matches > Category matches
+     * Priority: User history > Popular searches > Categories with promoted/bestselling products > Product matches
      */
     public List<SearchSuggestion> getSuggestions(String query, User user, String sessionId) {
         if (query == null || query.trim().length() < 2) {
@@ -88,7 +92,7 @@ public class SearchService {
         // 1. User's search history (if logged in)
         if (user != null) {
             List<SearchHistory> userHistory = searchHistoryRepository.findUserSearchHistoryByPrefix(
-                    user, prefix, PageRequest.of(0, 3));
+                    user, prefix, PageRequest.of(0, MAX_HISTORY_SUGGESTIONS));
             for (SearchHistory history : userHistory) {
                 if (addedQueries.add(history.getQuery().toLowerCase())) {
                     suggestions.add(new SearchSuggestion(
@@ -102,7 +106,7 @@ public class SearchService {
         } else if (sessionId != null) {
             // Session-based history for anonymous users
             List<SearchHistory> sessionHistory = searchHistoryRepository.findSessionSearchHistoryByPrefix(
-                    sessionId, prefix, PageRequest.of(0, 3));
+                    sessionId, prefix, PageRequest.of(0, MAX_HISTORY_SUGGESTIONS));
             for (SearchHistory history : sessionHistory) {
                 if (addedQueries.add(history.getQuery().toLowerCase())) {
                     suggestions.add(new SearchSuggestion(
@@ -117,7 +121,7 @@ public class SearchService {
 
         // 2. Popular searches (global)
         List<Object[]> popularSearches = searchHistoryRepository.findPopularSearchesByPrefix(
-                prefix, PageRequest.of(0, 5));
+                prefix, PageRequest.of(0, MAX_HISTORY_SUGGESTIONS));
         for (Object[] result : popularSearches) {
             String popularQuery = (String) result[0];
             if (addedQueries.add(popularQuery.toLowerCase())) {
@@ -128,41 +132,119 @@ public class SearchService {
                         "popular"
                 ));
             }
-            if (suggestions.size() >= 8) break;
+            if (suggestions.size() >= MAX_SUGGESTIONS / 2) break;
         }
 
-        // 3. Category matches
+        // 3. Category matches - show category and also add promoted/bestselling products from that category
         List<Category> categories = categoryService.getAllCategories();
         for (Category category : categories) {
-            if (category.getName().toLowerCase().contains(prefix) && 
-                addedQueries.add("cat:" + category.getSlug())) {
-                suggestions.add(new SearchSuggestion(
-                        category.getName(),
-                        "KATEGORIA",
-                        "/category/" + category.getSlug(),
-                        "category"
-                ));
+            if (category.getName().toLowerCase().contains(prefix)) {
+                // Add the category itself
+                if (addedQueries.add("cat:" + category.getSlug())) {
+                    suggestions.add(new SearchSuggestion(
+                            category.getName(),
+                            "KATEGORIA",
+                            "/category/" + category.getSlug(),
+                            "category"
+                    ));
+                }
+                
+                // Add promoted products from this category
+                List<Product> promotedProducts = productRepository.findPromotedProductsByCategory(
+                        category.getSlug(), PageRequest.of(0, MAX_CATEGORY_PRODUCTS));
+                for (Product product : promotedProducts) {
+                    if (addedQueries.add("prod:" + product.getId())) {
+                        String priceStr = formatProductPrice(product);
+                        suggestions.add(new SearchSuggestion(
+                                product.getName(),
+                                priceStr + " 🔥 PROMOCJA",
+                                "/product/" + product.getId(),
+                                "promo"
+                        ));
+                    }
+                    if (suggestions.size() >= MAX_SUGGESTIONS) break;
+                }
+                
+                // Add bestselling products from this category (if not enough promoted)
+                if (suggestions.size() < MAX_SUGGESTIONS) {
+                    List<Product> bestsellingProducts = productRepository.findBestsellingProductsByCategory(
+                            category.getSlug(), PageRequest.of(0, MAX_CATEGORY_PRODUCTS));
+                    for (Product product : bestsellingProducts) {
+                        if (addedQueries.add("prod:" + product.getId())) {
+                            String priceStr = formatProductPrice(product);
+                            suggestions.add(new SearchSuggestion(
+                                    product.getName(),
+                                    priceStr + " ⭐ BESTSELLER",
+                                    "/product/" + product.getId(),
+                                    "bestseller"
+                            ));
+                        }
+                        if (suggestions.size() >= MAX_SUGGESTIONS) break;
+                    }
+                }
             }
-            if (suggestions.size() >= 10) break;
+            if (suggestions.size() >= MAX_SUGGESTIONS) break;
         }
 
-        // 4. Product matches
-        List<Product> products = productRepository.findByNameContainingIgnoreCase(prefix);
-        for (Product product : products.stream().limit(5).toList()) {
-            if (addedQueries.add("prod:" + product.getId())) {
-                String priceStr = product.getCurrentPrice() != null ? 
-                        String.format("%.2f zł", product.getCurrentPrice()) : "";
-                suggestions.add(new SearchSuggestion(
-                        product.getName(),
-                        priceStr,
-                        "/product/" + product.getId(),
-                        "product"
-                ));
+        // 4. Products with promotions matching the query name
+        if (suggestions.size() < MAX_SUGGESTIONS) {
+            List<Product> promotedProducts = productRepository.findPromotedProductsByName(prefix, PageRequest.of(0, MAX_CATEGORY_PRODUCTS));
+            for (Product product : promotedProducts) {
+                if (addedQueries.add("prod:" + product.getId())) {
+                    String priceStr = formatProductPrice(product);
+                    suggestions.add(new SearchSuggestion(
+                            product.getName(),
+                            priceStr + " 🔥 PROMOCJA",
+                            "/product/" + product.getId(),
+                            "promo"
+                    ));
+                }
+                if (suggestions.size() >= MAX_SUGGESTIONS) break;
             }
-            if (suggestions.size() >= 12) break;
         }
 
-        return suggestions.stream().limit(10).collect(Collectors.toList());
+        // 5. Bestselling products matching name
+        if (suggestions.size() < MAX_SUGGESTIONS) {
+            List<Product> bestsellingProducts = productRepository.findBestsellingProductsByName(prefix, PageRequest.of(0, MAX_CATEGORY_PRODUCTS));
+            for (Product product : bestsellingProducts) {
+                if (addedQueries.add("prod:" + product.getId())) {
+                    String priceStr = formatProductPrice(product);
+                    suggestions.add(new SearchSuggestion(
+                            product.getName(),
+                            priceStr + " ⭐ BESTSELLER",
+                            "/product/" + product.getId(),
+                            "bestseller"
+                    ));
+                }
+                if (suggestions.size() >= MAX_SUGGESTIONS) break;
+            }
+        }
+
+        // 6. Regular product matches (fallback)
+        if (suggestions.size() < MAX_SUGGESTIONS) {
+            List<Product> products = productRepository.findByNameContainingIgnoreCase(prefix);
+            for (Product product : products.stream().limit(MAX_CATEGORY_PRODUCTS).toList()) {
+                if (addedQueries.add("prod:" + product.getId())) {
+                    String priceStr = formatProductPrice(product);
+                    suggestions.add(new SearchSuggestion(
+                            product.getName(),
+                            priceStr,
+                            "/product/" + product.getId(),
+                            "product"
+                    ));
+                }
+                if (suggestions.size() >= MAX_SUGGESTIONS) break;
+            }
+        }
+
+        return suggestions.stream().limit(MAX_SUGGESTIONS).collect(Collectors.toList());
+    }
+    
+    private String formatProductPrice(Product product) {
+        if (product.getCurrentPrice() != null) {
+            return String.format("%.2f zł", product.getCurrentPrice());
+        }
+        return "";
     }
 
     @Getter
