@@ -218,10 +218,6 @@ public class Product {
         if (!isHasDiscount()) {
             return null;
         }
-        Promotion promotion = getCurrentPromotion();
-        if (promotion != null && promotion.getType() == PromotionType.BUY_X_GET_Y) {
-            return "-" + getDiscountPercent() + "%";
-        }
         return "-" + getDiscountPercent() + "%";
     }
 

@@ -56,7 +56,7 @@
                             badge.style.display = data.count > 0 ? 'flex' : 'none';
                         }
                     })
-                    .catch(error => console.log('Cart count fetch error:', error));
+                    .catch(error => console.error('Failed to fetch cart count from /cart/count:', error));
             });
         </script>
     </div>
