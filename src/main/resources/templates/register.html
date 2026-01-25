@@ -133,6 +133,8 @@
     // Password strength indicator
     const passwordInput = document.getElementById('password');
     const defaultHint = /*[[#{register.password.hint}]]*/ 'Hasło musi zawierać minimum 6 znaków';
+    const acceptableHint = /*[[#{register.password.acceptable}]]*/ '✓ Hasło akceptowalne';
+    const strongHint = /*[[#{register.password.strong}]]*/ '✓ Silne hasło!';
 
     passwordInput?.addEventListener('input', function() {
         const length = this.value.length;
@@ -145,10 +147,10 @@
             hint.textContent = `${6 - length}...`;
             hint.style.color = 'var(--error-text)';
         } else if (length < 8) {
-            hint.textContent = '✓';
+            hint.textContent = acceptableHint;
             hint.style.color = 'var(--accent-orange)';
         } else {
-            hint.textContent = '✓✓';
+            hint.textContent = strongHint;
             hint.style.color = 'var(--success-text)';
         }
     });
