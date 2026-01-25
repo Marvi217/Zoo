@@ -9,12 +9,16 @@
     </a>
 
     <div class="search-container">
-        <form th:action="@{/search}" action="/search" method="get">
+        <form th:action="@{/search/quick}" action="/search/quick" method="get" autocomplete="off">
             <label>
-                <input type="text" name="q" th:placeholder="#{nav.search.placeholder}" placeholder="Szukaj produktów..." required>
+                <input type="text" name="q" id="search-input" 
+                       th:placeholder="#{nav.search.placeholder}" 
+                       placeholder="Szukaj produktów..." 
+                       autocomplete="off">
             </label>
             <button type="submit" class="search-btn" th:text="#{nav.search.button}">Szukaj</button>
         </form>
+        <div class="search-suggestions" id="search-suggestions"></div>
     </div>
 
     <div class="nav-icons">
@@ -47,6 +51,7 @@
         </a>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
+                // Cart count fetch
                 fetch('/cart/count')
                     .then(response => response.json())
                     .then(data => {
@@ -57,6 +62,99 @@
                         }
                     })
                     .catch(error => console.error('Failed to fetch cart count from /cart/count:', error));
+
+                // Search autocomplete
+                const searchInput = document.getElementById('search-input');
+                const suggestionsContainer = document.getElementById('search-suggestions');
+                let debounceTimer;
+                let selectedIndex = -1;
+
+                if (searchInput && suggestionsContainer) {
+                    searchInput.addEventListener('input', function() {
+                        clearTimeout(debounceTimer);
+                        const query = this.value.trim();
+                        
+                        if (query.length < 2) {
+                            suggestionsContainer.innerHTML = '';
+                            suggestionsContainer.style.display = 'none';
+                            return;
+                        }
+
+                        debounceTimer = setTimeout(() => {
+                            fetch('/search/api/suggestions?q=' + encodeURIComponent(query))
+                                .then(response => response.json())
+                                .then(suggestions => {
+                                    if (suggestions.length === 0) {
+                                        suggestionsContainer.innerHTML = '';
+                                        suggestionsContainer.style.display = 'none';
+                                        return;
+                                    }
+
+                                    selectedIndex = -1;
+                                    suggestionsContainer.innerHTML = suggestions.map((s, index) => {
+                                        let icon = '🔍';
+                                        if (s.icon === 'history') icon = '🕒';
+                                        else if (s.icon === 'popular') icon = '🔥';
+                                        else if (s.icon === 'category') icon = '📁';
+                                        else if (s.icon === 'product') icon = '🛍️';
+
+                                        return `
+                                            <a href="${s.url}" class="suggestion-item" data-index="${index}">
+                                                <span class="suggestion-icon">${icon}</span>
+                                                <span class="suggestion-name">${s.name}</span>
+                                                <span class="suggestion-type">${s.type}</span>
+                                            </a>
+                                        `;
+                                    }).join('');
+                                    suggestionsContainer.style.display = 'block';
+                                })
+                                .catch(error => console.error('Search suggestions error:', error));
+                        }, 200);
+                    });
+
+                    // Keyboard navigation
+                    searchInput.addEventListener('keydown', function(e) {
+                        const items = suggestionsContainer.querySelectorAll('.suggestion-item');
+                        if (items.length === 0) return;
+
+                        if (e.key === 'ArrowDown') {
+                            e.preventDefault();
+                            selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+                            updateSelection(items);
+                        } else if (e.key === 'ArrowUp') {
+                            e.preventDefault();
+                            selectedIndex = Math.max(selectedIndex - 1, -1);
+                            updateSelection(items);
+                        } else if (e.key === 'Enter' && selectedIndex >= 0) {
+                            e.preventDefault();
+                            items[selectedIndex].click();
+                        } else if (e.key === 'Escape') {
+                            suggestionsContainer.style.display = 'none';
+                        }
+                    });
+
+                    function updateSelection(items) {
+                        items.forEach((item, index) => {
+                            item.classList.toggle('selected', index === selectedIndex);
+                        });
+                    }
+
+                    // Close suggestions when clicking outside
+                    document.addEventListener('click', function(e) {
+                        if (e.target !== searchInput && 
+                            !searchInput.contains(e.target) && 
+                            !suggestionsContainer.contains(e.target)) {
+                            suggestionsContainer.style.display = 'none';
+                        }
+                    });
+
+                    // Show suggestions on focus if input has value
+                    searchInput.addEventListener('focus', function() {
+                        if (this.value.trim().length >= 2 && suggestionsContainer.innerHTML.trim()) {
+                            suggestionsContainer.style.display = 'block';
+                        }
+                    });
+                }
             });
         </script>
     </div>
