@@ -43,8 +43,8 @@ public class User {
     @Column(nullable = false)
     private boolean active = true;
 
-    @Column(nullable = false)
-    private boolean enabled = false;
+    @Column(nullable = false, columnDefinition = "boolean default true")
+    private boolean enabled = true;
 
     @Column
     private String activationCode;
