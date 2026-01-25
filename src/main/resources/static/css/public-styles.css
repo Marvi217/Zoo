@@ -2650,3 +2650,53 @@ footer {
         gap: 15px;
     }
 }
+
+/* ============================================
+   LANGUAGE SWITCHER STYLES
+   ============================================ */
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 1px solid var(--border-color);
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+    opacity: 0.6;
+}
+
+.lang-btn:hover {
+    opacity: 1;
+    background: var(--bg-light);
+}
+
+.lang-btn.active {
+    opacity: 1;
+    background: var(--brand-light);
+    box-shadow: 0 0 0 2px var(--brand-green);
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+    
+    .lang-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+}

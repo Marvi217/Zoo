@@ -49,6 +49,16 @@
             </div>
             <span th:text="#{nav.cart}">Koszyk</span>
         </a>
+        
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <a th:href="@{''(lang='pl')}" class="lang-btn" th:classappend="${#locale.language == 'pl'} ? 'active' : ''" title="Polski">
+                🇵🇱
+            </a>
+            <a th:href="@{''(lang='en')}" class="lang-btn" th:classappend="${#locale.language == 'en'} ? 'active' : ''" title="English">
+                🇺🇸
+            </a>
+        </div>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // Cart count fetch
