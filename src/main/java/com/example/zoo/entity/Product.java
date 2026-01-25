@@ -208,6 +208,47 @@ public class Product {
     }
 
     @Transient
+    public boolean isBuyXGetYPromotion() {
+        Promotion promotion = getCurrentPromotion();
+        return promotion != null && promotion.getType() == PromotionType.BUY_X_GET_Y;
+    }
+
+    @Transient
+    public String getPromotionBadgeText() {
+        if (!isHasDiscount()) {
+            return null;
+        }
+        Promotion promotion = getCurrentPromotion();
+        if (promotion != null && promotion.getType() == PromotionType.BUY_X_GET_Y) {
+            return "-" + getDiscountPercent() + "%";
+        }
+        return "-" + getDiscountPercent() + "%";
+    }
+
+    @Transient
+    public String getBuyXGetYDescription() {
+        Promotion promotion = getCurrentPromotion();
+        if (promotion == null || promotion.getType() != PromotionType.BUY_X_GET_Y) {
+            return null;
+        }
+        Integer buyQty = promotion.getBuyQuantity();
+        Integer getQty = promotion.getGetQuantity();
+        BigDecimal discountPct = promotion.getDiscountPercentage();
+        
+        if (buyQty == null || getQty == null) {
+            return null;
+        }
+        
+        if (discountPct != null && discountPct.compareTo(new BigDecimal("100")) == 0) {
+            return "Kup " + buyQty + " dostań " + getQty + " gratis";
+        } else if (discountPct != null) {
+            return "Kup " + buyQty + " dostań " + getQty + " za " + discountPct.intValue() + "% ceny";
+        } else {
+            return "Kup " + buyQty + " dostań " + getQty + " gratis";
+        }
+    }
+
+    @Transient
     public String getShortDescription() {
         if (description == null || description.isEmpty()) {
             return "";

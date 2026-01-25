@@ -37,14 +37,28 @@
         <a th:href="@{/cart}" class="nav-link">
             <div style="position: relative; display: inline-block;">
                 🛒
-                <span class="cart-badge"
-                      th:text="${session.cart != null ? session.cart.totalItems : 0}"
-                      th:style="${session.cart == null or session.cart.totalItems == 0} ? 'display: none;' : 'display: flex;'">
+                <span class="cart-badge" id="cart-badge-count"
+                      th:text="${cartItemCount != null ? cartItemCount : (session.cart != null ? session.cart.totalItems : 0)}"
+                      th:style="${(cartItemCount == null or cartItemCount == 0) and (session.cart == null or session.cart.totalItems == 0)} ? 'display: none;' : 'display: flex;'">
                     0
                 </span>
             </div>
             <span th:text="#{nav.cart}">Koszyk</span>
         </a>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('/cart/count')
+                    .then(response => response.json())
+                    .then(data => {
+                        const badge = document.getElementById('cart-badge-count');
+                        if (badge) {
+                            badge.textContent = data.count;
+                            badge.style.display = data.count > 0 ? 'flex' : 'none';
+                        }
+                    })
+                    .catch(error => console.log('Cart count fetch error:', error));
+            });
+        </script>
     </div>
 </nav>
 

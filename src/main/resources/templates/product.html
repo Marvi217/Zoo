@@ -65,6 +65,9 @@
                     </span>
                     <span th:unless="${product.hasDiscount}">Najlepsza cena w ostatnich 30 dniach</span>
                 </div>
+                <div class="promotion-info" th:if="${product.buyXGetYPromotion}" style="margin-top: 10px; padding: 10px 15px; background: #fff3cd; border-radius: 8px; color: #856404; font-weight: 600;">
+                    🎁 <span th:text="${product.buyXGetYDescription}">Kup X dostań Y gratis</span>
+                </div>
             </div>
 
             <!-- AVAILABILITY -->
