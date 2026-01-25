@@ -52,4 +52,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE u.id NOT IN " +
             "(SELECT DISTINCT o.user.id FROM Order o WHERE o.user IS NOT NULL)")
     List<User> findUsersWithoutOrders();
+
+    Optional<User> findByActivationCode(String activationCode);
 }

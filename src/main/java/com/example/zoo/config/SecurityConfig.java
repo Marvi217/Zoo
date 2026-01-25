@@ -44,7 +44,7 @@ public class SecurityConfig {
                         .requestMatchers("/", "/index", "/error/**", "/h2-console/**").permitAll()
                         .requestMatchers("/category/**", "/product/**", "/search/**").permitAll()
                         .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
-                        .requestMatchers("/register", "/login", "/wishlist/toggle").permitAll()
+                        .requestMatchers("/register", "/login", "/activate", "/wishlist/toggle").permitAll()
                         .requestMatchers("/cart/**", "/account/**").permitAll()
                         .requestMatchers("/checkout/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")

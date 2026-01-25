@@ -1363,6 +1363,7 @@ public class DataInitializer {
             user.setPassword(passwordEncoder.encode("user123"));
             user.setRole(UserRole.USER); // Ustawiamy pojedynczy Enum zamiast Set.of
             user.setActive(true);
+            user.setEnabled(true); // Already activated account
 
 // Administrator
             User admin = new User();
@@ -1372,6 +1373,7 @@ public class DataInitializer {
             admin.setPassword(passwordEncoder.encode("admin123"));
             admin.setRole(UserRole.ADMIN); // Ustawiamy rolę ADMIN
             admin.setActive(true);
+            admin.setEnabled(true); // Already activated account
 
             userRepository.saveAll(List.of(user, admin));
             System.out.println("✅ Utworzono 2 użytkowników");
