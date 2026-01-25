@@ -5,15 +5,15 @@
 
 <nav th:fragment="navbar" class="navbar">
     <a th:href="@{/}" href="/" class="logo">
-        🐾 <span>PetMarket</span>
+        🐾 <span th:text="#{app.name}">PetMarket</span>
     </a>
 
     <div class="search-container">
         <form th:action="@{/search}" action="/search" method="get">
             <label>
-                <input type="text" name="q" placeholder="Szukaj produktów..." required>
+                <input type="text" name="q" th:placeholder="#{nav.search.placeholder}" placeholder="Szukaj produktów..." required>
             </label>
-            <button type="submit" class="search-btn">Szukaj</button>
+            <button type="submit" class="search-btn" th:text="#{nav.search.button}">Szukaj</button>
         </form>
     </div>
 
@@ -23,7 +23,7 @@
            th:href="@{/account}"
            class="nav-link">
             <span style="font-size: 20px;">👤</span>
-            <span>Konto</span>
+            <span th:text="#{nav.account}">Konto</span>
         </a>
 
         <!-- Link dla niezalogowanych użytkowników -->
@@ -31,7 +31,7 @@
            th:href="@{/login}"
            class="nav-link">
             <span style="font-size: 20px;">👤</span>
-            <span>Zaloguj się</span>
+            <span th:text="#{nav.login}">Zaloguj się</span>
         </a>
 
         <a th:href="@{/cart}" class="nav-link">
@@ -43,7 +43,7 @@
                     0
                 </span>
             </div>
-            <span>Koszyk</span>
+            <span th:text="#{nav.cart}">Koszyk</span>
         </a>
     </div>
 </nav>

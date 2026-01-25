@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logowanie - PetMarket</title>
+    <title th:text="#{login.title}">Logowanie - PetMarket</title>
     <link rel="stylesheet" href="/css/public-styles.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
-    <a th:href="@{/}">Strona główna</a> / Logowanie
+    <a th:href="@{/}" th:text="#{breadcrumb.home}">Strona główna</a> / <span th:text="#{breadcrumb.login}">Logowanie</span>
 </div>
 
 <!-- MAIN CONTENT -->
@@ -22,8 +22,8 @@
     <!-- HEADER -->
     <div class="form-header">
         <div class="paw-icon">🐾</div>
-        <h1>Zaloguj się</h1>
-        <p>Witaj ponownie w PetMarket!</p>
+        <h1 th:text="#{login.header}">Zaloguj się</h1>
+        <p th:text="#{login.welcome}">Witaj ponownie w PetMarket!</p>
     </div>
 
     <!-- FORM CARD -->
@@ -31,17 +31,17 @@
 
         <!-- SUCCESS MESSAGE - Konto utworzone -->
         <div th:if="${param.registered}" class="alert alert-success">
-            ✓ Konto zostało utworzone! Możesz się teraz zalogować.
+            ✓ <span th:text="#{login.success.registered}">Konto zostało utworzone! Możesz się teraz zalogować.</span>
         </div>
 
         <!-- ERROR MESSAGE - Błędne dane -->
         <div th:if="${param.error}" class="alert alert-error">
-            ✗ Nieprawidłowy e-mail lub hasło.
+            ✗ <span th:text="#{login.error.invalid}">Nieprawidłowy e-mail lub hasło.</span>
         </div>
 
         <!-- INFO MESSAGE - Wylogowanie -->
         <div th:if="${param.logout}" class="alert alert-info">
-            ✓ Zostałeś pomyślnie wylogowany.
+            ✓ <span th:text="#{login.success.logout}">Zostałeś pomyślnie wylogowany.</span>
         </div>
 
         <!-- LOGIN FORM -->
@@ -49,12 +49,13 @@
 
             <!-- Email -->
             <div class="form-group">
-                <label for="email">E-mail</label>
+                <label for="email" th:text="#{login.email}">E-mail</label>
                 <div class="input-wrapper">
                     <span class="icon">✉️</span>
                     <input type="email"
                            id="email"
                            name="username"
+                           th:placeholder="#{login.email.placeholder}"
                            placeholder="twoj@email.pl"
                            required
                            autofocus>
@@ -63,32 +64,33 @@
 
             <!-- Password -->
             <div class="form-group">
-                <label for="password">Hasło</label>
+                <label for="password" th:text="#{login.password}">Hasło</label>
                 <div class="input-wrapper">
                     <span class="icon">🔒</span>
                     <input type="password"
                            id="password"
                            name="password"
+                           th:placeholder="#{login.password.placeholder}"
                            placeholder="Wprowadź hasło"
                            required>
                 </div>
-                <a href="#" class="forgot-password">Zapomniałeś hasła?</a>
+                <a href="#" class="forgot-password" th:text="#{login.forgot.password}">Zapomniałeś hasła?</a>
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn-login">Zaloguj się</button>
+            <button type="submit" class="btn-login" th:text="#{login.submit}">Zaloguj się</button>
         </form>
 
         <!-- Register Link -->
         <div class="form-footer-link">
-            Nie masz jeszcze konta? <a th:href="@{/register}">Zarejestruj się</a>
+            <span th:text="#{login.no.account}">Nie masz jeszcze konta?</span> <a th:href="@{/register}" th:text="#{login.register.link}">Zarejestruj się</a>
         </div>
     </div>
 </main>
 
 <!-- FOOTER -->
 <footer>
-    <p>&copy; 2026 PetMarket - Wszystkie prawa zastrzeżone</p>
+    <p th:text="#{footer.copyright}">&copy; 2026 PetMarket - Wszystkie prawa zastrzeżone</p>
 </footer>
 
 </body>
