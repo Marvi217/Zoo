@@ -1,0 +1,12 @@
+# Optional dependencies for seed_database.py
+# These are optional - the script will work without them but with limited functionality
+
+# For direct database connection (optional)
+JayDeBeApi>=1.2.3
+JPype1>=1.4.0
+
+# For generating realistic Polish names and addresses (optional)
+Faker>=18.0.0
+
+# For proper password hashing (optional - uses simple hash if not installed)
+bcrypt>=4.0.0
