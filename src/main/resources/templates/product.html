@@ -35,8 +35,10 @@
 
         <!-- PRODUCT INFO -->
         <div class="product-info">
-            <div class="product-badge" th:if="${product.hasDiscount}"
+            <div class="product-badge" th:if="${product.hasDiscount and !product.buyXGetYPromotion and product.discountPercent > 0}"
                  th:text="'-' + ${product.discountPercent} + '%'">-25%</div>
+            <div class="product-badge" th:if="${product.buyXGetYPromotion}"
+                 th:text="'%'">%</div>
 
             <h1 class="product-title" th:text="${product.name}">Nazwa produktu</h1>
 
@@ -53,12 +55,12 @@
 
             <!-- PRICE -->
             <div class="price-section">
-                <div class="old-price" th:if="${product.hasDiscount}"
+                <div class="old-price" th:if="${product.hasDiscount and !product.buyXGetYPromotion}"
                      th:text="${#numbers.formatDecimal(product.oldPrice, 1, 2)} + ' ' + #{general.currency}">252.00 zł</div>
                 <div class="current-price"
                      th:text="${#numbers.formatDecimal(product.currentPrice, 1, 2)} + ' ' + #{general.currency}">189.00 zł</div>
                 <div class="price-info">
-                    <span class="savings" th:if="${product.hasDiscount}">
+                    <span class="savings" th:if="${product.hasDiscount and !product.buyXGetYPromotion and product.savingsAmount > 0}">
                         <span th:text="#{product.price.savings}">Oszczędzasz</span>
                         <span th:text="${#numbers.formatDecimal(product.savingsAmount, 1, 2)}">63</span>
                         <span th:text="#{general.currency}">zł</span>!
@@ -67,6 +69,11 @@
                 </div>
                 <div class="promotion-info" th:if="${product.buyXGetYPromotion}">
                     🎁 <span th:text="${product.buyXGetYDescription}">Promocja</span>
+                    <div class="effective-price" style="margin-top: 5px; font-size: 14px; color: #16a34a;">
+                        💰 <span th:text="${product.buyXGetYTotalQuantity}">3</span> szt. za
+                        <span th:text="${#numbers.formatDecimal(product.buyXGetYEffectivePrice, 1, 2)}">63.00</span>
+                        <span th:text="#{general.currency}">zł</span>/szt.
+                    </div>
                 </div>
             </div>
 
@@ -74,7 +81,9 @@
             <div class="availability" th:classappend="${product.available ? 'in-stock' : 'low-stock'}">
                 <span class="availability-icon">✓</span>
                 <span class="availability-text"
-                      th:text="${product.available ? #{product.available} : #{product.unavailable}}">Dostępny - wysyłka w 24h</span>
+                      th:if="${product.available}" th:text="#{product.available}">Dostępny - wysyłka w 24h</span>
+                <span class="availability-text"
+                      th:unless="${product.available}" th:text="#{product.unavailable}">Niedostępny</span>
             </div>
 
             <!-- PURCHASE SECTION -->
@@ -162,8 +171,10 @@
                 </div>
                 <div class="spec-item">
                     <span class="spec-label" th:text="#{product.specs.availability}">Dostępność:</span>
-                    <span class="spec-value"
-                          th:text="${product.available ? #{product.specs.available} : #{product.specs.unavailable}}">Dostępny</span>
+                    <span class="spec-value" th:if="${product.available}"
+                          th:text="#{product.specs.available}">Dostępny</span>
+                    <span class="spec-value" th:unless="${product.available}"
+                          th:text="#{product.specs.unavailable}">Niedostępny</span>
                 </div>
             </div>
         </div>
