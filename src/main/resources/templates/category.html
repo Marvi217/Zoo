@@ -135,8 +135,10 @@
                    class="product-card">
 
                     <!-- Discount Badge -->
-                    <div th:if="${product.hasDiscount}" class="product-badge"
+                    <div th:if="${product.hasDiscount and !product.buyXGetYPromotion and product.discountPercent > 0}" class="product-badge"
                          th:text="'-' + ${product.discountPercent} + '%'">-25%</div>
+                    <div th:if="${product.buyXGetYPromotion}" class="product-badge"
+                         th:text="'%'">%</div>
 
                     <div class="product-image" th:text="${product.imageUrl}">🦴</div>
 
@@ -147,7 +149,7 @@
 
                         <div class="product-footer">
                             <div class="product-pricing">
-                                <span class="old-price" th:if="${product.hasDiscount}"
+                                <span class="old-price" th:if="${product.hasDiscount and !product.buyXGetYPromotion}"
                                       th:text="${#numbers.formatDecimal(product.oldPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                                 <span class="product-price"
                                       th:text="${#numbers.formatDecimal(product.currentPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>

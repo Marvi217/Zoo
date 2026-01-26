@@ -249,6 +249,46 @@ public class Product {
     }
 
     @Transient
+    public Integer getBuyXGetYTotalQuantity() {
+        Promotion promotion = getCurrentPromotion();
+        if (promotion == null || promotion.getType() != PromotionType.BUY_X_GET_Y) {
+            return null;
+        }
+        Integer buyQty = promotion.getBuyQuantity();
+        Integer getQty = promotion.getGetQuantity();
+        if (buyQty == null || getQty == null) {
+            return null;
+        }
+        return buyQty + getQty;
+    }
+
+    @Transient
+    public Integer getBuyXGetYBuyQuantity() {
+        Promotion promotion = getCurrentPromotion();
+        if (promotion == null || promotion.getType() != PromotionType.BUY_X_GET_Y) {
+            return null;
+        }
+        return promotion.getBuyQuantity();
+    }
+
+    @Transient
+    public BigDecimal getBuyXGetYEffectivePrice() {
+        Promotion promotion = getCurrentPromotion();
+        if (promotion == null || promotion.getType() != PromotionType.BUY_X_GET_Y) {
+            return null;
+        }
+        Integer buyQty = promotion.getBuyQuantity();
+        Integer getQty = promotion.getGetQuantity();
+        if (buyQty == null || getQty == null || buyQty <= 0) {
+            return null;
+        }
+        // Effective price per item = (price * buyQty) / (buyQty + getQty)
+        BigDecimal totalPrice = price.multiply(new BigDecimal(buyQty));
+        BigDecimal totalQuantity = new BigDecimal(buyQty + getQty);
+        return totalPrice.divide(totalQuantity, 2, RoundingMode.HALF_UP);
+    }
+
+    @Transient
     public String getShortDescription() {
         if (description == null || description.isEmpty()) {
             return "";

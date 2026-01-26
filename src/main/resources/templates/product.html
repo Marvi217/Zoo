@@ -37,6 +37,8 @@
         <div class="product-info">
             <div class="product-badge" th:if="${product.hasDiscount and !product.buyXGetYPromotion and product.discountPercent > 0}"
                  th:text="'-' + ${product.discountPercent} + '%'">-25%</div>
+            <div class="product-badge" th:if="${product.buyXGetYPromotion}"
+                 th:text="'%'">%</div>
 
             <h1 class="product-title" th:text="${product.name}">Nazwa produktu</h1>
 
@@ -67,6 +69,11 @@
                 </div>
                 <div class="promotion-info" th:if="${product.buyXGetYPromotion}">
                     🎁 <span th:text="${product.buyXGetYDescription}">Promocja</span>
+                    <div class="effective-price" style="margin-top: 5px; font-size: 14px; color: #16a34a;">
+                        💰 <span th:text="${product.buyXGetYTotalQuantity}">3</span> szt. za
+                        <span th:text="${#numbers.formatDecimal(product.buyXGetYEffectivePrice, 1, 2)}">63.00</span>
+                        <span th:text="#{general.currency}">zł</span>/szt.
+                    </div>
                 </div>
             </div>
 
