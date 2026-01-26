@@ -14,7 +14,10 @@ Requirements:
     pip install jaydebeapi JPype1 bcrypt Faker
 
 Usage:
-    python scripts/seed_database.py
+    python scripts/seed_database.py              # Use test database (zoo_test) - SAFE
+    python scripts/seed_database.py --prod       # Use production database (zoo) - CAREFUL!
+    python scripts/seed_database.py --db mydb    # Use custom database name
+    python scripts/seed_database.py --sql-only   # Only generate SQL file, don't execute
 """
 
 import os
@@ -22,6 +25,7 @@ import sys
 import random
 import string
 import hashlib
+import argparse
 from datetime import datetime, timedelta
 from decimal import Decimal
 import uuid
@@ -50,11 +54,19 @@ except ImportError:
     print("Warning: bcrypt not installed. Using simple password hash.")
 
 # Database configuration
-DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'db', 'zoo')
-JDBC_URL = f"jdbc:h2:file:{DB_PATH}"
+DEFAULT_DB_NAME = "zoo_test"  # Default to test database for safety
+PROD_DB_NAME = "zoo"
 DB_USER = "admin"
 DB_PASSWORD = "admin"
 H2_JAR_PATH = os.path.expanduser("~/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar")
+
+def get_db_path(db_name):
+    """Get database path for given database name"""
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'db', db_name)
+
+def get_jdbc_url(db_name):
+    """Get JDBC URL for given database name"""
+    return f"jdbc:h2:file:{get_db_path(db_name)}"
 
 # ============================================================================
 # DATA DEFINITIONS
@@ -906,7 +918,7 @@ class SQLGenerator:
 # DATABASE EXECUTOR
 # ============================================================================
 
-def execute_with_jdbc(sql_file_path):
+def execute_with_jdbc(sql_file_path, db_name):
     """Execute SQL file using JDBC connection"""
     if not HAS_JDBC:
         print("jaydebeapi not installed. Cannot execute SQL directly.")
@@ -943,6 +955,9 @@ def execute_with_jdbc(sql_file_path):
 
     print(f"Using H2 JAR: {h2_jar}")
 
+    jdbc_url = get_jdbc_url(db_name)
+    print(f"Connecting to: {jdbc_url}")
+
     try:
         # Read SQL file
         with open(sql_file_path, 'r', encoding='utf-8') as f:
@@ -951,7 +966,7 @@ def execute_with_jdbc(sql_file_path):
         # Connect to H2
         conn = jaydebeapi.connect(
             "org.h2.Driver",
-            JDBC_URL,
+            jdbc_url,
             [DB_USER, DB_PASSWORD],
             h2_jar
         )
@@ -987,10 +1002,55 @@ def execute_with_jdbc(sql_file_path):
 # MAIN
 # ============================================================================
 
+def parse_args():
+    """Parse command line arguments"""
+    parser = argparse.ArgumentParser(
+        description='Database Seeding Script for Zoo Pet Store',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python seed_database.py              # Use test database (zoo_test) - SAFE
+  python seed_database.py --prod       # Use production database (zoo) - CAREFUL!
+  python seed_database.py --db mydb    # Use custom database name
+  python seed_database.py --sql-only   # Only generate SQL file, don't execute
+        """
+    )
+    parser.add_argument('--prod', action='store_true',
+                        help=f'Use production database ({PROD_DB_NAME}) - BE CAREFUL!')
+    parser.add_argument('--db', type=str, default=None,
+                        help='Custom database name (default: zoo_test)')
+    parser.add_argument('--sql-only', action='store_true',
+                        help='Only generate SQL file, do not execute')
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+
+    # Determine database name
+    if args.db:
+        db_name = args.db
+    elif args.prod:
+        db_name = PROD_DB_NAME
+    else:
+        db_name = DEFAULT_DB_NAME
+
+    # Safety warning for production
+    if db_name == PROD_DB_NAME:
+        print("!" * 60)
+        print("!!! WARNING: You are about to modify PRODUCTION database !!!")
+        print("!" * 60)
+        response = input("Are you sure? Type 'yes' to continue: ")
+        if response.lower() != 'yes':
+            print("Aborted.")
+            sys.exit(0)
+
     print("=" * 60)
     print("Zoo Pet Store - Database Seeding Script")
     print("=" * 60)
+    print(f"\nTarget database: {db_name}")
+    print(f"Database path: {get_db_path(db_name)}")
+    print(f"JDBC URL: {get_jdbc_url(db_name)}")
     print()
 
     # Generate data
@@ -1003,35 +1063,42 @@ def main():
 
     # Save SQL file
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    sql_file = os.path.join(script_dir, 'seed_data.sql')
+    sql_file = os.path.join(script_dir, f'seed_data_{db_name}.sql')
 
     with open(sql_file, 'w', encoding='utf-8') as f:
         f.write(sql_content)
 
     print(f"\nSQL file saved to: {sql_file}")
 
-    # Try to execute
-    if HAS_JDBC:
+    if args.sql_only:
+        print("\n--sql-only flag set. Skipping execution.")
+        print(f"\nTo run manually in H2 console:")
+        print(f"  1. Start the Spring Boot application with test profile")
+        print(f"  2. Go to http://localhost:8080/h2-console")
+        print(f"  3. Connect with {get_jdbc_url(db_name)}")
+        print(f"  4. Run the SQL from {sql_file}")
+    elif HAS_JDBC:
         print("\nAttempting to execute SQL...")
-        success = execute_with_jdbc(sql_file)
+        success = execute_with_jdbc(sql_file, db_name)
         if success:
-            print("\nDatabase seeded successfully!")
+            print(f"\nDatabase '{db_name}' seeded successfully!")
         else:
             print("\nCould not execute SQL directly.")
             print(f"You can manually run the SQL file: {sql_file}")
-            print("\nTo run manually in H2 console:")
-            print("  1. Start the Spring Boot application")
-            print("  2. Go to http://localhost:8080/h2-console")
-            print("  3. Connect with jdbc:h2:file:./db/zoo")
+            print(f"\nTo run manually in H2 console:")
+            print(f"  1. Start the Spring Boot application")
+            print(f"  2. Go to http://localhost:8080/h2-console")
+            print(f"  3. Connect with {get_jdbc_url(db_name)}")
             print(f"  4. Run the SQL from {sql_file}")
     else:
         print("\nTo execute the SQL file:")
         print("  1. Install jaydebeapi: pip install jaydebeapi JPype1")
         print("  2. Run this script again")
-        print("\nOr manually run the SQL in H2 console:")
-        print("  1. Start the Spring Boot application")
-        print("  2. Go to http://localhost:8080/h2-console")
-        print(f"  3. Run the SQL from {sql_file}")
+        print(f"\nOr manually run the SQL in H2 console:")
+        print(f"  1. Start the Spring Boot application")
+        print(f"  2. Go to http://localhost:8080/h2-console")
+        print(f"  3. Connect with {get_jdbc_url(db_name)}")
+        print(f"  4. Run the SQL from {sql_file}")
 
     print("\n" + "=" * 60)
     print("Done!")
