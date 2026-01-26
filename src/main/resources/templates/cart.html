@@ -104,13 +104,25 @@
                         <span class="summary-product-name" th:text="${item.product.name}">Produkt</span>
                         <span class="summary-product-qty" th:text="'× ' + ${item.quantity}">× 1</span>
                     </div>
-                    <span class="summary-product-price" th:text="${#numbers.formatDecimal(item.totalPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                    <div class="summary-product-prices">
+                        <!-- Show original price if discounted -->
+                        <span th:if="${item.product.hasDiscount}" class="summary-original-price"
+                              th:text="${#numbers.formatDecimal(item.product.oldPrice * item.quantity, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                        <!-- Current price -->
+                        <span class="summary-product-price" th:text="${#numbers.formatDecimal(item.totalPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                    </div>
                 </div>
             </div>
 
             <div class="summary-row">
                 <span th:text="#{cart.subtotal}">Wartość produktów</span>
                 <span th:text="${#numbers.formatDecimal(cart.subtotal, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+            </div>
+
+            <!-- Show discount row if any items have discount -->
+            <div th:if="${cart.totalDiscount != null and cart.totalDiscount > 0}" class="summary-row summary-discount">
+                <span th:text="#{cart.discount}">Upust</span>
+                <span th:text="'-' + ${#numbers.formatDecimal(cart.totalDiscount, 1, 2)} + ' ' + #{general.currency}">-0.00 zł</span>
             </div>
 
             <div class="summary-row">
