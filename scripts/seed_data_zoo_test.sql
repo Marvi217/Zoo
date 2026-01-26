@@ -1,6 +1,6 @@
 -- ============================================
 -- Zoo Pet Store Database Seed Script
--- Generated: 2026-01-26 19:32:46
+-- Generated: 2026-01-26 19:53:51
 -- ============================================
 
 -- Disable foreign key checks
@@ -255,8 +255,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     1,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     2,
@@ -268,8 +268,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     2,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     3,
@@ -281,8 +281,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     3,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     4,
@@ -294,8 +294,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     4,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     5,
@@ -307,8 +307,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     5,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     6,
@@ -320,8 +320,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     6,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     7,
@@ -333,8 +333,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     7,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     8,
@@ -346,8 +346,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     8,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     9,
@@ -359,8 +359,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     9,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     10,
@@ -372,8 +372,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     10,
     NULL,
     1,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     11,
@@ -385,8 +385,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     1,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     12,
@@ -398,8 +398,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     2,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     13,
@@ -411,8 +411,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     3,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     14,
@@ -424,8 +424,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     4,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     15,
@@ -437,8 +437,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     5,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     16,
@@ -450,8 +450,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     6,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     17,
@@ -463,8 +463,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     7,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     18,
@@ -476,8 +476,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     8,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     19,
@@ -489,8 +489,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     9,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     20,
@@ -502,8 +502,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     10,
     NULL,
     2,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     21,
@@ -515,8 +515,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     1,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     22,
@@ -528,8 +528,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     2,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     23,
@@ -541,8 +541,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     3,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     24,
@@ -554,8 +554,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     4,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     25,
@@ -567,8 +567,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     5,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     26,
@@ -580,8 +580,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     6,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     27,
@@ -593,8 +593,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     7,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     28,
@@ -606,8 +606,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     8,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     29,
@@ -619,8 +619,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     9,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     30,
@@ -632,8 +632,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     10,
     NULL,
     3,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     31,
@@ -645,8 +645,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     1,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     32,
@@ -658,8 +658,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     2,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     33,
@@ -671,8 +671,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     3,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     34,
@@ -684,8 +684,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     4,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     35,
@@ -697,8 +697,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     5,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     36,
@@ -710,8 +710,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     6,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     37,
@@ -723,8 +723,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     7,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     38,
@@ -736,8 +736,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     8,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     39,
@@ -749,8 +749,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     9,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     40,
@@ -762,8 +762,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     10,
     NULL,
     4,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     41,
@@ -775,8 +775,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     1,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     42,
@@ -788,8 +788,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     2,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     43,
@@ -801,8 +801,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     3,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     44,
@@ -814,8 +814,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     4,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     45,
@@ -827,8 +827,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     5,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     46,
@@ -840,8 +840,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     6,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     47,
@@ -853,8 +853,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     7,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     48,
@@ -866,8 +866,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     8,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     49,
@@ -879,8 +879,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     9,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     50,
@@ -892,8 +892,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     10,
     NULL,
     5,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     51,
@@ -905,8 +905,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     1,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     52,
@@ -918,8 +918,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     2,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     53,
@@ -931,8 +931,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     3,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     54,
@@ -944,8 +944,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     4,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     55,
@@ -957,8 +957,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     5,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     56,
@@ -970,8 +970,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     6,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     57,
@@ -983,8 +983,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     7,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     58,
@@ -996,8 +996,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     8,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     59,
@@ -1009,8 +1009,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     9,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO subcategories (id, name, slug, icon, description, active, display_order, image_url, category_id, created_at, updated_at) VALUES (
     60,
@@ -1022,8 +1022,8 @@ INSERT INTO subcategories (id, name, slug, icon, description, active, display_or
     10,
     NULL,
     6,
-    TIMESTAMP '2026-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 
 -- Insert users
@@ -1032,7 +1032,7 @@ INSERT INTO users (id, first_name, last_name, email, password, phone, role, stre
     'Admin',
     'System',
     'admin@zoo.com',
-    '$2a$10$240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa8228',
+    '$2b$12$bWGqsvUGyui/bb7H.snOQeN961Txp3kJj3gxZO6Uq5UfSOXkZSMhm',
     '+48 500 000 000',
     'ADMIN',
     'Administracyjna 1',
@@ -1042,908 +1042,908 @@ INSERT INTO users (id, first_name, last_name, email, password, phone, role, stre
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-01-26 19:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-01-26 19:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     2,
-    'Tomasz',
-    'Kowalczyk',
-    'tomasz.kowalczyk2@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 518 407 169',
+    'Krystyna',
+    'Szymański',
+    'krystyna.szymanski2@example.com',
+    '$2b$12$BTpo3NP.LHB3s6kNCUhQYu3Iyz5p3qRI7w.ScGXHwzGMjruxCgx2a',
+    '+48 600 823 823',
     'USER',
-    'ul. Krótka 37/25',
-    'Kraków',
-    '18-656',
+    'ul. Kwiatowa 52/34',
+    'Bydgoszcz',
+    '23-655',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-05 02:56:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-09 07:47:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     3,
     'Piotr',
-    'Wojciechowski',
-    'piotr.wojciechowski3@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 608 718 134',
+    'Krawczyk',
+    'piotr.krawczyk3@example.com',
+    '$2b$12$zszdXdwtCm2Q/BX35daQyu89mSTtQtIDy/JijHI5xvQUH9ynHqqG6',
+    '+48 519 557 655',
     'USER',
-    'ul. Kościelna 2/13',
-    'Białystok',
-    '20-368',
+    'ul. Sportowa 25/18',
+    'Gliwice',
+    '12-929',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-11-29 03:19:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-03 18:16:37',
+    TIMESTAMP '2026-01-26 19:53:37'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     4,
-    'Paweł',
-    'Pawłowski',
-    'pawel.pawlowski4@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 511 838 164',
+    'Krystyna',
+    'Kozłowski',
+    'krystyna.kozlowski4@example.com',
+    '$2b$12$.D6aD5kCYfmZH5oo8SqPIejUtIdaaTPUY7qb7KQcQeyksX7W1Z/vu',
+    '+48 518 192 382',
     'USER',
-    'ul. Polna 40/26',
-    'Kraków',
-    '39-926',
+    'ul. Wodna 111/10',
+    'Zabrze',
+    '47-914',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-11-27 05:24:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-15 12:10:37',
+    TIMESTAMP '2026-01-26 19:53:37'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     5,
-    'Jakub',
-    'Lewandowski',
-    'jakub.lewandowski5@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 608 810 687',
+    'Elżbieta',
+    'Wójcik',
+    'elzbieta.wojcik5@example.com',
+    '$2b$12$SNVolyiqu2S7a2y2VyHileIUhFw33VWNnOJuD5treJw8ONy2MlsqO',
+    '+48 516 594 907',
     'USER',
-    'ul. Kościelna 101/17',
-    'Szczecin',
-    '39-967',
+    'ul. Ogrodowa 136/19',
+    'Zabrze',
+    '35-975',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-11 05:38:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-18 21:16:37',
+    TIMESTAMP '2026-01-26 19:53:37'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     6,
-    'Piotr',
-    'Pawłowski',
-    'piotr.pawlowski6@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 602 103 363',
+    'Maria',
+    'Szymański',
+    'maria.szymanski6@example.com',
+    '$2b$12$yYbwRpf/Pn51jxI24j/9meWQ8vlS6DwUGOx94PLkCxl0FQtF2AMnm',
+    '+48 601 919 328',
     'USER',
-    'ul. Krótka 137/40',
-    'Rzeszów',
-    '71-530',
+    'ul. Główna 113/45',
+    'Sosnowiec',
+    '75-979',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-12 00:06:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-05 04:22:37',
+    TIMESTAMP '2026-01-26 19:53:37'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     7,
-    'Małgorzata',
-    'Kozłowski',
-    'malgorzata.kozlowski7@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 507 910 119',
+    'Jan',
+    'Kowalczyk',
+    'jan.kowalczyk7@example.com',
+    '$2b$12$l2iGg1U44K0.9AE8i97B6OeZn1EiIiWmFoFHsIAouN.3EJMsq7EI6',
+    '+48 507 148 455',
     'USER',
-    'ul. Kolejowa 150/4',
-    'Poznań',
-    '93-180',
+    'ul. Ogrodowa 8/2',
+    'Kielce',
+    '16-616',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-25 21:06:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-03 18:42:38',
+    TIMESTAMP '2026-01-26 19:53:38'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     8,
-    'Anna',
-    'Wojciechowski',
-    'anna.wojciechowski8@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 513 993 255',
+    'Zofia',
+    'Szymański',
+    'zofia.szymanski8@example.com',
+    '$2b$12$K/7cYtaEvN6zUbXEEvwd4.R1r/y.dEoVxiaJJQMelFmddmOuTjM0q',
+    '+48 604 189 641',
     'USER',
-    'ul. Ogrodowa 95/47',
-    'Poznań',
-    '20-971',
+    'ul. Brzozowa 139/9',
+    'Lublin',
+    '61-532',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-19 01:56:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-09 02:17:38',
+    TIMESTAMP '2026-01-26 19:53:38'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     9,
-    'Paweł',
-    'Dąbrowski',
-    'pawel.dabrowski9@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 508 419 977',
+    'Zofia',
+    'Kowalczyk',
+    'zofia.kowalczyk9@example.com',
+    '$2b$12$DneTF4kjYZ6dC3vRbb2Jiu0LhmpI5WGlLyJ1uscQ8kClHvYp2W9Wu',
+    '+48 600 334 453',
     'USER',
-    'ul. Zielona 108/40',
-    'Warszawa',
-    '60-754',
+    'ul. Łąkowa 52/47',
+    'Częstochowa',
+    '18-556',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-10 16:57:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-17 23:51:38',
+    TIMESTAMP '2026-01-26 19:53:38'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     10,
-    'Krystyna',
-    'Nowak',
-    'krystyna.nowak10@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 506 444 582',
+    'Elżbieta',
+    'Woźniak',
+    'elzbieta.wozniak10@example.com',
+    '$2b$12$8FJ5Zwf1T6698nE24pVStu7U0jym9jnkRWkVRPUEdmIbNpxUcWntC',
+    '+48 513 233 920',
     'USER',
-    'ul. Krótka 53/5',
-    'Gdynia',
-    '67-372',
+    'ul. Krótka 40/20',
+    'Częstochowa',
+    '76-345',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-08 18:59:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-31 17:50:39',
+    TIMESTAMP '2026-01-26 19:53:39'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     11,
-    'Ewa',
-    'Piotrowski',
-    'ewa.piotrowski11@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 505 378 263',
+    'Mateusz',
+    'Mazur',
+    'mateusz.mazur11@example.com',
+    '$2b$12$7KwYAzYdxEwRf.c/XS9WK.JFwRGjntvCrr865BIN9pPlDTCn8m47a',
+    '+48 511 800 700',
     'USER',
-    'ul. Polna 48/48',
-    'Sosnowiec',
-    '44-768',
+    'ul. Kolejowa 136/30',
+    'Gliwice',
+    '95-589',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-11-29 01:43:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-04 08:31:39',
+    TIMESTAMP '2026-01-26 19:53:39'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     12,
-    'Małgorzata',
-    'Woźniak',
-    'malgorzata.wozniak12@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 514 425 611',
+    'Krzysztof',
+    'Jankowski',
+    'krzysztof.jankowski12@example.com',
+    '$2b$12$3w8aI3M0oKeo7zQZByPw9.KvnBlwdBLmWZUjyimFSCR4lki4MaDx2',
+    '+48 605 792 833',
     'USER',
-    'ul. Główna 139/48',
-    'Warszawa',
-    '92-189',
+    'ul. Polna 118/28',
+    'Gdynia',
+    '93-351',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-25 15:02:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-03 18:19:39',
+    TIMESTAMP '2026-01-26 19:53:39'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     13,
-    'Agnieszka',
-    'Dąbrowski',
-    'agnieszka.dabrowski13@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 515 254 588',
+    'Marek',
+    'Piotrowski',
+    'marek.piotrowski13@example.com',
+    '$2b$12$tlZfJ3uZCXMAK2ZCY9X75.g1VoOtR7VBjLeDKAoB7bDEWmYjJ2dKO',
+    '+48 608 835 823',
     'USER',
-    'ul. Słoneczna 80/36',
-    'Gliwice',
-    '11-947',
+    'ul. Polna 76/41',
+    'Poznań',
+    '88-222',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-22 12:58:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-14 18:56:40',
+    TIMESTAMP '2026-01-26 19:53:40'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     14,
-    'Krystyna',
-    'Krawczyk',
-    'krystyna.krawczyk14@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 608 510 650',
+    'Adam',
+    'Wiśniewski',
+    'adam.wisniewski14@example.com',
+    '$2b$12$yBUd9GsRu7epSEvynCLCl.VMTKPSD5U.Dm6GaVpDLWekiy7SA4WbC',
+    '+48 505 207 577',
     'USER',
-    'ul. Polna 91/45',
-    'Warszawa',
-    '78-178',
+    'ul. Brzozowa 6/4',
+    'Gdańsk',
+    '50-372',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-22 05:39:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-23 00:15:40',
+    TIMESTAMP '2026-01-26 19:53:40'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     15,
-    'Piotr',
+    'Stanisław',
     'Pawłowski',
-    'piotr.pawlowski15@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 514 659 668',
+    'stanislaw.pawlowski15@example.com',
+    '$2b$12$0w4Qcd1d2Y.MUwCQqvpLR.B0V7QCfGvI0D/LYVsqMyxS1J95fGf.q',
+    '+48 508 877 471',
     'USER',
-    'ul. Kolejowa 146/50',
-    'Rzeszów',
-    '94-936',
+    'ul. Krótka 147/47',
+    'Katowice',
+    '20-316',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-02 07:22:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-10 21:59:40',
+    TIMESTAMP '2026-01-26 19:53:40'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     16,
-    'Marek',
-    'Woźniak',
-    'marek.wozniak16@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 506 356 565',
+    'Barbara',
+    'Grabowski',
+    'barbara.grabowski16@example.com',
+    '$2b$12$sqD6Zx9wlpMq2Qh924VBuublfqBXdDqhpq3ik8qdO8fYQfSg6zfOq',
+    '+48 519 538 164',
     'USER',
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
+    'ul. Leśna 30/17',
+    'Katowice',
+    '91-637',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-20 20:45:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-04 10:09:40',
+    TIMESTAMP '2026-01-26 19:53:40'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     17,
-    'Elżbieta',
-    'Kozłowski',
-    'elzbieta.kozlowski17@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 505 147 624',
+    'Katarzyna',
+    'Mazur',
+    'katarzyna.mazur17@example.com',
+    '$2b$12$ZqdBpTi8gqEGdwRnUCWeUOWcEnqEb39U87t9G9GvnkyG3xeTLHt3u',
+    '+48 609 248 178',
     'USER',
-    'ul. Kolejowa 63/22',
-    'Toruń',
-    '67-417',
+    'ul. Główna 17/25',
+    'Szczecin',
+    '70-104',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-20 01:38:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-07 23:08:41',
+    TIMESTAMP '2026-01-26 19:53:41'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     18,
-    'Maria',
-    'Lewandowski',
-    'maria.lewandowski18@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 601 454 351',
+    'Anna',
+    'Nowak',
+    'anna.nowak18@example.com',
+    '$2b$12$zX.fas/rfUrEnNm3fVBO4uEXN0k9WhFcXaamoqaPTS/EZzw.HbR1a',
+    '+48 517 702 853',
     'USER',
-    'ul. Nowa 22/23',
-    'Zabrze',
-    '37-428',
+    'ul. Zielona 144/11',
+    'Kraków',
+    '37-604',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-05 12:34:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-25 04:48:41',
+    TIMESTAMP '2026-01-26 19:53:41'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     19,
-    'Mateusz',
+    'Zofia',
     'Piotrowski',
-    'mateusz.piotrowski19@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 607 825 975',
+    'zofia.piotrowski19@example.com',
+    '$2b$12$fxJK1TgEhrjkry.FMCQJ5e0vzQ7Qt4RUchmnXdx0sp0uS2QOiwm4K',
+    '+48 507 299 440',
     'USER',
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-11-29 09:41:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-11-30 05:39:41',
+    TIMESTAMP '2026-01-26 19:53:41'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     20,
     'Karol',
-    'Kamiński',
-    'karol.kaminski20@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 605 107 152',
+    'Dąbrowski',
+    'karol.dabrowski20@example.com',
+    '$2b$12$wPA0bq8pKuG5O1tpd/jsX.AOP7TZ6NllQJ1fe.nhZRaE6KN9Kb.0a',
+    '+48 505 530 122',
     'USER',
-    'ul. Łąkowa 115/33',
-    'Częstochowa',
-    '60-922',
+    'ul. Piaskowa 141/36',
+    'Wrocław',
+    '99-667',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-12 10:48:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-12 22:01:42',
+    TIMESTAMP '2026-01-26 19:53:42'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     21,
-    'Tomasz',
-    'Wojciechowski',
-    'tomasz.wojciechowski21@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 609 767 517',
+    'Maria',
+    'Kowalczyk',
+    'maria.kowalczyk21@example.com',
+    '$2b$12$VmxH8gg8eJEp2oIoUV0uV.BNzNC42usfhybB6/IMDk0ctaZKtSSz2',
+    '+48 600 629 713',
     'USER',
-    'ul. Piaskowa 114/29',
-    'Bydgoszcz',
-    '45-475',
+    'ul. Szkolna 126/34',
+    'Toruń',
+    '52-110',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-19 09:18:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-31 12:48:42',
+    TIMESTAMP '2026-01-26 19:53:42'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     22,
-    'Krystyna',
-    'Piotrowski',
-    'krystyna.piotrowski22@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 511 377 993',
+    'Karol',
+    'Krawczyk',
+    'karol.krawczyk22@example.com',
+    '$2b$12$u51I/uhLtZQYSqapUoPZWOY/hh3dIklTOnmGaVxALLGT2x12eObMq',
+    '+48 510 435 822',
     'USER',
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
+    'ul. Rynek 82/16',
+    'Szczecin',
+    '67-191',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-07 16:02:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-23 21:41:42',
+    TIMESTAMP '2026-01-26 19:53:42'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     23,
-    'Marek',
+    'Elżbieta',
     'Woźniak',
-    'marek.wozniak23@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 502 936 831',
+    'elzbieta.wozniak23@example.com',
+    '$2b$12$oHMIniR6su66eDmblwRGw.MWNXIQa6Bves4e/0Ew.ERrZdXg9SiuG',
+    '+48 604 522 511',
     'USER',
-    'ul. Ogrodowa 108/30',
-    'Gdańsk',
-    '31-873',
+    'ul. Piaskowa 34/27',
+    'Toruń',
+    '11-734',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-10 07:23:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-23 18:04:43',
+    TIMESTAMP '2026-01-26 19:53:43'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     24,
-    'Maria',
-    'Jankowski',
-    'maria.jankowski24@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 508 488 992',
+    'Małgorzata',
+    'Krawczyk',
+    'malgorzata.krawczyk24@example.com',
+    '$2b$12$gZxECB/V41B0VMErGlW4B.JjqGElA89RFOZ2qqpLXulKEONm84Hn2',
+    '+48 507 570 982',
     'USER',
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
+    'ul. Parkowa 102/28',
+    'Poznań',
+    '80-622',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-02 11:05:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-17 09:35:43',
+    TIMESTAMP '2026-01-26 19:53:43'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     25,
     'Stanisław',
-    'Nowak',
-    'stanislaw.nowak25@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 508 875 497',
+    'Wojciechowski',
+    'stanislaw.wojciechowski25@example.com',
+    '$2b$12$JKf8gqr0BdjS9o13XuHjqucDHoZ2d6h0XavRDM6D3L5Vmgmx8qiIK',
+    '+48 606 566 599',
     'USER',
-    'ul. Kościelna 126/44',
-    'Szczecin',
-    '19-451',
+    'ul. Kwiatowa 132/38',
+    'Gliwice',
+    '53-467',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-10 20:55:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-28 16:26:43',
+    TIMESTAMP '2026-01-26 19:53:43'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     26,
-    'Paweł',
-    'Woźniak',
-    'pawel.wozniak26@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 515 456 312',
+    'Łukasz',
+    'Zieliński',
+    'lukasz.zielinski26@example.com',
+    '$2b$12$5tIYFu3V4gKthzC.V8V6c.FV3cvnvtjXGZS12S6dIy9ENnDyWtLhC',
+    '+48 517 998 581',
     'USER',
-    'ul. Ogrodowa 4/25',
-    'Kielce',
-    '83-734',
+    'ul. Szkolna 33/37',
+    'Katowice',
+    '12-275',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-14 08:02:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-21 20:45:43',
+    TIMESTAMP '2026-01-26 19:53:43'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     27,
-    'Karol',
-    'Pawłowski',
-    'karol.pawlowski27@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 509 167 683',
+    'Krzysztof',
+    'Kowalski',
+    'krzysztof.kowalski27@example.com',
+    '$2b$12$yK8hW9Ie2mPERfI8ZHM2ReX32u9iS5qjoX6CrN/6mI1/VPpIeCM72',
+    '+48 516 218 421',
     'USER',
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
+    'ul. Kwiatowa 54/5',
+    'Kielce',
+    '96-331',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-11 23:13:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-11-28 05:49:44',
+    TIMESTAMP '2026-01-26 19:53:44'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     28,
-    'Anna',
+    'Elżbieta',
     'Kowalski',
-    'anna.kowalski28@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 609 251 843',
+    'elzbieta.kowalski28@example.com',
+    '$2b$12$v1ZCgu5aVBeUX25PIGbyUO9Pyfeh5UtaF8zGnlqfY1s2nTirjq816',
+    '+48 503 762 957',
     'USER',
-    'ul. Krótka 7/9',
-    'Białystok',
-    '34-140',
+    'ul. Krótka 131/33',
+    'Rzeszów',
+    '71-257',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-22 11:48:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-12 21:37:44',
+    TIMESTAMP '2026-01-26 19:53:44'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     29,
-    'Łukasz',
-    'Szymański',
-    'lukasz.szymanski29@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 513 784 545',
+    'Elżbieta',
+    'Kowalski',
+    'elzbieta.kowalski29@example.com',
+    '$2b$12$6URCKzWpTAEViMuIV2RMC.dM2D4Qa.k9YAXubUbGO33iCPvPJCWYu',
+    '+48 501 722 162',
     'USER',
-    'ul. Polna 119/26',
-    'Kraków',
-    '35-506',
+    'ul. Sportowa 95/3',
+    'Wrocław',
+    '52-419',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-11-28 12:33:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-06 21:14:44',
+    TIMESTAMP '2026-01-26 19:53:44'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     30,
-    'Adam',
-    'Grabowski',
-    'adam.grabowski30@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 606 423 237',
+    'Zofia',
+    'Mazur',
+    'zofia.mazur30@example.com',
+    '$2b$12$vqCrNrMWqXzc0PpGOCIxXeyDMAXTvyIGMQjylD2P.0p8AMXrai71S',
+    '+48 604 664 903',
     'USER',
-    'ul. Szkolna 31/28',
-    'Rzeszów',
-    '43-199',
+    'ul. Piaskowa 54/25',
+    'Radom',
+    '24-860',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-07 02:15:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-12 03:34:45',
+    TIMESTAMP '2026-01-26 19:53:45'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     31,
     'Paweł',
-    'Grabowski',
-    'pawel.grabowski31@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 508 131 250',
+    'Kowalczyk',
+    'pawel.kowalczyk31@example.com',
+    '$2b$12$jJhZ3jWLL/MF6bjIqh/hQO6cQcLXaq1CbG85.TmR9mKigBfL9ABu6',
+    '+48 516 299 456',
     'USER',
-    'ul. Zielona 121/17',
-    'Łódź',
-    '21-908',
+    'ul. Nowa 6/45',
+    'Gdynia',
+    '56-694',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-25 21:19:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-16 06:40:45',
+    TIMESTAMP '2026-01-26 19:53:45'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     32,
-    'Barbara',
-    'Kowalski',
-    'barbara.kowalski32@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 511 712 360',
+    'Anna',
+    'Kozłowski',
+    'anna.kozlowski32@example.com',
+    '$2b$12$vqNqCaL9bB3zwF9oOI4PN.kWKEd5U2WRe4Sin0YlKroZ42qVs7/rO',
+    '+48 609 717 183',
     'USER',
-    'ul. Parkowa 140/7',
-    'Lublin',
-    '71-694',
+    'ul. Główna 41/34',
+    'Wrocław',
+    '68-596',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-09 19:24:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-24 13:58:45',
+    TIMESTAMP '2026-01-26 19:53:45'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     33,
-    'Ewa',
-    'Kozłowski',
-    'ewa.kozlowski33@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 514 872 564',
+    'Elżbieta',
+    'Kowalczyk',
+    'elzbieta.kowalczyk33@example.com',
+    '$2b$12$iscBaVeNStUwh1.w4L7Z7.YwnDhrFzNWkM.RNHztL40x4Kpn3uuoO',
+    '+48 503 641 998',
     'USER',
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
+    'ul. Słoneczna 120/5',
+    'Rzeszów',
+    '56-430',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-31 04:37:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-26 16:40:46',
+    TIMESTAMP '2026-01-26 19:53:46'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     34,
-    'Andrzej',
-    'Piotrowski',
-    'andrzej.piotrowski34@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 504 454 855',
+    'Marek',
+    'Grabowski',
+    'marek.grabowski34@example.com',
+    '$2b$12$tLIJtfOW6RSVR0C7O2ymwe63Ov2dwfIiXaWyjUENVQ2JDfZUhbYL6',
+    '+48 501 400 771',
     'USER',
-    'ul. Kolejowa 105/23',
-    'Radom',
-    '37-880',
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-20 09:39:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-21 02:11:46',
+    TIMESTAMP '2026-01-26 19:53:46'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     35,
-    'Karol',
-    'Wójcik',
-    'karol.wojcik35@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 501 398 541',
+    'Krzysztof',
+    'Kwiatkowski',
+    'krzysztof.kwiatkowski35@example.com',
+    '$2b$12$IdmUvYNglv8.Nu8tigTcLOaWQaKBLre1KcTYOdtx7mNvvRwINwf0.',
+    '+48 607 912 662',
     'USER',
-    'ul. Słoneczna 130/24',
-    'Łódź',
-    '94-906',
+    'ul. Główna 17/7',
+    'Rzeszów',
+    '22-479',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-07 08:41:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-31 16:15:46',
+    TIMESTAMP '2026-01-26 19:53:46'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     36,
-    'Piotr',
-    'Dąbrowski',
-    'piotr.dabrowski36@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 519 859 478',
+    'Jakub',
+    'Piotrowski',
+    'jakub.piotrowski36@example.com',
+    '$2b$12$IoP0noBENGDxAewT..fjN.O8Jq.rG9PpUcem3QV9T5qGhQ/.qpzDa',
+    '+48 604 788 669',
     'USER',
-    'ul. Kolejowa 65/20',
-    'Poznań',
-    '54-534',
+    'ul. Lipowa 148/28',
+    'Częstochowa',
+    '46-874',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-26 22:00:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-11 05:33:47',
+    TIMESTAMP '2026-01-26 19:53:47'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     37,
-    'Barbara',
-    'Szymański',
-    'barbara.szymanski37@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 509 543 570',
+    'Łukasz',
+    'Mazur',
+    'lukasz.mazur37@example.com',
+    '$2b$12$DhxUHCBQiFILvcrD8RhRXOMxt.JluzZglRGGPfSjhzI6FQuqyHhKq',
+    '+48 503 977 235',
     'USER',
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
+    'ul. Słoneczna 36/32',
+    'Katowice',
+    '91-598',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-19 19:06:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-14 06:01:47',
+    TIMESTAMP '2026-01-26 19:53:47'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     38,
-    'Ewa',
+    'Paweł',
     'Mazur',
-    'ewa.mazur38@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 502 818 760',
+    'pawel.mazur38@example.com',
+    '$2b$12$bPskQ.3/iGRdFtmDNizoB.0P7jB0SzZeXNMOmtrq7cwJt1XkAQQsK',
+    '+48 605 314 700',
     'USER',
-    'ul. Rynek 148/3',
-    'Katowice',
-    '52-507',
+    'ul. Rynek 41/20',
+    'Kraków',
+    '89-251',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-23 21:53:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-11 07:20:47',
+    TIMESTAMP '2026-01-26 19:53:47'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     39,
-    'Marcin',
-    'Wojciechowski',
-    'marcin.wojciechowski39@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 502 947 459',
+    'Paweł',
+    'Kowalski',
+    'pawel.kowalski39@example.com',
+    '$2b$12$M1ZA0.ZyyohWjEN64q.Vq.AYEKd9Y5iN3iLe4z8h0tgJjcOFfSiLO',
+    '+48 513 624 266',
     'USER',
-    'ul. Polna 142/13',
-    'Rzeszów',
-    '69-216',
+    'ul. Brzozowa 126/7',
+    'Częstochowa',
+    '35-588',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-23 23:48:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-21 12:49:47',
+    TIMESTAMP '2026-01-26 19:53:47'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     40,
-    'Ewa',
-    'Jankowski',
-    'ewa.jankowski40@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 505 229 153',
+    'Jakub',
+    'Lewandowski',
+    'jakub.lewandowski40@example.com',
+    '$2b$12$PNYT1wUlAafGWcAqCGk7cOE.KeiIEmg9zEk82gboxVyUwHUy5nvle',
+    '+48 504 472 148',
     'USER',
-    'ul. Nowa 78/41',
-    'Łódź',
-    '58-657',
+    'ul. Leśna 3/41',
+    'Bydgoszcz',
+    '95-847',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-08 02:26:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-15 05:43:48',
+    TIMESTAMP '2026-01-26 19:53:48'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     41,
-    'Barbara',
-    'Kowalski',
-    'barbara.kowalski41@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 503 980 616',
+    'Katarzyna',
+    'Szymański',
+    'katarzyna.szymanski41@example.com',
+    '$2b$12$UmKfeE1dCLPjQo1bjyXL1.1xOP3U.2/tu4nv1BgiWTAiRtR7GaH.K',
+    '+48 605 693 360',
     'USER',
-    'ul. Lipowa 124/8',
+    'ul. Ogrodowa 107/11',
     'Kraków',
-    '42-690',
+    '72-652',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-12 11:06:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-01 13:25:48',
+    TIMESTAMP '2026-01-26 19:53:48'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     42,
-    'Zofia',
-    'Dąbrowski',
-    'zofia.dabrowski42@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 514 797 505',
+    'Elżbieta',
+    'Wojciechowski',
+    'elzbieta.wojciechowski42@example.com',
+    '$2b$12$TW3n6XJdL.iiaWulVDL5vOK..u7kdkO25CTXbcyohadJS/VZ8ggne',
+    '+48 606 202 387',
     'USER',
-    'ul. Rynek 119/15',
-    'Radom',
-    '81-650',
+    'ul. Kolejowa 72/28',
+    'Rzeszów',
+    '56-688',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-12 10:30:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-11 14:55:48',
+    TIMESTAMP '2026-01-26 19:53:48'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     43,
-    'Tomasz',
-    'Grabowski',
-    'tomasz.grabowski43@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 510 566 879',
+    'Łukasz',
+    'Kozłowski',
+    'lukasz.kozlowski43@example.com',
+    '$2b$12$dQmFyUz1Rvh0p.Q6T6L9lelXzp7tkrt.cw1jAJ1rI5abOyiRqsp3.',
+    '+48 517 200 934',
     'USER',
-    'ul. Wodna 87/41',
-    'Lublin',
-    '29-945',
+    'ul. Rynek 59/10',
+    'Gdynia',
+    '55-895',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-20 00:09:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-11 21:30:49',
+    TIMESTAMP '2026-01-26 19:53:49'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     44,
-    'Barbara',
+    'Jan',
     'Szymański',
-    'barbara.szymanski44@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 518 373 902',
+    'jan.szymanski44@example.com',
+    '$2b$12$wY.3i29IJK91loD039tkn.y8wHFPFFZ/y1qRtnOwK7w7adMCDXvAq',
+    '+48 501 146 508',
     'USER',
-    'ul. Główna 77/33',
+    'ul. Główna 147/16',
     'Białystok',
-    '66-655',
+    '11-763',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-11-30 13:05:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-18 17:23:49',
+    TIMESTAMP '2026-01-26 19:53:49'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     45,
-    'Elżbieta',
-    'Krawczyk',
-    'elzbieta.krawczyk45@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 511 431 232',
+    'Krzysztof',
+    'Jankowski',
+    'krzysztof.jankowski45@example.com',
+    '$2b$12$ZMXoOP01wDRw/d.uU/.LE.iT9zGi/72fuNeGU2bvamXNmtFJfNmjS',
+    '+48 513 375 868',
     'USER',
-    'ul. Nowa 146/25',
-    'Katowice',
-    '64-978',
+    'ul. Słoneczna 125/40',
+    'Gdynia',
+    '20-959',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-30 21:02:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-27 03:41:49',
+    TIMESTAMP '2026-01-26 19:53:49'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     46,
-    'Łukasz',
-    'Kowalczyk',
-    'lukasz.kowalczyk46@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 605 259 203',
+    'Michał',
+    'Piotrowski',
+    'michal.piotrowski46@example.com',
+    '$2b$12$dHRAILqZ8QdmnvNLJtYdBe1wybXzvTLgb3IyIX6MAW5.HFIcUPyti',
+    '+48 601 298 898',
     'USER',
-    'ul. Łąkowa 3/36',
-    'Katowice',
-    '88-140',
+    'ul. Kwiatowa 27/25',
+    'Zabrze',
+    '98-468',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-12 11:14:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-11 20:37:50',
+    TIMESTAMP '2026-01-26 19:53:50'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     47,
-    'Marek',
-    'Nowak',
-    'marek.nowak47@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 506 282 986',
+    'Barbara',
+    'Kowalczyk',
+    'barbara.kowalczyk47@example.com',
+    '$2b$12$mpcDDArEuKzcPiLfbFs6uePLoNwd5J1dJ6ANQTx0XtRt5843vlwlq',
+    '+48 605 525 629',
     'USER',
-    'ul. Piaskowa 104/12',
-    'Lublin',
-    '71-857',
+    'ul. Kościelna 88/50',
+    'Radom',
+    '94-148',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-11-28 03:51:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-06 23:53:50',
+    TIMESTAMP '2026-01-26 19:53:50'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     48,
-    'Małgorzata',
+    'Piotr',
     'Dąbrowski',
-    'malgorzata.dabrowski48@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 507 949 369',
+    'piotr.dabrowski48@example.com',
+    '$2b$12$Dvt2ug9v1RLxcvMTS9SxG.5ch0eXnz/2FMq4v1jhFRdgVzoDftH1W',
+    '+48 606 405 794',
     'USER',
-    'ul. Ogrodowa 21/47',
-    'Rzeszów',
-    '58-728',
+    'ul. Lipowa 1/13',
+    'Zabrze',
+    '45-188',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-16 23:01:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-25 04:19:50',
+    TIMESTAMP '2026-01-26 19:53:50'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     49,
-    'Stanisław',
-    'Zieliński',
-    'stanislaw.zielinski49@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 607 100 908',
+    'Katarzyna',
+    'Kowalski',
+    'katarzyna.kowalski49@example.com',
+    '$2b$12$hORulvCsUugp7GBrGG9JC.8Klz.B5uBcq5UnIaZIY7CcWafsltr8.',
+    '+48 607 678 992',
     'USER',
-    'ul. Rynek 12/40',
-    'Kraków',
-    '17-562',
+    'ul. Wodna 34/27',
+    'Wrocław',
+    '94-380',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-25 07:35:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-20 13:51:50',
+    TIMESTAMP '2026-01-26 19:53:50'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     50,
     'Elżbieta',
-    'Krawczyk',
-    'elzbieta.krawczyk50@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 602 258 197',
+    'Kamiński',
+    'elzbieta.kaminski50@example.com',
+    '$2b$12$JCrxvnGHlUJLbi9Xmxw.3.NWfhh5f5C8PvtkvtgiPL9z6l6T/2nK2',
+    '+48 519 309 875',
     'USER',
-    'ul. Kwiatowa 109/14',
-    'Sosnowiec',
-    '52-367',
+    'ul. Sportowa 19/39',
+    'Katowice',
+    '86-146',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2026-01-06 21:37:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-05 21:27:51',
+    TIMESTAMP '2026-01-26 19:53:51'
 );
 INSERT INTO users (id, first_name, last_name, email, password, phone, role, street, city, zip_code, country, active, enabled, activation_code, created_at, updated_at) VALUES (
     51,
-    'Marcin',
-    'Wójcik',
-    'marcin.wojcik51@example.com',
-    '$2a$10$e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e',
-    '+48 609 732 250',
+    'Mateusz',
+    'Piotrowski',
+    'mateusz.piotrowski51@example.com',
+    '$2b$12$MblZAL0oei0htOXxTiagfuqCHlb.U4pqaXw4XvmJyq53g4SL9DUGO',
+    '+48 503 353 178',
     'USER',
-    'ul. Kościelna 127/35',
+    'ul. Nowa 130/46',
     'Poznań',
-    '15-956',
+    '60-847',
     'Poland',
     TRUE,
     TRUE,
     NULL,
-    TIMESTAMP '2025-12-13 00:16:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-11 12:05:51',
+    TIMESTAMP '2026-01-26 19:53:51'
 );
 
 -- Insert products
@@ -1954,18 +1954,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     1,
     289.99,
     NULL,
-    4.1,
+    4.2,
     '/images/products/dogs/royal-canin-maxi.jpg',
     'ACTIVE',
-    47,
-    'ZOO-57EIVGHD',
+    131,
+    'ZOO-SOWVQ1FW',
     15.0,
-    '30x35x24cm',
+    '21x34x16cm',
     NULL,
     1,
     1,
-    TIMESTAMP '2026-01-01 13:37:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-31 12:45:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     2,
@@ -1974,18 +1974,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     2,
     149.99,
     NULL,
-    3.7,
+    4.8,
     '/images/products/dogs/pedigree-beef.jpg',
     'ACTIVE',
-    166,
-    'ZOO-AD6ILTJC',
+    117,
+    'ZOO-LFP4UI23',
     12.0,
-    '16x24x18cm',
+    '10x29x14cm',
     NULL,
     1,
     1,
-    TIMESTAMP '2025-12-17 01:32:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-15 02:43:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     3,
@@ -1993,19 +1993,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Karma bezzbozowa z rybami z Pacyfiku. 70% składnikow pochodzenia zwierzecego.',
     3,
     359.99,
-    NULL,
-    3.5,
+    251.99,
+    3.7,
     '/images/products/dogs/acana-pacifica.jpg',
     'ACTIVE',
-    178,
-    'ZOO-NMQT6L3V',
+    131,
+    'ZOO-OCKGJ1BQ',
     11.4,
-    '44x18x8cm',
+    '37x16x22cm',
     NULL,
     1,
     1,
-    TIMESTAMP '2026-01-04 06:18:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-10 06:56:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     4,
@@ -2014,18 +2014,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     6,
     319.99,
     NULL,
-    5.0,
+    4.8,
     '/images/products/dogs/hills-adult.jpg',
     'ACTIVE',
-    97,
-    'ZOO-TCR76U0N',
+    121,
+    'ZOO-TC15H4WO',
     14.0,
-    '49x12x22cm',
+    '14x21x18cm',
     NULL,
     1,
     1,
-    TIMESTAMP '2026-01-19 13:34:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-18 00:30:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     5,
@@ -2033,19 +2033,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Karma dla duzych psow z łososiem. Wspiera zdrowa skore i siersc.',
     4,
     299.99,
-    239.99,
-    4.0,
+    NULL,
+    3.7,
     '/images/products/dogs/purina-large.jpg',
     'ACTIVE',
-    65,
-    'ZOO-XFCUDYLE',
+    79,
+    'ZOO-4VJN6WBL',
     14.0,
-    '42x20x19cm',
+    '44x26x11cm',
     NULL,
     1,
     1,
-    TIMESTAMP '2025-12-20 17:18:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-28 13:23:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     6,
@@ -2053,19 +2053,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Mokra karma dla psow z delikatnym kurczakiem w sosie.',
     2,
     5.99,
-    NULL,
-    4.1,
+    4.49,
+    3.8,
     '/images/products/dogs/pedigree-can.jpg',
     'ACTIVE',
-    128,
-    'ZOO-QNJ9TJHP',
+    126,
+    'ZOO-4NOY2TI6',
     0.4,
-    '29x39x11cm',
+    '10x37x10cm',
     NULL,
     1,
     2,
-    TIMESTAMP '2026-01-09 15:57:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-17 19:49:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     7,
@@ -2073,19 +2073,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Mokra karma premium dla dorosłych psow. Kawałki w sosie.',
     1,
     8.99,
-    8.09,
-    4.0,
+    6.29,
+    3.8,
     '/images/products/dogs/rc-can.jpg',
     'ACTIVE',
-    34,
-    'ZOO-0XSRDYQ5',
+    124,
+    'ZOO-4AQRC8UB',
     0.4,
-    '46x36x14cm',
+    '31x12x21cm',
     NULL,
     1,
     2,
-    TIMESTAMP '2026-01-03 22:48:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-13 12:03:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     8,
@@ -2094,18 +2094,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     2,
     24.99,
     NULL,
-    4.3,
+    3.7,
     '/images/products/dogs/dentastix.jpg',
     'ACTIVE',
-    27,
-    'ZOO-FUDCGPF8',
+    199,
+    'ZOO-79ASDPS7',
     0.27,
-    '27x12x26cm',
+    '27x12x10cm',
     NULL,
     1,
     3,
-    TIMESTAMP '2025-12-17 22:14:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-24 09:56:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     9,
@@ -2114,18 +2114,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     16,
     59.99,
     NULL,
-    4.3,
+    3.5,
     '/images/products/dogs/kong-classic.jpg',
     'ACTIVE',
-    79,
-    'ZOO-ZH3TPPR2',
+    191,
+    'ZOO-EO4SK4SF',
     0.3,
-    '39x37x20cm',
+    '34x32x29cm',
     NULL,
     1,
     4,
-    TIMESTAMP '2025-12-04 15:23:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-04 00:13:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     10,
@@ -2133,19 +2133,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Zestaw 3 piłek tenisowych dla psow. Idealne do aportowania.',
     15,
     14.99,
-    NULL,
-    3.7,
+    11.24,
+    4.6,
     '/images/products/dogs/tennis-balls.jpg',
     'ACTIVE',
-    181,
-    'ZOO-4EXA0OFO',
+    123,
+    'ZOO-AH1T7K5Q',
     0.2,
-    '28x22x29cm',
+    '20x30x29cm',
     NULL,
     1,
     4,
-    TIMESTAMP '2026-01-22 02:05:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-11-29 08:25:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     11,
@@ -2153,19 +2153,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Zabawka do przeciągania i aportowania z piszczałką.',
     16,
     49.99,
-    39.99,
-    3.6,
+    NULL,
+    4.7,
     '/images/products/dogs/kong-wubba.jpg',
     'ACTIVE',
-    200,
-    'ZOO-QE5CNFVK',
+    128,
+    'ZOO-Q6CCWF3C',
     0.25,
-    '17x38x6cm',
+    '21x13x24cm',
     NULL,
     1,
     4,
-    TIMESTAMP '2025-11-30 00:30:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-01 22:51:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     12,
@@ -2173,19 +2173,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Miekkie legowisko dla srednih i duzych psow. Łatwe w czyszczeniu.',
     15,
     129.99,
-    103.99,
-    4.3,
+    NULL,
+    3.5,
     '/images/products/dogs/bed-oval.jpg',
     'ACTIVE',
-    117,
-    'ZOO-MYKTQENW',
+    189,
+    'ZOO-WGR461MG',
     1.5,
-    '10x28x16cm',
+    '24x26x24cm',
     NULL,
     1,
     6,
-    TIMESTAMP '2025-12-19 03:56:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-04 22:33:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     13,
@@ -2193,19 +2193,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Plastikowe legowisko z miekka poduszka. Rozmiar dla duzych psow.',
     17,
     149.99,
-    NULL,
-    4.4,
+    127.49,
+    4.3,
     '/images/products/dogs/ferplast-siesta.jpg',
     'ACTIVE',
-    63,
-    'ZOO-1HFS1QGB',
+    167,
+    'ZOO-0REU52BX',
     2.0,
-    '20x10x16cm',
+    '21x10x15cm',
     NULL,
     1,
     6,
-    TIMESTAMP '2025-12-24 20:34:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-17 07:41:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     14,
@@ -2213,19 +2213,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Klasyczna obroza ze skory naturalnej. Regulowana dlugosc.',
     15,
     39.99,
-    29.99,
-    3.6,
+    NULL,
+    4.6,
     '/images/products/dogs/leather-collar.jpg',
     'ACTIVE',
-    28,
-    'ZOO-FAD21ZY1',
+    116,
+    'ZOO-OH1L51N1',
     0.1,
-    '37x11x10cm',
+    '17x33x29cm',
     NULL,
     1,
     7,
-    TIMESTAMP '2025-12-14 08:06:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-20 19:06:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     15,
@@ -2234,18 +2234,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     15,
     79.99,
     NULL,
-    3.7,
+    4.9,
     '/images/products/dogs/flexi-leash.jpg',
     'ACTIVE',
-    53,
-    'ZOO-R2Z4XWT0',
+    179,
+    'ZOO-1D9HA3ZF',
     0.3,
-    '22x33x28cm',
+    '40x38x23cm',
     NULL,
     1,
     7,
-    TIMESTAMP '2025-12-25 19:00:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-26 16:13:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     16,
@@ -2257,15 +2257,15 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     3.6,
     '/images/products/dogs/mobility-support.jpg',
     'ACTIVE',
-    104,
-    'ZOO-36E97NPW',
+    133,
+    'ZOO-YOSGMKPN',
     0.5,
-    '25x34x30cm',
+    '41x20x16cm',
     NULL,
     1,
     8,
-    TIMESTAMP '2025-12-16 00:35:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-22 15:30:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     17,
@@ -2274,18 +2274,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     15,
     34.99,
     NULL,
-    4.4,
+    4.3,
     '/images/products/dogs/shampoo.jpg',
     'ACTIVE',
-    120,
-    'ZOO-6HJ79B24',
+    114,
+    'ZOO-3D5EP0X7',
     1.0,
-    '47x27x24cm',
+    '18x15x6cm',
     NULL,
     1,
     9,
-    TIMESTAMP '2026-01-12 15:12:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-19 15:58:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     18,
@@ -2294,18 +2294,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     17,
     189.99,
     NULL,
-    4.1,
+    4.5,
     '/images/products/dogs/atlas-carrier.jpg',
     'ACTIVE',
-    92,
-    'ZOO-F8IVFEH8',
+    66,
+    'ZOO-8QD6AM3Z',
     3.5,
-    '49x12x17cm',
+    '12x39x11cm',
     NULL,
     1,
     10,
-    TIMESTAMP '2026-01-17 19:01:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-27 16:15:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     19,
@@ -2314,18 +2314,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     1,
     249.99,
     NULL,
-    4.8,
+    4.9,
     '/images/products/cats/rc-indoor.jpg',
     'ACTIVE',
-    14,
-    'ZOO-BMCCS27Q',
+    47,
+    'ZOO-T3RR5L1U',
     10.0,
-    '48x25x15cm',
+    '16x30x29cm',
     NULL,
     2,
     11,
-    TIMESTAMP '2026-01-06 21:50:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-09 17:56:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     20,
@@ -2334,18 +2334,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     5,
     89.99,
     NULL,
-    4.3,
+    3.8,
     '/images/products/cats/whiskas-chicken.jpg',
     'ACTIVE',
-    33,
-    'ZOO-H445SXKZ',
+    153,
+    'ZOO-F0W0Z547',
     7.0,
-    '43x12x8cm',
+    '49x21x13cm',
     NULL,
     2,
     11,
-    TIMESTAMP '2026-01-13 20:15:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-27 10:11:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     21,
@@ -2354,18 +2354,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     4,
     269.99,
     NULL,
-    4.5,
+    3.6,
     '/images/products/cats/purina-sterilised.jpg',
     'ACTIVE',
-    48,
-    'ZOO-U4URZA5R',
+    27,
+    'ZOO-6GGNSV8L',
     10.0,
-    '32x22x21cm',
+    '50x36x24cm',
     NULL,
     2,
     11,
-    TIMESTAMP '2025-12-16 08:15:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-22 14:14:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     22,
@@ -2374,18 +2374,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     6,
     229.99,
     NULL,
-    3.5,
+    4.9,
     '/images/products/cats/hills-tuna.jpg',
     'ACTIVE',
-    26,
-    'ZOO-WF87NT0E',
+    131,
+    'ZOO-HW6OY73U',
     7.0,
-    '33x30x25cm',
+    '15x32x8cm',
     NULL,
     2,
     11,
-    TIMESTAMP '2026-01-24 10:40:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-26 10:50:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     23,
@@ -2394,18 +2394,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     7,
     32.99,
     NULL,
-    5.0,
+    3.8,
     '/images/products/cats/sheba-salmon.jpg',
     'ACTIVE',
-    127,
-    'ZOO-ZC584BFB',
+    72,
+    'ZOO-T9VO5V2F',
     1.02,
-    '17x31x22cm',
+    '26x16x14cm',
     NULL,
     2,
     12,
-    TIMESTAMP '2026-01-16 13:46:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-17 19:59:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     24,
@@ -2417,15 +2417,15 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     3.9,
     '/images/products/cats/whiskas-can.jpg',
     'ACTIVE',
-    77,
-    'ZOO-82UXD4Z3',
+    166,
+    'ZOO-YPPB043U',
     0.4,
-    '48x29x9cm',
+    '36x23x30cm',
     NULL,
     2,
     12,
-    TIMESTAMP '2026-01-17 03:53:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-01 19:36:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     25,
@@ -2434,18 +2434,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     5,
     8.99,
     NULL,
-    3.9,
+    4.9,
     '/images/products/cats/temptations.jpg',
     'ACTIVE',
-    192,
-    'ZOO-5W5JY91A',
+    156,
+    'ZOO-RASLZ0MD',
     0.06,
-    '10x34x16cm',
+    '23x32x13cm',
     NULL,
     2,
     13,
-    TIMESTAMP '2025-12-24 11:09:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-29 00:15:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     26,
@@ -2453,19 +2453,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Zestaw pluszowych myszek z kocimiętką.',
     15,
     12.99,
-    9.09,
-    4.1,
+    NULL,
+    4.0,
     '/images/products/cats/plush-mice.jpg',
     'ACTIVE',
-    184,
-    'ZOO-DSDLRAX3',
+    33,
+    'ZOO-W8CKLVG4',
     0.05,
-    '28x15x21cm',
+    '44x20x17cm',
     NULL,
     2,
     14,
-    TIMESTAMP '2025-12-07 11:23:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-01 05:47:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     27,
@@ -2473,19 +2473,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Interaktywna wedka z kolorowymi piórkami.',
     15,
     19.99,
-    NULL,
-    3.6,
+    15.99,
+    3.7,
     '/images/products/cats/feather-wand.jpg',
     'ACTIVE',
-    166,
-    'ZOO-IUA0W7KU',
+    83,
+    'ZOO-GIDW1BDU',
     0.1,
-    '37x13x27cm',
+    '20x29x17cm',
     NULL,
     2,
     14,
-    TIMESTAMP '2026-01-09 03:45:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-10 18:53:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     28,
@@ -2493,19 +2493,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Składany tunel do zabawy z szelestrzącym materiałem.',
     17,
     49.99,
-    NULL,
-    4.1,
+    44.99,
+    4.4,
     '/images/products/cats/tunnel.jpg',
     'ACTIVE',
-    70,
-    'ZOO-AJ7MSZQC',
+    37,
+    'ZOO-0ZI54LV0',
     0.3,
-    '33x13x26cm',
+    '42x31x26cm',
     NULL,
     2,
     14,
-    TIMESTAMP '2025-12-07 10:57:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-04 22:19:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     29,
@@ -2513,19 +2513,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Drapak z sizalowym słupkiem i platformą.',
     15,
     79.99,
-    NULL,
-    4.4,
+    67.99,
+    3.7,
     '/images/products/cats/scratching-post.jpg',
     'ACTIVE',
-    173,
-    'ZOO-5DY68TVS',
+    142,
+    'ZOO-G3PIVI9N',
     3.0,
-    '42x40x18cm',
+    '39x39x20cm',
     NULL,
     2,
     15,
-    TIMESTAMP '2026-01-01 17:45:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-16 13:41:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     30,
@@ -2533,19 +2533,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Miekkie legowisko do zawieszenia na kaloryferze.',
     15,
     59.99,
-    NULL,
-    4.4,
+    47.99,
+    4.9,
     '/images/products/cats/radiator-bed.jpg',
     'ACTIVE',
-    122,
-    'ZOO-PP34PKU7',
+    164,
+    'ZOO-DGA40JKV',
     0.5,
-    '21x31x13cm',
+    '17x22x13cm',
     NULL,
     2,
     16,
-    TIMESTAMP '2025-12-06 21:10:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-17 09:44:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     31,
@@ -2554,18 +2554,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     17,
     89.99,
     NULL,
-    4.8,
+    4.6,
     '/images/products/cats/litter-box.jpg',
     'ACTIVE',
-    35,
-    'ZOO-JV8J8YCR',
+    43,
+    'ZOO-PGB6JUJP',
     2.5,
-    '20x17x10cm',
+    '15x33x27cm',
     NULL,
     2,
     19,
-    TIMESTAMP '2026-01-19 08:42:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-27 19:52:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     32,
@@ -2574,18 +2574,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     15,
     29.99,
     NULL,
-    4.7,
+    4.3,
     '/images/products/cats/litter.jpg',
     'ACTIVE',
-    73,
-    'ZOO-3WGKOUP9',
+    151,
+    'ZOO-SZ8N28J5',
     8.0,
-    '33x30x17cm',
+    '18x34x17cm',
     NULL,
     2,
     19,
-    TIMESTAMP '2026-01-15 02:22:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-17 01:59:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     33,
@@ -2594,18 +2594,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     1,
     49.99,
     NULL,
-    3.8,
+    4.2,
     '/images/products/cats/hairball.jpg',
     'ACTIVE',
     9,
-    'ZOO-TVOIV9U5',
+    'ZOO-7PDJBONS',
     0.4,
-    '23x36x23cm',
+    '17x31x21cm',
     NULL,
     2,
     18,
-    TIMESTAMP '2026-01-02 05:41:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-02 04:56:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     34,
@@ -2613,19 +2613,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Transporter dla kotow z wentylacją.',
     17,
     99.99,
-    69.99,
-    4.1,
+    NULL,
+    4.8,
     '/images/products/cats/carrier.jpg',
     'ACTIVE',
-    67,
-    'ZOO-C4JNIG2C',
+    32,
+    'ZOO-4ZN4UF1A',
     2.0,
-    '18x20x14cm',
+    '32x12x23cm',
     NULL,
     2,
     20,
-    TIMESTAMP '2025-12-05 14:15:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-19 06:04:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     35,
@@ -2633,19 +2633,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Pełnowartościowa karma dla chomików z witaminami.',
     8,
     24.99,
-    NULL,
+    22.49,
     4.6,
     '/images/products/rodents/vitakraft-hamster.jpg',
     'ACTIVE',
-    55,
-    'ZOO-0H9DW20Y',
+    109,
+    'ZOO-0HQ49SXA',
     1.0,
-    '45x11x27cm',
+    '19x24x7cm',
     NULL,
     3,
     21,
-    TIMESTAMP '2025-12-09 02:03:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-15 14:01:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     36,
@@ -2654,18 +2654,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     9,
     39.99,
     NULL,
-    3.6,
+    4.7,
     '/images/products/rodents/crispy-rabbit.jpg',
     'ACTIVE',
-    140,
-    'ZOO-JUI9Q3MT',
+    67,
+    'ZOO-46KUDSB8',
     2.75,
-    '12x12x13cm',
+    '26x13x30cm',
     NULL,
     3,
     21,
-    TIMESTAMP '2025-12-23 16:58:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-07 12:33:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     37,
@@ -2674,18 +2674,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     8,
     26.99,
     21.59,
-    3.6,
+    4.4,
     '/images/products/rodents/guinea-food.jpg',
     'ACTIVE',
-    15,
-    'ZOO-TEN2NCW3',
+    189,
+    'ZOO-M1GDKQ1N',
     1.0,
-    '35x23x12cm',
+    '12x24x14cm',
     NULL,
     3,
     21,
-    TIMESTAMP '2025-12-10 11:27:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-06 00:59:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     38,
@@ -2693,19 +2693,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Ekstrudowana karma dla chomików. All-in-one.',
     9,
     19.99,
-    NULL,
-    3.9,
+    17.99,
+    4.5,
     '/images/products/rodents/complete-hamster.jpg',
     'ACTIVE',
-    51,
-    'ZOO-NDYGFZJD',
+    10,
+    'ZOO-XK4A6X1D',
     0.5,
-    '38x27x5cm',
+    '17x35x13cm',
     NULL,
     3,
     21,
-    TIMESTAMP '2026-01-21 08:28:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-11-26 23:36:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     39,
@@ -2714,18 +2714,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     8,
     9.99,
     NULL,
-    4.3,
+    3.5,
     '/images/products/rodents/honey-sticks.jpg',
     'ACTIVE',
-    169,
-    'ZOO-G682H0GT',
+    122,
+    'ZOO-A8DASPY6',
     0.2,
-    '28x20x15cm',
+    '48x21x22cm',
     NULL,
     3,
     23,
-    TIMESTAMP '2025-12-29 03:26:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-20 08:46:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     40,
@@ -2733,19 +2733,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Domek z naturalnego drewna dla chomika.',
     15,
     29.99,
-    22.49,
-    3.7,
+    NULL,
+    4.3,
     '/images/products/rodents/wooden-house.jpg',
     'ACTIVE',
-    18,
-    'ZOO-WB7NSYU4',
+    52,
+    'ZOO-SGFGOVJA',
     0.3,
-    '11x21x20cm',
+    '20x37x26cm',
     NULL,
     3,
     25,
-    TIMESTAMP '2026-01-18 22:20:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-21 03:15:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     41,
@@ -2753,19 +2753,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Metalowy kołowrotek dla chomika i myszki.',
     15,
     39.99,
-    31.99,
-    3.6,
+    27.99,
+    4.2,
     '/images/products/rodents/wheel.jpg',
     'ACTIVE',
-    162,
-    'ZOO-T32EGV0P',
+    119,
+    'ZOO-BVNODM4J',
     0.4,
-    '31x28x17cm',
+    '40x25x21cm',
     NULL,
     3,
     24,
-    TIMESTAMP '2025-11-29 11:54:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-14 13:17:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     42,
@@ -2777,15 +2777,15 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     3.7,
     '/images/products/rodents/cage.jpg',
     'ACTIVE',
-    122,
-    'ZOO-SP8ZXM6Y',
+    126,
+    'ZOO-1INY1M26',
     5.0,
-    '28x31x9cm',
+    '50x13x26cm',
     NULL,
     3,
     25,
-    TIMESTAMP '2025-12-27 20:00:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-19 11:32:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     43,
@@ -2794,18 +2794,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     15,
     14.99,
     NULL,
-    4.1,
+    4.2,
     '/images/products/rodents/hay.jpg',
     'ACTIVE',
-    60,
-    'ZOO-O1IQF0X7',
+    165,
+    'ZOO-6Y7HHOGW',
     1.0,
-    '18x30x15cm',
+    '13x36x20cm',
     NULL,
     3,
     21,
-    TIMESTAMP '2026-01-16 00:04:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-19 21:46:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     44,
@@ -2814,18 +2814,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     8,
     19.99,
     NULL,
-    4.4,
+    4.8,
     '/images/products/rodents/vitamins.jpg',
     'ACTIVE',
-    33,
-    'ZOO-I6GDEE2H',
+    107,
+    'ZOO-R4YNEAJ0',
     0.05,
-    '32x12x30cm',
+    '46x36x21cm',
     NULL,
     3,
     28,
-    TIMESTAMP '2025-12-20 03:28:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-21 01:50:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     45,
@@ -2834,18 +2834,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     9,
     29.99,
     NULL,
-    4.3,
+    4.2,
     '/images/products/birds/prestige-parrot.jpg',
     'ACTIVE',
-    157,
-    'ZOO-AA7VR4K6',
+    23,
+    'ZOO-1Q8E3UXZ',
     1.0,
-    '13x31x19cm',
+    '24x12x18cm',
     NULL,
     4,
     31,
-    TIMESTAMP '2025-12-09 16:26:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-16 05:33:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     46,
@@ -2854,18 +2854,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     8,
     24.99,
     NULL,
-    4.3,
+    3.7,
     '/images/products/birds/canary-food.jpg',
     'ACTIVE',
-    125,
-    'ZOO-U2CKCC8L',
+    53,
+    'ZOO-UJMUP27C',
     0.8,
-    '21x18x23cm',
+    '21x32x22cm',
     NULL,
     4,
     31,
-    TIMESTAMP '2025-12-11 16:20:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-22 03:23:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     47,
@@ -2873,19 +2873,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Ekstrudowana karma dla papug.',
     9,
     49.99,
-    NULL,
-    4.5,
+    37.49,
+    3.8,
     '/images/products/birds/nutribird.jpg',
     'ACTIVE',
-    22,
-    'ZOO-INEPB4WF',
+    84,
+    'ZOO-RDX50JBW',
     1.0,
-    '20x11x27cm',
+    '39x21x8cm',
     NULL,
     4,
     31,
-    TIMESTAMP '2026-01-22 17:38:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-05 08:45:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     48,
@@ -2894,18 +2894,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     8,
     7.99,
     NULL,
-    4.7,
+    4.6,
     '/images/products/birds/egg-stick.jpg',
     'ACTIVE',
-    81,
-    'ZOO-RHJXFT38',
+    155,
+    'ZOO-6UON6DNU',
     0.1,
-    '42x23x21cm',
+    '49x31x16cm',
     NULL,
     4,
     33,
-    TIMESTAMP '2025-12-12 11:02:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-17 12:42:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     49,
@@ -2914,18 +2914,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     15,
     14.99,
     NULL,
-    3.7,
+    4.3,
     '/images/products/birds/swing.jpg',
     'ACTIVE',
-    29,
-    'ZOO-XG652QVE',
+    71,
+    'ZOO-KQ4IEM6K',
     0.15,
-    '30x36x5cm',
+    '48x22x10cm',
     NULL,
     4,
     34,
-    TIMESTAMP '2026-01-16 08:24:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-26 20:05:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     50,
@@ -2933,19 +2933,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Duża klatka dla kanarków i papużek.',
     17,
     349.99,
-    297.49,
-    4.5,
+    NULL,
+    5.0,
     '/images/products/birds/cage.jpg',
     'ACTIVE',
-    29,
-    'ZOO-OATNCOGY',
+    179,
+    'ZOO-VBYNJYUC',
     8.0,
-    '27x13x8cm',
+    '30x38x30cm',
     NULL,
     4,
     35,
-    TIMESTAMP '2026-01-01 03:24:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-11 21:40:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     51,
@@ -2954,18 +2954,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     15,
     19.99,
     NULL,
-    5.0,
+    4.7,
     '/images/products/birds/perches.jpg',
     'ACTIVE',
-    157,
-    'ZOO-SGDEQDDL',
+    163,
+    'ZOO-SJPLYVN1',
     0.2,
-    '34x32x8cm',
+    '20x25x19cm',
     NULL,
     4,
     35,
-    TIMESTAMP '2025-11-27 23:08:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-21 22:10:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     52,
@@ -2974,18 +2974,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     8,
     12.99,
     NULL,
-    3.9,
+    3.7,
     '/images/products/birds/sand.jpg',
     'ACTIVE',
-    149,
-    'ZOO-ONTU8276',
+    88,
+    'ZOO-PHVUVALQ',
     2.5,
-    '50x16x28cm',
+    '25x20x30cm',
     NULL,
     4,
     39,
-    TIMESTAMP '2026-01-17 10:34:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-07 04:03:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     53,
@@ -2994,18 +2994,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     10,
     79.99,
     NULL,
-    4.8,
+    4.9,
     '/images/products/fish/tetra-pro.jpg',
     'ACTIVE',
-    123,
-    'ZOO-5SXNYRLN',
+    120,
+    'ZOO-TC7JJZHZ',
     0.5,
-    '16x13x19cm',
+    '17x17x11cm',
     NULL,
     5,
     41,
-    TIMESTAMP '2025-12-25 02:03:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-07 17:48:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     54,
@@ -3014,18 +3014,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     12,
     39.99,
     NULL,
-    5.0,
+    3.9,
     '/images/products/fish/supervit.jpg',
     'ACTIVE',
-    113,
-    'ZOO-DCJ9H1HQ',
+    80,
+    'ZOO-XE510S3F',
     0.25,
-    '50x31x16cm',
+    '19x35x29cm',
     NULL,
     5,
     41,
-    TIMESTAMP '2026-01-08 06:41:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-25 19:06:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     55,
@@ -3033,19 +3033,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Tabletki pokarmowe dla ryb dennych.',
     11,
     44.99,
-    35.99,
-    3.7,
+    NULL,
+    4.0,
     '/images/products/fish/novotab.jpg',
     'ACTIVE',
-    5,
-    'ZOO-MS7T044X',
+    197,
+    'ZOO-899YXYCL',
     0.25,
-    '31x26x20cm',
+    '22x21x20cm',
     NULL,
     5,
     41,
-    TIMESTAMP '2026-01-13 08:41:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-15 16:10:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     56,
@@ -3053,19 +3053,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Karma dla złotych rybek w płatkach.',
     10,
     29.99,
-    23.99,
+    NULL,
     3.5,
     '/images/products/fish/goldfish.jpg',
     'ACTIVE',
-    139,
-    'ZOO-Y5YFFI7V',
+    23,
+    'ZOO-Y0GWGH1V',
     0.2,
-    '31x19x13cm',
+    '41x35x9cm',
     NULL,
     5,
     41,
-    TIMESTAMP '2025-12-05 07:42:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-14 02:32:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     57,
@@ -3073,19 +3073,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Butla CO2 500g do nawożenia roślin.',
     11,
     149.99,
-    NULL,
-    4.8,
+    104.99,
+    4.3,
     '/images/products/fish/co2.jpg',
     'ACTIVE',
-    94,
-    'ZOO-CCY0PEAJ',
+    55,
+    'ZOO-AWN7J0L8',
     1.2,
-    '11x14x22cm',
+    '45x40x27cm',
     NULL,
     5,
     45,
-    TIMESTAMP '2026-01-03 08:28:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-13 16:11:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     58,
@@ -3094,18 +3094,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     10,
     129.99,
     NULL,
-    4.1,
+    4.2,
     '/images/products/fish/filter.jpg',
     'ACTIVE',
-    31,
-    'ZOO-S17OAHSE',
+    21,
+    'ZOO-CSIN9EBL',
     0.8,
-    '13x40x9cm',
+    '36x16x26cm',
     NULL,
     5,
     45,
-    TIMESTAMP '2025-12-31 01:52:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-03 21:08:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     59,
@@ -3113,19 +3113,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Oświetlenie LED do akwariów roślinnych.',
     11,
     399.99,
-    359.99,
-    4.5,
+    NULL,
+    4.8,
     '/images/products/fish/led-light.jpg',
     'ACTIVE',
-    149,
-    'ZOO-ED4OBYGO',
+    117,
+    'ZOO-OOF85LW7',
     1.5,
-    '37x16x25cm',
+    '38x35x19cm',
     NULL,
     5,
     45,
-    TIMESTAMP '2025-12-27 18:36:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-01 08:15:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     60,
@@ -3133,19 +3133,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Uzdatniacz wody usuwający chlor.',
     10,
     49.99,
-    37.49,
-    4.4,
+    NULL,
+    4.1,
     '/images/products/fish/aquasafe.jpg',
     'ACTIVE',
-    73,
-    'ZOO-GJ8N2CUB',
+    147,
+    'ZOO-S19CJRBZ',
     0.5,
-    '14x17x22cm',
+    '48x24x29cm',
     NULL,
     5,
     49,
-    TIMESTAMP '2025-12-04 13:40:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-31 14:01:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     61,
@@ -3153,19 +3153,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Bakterie startowe do nowych akwariów.',
     11,
     59.99,
-    53.99,
-    3.6,
+    44.99,
+    4.4,
     '/images/products/fish/denitrol.jpg',
     'ACTIVE',
-    194,
-    'ZOO-15ADLTRL',
+    116,
+    'ZOO-LR9UD2B3',
     0.3,
-    '28x25x12cm',
+    '40x26x23cm',
     NULL,
     5,
     48,
-    TIMESTAMP '2025-11-30 13:09:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-01 06:37:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     62,
@@ -3173,19 +3173,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Naturalny korzeń do dekoracji akwarium.',
     12,
     69.99,
-    48.99,
-    4.8,
+    NULL,
+    4.7,
     '/images/products/fish/root.jpg',
     'ACTIVE',
-    172,
-    'ZOO-Y4DZRQ0V',
+    177,
+    'ZOO-TFBFSOVS',
     0.8,
-    '45x13x10cm',
+    '22x27x21cm',
     NULL,
     5,
     45,
-    TIMESTAMP '2025-11-29 05:50:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-11-30 21:54:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     63,
@@ -3194,18 +3194,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     13,
     49.99,
     NULL,
-    4.3,
+    4.8,
     '/images/products/reptiles/turtle-food.jpg',
     'ACTIVE',
-    147,
-    'ZOO-BQB0G3XV',
+    91,
+    'ZOO-QWXWRXHQ',
     0.35,
-    '29x38x23cm',
+    '15x27x26cm',
     NULL,
     6,
     51,
-    TIMESTAMP '2025-12-03 14:41:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-01 18:26:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     64,
@@ -3214,18 +3214,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     14,
     39.99,
     NULL,
-    4.2,
+    4.5,
     '/images/products/reptiles/bearded-dragon.jpg',
     'ACTIVE',
-    190,
-    'ZOO-AL582MV8',
+    161,
+    'ZOO-51GFKS1Y',
     0.25,
-    '45x27x18cm',
+    '34x40x20cm',
     NULL,
     6,
     51,
-    TIMESTAMP '2026-01-06 13:06:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-10 00:11:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     65,
@@ -3234,18 +3234,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     13,
     34.99,
     NULL,
-    4.4,
+    4.0,
     '/images/products/reptiles/crickets.jpg',
     'ACTIVE',
-    182,
-    'ZOO-NGOTEE7B',
+    114,
+    'ZOO-YFLFQPJI',
     0.08,
-    '35x19x8cm',
+    '24x28x11cm',
     NULL,
     6,
     51,
-    TIMESTAMP '2025-12-11 17:13:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-10 20:18:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     66,
@@ -3253,19 +3253,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Szklane terrarium z wentylacją.',
     14,
     599.99,
-    509.99,
-    3.9,
+    NULL,
+    4.7,
     '/images/products/reptiles/terrarium.jpg',
     'ACTIVE',
-    62,
-    'ZOO-XT23CQ4J',
+    20,
+    'ZOO-CRWPEC9W',
     25.0,
-    '50x32x5cm',
+    '27x27x20cm',
     NULL,
     6,
     55,
-    TIMESTAMP '2026-01-09 13:21:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-09 16:43:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     67,
@@ -3273,19 +3273,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Świetlówka UVB dla gadów pustynnych.',
     13,
     89.99,
-    NULL,
-    4.2,
+    80.99,
+    4.8,
     '/images/products/reptiles/uvb-lamp.jpg',
     'ACTIVE',
-    115,
-    'ZOO-ZY8HC87D',
+    132,
+    'ZOO-E441ONEZ',
     0.2,
-    '11x35x22cm',
+    '18x13x10cm',
     NULL,
     6,
     55,
-    TIMESTAMP '2026-01-05 04:04:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-01 01:37:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     68,
@@ -3293,19 +3293,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Mata grzewcza 16W do terrarium.',
     14,
     79.99,
-    67.99,
-    3.7,
+    NULL,
+    3.5,
     '/images/products/reptiles/heat-mat.jpg',
     'ACTIVE',
-    21,
-    'ZOO-75Z1PUM5',
+    77,
+    'ZOO-WPI8JF35',
     0.3,
-    '33x15x26cm',
+    '20x26x17cm',
     NULL,
     6,
     55,
-    TIMESTAMP '2025-12-11 12:36:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-13 07:49:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     69,
@@ -3313,19 +3313,19 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Wapno bez D3 dla gadów.',
     13,
     44.99,
-    35.99,
-    4.5,
+    NULL,
+    4.8,
     '/images/products/reptiles/calcium.jpg',
     'ACTIVE',
-    172,
-    'ZOO-YQHJCIY9',
+    57,
+    'ZOO-AB688ADS',
     0.25,
-    '32x16x9cm',
+    '21x28x22cm',
     NULL,
     6,
     58,
-    TIMESTAMP '2025-12-27 01:23:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-25 23:01:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     70,
@@ -3334,18 +3334,18 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     14,
     49.99,
     NULL,
-    4.8,
+    4.4,
     '/images/products/reptiles/hide.jpg',
     'ACTIVE',
-    142,
-    'ZOO-OXKELXAQ',
+    57,
+    'ZOO-IF2WT1TL',
     0.8,
-    '49x10x18cm',
+    '14x22x30cm',
     NULL,
     6,
     55,
-    TIMESTAMP '2026-01-11 21:45:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2026-01-18 10:21:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 INSERT INTO products (id, name, description, brand_id, price, discounted_price, average_rating, image_url, status, stock_quantity, sku, weight, dimensions, ingredients, category_id, subcategory_id, created_at, updated_at) VALUES (
     71,
@@ -3353,44 +3353,78 @@ INSERT INTO products (id, name, description, brand_id, price, discounted_price, 
     'Podłoże kokosowe do terrarów.',
     13,
     39.99,
-    NULL,
-    3.7,
+    35.99,
+    4.1,
     '/images/products/reptiles/substrate.jpg',
     'ACTIVE',
-    97,
-    'ZOO-6XUFHYR7',
+    90,
+    'ZOO-APIPE2KS',
     0.6,
-    '34x32x29cm',
+    '21x17x28cm',
     NULL,
     6,
     59,
-    TIMESTAMP '2025-12-02 21:51:46',
-    TIMESTAMP '2026-01-26 19:32:46'
+    TIMESTAMP '2025-12-12 00:54:36',
+    TIMESTAMP '2026-01-26 19:53:36'
 );
 
 -- Insert orders
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     1,
-    'ZAM-20260126-475268',
-    TIMESTAMP '2025-12-14 21:45:46',
-    'PROCESSING',
-    'FAILED',
+    'ZAM-20260126-013255',
+    TIMESTAMP '2025-12-23 23:12:51',
+    'CANCELLED',
+    'CANCELLED',
+    'CARD',
+    'PICKUP',
+    24,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Parkowa 102/28',
+    'Poznań',
+    '80-622',
+    'Poland',
+    'ul. Parkowa 102/28',
+    'Poznań',
+    '80-622',
+    'Poland',
+    183.95,
+    183.95,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-24 19:12:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2025-12-25 01:12:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    2,
+    'ZAM-20260126-768480',
+    TIMESTAMP '2025-12-09 21:28:51',
+    'PENDING',
+    'PENDING',
     'TRANSFER',
     'COURIER',
-    49,
+    2,
     NULL,
     NULL,
     NULL,
-    'ul. Rynek 12/40',
-    'Kraków',
-    '17-562',
+    'ul. Kwiatowa 52/34',
+    'Bydgoszcz',
+    '23-655',
     'Poland',
-    'ul. Rynek 12/40',
-    'Kraków',
-    '17-562',
+    'ul. Kwiatowa 52/34',
+    'Bydgoszcz',
+    '23-655',
     'Poland',
-    1289.89,
-    1308.39,
+    171.52,
+    190.02,
     18.5,
     0.0,
     NULL,
@@ -3401,133 +3435,99 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-16 01:45:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    2,
-    'ZAM-20260126-222316',
-    TIMESTAMP '2026-01-03 11:45:46',
-    'CONFIRMED',
-    'PAID',
-    'CARD',
-    'COURIER',
-    37,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    532.94,
-    503.6,
-    18.5,
-    47.84,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-05 06:45:46'
+    TIMESTAMP '2025-12-10 17:28:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     3,
-    'ZAM-20260126-213664',
-    TIMESTAMP '2026-01-06 23:43:46',
-    'PENDING',
-    'FAILED',
-    'CARD',
-    'COURIER',
-    4,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Polna 40/26',
-    'Kraków',
-    '39-926',
-    'Poland',
-    'ul. Polna 40/26',
-    'Kraków',
-    '39-926',
-    'Poland',
-    2569.86,
-    2453.26,
-    18.5,
-    135.1,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-08 16:43:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    4,
-    'ZAM-20260126-380608',
-    TIMESTAMP '2026-01-05 19:06:46',
-    'CONFIRMED',
+    'ZAM-20260126-303014',
+    TIMESTAMP '2026-01-16 03:29:51',
+    'IN_TRANSIT',
     'PAID',
-    'TRANSFER',
+    'CASH_ON_DELIVERY',
     'LOCKER',
-    41,
+    43,
     NULL,
     NULL,
     NULL,
-    'ul. Lipowa 124/8',
-    'Kraków',
-    '42-690',
+    'ul. Rynek 59/10',
+    'Gdynia',
+    '55-895',
     'Poland',
-    'ul. Lipowa 124/8',
-    'Kraków',
-    '42-690',
+    'ul. Rynek 59/10',
+    'Gdynia',
+    '55-895',
     'Poland',
-    36.98,
-    49.97,
+    275.96,
+    288.95,
     12.99,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
+    'PL70970879',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-17 00:29:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    4,
+    'ZAM-20260126-159960',
+    TIMESTAMP '2025-11-29 04:05:51',
+    'SHIPPED',
+    'PAID',
+    'BLIK',
+    'COURIER',
+    11,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kolejowa 136/30',
+    'Gliwice',
+    '95-589',
+    'Poland',
+    'ul. Kolejowa 136/30',
+    'Gliwice',
+    '95-589',
+    'Poland',
+    267.95,
+    271.96,
+    18.5,
+    14.49,
     NULL,
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2026-01-07 16:06:46'
+    'PL33902692',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-11-30 20:05:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     5,
-    'ZAM-20260126-225425',
-    TIMESTAMP '2026-01-17 17:08:46',
-    'PACKED',
-    'FAILED',
-    'CASH_ON_DELIVERY',
-    'COURIER',
-    33,
+    'ZAM-20260126-441229',
+    TIMESTAMP '2026-01-20 19:15:51',
+    'CONFIRMED',
+    'PENDING',
+    'BLIK',
+    'LOCKER',
+    34,
     NULL,
     NULL,
     NULL,
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
     'Poland',
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
     'Poland',
-    1167.92,
-    1186.42,
-    18.5,
+    25.98,
+    38.97,
+    12.99,
     0.0,
     NULL,
     NULL,
@@ -3537,167 +3537,133 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2026-01-18 10:08:46'
+    TIMESTAMP '2026-01-22 15:15:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     6,
-    'ZAM-20260126-410879',
-    TIMESTAMP '2026-01-26 11:07:46',
-    'IN_TRANSIT',
+    'ZAM-20260126-668258',
+    TIMESTAMP '2025-12-07 07:30:51',
+    'SHIPPED',
     'PAID',
     'TRANSFER',
-    'COURIER',
-    51,
+    'LOCKER',
+    4,
     NULL,
     NULL,
     NULL,
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
+    'ul. Wodna 111/10',
+    'Zabrze',
+    '47-914',
     'Poland',
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
+    'ul. Wodna 111/10',
+    'Zabrze',
+    '47-914',
     'Poland',
-    479.93,
-    498.43,
-    18.5,
+    597.89,
+    610.88,
+    12.99,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL59698700',
+    'PL38305938',
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2026-01-27 22:07:46'
+    TIMESTAMP '2025-12-08 08:30:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     7,
-    'ZAM-20260126-067271',
-    TIMESTAMP '2026-01-11 07:32:46',
-    'DELIVERED',
-    'PAID',
+    'ZAM-20260126-388903',
+    TIMESTAMP '2026-01-18 14:07:51',
+    'CONFIRMED',
+    'PENDING',
     'BLIK',
-    'PICKUP',
-    21,
+    'LOCKER',
+    7,
     NULL,
     NULL,
     NULL,
-    'ul. Piaskowa 114/29',
-    'Bydgoszcz',
-    '45-475',
+    'ul. Ogrodowa 8/2',
+    'Kielce',
+    '16-616',
     'Poland',
-    'ul. Piaskowa 114/29',
-    'Bydgoszcz',
-    '45-475',
+    'ul. Ogrodowa 8/2',
+    'Kielce',
+    '16-616',
     'Poland',
-    113.16,
-    113.16,
+    662.42,
+    675.41,
+    12.99,
     0.0,
-    0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL66302058',
     NULL,
     NULL,
-    TIMESTAMP '2026-01-14 07:32:46',
-    TIMESTAMP '2026-01-12 17:32:46'
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-18 16:07:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     8,
-    'ZAM-20260126-669460',
-    TIMESTAMP '2025-12-01 15:10:46',
-    'PROCESSING',
-    'PENDING',
-    'TRANSFER',
-    'LOCKER',
-    45,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Nowa 146/25',
-    'Katowice',
-    '64-978',
-    'Poland',
-    'ul. Nowa 146/25',
-    'Katowice',
-    '64-978',
-    'Poland',
-    519.96,
-    502.11,
-    12.99,
-    30.84,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-02 14:10:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    9,
-    'ZAM-20260126-487415',
-    TIMESTAMP '2026-01-02 23:07:46',
-    'PACKED',
+    'ZAM-20260126-241479',
+    TIMESTAMP '2025-12-02 15:07:51',
+    'SHIPPED',
     'PAID',
-    'CARD',
-    'LOCKER',
-    17,
+    'BLIK',
+    'PICKUP',
+    13,
     NULL,
     NULL,
     NULL,
-    'ul. Kolejowa 63/22',
-    'Toruń',
-    '67-417',
+    'ul. Polna 76/41',
+    'Poznań',
+    '88-222',
     'Poland',
-    'ul. Kolejowa 63/22',
-    'Toruń',
-    '67-417',
+    'ul. Polna 76/41',
+    'Poznań',
+    '88-222',
     'Poland',
-    259.95,
-    272.94,
-    12.99,
+    339.98,
+    339.98,
+    0.0,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
+    'PL56542542',
     NULL,
     NULL,
     NULL,
-    NULL,
-    TIMESTAMP '2026-01-03 13:07:46'
+    TIMESTAMP '2025-12-03 00:07:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    10,
-    'ZAM-20260126-253364',
-    TIMESTAMP '2025-12-27 04:33:46',
+    9,
+    'ZAM-20260126-581232',
+    TIMESTAMP '2025-12-16 11:55:51',
+    'CONFIRMED',
     'PENDING',
-    'PAID',
     'CARD',
-    'COURIER',
+    'PICKUP',
     12,
     NULL,
     NULL,
     NULL,
-    'ul. Główna 139/48',
-    'Warszawa',
-    '92-189',
+    'ul. Polna 118/28',
+    'Gdynia',
+    '93-351',
     'Poland',
-    'ul. Główna 139/48',
-    'Warszawa',
-    '92-189',
+    'ul. Polna 118/28',
+    'Gdynia',
+    '93-351',
     'Poland',
-    1414.91,
-    1433.41,
-    18.5,
+    264.94,
+    264.94,
+    0.0,
     0.0,
     NULL,
     NULL,
@@ -3707,65 +3673,201 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-29 02:33:46'
+    TIMESTAMP '2025-12-18 11:55:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    10,
+    'ZAM-20260126-814160',
+    TIMESTAMP '2025-12-12 03:17:51',
+    'PROCESSING',
+    'FAILED',
+    'BLIK',
+    'LOCKER',
+    33,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Słoneczna 120/5',
+    'Rzeszów',
+    '56-430',
+    'Poland',
+    'ul. Słoneczna 120/5',
+    'Rzeszów',
+    '56-430',
+    'Poland',
+    374.9,
+    387.89,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-12 05:17:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     11,
-    'ZAM-20260126-182517',
-    TIMESTAMP '2026-01-13 06:46:46',
-    'CONFIRMED',
-    'FAILED',
-    'BLIK',
-    'PICKUP',
+    'ZAM-20260126-083307',
+    TIMESTAMP '2026-01-24 02:28:51',
+    'DELIVERED',
+    'PAID',
+    'TRANSFER',
+    'COURIER',
     19,
     NULL,
     NULL,
     NULL,
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
     'Poland',
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
     'Poland',
-    87.97,
-    87.97,
-    0.0,
-    0.0,
+    419.95,
+    398.71,
+    18.5,
+    39.74,
     NULL,
     NULL,
     NULL,
     NULL,
+    'PL54317705',
     NULL,
     NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-15 06:46:46'
+    TIMESTAMP '2026-01-27 02:28:51',
+    TIMESTAMP '2026-01-25 19:28:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     12,
-    'ZAM-20260126-717647',
-    TIMESTAMP '2025-11-29 04:34:46',
+    'ZAM-20260126-205931',
+    TIMESTAMP '2025-12-26 14:10:51',
+    'PROCESSING',
+    'FAILED',
+    'TRANSFER',
+    'LOCKER',
+    20,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Piaskowa 141/36',
+    'Wrocław',
+    '99-667',
+    'Poland',
+    'ul. Piaskowa 141/36',
+    'Wrocław',
+    '99-667',
+    'Poland',
+    199.96,
+    212.95,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-26 21:10:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    13,
+    'ZAM-20260126-709457',
+    TIMESTAMP '2026-01-19 17:55:51',
+    'PROCESSING',
+    'PENDING',
+    'BLIK',
+    'LOCKER',
+    29,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Sportowa 95/3',
+    'Wrocław',
+    '52-419',
+    'Poland',
+    'ul. Sportowa 95/3',
+    'Wrocław',
+    '52-419',
+    'Poland',
+    1085.93,
+    1098.92,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-20 02:55:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    14,
+    'ZAM-20260126-291683',
+    TIMESTAMP '2026-01-16 19:03:51',
+    'CANCELLED',
+    'CANCELLED',
+    'BLIK',
+    'PICKUP',
+    43,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Rynek 59/10',
+    'Gdynia',
+    '55-895',
+    'Poland',
+    'ul. Rynek 59/10',
+    'Gdynia',
+    '55-895',
+    'Poland',
+    59.98,
+    59.98,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-17 06:03:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2026-01-18 08:03:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    15,
+    'ZAM-20260126-645359',
+    TIMESTAMP '2025-12-09 22:54:51',
     'CONFIRMED',
-    'PAID',
-    'CARD',
-    'COURIER',
+    'PENDING',
+    'BLIK',
+    'LOCKER',
     25,
     NULL,
     NULL,
     NULL,
-    'ul. Kościelna 126/44',
-    'Szczecin',
-    '19-451',
+    'ul. Kwiatowa 132/38',
+    'Gliwice',
+    '53-467',
     'Poland',
-    'ul. Kościelna 126/44',
-    'Szczecin',
-    '19-451',
+    'ul. Kwiatowa 132/38',
+    'Gliwice',
+    '53-467',
     'Poland',
-    899.92,
-    918.42,
-    18.5,
+    153.84,
+    166.83,
+    12.99,
     0.0,
     NULL,
     NULL,
@@ -3775,132 +3877,132 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-11-29 22:34:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    13,
-    'ZAM-20260126-071725',
-    TIMESTAMP '2025-11-29 02:20:46',
-    'SHIPPED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'COURIER',
-    21,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Piaskowa 114/29',
-    'Bydgoszcz',
-    '45-475',
-    'Poland',
-    'ul. Piaskowa 114/29',
-    'Bydgoszcz',
-    '45-475',
-    'Poland',
-    211.93,
-    230.43,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL31348949',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-11-30 20:20:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    14,
-    'ZAM-20260126-606346',
-    TIMESTAMP '2026-01-21 11:42:46',
-    'PACKED',
-    'PENDING',
-    'TRANSFER',
-    'COURIER',
-    42,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 119/15',
-    'Radom',
-    '81-650',
-    'Poland',
-    'ul. Rynek 119/15',
-    'Radom',
-    '81-650',
-    'Poland',
-    273.01,
-    291.51,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-21 15:42:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    15,
-    'ZAM-20260126-764213',
-    TIMESTAMP '2026-01-09 17:51:46',
-    'PENDING',
-    'PAID',
-    'CARD',
-    'COURIER',
-    7,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 150/4',
-    'Poznań',
-    '93-180',
-    'Poland',
-    'ul. Kolejowa 150/4',
-    'Poznań',
-    '93-180',
-    'Poland',
-    59.99,
-    74.35,
-    18.5,
-    4.14,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-10 22:51:46'
+    TIMESTAMP '2025-12-10 22:54:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     16,
-    'ZAM-20260126-522436',
-    TIMESTAMP '2025-12-04 14:04:46',
-    'PACKED',
+    'ZAM-20260126-912195',
+    TIMESTAMP '2025-12-30 07:56:51',
+    'PENDING',
+    'PENDING',
+    'TRANSFER',
+    'LOCKER',
+    47,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kościelna 88/50',
+    'Radom',
+    '94-148',
+    'Poland',
+    'ul. Kościelna 88/50',
+    'Radom',
+    '94-148',
+    'Poland',
+    319.93,
+    316.14,
+    12.99,
+    16.78,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-31 20:56:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    17,
+    'ZAM-20260126-751443',
+    TIMESTAMP '2026-01-17 05:20:51',
+    'IN_TRANSIT',
     'PAID',
     'BLIK',
+    'PICKUP',
+    20,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Piaskowa 141/36',
+    'Wrocław',
+    '99-667',
+    'Poland',
+    'ul. Piaskowa 141/36',
+    'Wrocław',
+    '99-667',
+    'Poland',
+    193.96,
+    193.96,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL49058017',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-19 03:20:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    18,
+    'ZAM-20260126-440314',
+    TIMESTAMP '2025-12-29 15:46:51',
+    'DELIVERED',
+    'PAID',
+    'BLIK',
+    'PICKUP',
+    32,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Główna 41/34',
+    'Wrocław',
+    '68-596',
+    'Poland',
+    'ul. Główna 41/34',
+    'Wrocław',
+    '68-596',
+    'Poland',
+    1081.9,
+    1081.9,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL99981375',
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-04 15:46:51',
+    TIMESTAMP '2025-12-31 10:46:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    19,
+    'ZAM-20260126-868858',
+    TIMESTAMP '2025-12-31 14:51:51',
+    'CONFIRMED',
+    'PENDING',
+    'TRANSFER',
     'COURIER',
-    31,
+    45,
     NULL,
     NULL,
     NULL,
-    'ul. Zielona 121/17',
-    'Łódź',
-    '21-908',
+    'ul. Słoneczna 125/40',
+    'Gdynia',
+    '20-959',
     'Poland',
-    'ul. Zielona 121/17',
-    'Łódź',
-    '21-908',
+    'ul. Słoneczna 125/40',
+    'Gdynia',
+    '20-959',
     'Poland',
-    231.04,
-    249.54,
+    21.59,
+    40.09,
     18.5,
     0.0,
     NULL,
@@ -3911,964 +4013,46 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-05 18:04:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    17,
-    'ZAM-20260126-413558',
-    TIMESTAMP '2025-12-25 14:32:46',
-    'IN_TRANSIT',
-    'PAID',
-    'BLIK',
-    'LOCKER',
-    48,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Ogrodowa 21/47',
-    'Rzeszów',
-    '58-728',
-    'Poland',
-    'ul. Ogrodowa 21/47',
-    'Rzeszów',
-    '58-728',
-    'Poland',
-    1351.92,
-    1364.91,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL62326300',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-25 22:32:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    18,
-    'ZAM-20260126-619236',
-    TIMESTAMP '2026-01-25 20:27:46',
-    'CANCELLED',
-    'CANCELLED',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    51,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
-    'Poland',
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
-    'Poland',
-    691.91,
-    691.91,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-26 06:27:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2026-01-27 01:27:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    19,
-    'ZAM-20260126-927997',
-    TIMESTAMP '2026-01-03 11:23:46',
-    'PACKED',
-    'PENDING',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    28,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 7/9',
-    'Białystok',
-    '34-140',
-    'Poland',
-    'ul. Krótka 7/9',
-    'Białystok',
-    '34-140',
-    'Poland',
-    224.95,
-    237.94,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-03 18:23:46'
+    TIMESTAMP '2026-01-02 13:51:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     20,
-    'ZAM-20260126-877532',
-    TIMESTAMP '2026-01-01 01:01:46',
-    'DELIVERED',
+    'ZAM-20260126-625643',
+    TIMESTAMP '2025-12-16 00:00:51',
+    'PENDING',
     'PAID',
-    'BLIK',
-    'PICKUP',
-    15,
+    'CASH_ON_DELIVERY',
+    'LOCKER',
+    19,
     NULL,
     NULL,
     NULL,
-    'ul. Kolejowa 146/50',
-    'Rzeszów',
-    '94-936',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
     'Poland',
-    'ul. Kolejowa 146/50',
-    'Rzeszów',
-    '94-936',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
     'Poland',
-    1072.45,
-    1072.45,
+    1029.89,
+    1042.88,
+    12.99,
     0.0,
-    0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL19482464',
     NULL,
     NULL,
-    TIMESTAMP '2026-01-07 01:01:46',
-    TIMESTAMP '2026-01-01 04:01:46'
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-17 03:00:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
     21,
-    'ZAM-20260126-100004',
-    TIMESTAMP '2025-12-28 00:06:46',
-    'CONFIRMED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    24,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
-    'Poland',
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
-    'Poland',
-    231.01,
-    201.68,
-    0.0,
-    29.33,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-29 13:06:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    22,
-    'ZAM-20260126-849849',
-    TIMESTAMP '2026-01-01 05:09:46',
-    'CANCELLED',
-    'CANCELLED',
-    'BLIK',
-    'COURIER',
-    43,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Wodna 87/41',
-    'Lublin',
-    '29-945',
-    'Poland',
-    'ul. Wodna 87/41',
-    'Lublin',
-    '29-945',
-    'Poland',
-    252.19,
-    270.69,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-01 18:09:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2026-01-01 21:09:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    23,
-    'ZAM-20260126-969640',
-    TIMESTAMP '2025-12-12 22:20:46',
-    'CONFIRMED',
-    'FAILED',
-    'TRANSFER',
-    'COURIER',
-    25,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kościelna 126/44',
-    'Szczecin',
-    '19-451',
-    'Poland',
-    'ul. Kościelna 126/44',
-    'Szczecin',
-    '19-451',
-    'Poland',
-    261.98,
-    280.48,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-13 07:20:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    24,
-    'ZAM-20260126-638406',
-    TIMESTAMP '2026-01-20 21:23:46',
-    'PENDING',
-    'FAILED',
-    'TRANSFER',
-    'PICKUP',
-    21,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Piaskowa 114/29',
-    'Bydgoszcz',
-    '45-475',
-    'Poland',
-    'ul. Piaskowa 114/29',
-    'Bydgoszcz',
-    '45-475',
-    'Poland',
-    1539.92,
-    1539.92,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-21 13:23:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    25,
-    'ZAM-20260126-916157',
-    TIMESTAMP '2025-12-12 19:41:46',
-    'IN_TRANSIT',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'COURIER',
-    45,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Nowa 146/25',
-    'Katowice',
-    '64-978',
-    'Poland',
-    'ul. Nowa 146/25',
-    'Katowice',
-    '64-978',
-    'Poland',
-    477.92,
-    430.31,
-    18.5,
-    66.11,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL38313577',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-13 23:41:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    26,
-    'ZAM-20260126-377305',
-    TIMESTAMP '2025-12-07 21:06:46',
-    'IN_TRANSIT',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    27,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    558.88,
-    539.64,
-    12.99,
-    32.23,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL33532166',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-07 23:06:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    27,
-    'ZAM-20260126-635527',
-    TIMESTAMP '2026-01-12 05:54:46',
-    'IN_TRANSIT',
-    'PAID',
-    'BLIK',
-    'PICKUP',
-    15,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 146/50',
-    'Rzeszów',
-    '94-936',
-    'Poland',
-    'ul. Kolejowa 146/50',
-    'Rzeszów',
-    '94-936',
-    'Poland',
-    379.97,
-    379.97,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL24745785',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-13 20:54:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    28,
-    'ZAM-20260126-309964',
-    TIMESTAMP '2025-12-20 21:12:46',
-    'SHIPPED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'COURIER',
-    45,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Nowa 146/25',
-    'Katowice',
-    '64-978',
-    'Poland',
-    'ul. Nowa 146/25',
-    'Katowice',
-    '64-978',
-    'Poland',
-    279.94,
-    265.03,
-    18.5,
-    33.41,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL99977390',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-21 17:12:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    29,
-    'ZAM-20260126-364967',
-    TIMESTAMP '2025-11-28 05:19:46',
-    'PENDING',
-    'FAILED',
-    'BLIK',
-    'COURIER',
-    16,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
-    'Poland',
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
-    'Poland',
-    59.97,
-    78.47,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-11-28 21:19:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    30,
-    'ZAM-20260126-094231',
-    TIMESTAMP '2025-12-05 14:31:46',
-    'CANCELLED',
-    'CANCELLED',
-    'TRANSFER',
-    'LOCKER',
-    27,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    72.95,
-    85.94,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-05 15:31:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2025-12-06 05:31:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    31,
-    'ZAM-20260126-949002',
-    TIMESTAMP '2025-12-12 06:24:46',
-    'CONFIRMED',
-    'FAILED',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    45,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Nowa 146/25',
-    'Katowice',
-    '64-978',
-    'Poland',
-    'ul. Nowa 146/25',
-    'Katowice',
-    '64-978',
-    'Poland',
-    1629.95,
-    1629.95,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-13 23:24:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    32,
-    'ZAM-20260126-208044',
-    TIMESTAMP '2025-12-21 07:38:46',
-    'CONFIRMED',
-    'PENDING',
-    'BLIK',
-    'COURIER',
-    33,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
-    'Poland',
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
-    'Poland',
-    247.95,
-    266.45,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-21 12:38:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    33,
-    'ZAM-20260126-021797',
-    TIMESTAMP '2026-01-10 22:23:46',
-    'DELIVERED',
-    'PAID',
-    'TRANSFER',
-    'COURIER',
-    17,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 63/22',
-    'Toruń',
-    '67-417',
-    'Poland',
-    'ul. Kolejowa 63/22',
-    'Toruń',
-    '67-417',
-    'Poland',
-    774.91,
-    721.01,
-    18.5,
-    72.4,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL87772402',
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-16 22:23:46',
-    TIMESTAMP '2026-01-11 17:23:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    34,
-    'ZAM-20260126-049753',
-    TIMESTAMP '2025-12-08 00:18:46',
-    'IN_TRANSIT',
-    'PAID',
-    'BLIK',
-    'LOCKER',
-    22,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    834.92,
-    847.91,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL29094143',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-09 00:18:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    35,
-    'ZAM-20260126-940429',
-    TIMESTAMP '2025-12-26 09:03:46',
-    'PACKED',
-    'PAID',
-    'CARD',
-    'PICKUP',
-    29,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Polna 119/26',
-    'Kraków',
-    '35-506',
-    'Poland',
-    'ul. Polna 119/26',
-    'Kraków',
-    '35-506',
-    'Poland',
-    1265.88,
-    1265.88,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-27 17:03:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    36,
-    'ZAM-20260126-456055',
-    TIMESTAMP '2025-12-16 16:39:46',
-    'PENDING',
-    'FAILED',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    46,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Łąkowa 3/36',
-    'Katowice',
-    '88-140',
-    'Poland',
-    'ul. Łąkowa 3/36',
-    'Katowice',
-    '88-140',
-    'Poland',
-    585.88,
-    585.88,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-17 15:39:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    37,
-    'ZAM-20260126-190830',
-    TIMESTAMP '2025-12-24 18:55:46',
-    'DELIVERED',
-    'PAID',
-    'TRANSFER',
-    'COURIER',
-    16,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
-    'Poland',
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
-    'Poland',
-    179.97,
-    198.47,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL76064104',
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-28 18:55:46',
-    TIMESTAMP '2025-12-25 19:55:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    38,
-    'ZAM-20260126-164135',
-    TIMESTAMP '2025-12-06 23:53:46',
-    'DELIVERED',
-    'PAID',
-    'BLIK',
-    'PICKUP',
-    43,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Wodna 87/41',
-    'Lublin',
-    '29-945',
-    'Poland',
-    'ul. Wodna 87/41',
-    'Lublin',
-    '29-945',
-    'Poland',
-    224.96,
-    224.96,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL38867909',
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-10 23:53:46',
-    TIMESTAMP '2025-12-08 22:53:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    39,
-    'ZAM-20260126-201822',
-    TIMESTAMP '2026-01-13 16:11:46',
-    'PENDING',
-    'PENDING',
-    'BLIK',
-    'LOCKER',
-    31,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Zielona 121/17',
-    'Łódź',
-    '21-908',
-    'Poland',
-    'ul. Zielona 121/17',
-    'Łódź',
-    '21-908',
-    'Poland',
-    1667.43,
-    1680.42,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-15 04:11:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    40,
-    'ZAM-20260126-428657',
-    TIMESTAMP '2025-12-23 10:27:46',
-    'CONFIRMED',
-    'PAID',
-    'BLIK',
-    'PICKUP',
-    27,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    147.95,
-    147.95,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-24 09:27:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    41,
-    'ZAM-20260126-310597',
-    TIMESTAMP '2026-01-03 14:07:46',
-    'PACKED',
-    'FAILED',
-    'TRANSFER',
-    'COURIER',
-    8,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Ogrodowa 95/47',
-    'Poznań',
-    '20-971',
-    'Poland',
-    'ul. Ogrodowa 95/47',
-    'Poznań',
-    '20-971',
-    'Poland',
-    259.94,
-    278.44,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-04 05:07:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    42,
-    'ZAM-20260126-800402',
-    TIMESTAMP '2026-01-25 08:12:46',
-    'SHIPPED',
-    'PAID',
-    'BLIK',
-    'COURIER',
-    36,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 65/20',
-    'Poznań',
-    '54-534',
-    'Poland',
-    'ul. Kolejowa 65/20',
-    'Poznań',
-    '54-534',
-    'Poland',
-    109.97,
-    128.47,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL67080868',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-25 15:12:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    43,
-    'ZAM-20260126-163817',
-    TIMESTAMP '2026-01-06 12:45:46',
-    'PROCESSING',
-    'FAILED',
-    'BLIK',
-    'PICKUP',
-    10,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 53/5',
-    'Gdynia',
-    '67-372',
-    'Poland',
-    'ul. Krótka 53/5',
-    'Gdynia',
-    '67-372',
-    'Poland',
-    1002.44,
-    895.98,
-    0.0,
-    106.46,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-06 18:45:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    44,
-    'ZAM-20260126-769306',
-    TIMESTAMP '2026-01-01 07:40:46',
-    'IN_TRANSIT',
-    'PAID',
-    'CARD',
-    'LOCKER',
-    22,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    29.98,
-    40.25,
-    12.99,
-    2.72,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL77213950',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-02 22:40:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    45,
-    'ZAM-20260126-428332',
-    TIMESTAMP '2026-01-13 23:06:46',
+    'ZAM-20260126-076877',
+    TIMESTAMP '2026-01-16 16:34:51',
     'DELIVERED',
     'PAID',
     'TRANSFER',
@@ -4877,356 +4061,390 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    'ul. Słoneczna 80/36',
-    'Gliwice',
-    '11-947',
+    'ul. Polna 76/41',
+    'Poznań',
+    '88-222',
     'Poland',
-    'ul. Słoneczna 80/36',
-    'Gliwice',
-    '11-947',
+    'ul. Polna 76/41',
+    'Poznań',
+    '88-222',
     'Poland',
-    1225.89,
-    1244.39,
+    1931.5,
+    1950.0,
     18.5,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL22108792',
+    'PL80612537',
     NULL,
     NULL,
-    TIMESTAMP '2026-01-16 23:06:46',
-    TIMESTAMP '2026-01-14 16:06:46'
+    TIMESTAMP '2026-01-18 16:34:51',
+    TIMESTAMP '2026-01-17 11:34:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    46,
-    'ZAM-20260126-921593',
-    TIMESTAMP '2026-01-06 14:13:46',
-    'DELIVERED',
-    'PAID',
-    'TRANSFER',
-    'COURIER',
-    16,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
-    'Poland',
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
-    'Poland',
-    699.93,
-    718.43,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL34157609',
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-08 14:13:46',
-    TIMESTAMP '2026-01-06 20:13:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    47,
-    'ZAM-20260126-987690',
-    TIMESTAMP '2025-12-02 20:15:46',
+    22,
+    'ZAM-20260126-466795',
+    TIMESTAMP '2025-12-29 06:16:51',
     'IN_TRANSIT',
     'PAID',
-    'CASH_ON_DELIVERY',
-    'COURIER',
-    19,
+    'BLIK',
+    'PICKUP',
+    4,
     NULL,
     NULL,
     NULL,
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
+    'ul. Wodna 111/10',
+    'Zabrze',
+    '47-914',
     'Poland',
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
+    'ul. Wodna 111/10',
+    'Zabrze',
+    '47-914',
     'Poland',
-    67.47,
-    79.16,
-    18.5,
-    6.81,
+    553.44,
+    553.44,
+    0.0,
+    0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL15481606',
+    'PL34947878',
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-04 18:15:46'
+    TIMESTAMP '2025-12-30 06:16:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    48,
-    'ZAM-20260126-246637',
-    TIMESTAMP '2025-12-04 00:07:46',
-    'CANCELLED',
-    'CANCELLED',
+    23,
+    'ZAM-20260126-801842',
+    TIMESTAMP '2025-12-17 15:49:51',
+    'PROCESSING',
+    'FAILED',
+    'CARD',
+    'COURIER',
+    23,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Piaskowa 34/27',
+    'Toruń',
+    '11-734',
+    'Poland',
+    'ul. Piaskowa 34/27',
+    'Toruń',
+    '11-734',
+    'Poland',
+    323.93,
+    342.43,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-18 20:49:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    24,
+    'ZAM-20260126-279392',
+    TIMESTAMP '2026-01-21 08:24:51',
+    'CONFIRMED',
+    'FAILED',
     'BLIK',
     'LOCKER',
+    34,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
+    'Poland',
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
+    'Poland',
+    34.99,
+    47.98,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-21 11:24:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    25,
+    'ZAM-20260126-088374',
+    TIMESTAMP '2026-01-11 03:10:51',
+    'PACKED',
+    'PENDING',
+    'BLIK',
+    'COURIER',
+    13,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Polna 76/41',
+    'Poznań',
+    '88-222',
+    'Poland',
+    'ul. Polna 76/41',
+    'Poznań',
+    '88-222',
+    'Poland',
+    104.99,
+    123.49,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-12 19:10:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    26,
+    'ZAM-20260126-400077',
+    TIMESTAMP '2025-11-29 20:07:51',
+    'PROCESSING',
+    'FAILED',
+    'CARD',
+    'PICKUP',
     42,
     NULL,
     NULL,
     NULL,
-    'ul. Rynek 119/15',
-    'Radom',
-    '81-650',
-    'Poland',
-    'ul. Rynek 119/15',
-    'Radom',
-    '81-650',
-    'Poland',
-    1397.93,
-    1410.92,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-04 12:07:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2025-12-04 12:07:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    49,
-    'ZAM-20260126-035999',
-    TIMESTAMP '2025-12-01 02:21:46',
-    'PENDING',
-    'FAILED',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    8,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Ogrodowa 95/47',
-    'Poznań',
-    '20-971',
-    'Poland',
-    'ul. Ogrodowa 95/47',
-    'Poznań',
-    '20-971',
-    'Poland',
-    1811.89,
-    1824.88,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-01 06:21:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    50,
-    'ZAM-20260126-394502',
-    TIMESTAMP '2025-12-07 08:39:46',
-    'DELIVERED',
-    'PAID',
-    'BLIK',
-    'PICKUP',
-    48,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Ogrodowa 21/47',
+    'ul. Kolejowa 72/28',
     'Rzeszów',
-    '58-728',
+    '56-688',
     'Poland',
-    'ul. Ogrodowa 21/47',
+    'ul. Kolejowa 72/28',
     'Rzeszów',
-    '58-728',
+    '56-688',
     'Poland',
-    519.95,
-    519.95,
+    1699.93,
+    1699.93,
     0.0,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL83828010',
     NULL,
     NULL,
-    TIMESTAMP '2025-12-11 08:39:46',
-    TIMESTAMP '2025-12-08 22:39:46'
+    NULL,
+    NULL,
+    TIMESTAMP '2025-11-30 11:07:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    51,
-    'ZAM-20260126-701157',
-    TIMESTAMP '2025-11-28 03:31:46',
-    'CONFIRMED',
-    'PAID',
-    'CARD',
-    'LOCKER',
-    17,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 63/22',
-    'Toruń',
-    '67-417',
-    'Poland',
-    'ul. Kolejowa 63/22',
-    'Toruń',
-    '67-417',
-    'Poland',
-    692.87,
-    705.86,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-11-28 04:31:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    52,
-    'ZAM-20260126-528983',
-    TIMESTAMP '2025-12-01 13:22:46',
+    27,
+    'ZAM-20260126-633836',
+    TIMESTAMP '2026-01-09 15:54:51',
     'SHIPPED',
     'PAID',
-    'BLIK',
+    'CASH_ON_DELIVERY',
     'LOCKER',
-    27,
+    31,
     NULL,
     NULL,
     NULL,
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
+    'ul. Nowa 6/45',
+    'Gdynia',
+    '56-694',
     'Poland',
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
+    'ul. Nowa 6/45',
+    'Gdynia',
+    '56-694',
     'Poland',
-    239.97,
-    252.96,
+    59.97,
+    66.08,
+    12.99,
+    6.88,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL74708832',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-11 12:54:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    28,
+    'ZAM-20260126-591987',
+    TIMESTAMP '2025-12-26 15:22:51',
+    'SHIPPED',
+    'PAID',
+    'CASH_ON_DELIVERY',
+    'LOCKER',
+    38,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Rynek 41/20',
+    'Kraków',
+    '89-251',
+    'Poland',
+    'ul. Rynek 41/20',
+    'Kraków',
+    '89-251',
+    'Poland',
+    157.94,
+    170.93,
     12.99,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL41524351',
+    'PL28559256',
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-01 18:22:46'
+    TIMESTAMP '2025-12-26 18:22:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    53,
-    'ZAM-20260126-708143',
-    TIMESTAMP '2025-12-08 07:09:46',
-    'IN_TRANSIT',
+    29,
+    'ZAM-20260126-933034',
+    TIMESTAMP '2025-12-31 15:40:51',
+    'CANCELLED',
+    'CANCELLED',
+    'CASH_ON_DELIVERY',
+    'LOCKER',
+    5,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Ogrodowa 136/19',
+    'Zabrze',
+    '35-975',
+    'Poland',
+    'ul. Ogrodowa 136/19',
+    'Zabrze',
+    '35-975',
+    'Poland',
+    272.93,
+    285.92,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-31 22:40:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2026-01-02 09:40:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    30,
+    'ZAM-20260126-601936',
+    TIMESTAMP '2025-12-28 22:32:51',
+    'SHIPPED',
     'PAID',
     'CARD',
-    'LOCKER',
-    46,
+    'COURIER',
+    4,
     NULL,
     NULL,
     NULL,
-    'ul. Łąkowa 3/36',
-    'Katowice',
-    '88-140',
+    'ul. Wodna 111/10',
+    'Zabrze',
+    '47-914',
     'Poland',
-    'ul. Łąkowa 3/36',
-    'Katowice',
-    '88-140',
+    'ul. Wodna 111/10',
+    'Zabrze',
+    '47-914',
     'Poland',
-    171.96,
-    184.95,
-    12.99,
+    154.76,
+    173.26,
+    18.5,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL90915201',
+    'PL80901172',
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-09 01:09:46'
+    TIMESTAMP '2025-12-30 03:32:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    54,
-    'ZAM-20260126-218649',
-    TIMESTAMP '2026-01-15 20:32:46',
-    'PENDING',
+    31,
+    'ZAM-20260126-103329',
+    TIMESTAMP '2025-12-02 00:52:51',
+    'DELIVERED',
     'PAID',
     'BLIK',
     'PICKUP',
-    44,
+    15,
     NULL,
     NULL,
     NULL,
-    'ul. Główna 77/33',
-    'Białystok',
-    '66-655',
+    'ul. Krótka 147/47',
+    'Katowice',
+    '20-316',
     'Poland',
-    'ul. Główna 77/33',
-    'Białystok',
-    '66-655',
+    'ul. Krótka 147/47',
+    'Katowice',
+    '20-316',
     'Poland',
-    995.68,
-    995.68,
+    614.91,
+    614.91,
     0.0,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
+    'PL15762314',
     NULL,
     NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-16 07:32:46'
+    TIMESTAMP '2025-12-08 00:52:51',
+    TIMESTAMP '2025-12-02 05:52:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    55,
-    'ZAM-20260126-011229',
-    TIMESTAMP '2025-12-26 01:22:46',
-    'PROCESSING',
-    'FAILED',
+    32,
+    'ZAM-20260126-477610',
+    TIMESTAMP '2025-12-26 00:15:51',
+    'CONFIRMED',
+    'PAID',
     'CASH_ON_DELIVERY',
     'PICKUP',
-    14,
+    26,
     NULL,
     NULL,
     NULL,
-    'ul. Polna 91/45',
-    'Warszawa',
-    '78-178',
+    'ul. Szkolna 33/37',
+    'Katowice',
+    '12-275',
     'Poland',
-    'ul. Polna 91/45',
-    'Warszawa',
-    '78-178',
+    'ul. Szkolna 33/37',
+    'Katowice',
+    '12-275',
     'Poland',
-    645.97,
-    645.97,
+    515.66,
+    515.66,
     0.0,
     0.0,
     NULL,
@@ -5237,98 +4455,64 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-27 22:22:46'
+    TIMESTAMP '2025-12-27 16:15:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    56,
-    'ZAM-20260126-790114',
-    TIMESTAMP '2025-12-03 13:51:46',
-    'DELIVERED',
+    33,
+    'ZAM-20260126-402664',
+    TIMESTAMP '2025-12-11 09:23:51',
+    'IN_TRANSIT',
     'PAID',
-    'BLIK',
+    'CASH_ON_DELIVERY',
     'PICKUP',
-    47,
+    26,
     NULL,
     NULL,
     NULL,
-    'ul. Piaskowa 104/12',
-    'Lublin',
-    '71-857',
+    'ul. Szkolna 33/37',
+    'Katowice',
+    '12-275',
     'Poland',
-    'ul. Piaskowa 104/12',
-    'Lublin',
-    '71-857',
+    'ul. Szkolna 33/37',
+    'Katowice',
+    '12-275',
     'Poland',
-    369.95,
-    369.95,
+    477.17,
+    477.17,
     0.0,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL25767128',
+    'PL96135714',
     NULL,
     NULL,
-    TIMESTAMP '2025-12-10 13:51:46',
-    TIMESTAMP '2025-12-03 20:51:46'
+    NULL,
+    TIMESTAMP '2025-12-13 04:23:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    57,
-    'ZAM-20260126-766841',
-    TIMESTAMP '2025-12-23 01:48:46',
-    'DELIVERED',
-    'PAID',
-    'TRANSFER',
-    'LOCKER',
-    51,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
-    'Poland',
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
-    'Poland',
-    2949.88,
-    2797.39,
-    12.99,
-    165.48,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL95779041',
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-26 01:48:46',
-    TIMESTAMP '2025-12-24 03:48:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    58,
-    'ZAM-20260126-437602',
-    TIMESTAMP '2025-12-05 21:21:46',
-    'PROCESSING',
+    34,
+    'ZAM-20260126-496333',
+    TIMESTAMP '2026-01-07 03:59:51',
+    'PACKED',
     'PENDING',
-    'BLIK',
+    'CARD',
     'COURIER',
-    16,
+    49,
     NULL,
     NULL,
     NULL,
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
+    'ul. Wodna 34/27',
+    'Wrocław',
+    '94-380',
     'Poland',
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
+    'ul. Wodna 34/27',
+    'Wrocław',
+    '94-380',
     'Poland',
-    1313.91,
-    1332.41,
+    397.93,
+    416.43,
     18.5,
     0.0,
     NULL,
@@ -5339,13 +4523,115 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-06 23:21:46'
+    TIMESTAMP '2026-01-08 17:59:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    59,
-    'ZAM-20260126-987713',
-    TIMESTAMP '2025-12-06 18:13:46',
+    35,
+    'ZAM-20260126-318967',
+    TIMESTAMP '2026-01-18 05:01:51',
+    'PROCESSING',
+    'PAID',
+    'CASH_ON_DELIVERY',
+    'LOCKER',
+    24,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Parkowa 102/28',
+    'Poznań',
+    '80-622',
+    'Poland',
+    'ul. Parkowa 102/28',
+    'Poznań',
+    '80-622',
+    'Poland',
+    863.92,
+    876.91,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-19 02:01:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    36,
+    'ZAM-20260126-128458',
+    TIMESTAMP '2026-01-02 00:29:51',
+    'CONFIRMED',
+    'PENDING',
+    'CASH_ON_DELIVERY',
+    'COURIER',
+    10,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Krótka 40/20',
+    'Częstochowa',
+    '76-345',
+    'Poland',
+    'ul. Krótka 40/20',
+    'Częstochowa',
+    '76-345',
+    'Poland',
+    1179.9,
+    1198.4,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-02 01:29:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    37,
+    'ZAM-20260126-879733',
+    TIMESTAMP '2025-12-04 15:44:51',
     'IN_TRANSIT',
+    'PAID',
+    'CARD',
+    'PICKUP',
+    32,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Główna 41/34',
+    'Wrocław',
+    '68-596',
+    'Poland',
+    'ul. Główna 41/34',
+    'Wrocław',
+    '68-596',
+    'Poland',
+    993.9,
+    993.9,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL46884491',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-06 03:44:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    38,
+    'ZAM-20260126-747911',
+    TIMESTAMP '2026-01-13 09:55:51',
+    'SHIPPED',
     'PAID',
     'TRANSFER',
     'COURIER',
@@ -5353,1920 +4639,798 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    'ul. Ogrodowa 4/25',
-    'Kielce',
-    '83-734',
-    'Poland',
-    'ul. Ogrodowa 4/25',
-    'Kielce',
-    '83-734',
-    'Poland',
-    752.91,
-    771.41,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL43938708',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-08 06:13:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    60,
-    'ZAM-20260126-916715',
-    TIMESTAMP '2026-01-03 23:32:46',
-    'PACKED',
-    'FAILED',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    6,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 137/40',
-    'Rzeszów',
-    '71-530',
-    'Poland',
-    'ul. Krótka 137/40',
-    'Rzeszów',
-    '71-530',
-    'Poland',
-    779.95,
-    779.95,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-04 00:32:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    61,
-    'ZAM-20260126-485388',
-    TIMESTAMP '2026-01-15 13:31:46',
-    'PACKED',
-    'FAILED',
-    'TRANSFER',
-    'LOCKER',
-    37,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    464.91,
-    420.96,
-    12.99,
-    56.94,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-16 04:31:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    62,
-    'ZAM-20260126-103429',
-    TIMESTAMP '2025-11-29 14:46:46',
-    'CONFIRMED',
-    'PAID',
-    'CARD',
-    'LOCKER',
-    48,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Ogrodowa 21/47',
-    'Rzeszów',
-    '58-728',
-    'Poland',
-    'ul. Ogrodowa 21/47',
-    'Rzeszów',
-    '58-728',
-    'Poland',
-    8.99,
-    21.98,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-11-30 01:46:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    63,
-    'ZAM-20260126-804397',
-    TIMESTAMP '2025-12-13 01:56:46',
-    'CONFIRMED',
-    'PAID',
-    'TRANSFER',
-    'LOCKER',
-    27,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    299.96,
-    312.95,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-13 07:56:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    64,
-    'ZAM-20260126-418866',
-    TIMESTAMP '2026-01-06 15:18:46',
-    'PACKED',
-    'PENDING',
-    'CARD',
-    'LOCKER',
-    14,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Polna 91/45',
-    'Warszawa',
-    '78-178',
-    'Poland',
-    'ul. Polna 91/45',
-    'Warszawa',
-    '78-178',
-    'Poland',
-    704.91,
-    717.9,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-07 11:18:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    65,
-    'ZAM-20260126-543923',
-    TIMESTAMP '2025-12-02 17:59:46',
-    'SHIPPED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    27,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    'ul. Rynek 61/4',
-    'Radom',
-    '56-963',
-    'Poland',
-    749.95,
-    762.94,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL52313069',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-03 12:59:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    66,
-    'ZAM-20260126-611996',
-    TIMESTAMP '2025-12-21 07:42:46',
-    'IN_TRANSIT',
-    'PAID',
-    'CARD',
-    'COURIER',
-    18,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Nowa 22/23',
-    'Zabrze',
-    '37-428',
-    'Poland',
-    'ul. Nowa 22/23',
-    'Zabrze',
-    '37-428',
-    'Poland',
-    926.92,
-    945.42,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL62798180',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-23 03:42:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    67,
-    'ZAM-20260126-536628',
-    TIMESTAMP '2025-12-11 17:10:46',
-    'PROCESSING',
-    'PAID',
-    'CARD',
-    'COURIER',
-    45,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Nowa 146/25',
+    'ul. Szkolna 33/37',
     'Katowice',
-    '64-978',
+    '12-275',
     'Poland',
-    'ul. Nowa 146/25',
+    'ul. Szkolna 33/37',
     'Katowice',
-    '64-978',
+    '12-275',
     'Poland',
-    976.07,
-    994.57,
+    889.9,
+    908.4,
     18.5,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
+    'PL52845152',
     NULL,
     NULL,
     NULL,
-    NULL,
-    TIMESTAMP '2025-12-12 01:10:46'
+    TIMESTAMP '2026-01-14 11:55:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    68,
-    'ZAM-20260126-501003',
-    TIMESTAMP '2025-12-03 03:05:46',
-    'CONFIRMED',
-    'PENDING',
+    39,
+    'ZAM-20260126-274964',
+    TIMESTAMP '2026-01-03 12:07:51',
+    'CANCELLED',
+    'CANCELLED',
     'CASH_ON_DELIVERY',
     'COURIER',
-    37,
+    34,
     NULL,
     NULL,
     NULL,
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
     'Poland',
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
     'Poland',
-    714.93,
-    733.43,
+    437.4,
+    426.3,
     18.5,
-    0.0,
+    29.6,
     NULL,
     NULL,
     NULL,
     NULL,
     NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-03 21:05:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    69,
-    'ZAM-20260126-125730',
-    TIMESTAMP '2026-01-20 07:32:46',
-    'PROCESSING',
-    'FAILED',
-    'CARD',
-    'COURIER',
-    37,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    439.89,
-    458.39,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-21 23:32:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    70,
-    'ZAM-20260126-949416',
-    TIMESTAMP '2025-11-27 05:50:46',
-    'CANCELLED',
-    'CANCELLED',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    33,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
-    'Poland',
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
-    'Poland',
-    118.96,
-    131.95,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-11-27 23:50:46',
+    TIMESTAMP '2026-01-03 22:07:51',
     'Anulowane przez klienta',
     NULL,
-    TIMESTAMP '2025-11-28 10:50:46'
+    TIMESTAMP '2026-01-05 08:07:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    71,
-    'ZAM-20260126-847773',
-    TIMESTAMP '2025-12-22 16:21:46',
-    'CONFIRMED',
-    'PENDING',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    2,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 37/25',
-    'Kraków',
-    '18-656',
-    'Poland',
-    'ul. Krótka 37/25',
-    'Kraków',
-    '18-656',
-    'Poland',
-    377.91,
-    390.9,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-23 15:21:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    72,
-    'ZAM-20260126-398696',
-    TIMESTAMP '2025-12-03 22:28:46',
-    'IN_TRANSIT',
-    'PAID',
-    'TRANSFER',
-    'PICKUP',
-    6,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 137/40',
-    'Rzeszów',
-    '71-530',
-    'Poland',
-    'ul. Krótka 137/40',
-    'Rzeszów',
-    '71-530',
-    'Poland',
-    1051.9,
-    1051.9,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL22171616',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-04 00:28:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    73,
-    'ZAM-20260126-826050',
-    TIMESTAMP '2026-01-01 11:21:46',
-    'CANCELLED',
-    'CANCELLED',
-    'CARD',
-    'LOCKER',
-    2,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 37/25',
-    'Kraków',
-    '18-656',
-    'Poland',
-    'ul. Krótka 37/25',
-    'Kraków',
-    '18-656',
-    'Poland',
-    841.91,
-    854.9,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-02 02:21:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2026-01-01 12:21:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    74,
-    'ZAM-20260126-585856',
-    TIMESTAMP '2025-12-08 12:53:46',
-    'CANCELLED',
-    'CANCELLED',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    33,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
-    'Poland',
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
-    'Poland',
-    204.95,
-    204.95,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-08 15:53:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2025-12-09 07:53:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    75,
-    'ZAM-20260126-136223',
-    TIMESTAMP '2025-12-07 08:21:46',
-    'SHIPPED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'COURIER',
     40,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Nowa 78/41',
-    'Łódź',
-    '58-657',
-    'Poland',
-    'ul. Nowa 78/41',
-    'Łódź',
-    '58-657',
-    'Poland',
-    303.95,
-    281.43,
-    18.5,
-    41.02,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL31826402',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-07 14:21:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    76,
-    'ZAM-20260126-009241',
-    TIMESTAMP '2026-01-04 09:59:46',
-    'PROCESSING',
-    'PAID',
-    'BLIK',
-    'LOCKER',
-    46,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Łąkowa 3/36',
-    'Katowice',
-    '88-140',
-    'Poland',
-    'ul. Łąkowa 3/36',
-    'Katowice',
-    '88-140',
-    'Poland',
-    79.96,
-    92.95,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-05 08:59:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    77,
-    'ZAM-20260126-638657',
-    TIMESTAMP '2026-01-06 05:44:46',
-    'PENDING',
-    'PAID',
-    'BLIK',
-    'PICKUP',
-    10,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 53/5',
-    'Gdynia',
-    '67-372',
-    'Poland',
-    'ul. Krótka 53/5',
-    'Gdynia',
-    '67-372',
-    'Poland',
-    189.97,
-    189.97,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-07 07:44:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    78,
-    'ZAM-20260126-282909',
-    TIMESTAMP '2025-12-07 11:23:46',
-    'DELIVERED',
+    'ZAM-20260126-778558',
+    TIMESTAMP '2026-01-20 10:23:51',
+    'IN_TRANSIT',
     'PAID',
     'TRANSFER',
-    'COURIER',
-    51,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
-    'Poland',
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
-    'Poland',
-    784.97,
-    706.43,
-    18.5,
-    97.04,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL51524047',
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-13 11:23:46',
-    TIMESTAMP '2025-12-08 13:23:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    79,
-    'ZAM-20260126-836376',
-    TIMESTAMP '2026-01-20 17:40:46',
-    'CANCELLED',
-    'CANCELLED',
-    'BLIK',
-    'PICKUP',
-    22,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    619.95,
-    619.95,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-20 20:40:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2026-01-21 03:40:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    80,
-    'ZAM-20260126-564890',
-    TIMESTAMP '2026-01-23 09:38:46',
-    'PROCESSING',
-    'PAID',
-    'CARD',
-    'PICKUP',
-    51,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
-    'Poland',
-    'ul. Kościelna 127/35',
-    'Poznań',
-    '15-956',
-    'Poland',
-    255.95,
-    255.95,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-24 00:38:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    81,
-    'ZAM-20260126-746561',
-    TIMESTAMP '2025-12-29 08:49:46',
-    'PACKED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    7,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 150/4',
-    'Poznań',
-    '93-180',
-    'Poland',
-    'ul. Kolejowa 150/4',
-    'Poznań',
-    '93-180',
-    'Poland',
-    394.89,
-    407.88,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-30 21:49:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    82,
-    'ZAM-20260126-173101',
-    TIMESTAMP '2026-01-02 09:00:46',
-    'DELIVERED',
-    'PAID',
-    'TRANSFER',
-    'COURIER',
-    44,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Główna 77/33',
-    'Białystok',
-    '66-655',
-    'Poland',
-    'ul. Główna 77/33',
-    'Białystok',
-    '66-655',
-    'Poland',
-    59.97,
-    78.47,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL22455253',
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-07 09:00:46',
-    TIMESTAMP '2026-01-04 02:00:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    83,
-    'ZAM-20260126-824826',
-    TIMESTAMP '2026-01-23 08:16:46',
-    'DELIVERED',
-    'PAID',
-    'TRANSFER',
-    'LOCKER',
-    7,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 150/4',
-    'Poznań',
-    '93-180',
-    'Poland',
-    'ul. Kolejowa 150/4',
-    'Poznań',
-    '93-180',
-    'Poland',
-    121.57,
-    122.48,
-    12.99,
-    12.08,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL80510321',
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-28 08:16:46',
-    TIMESTAMP '2026-01-23 16:16:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    84,
-    'ZAM-20260126-297192',
-    TIMESTAMP '2025-12-13 13:43:46',
-    'CANCELLED',
-    'CANCELLED',
-    'BLIK',
-    'PICKUP',
-    8,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Ogrodowa 95/47',
-    'Poznań',
-    '20-971',
-    'Poland',
-    'ul. Ogrodowa 95/47',
-    'Poznań',
-    '20-971',
-    'Poland',
-    825.92,
-    825.92,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-14 11:43:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2025-12-14 13:43:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    85,
-    'ZAM-20260126-983774',
-    TIMESTAMP '2026-01-18 06:08:46',
-    'PROCESSING',
-    'FAILED',
-    'BLIK',
-    'COURIER',
-    37,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    19.99,
-    38.49,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-18 11:08:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    86,
-    'ZAM-20260126-266204',
-    TIMESTAMP '2025-12-01 10:07:46',
-    'SHIPPED',
-    'PAID',
-    'TRANSFER',
-    'PICKUP',
-    46,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Łąkowa 3/36',
-    'Katowice',
-    '88-140',
-    'Poland',
-    'ul. Łąkowa 3/36',
-    'Katowice',
-    '88-140',
-    'Poland',
-    99.96,
-    99.96,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL40960020',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-02 21:07:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    87,
-    'ZAM-20260126-921214',
-    TIMESTAMP '2025-12-10 15:20:46',
-    'SHIPPED',
-    'PAID',
-    'CARD',
-    'COURIER',
-    49,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 12/40',
-    'Kraków',
-    '17-562',
-    'Poland',
-    'ul. Rynek 12/40',
-    'Kraków',
-    '17-562',
-    'Poland',
-    930.41,
-    948.91,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL50540956',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-11 08:20:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    88,
-    'ZAM-20260126-607714',
-    TIMESTAMP '2026-01-21 20:00:46',
-    'DELIVERED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'COURIER',
-    9,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Zielona 108/40',
-    'Warszawa',
-    '60-754',
-    'Poland',
-    'ul. Zielona 108/40',
-    'Warszawa',
-    '60-754',
-    'Poland',
-    219.96,
-    238.46,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL49243263',
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-23 20:00:46',
-    TIMESTAMP '2026-01-21 22:00:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    89,
-    'ZAM-20260126-121652',
-    TIMESTAMP '2026-01-26 08:30:46',
-    'SHIPPED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    23,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Ogrodowa 108/30',
-    'Gdańsk',
-    '31-873',
-    'Poland',
-    'ul. Ogrodowa 108/30',
-    'Gdańsk',
-    '31-873',
-    'Poland',
-    98.98,
-    111.97,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL10851814',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-27 02:30:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    90,
-    'ZAM-20260126-800467',
-    TIMESTAMP '2025-12-20 00:32:46',
-    'CONFIRMED',
-    'FAILED',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    31,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Zielona 121/17',
-    'Łódź',
-    '21-908',
-    'Poland',
-    'ul. Zielona 121/17',
-    'Łódź',
-    '21-908',
-    'Poland',
-    1325.91,
-    1325.91,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-21 16:32:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    91,
-    'ZAM-20260126-515110',
-    TIMESTAMP '2025-12-21 08:28:46',
-    'PENDING',
-    'FAILED',
-    'CARD',
-    'PICKUP',
-    7,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 150/4',
-    'Poznań',
-    '93-180',
-    'Poland',
-    'ul. Kolejowa 150/4',
-    'Poznań',
-    '93-180',
-    'Poland',
-    29.99,
-    29.99,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-23 03:28:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    92,
-    'ZAM-20260126-529351',
-    TIMESTAMP '2025-11-27 02:37:46',
-    'CANCELLED',
-    'CANCELLED',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    49,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 12/40',
-    'Kraków',
-    '17-562',
-    'Poland',
-    'ul. Rynek 12/40',
-    'Kraków',
-    '17-562',
-    'Poland',
-    1020.38,
-    931.23,
-    12.99,
-    102.14,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-11-27 09:37:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2025-11-27 04:37:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    93,
-    'ZAM-20260126-403822',
-    TIMESTAMP '2025-12-13 11:25:46',
-    'CANCELLED',
-    'CANCELLED',
-    'TRANSFER',
-    'LOCKER',
-    47,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Piaskowa 104/12',
-    'Lublin',
-    '71-857',
-    'Poland',
-    'ul. Piaskowa 104/12',
-    'Lublin',
-    '71-857',
-    'Poland',
-    485.94,
-    498.93,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-13 12:25:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2025-12-13 17:25:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    94,
-    'ZAM-20260126-107529',
-    TIMESTAMP '2025-12-23 04:23:46',
-    'CONFIRMED',
-    'FAILED',
-    'BLIK',
     'LOCKER',
     19,
     NULL,
     NULL,
     NULL,
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
     'Poland',
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
     'Poland',
-    1305.4,
-    1232.16,
+    1143.8,
+    1156.79,
     12.99,
-    86.23,
+    0.0,
     NULL,
     NULL,
     NULL,
     NULL,
+    'PL19458621',
     NULL,
     NULL,
     NULL,
-    NULL,
-    TIMESTAMP '2025-12-24 01:23:46'
+    TIMESTAMP '2026-01-20 12:23:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    95,
-    'ZAM-20260126-394530',
-    TIMESTAMP '2026-01-17 20:48:46',
-    'DELIVERED',
+    41,
+    'ZAM-20260126-010699',
+    TIMESTAMP '2026-01-07 19:07:51',
+    'CANCELLED',
+    'CANCELLED',
+    'BLIK',
+    'LOCKER',
+    8,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Brzozowa 139/9',
+    'Lublin',
+    '61-532',
+    'Poland',
+    'ul. Brzozowa 139/9',
+    'Lublin',
+    '61-532',
+    'Poland',
+    306.54,
+    319.53,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-08 03:07:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2026-01-07 21:07:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    42,
+    'ZAM-20260126-501504',
+    TIMESTAMP '2025-12-13 10:08:51',
+    'SHIPPED',
     'PAID',
-    'CASH_ON_DELIVERY',
+    'TRANSFER',
     'COURIER',
-    25,
+    34,
     NULL,
     NULL,
     NULL,
-    'ul. Kościelna 126/44',
+    'ul. Ogrodowa 143/14',
     'Szczecin',
-    '19-451',
+    '28-538',
     'Poland',
-    'ul. Kościelna 126/44',
+    'ul. Ogrodowa 143/14',
     'Szczecin',
-    '19-451',
+    '28-538',
     'Poland',
-    259.98,
-    278.48,
+    1314.93,
+    1333.43,
     18.5,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL72528844',
+    'PL18692678',
     NULL,
     NULL,
-    TIMESTAMP '2026-01-22 20:48:46',
-    TIMESTAMP '2026-01-18 02:48:46'
+    NULL,
+    TIMESTAMP '2025-12-13 16:08:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    96,
-    'ZAM-20260126-421672',
-    TIMESTAMP '2026-01-24 05:27:46',
-    'IN_TRANSIT',
-    'PAID',
-    'BLIK',
-    'LOCKER',
-    38,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 148/3',
-    'Katowice',
-    '52-507',
-    'Poland',
-    'ul. Rynek 148/3',
-    'Katowice',
-    '52-507',
-    'Poland',
-    119.98,
-    132.97,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL33742867',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-24 15:27:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    97,
-    'ZAM-20260126-725212',
-    TIMESTAMP '2026-01-10 23:28:46',
-    'SHIPPED',
-    'PAID',
-    'CARD',
-    'LOCKER',
-    39,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Polna 142/13',
-    'Rzeszów',
-    '69-216',
-    'Poland',
-    'ul. Polna 142/13',
-    'Rzeszów',
-    '69-216',
-    'Poland',
-    614.93,
-    573.19,
-    12.99,
-    54.73,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL31763420',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-12 06:28:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    98,
-    'ZAM-20260126-357222',
-    TIMESTAMP '2026-01-24 06:45:46',
-    'PACKED',
-    'PENDING',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    28,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 7/9',
-    'Białystok',
-    '34-140',
-    'Poland',
-    'ul. Krótka 7/9',
-    'Białystok',
-    '34-140',
-    'Poland',
-    888.91,
-    901.9,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-24 17:45:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    99,
-    'ZAM-20260126-008424',
-    TIMESTAMP '2025-12-13 22:47:46',
-    'IN_TRANSIT',
-    'PAID',
-    'BLIK',
-    'PICKUP',
     43,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Wodna 87/41',
-    'Lublin',
-    '29-945',
-    'Poland',
-    'ul. Wodna 87/41',
-    'Lublin',
-    '29-945',
-    'Poland',
-    48.99,
-    48.99,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL11826095',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-13 23:47:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    100,
-    'ZAM-20260126-446649',
-    TIMESTAMP '2026-01-14 20:20:46',
-    'PROCESSING',
+    'ZAM-20260126-181431',
+    TIMESTAMP '2025-12-11 15:49:51',
+    'IN_TRANSIT',
     'PAID',
-    'TRANSFER',
-    'PICKUP',
-    24,
+    'BLIK',
+    'COURIER',
+    12,
     NULL,
     NULL,
     NULL,
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
+    'ul. Polna 118/28',
+    'Gdynia',
+    '93-351',
     'Poland',
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
+    'ul. Polna 118/28',
+    'Gdynia',
+    '93-351',
     'Poland',
-    1369.92,
-    1369.92,
+    184.95,
+    203.45,
+    18.5,
     0.0,
-    0.0,
     NULL,
     NULL,
     NULL,
     NULL,
+    'PL88604092',
     NULL,
     NULL,
     NULL,
-    NULL,
-    TIMESTAMP '2026-01-15 07:20:46'
+    TIMESTAMP '2025-12-13 12:49:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    101,
-    'ZAM-20260126-566509',
-    TIMESTAMP '2025-12-18 11:08:46',
-    'PROCESSING',
+    44,
+    'ZAM-20260126-936057',
+    TIMESTAMP '2025-12-29 07:38:51',
+    'DELIVERED',
     'PAID',
     'CARD',
-    'PICKUP',
+    'LOCKER',
     30,
     NULL,
     NULL,
     NULL,
-    'ul. Szkolna 31/28',
-    'Rzeszów',
-    '43-199',
+    'ul. Piaskowa 54/25',
+    'Radom',
+    '24-860',
     'Poland',
-    'ul. Szkolna 31/28',
-    'Rzeszów',
-    '43-199',
+    'ul. Piaskowa 54/25',
+    'Radom',
+    '24-860',
     'Poland',
-    579.95,
-    579.95,
+    161.98,
+    174.97,
+    12.99,
     0.0,
-    0.0,
     NULL,
     NULL,
     NULL,
     NULL,
+    'PL11884641',
     NULL,
     NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-19 13:08:46'
+    TIMESTAMP '2026-01-04 07:38:51',
+    TIMESTAMP '2025-12-31 05:38:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    102,
-    'ZAM-20260126-762008',
-    TIMESTAMP '2026-01-12 16:39:46',
-    'IN_TRANSIT',
+    45,
+    'ZAM-20260126-348294',
+    TIMESTAMP '2026-01-25 22:30:51',
+    'CONFIRMED',
+    'PAID',
+    'CARD',
+    'COURIER',
+    26,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Szkolna 33/37',
+    'Katowice',
+    '12-275',
+    'Poland',
+    'ul. Szkolna 33/37',
+    'Katowice',
+    '12-275',
+    'Poland',
+    935.52,
+    864.35,
+    18.5,
+    89.67,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-26 05:30:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    46,
+    'ZAM-20260126-378851',
+    TIMESTAMP '2025-12-25 16:17:51',
+    'PACKED',
+    'PENDING',
+    'CASH_ON_DELIVERY',
+    'COURIER',
+    13,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Polna 76/41',
+    'Poznań',
+    '88-222',
+    'Poland',
+    'ul. Polna 76/41',
+    'Poznań',
+    '88-222',
+    'Poland',
+    492.89,
+    464.55,
+    18.5,
+    46.84,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-26 00:17:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    47,
+    'ZAM-20260126-664358',
+    TIMESTAMP '2026-01-10 01:22:51',
+    'CANCELLED',
+    'CANCELLED',
+    'CASH_ON_DELIVERY',
+    'COURIER',
+    38,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Rynek 41/20',
+    'Kraków',
+    '89-251',
+    'Poland',
+    'ul. Rynek 41/20',
+    'Kraków',
+    '89-251',
+    'Poland',
+    392.94,
+    411.44,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-10 15:22:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2026-01-10 08:22:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    48,
+    'ZAM-20260126-809598',
+    TIMESTAMP '2026-01-20 15:18:51',
+    'PENDING',
     'PAID',
     'CASH_ON_DELIVERY',
+    'PICKUP',
+    21,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Szkolna 126/34',
+    'Toruń',
+    '52-110',
+    'Poland',
+    'ul. Szkolna 126/34',
+    'Toruń',
+    '52-110',
+    'Poland',
+    467.91,
+    467.91,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-21 22:18:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    49,
+    'ZAM-20260126-842593',
+    TIMESTAMP '2026-01-06 23:23:51',
+    'IN_TRANSIT',
+    'PAID',
+    'CARD',
+    'PICKUP',
+    36,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Lipowa 148/28',
+    'Częstochowa',
+    '46-874',
+    'Poland',
+    'ul. Lipowa 148/28',
+    'Częstochowa',
+    '46-874',
+    'Poland',
+    78.44,
+    68.82,
+    0.0,
+    9.62,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL59611130',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-07 18:23:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    50,
+    'ZAM-20260126-005765',
+    TIMESTAMP '2026-01-23 01:50:51',
+    'IN_TRANSIT',
+    'PAID',
+    'TRANSFER',
+    'LOCKER',
+    50,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Sportowa 19/39',
+    'Katowice',
+    '86-146',
+    'Poland',
+    'ul. Sportowa 19/39',
+    'Katowice',
+    '86-146',
+    'Poland',
+    89.99,
+    102.98,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL88102234',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-23 18:50:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    51,
+    'ZAM-20260126-193397',
+    TIMESTAMP '2026-01-02 03:40:51',
+    'CONFIRMED',
+    'PENDING',
+    'CASH_ON_DELIVERY',
+    'LOCKER',
+    31,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Nowa 6/45',
+    'Gdynia',
+    '56-694',
+    'Poland',
+    'ul. Nowa 6/45',
+    'Gdynia',
+    '56-694',
+    'Poland',
+    89.99,
+    97.59,
+    12.99,
+    5.39,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-03 22:40:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    52,
+    'ZAM-20260126-721598',
+    TIMESTAMP '2025-12-20 21:11:51',
+    'CONFIRMED',
+    'PAID',
+    'TRANSFER',
+    'LOCKER',
+    34,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
+    'Poland',
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
+    'Poland',
+    389.89,
+    402.88,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-21 08:11:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    53,
+    'ZAM-20260126-861306',
+    TIMESTAMP '2026-01-17 00:44:51',
+    'CONFIRMED',
+    'PENDING',
+    'CARD',
+    'COURIER',
+    21,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Szkolna 126/34',
+    'Toruń',
+    '52-110',
+    'Poland',
+    'ul. Szkolna 126/34',
+    'Toruń',
+    '52-110',
+    'Poland',
+    104.97,
+    123.47,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-18 17:44:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    54,
+    'ZAM-20260126-747184',
+    TIMESTAMP '2025-12-12 06:26:51',
+    'PROCESSING',
+    'FAILED',
+    'TRANSFER',
+    'LOCKER',
+    35,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Główna 17/7',
+    'Rzeszów',
+    '22-479',
+    'Poland',
+    'ul. Główna 17/7',
+    'Rzeszów',
+    '22-479',
+    'Poland',
+    23.97,
+    36.96,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-12 10:26:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    55,
+    'ZAM-20260126-640612',
+    TIMESTAMP '2026-01-04 16:58:51',
+    'DELIVERED',
+    'PAID',
+    'TRANSFER',
+    'COURIER',
+    4,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Wodna 111/10',
+    'Zabrze',
+    '47-914',
+    'Poland',
+    'ul. Wodna 111/10',
+    'Zabrze',
+    '47-914',
+    'Poland',
+    1142.42,
+    1160.92,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL70958823',
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-07 16:58:51',
+    TIMESTAMP '2026-01-05 00:58:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    56,
+    'ZAM-20260126-018462',
+    TIMESTAMP '2026-01-10 10:27:51',
+    'PACKED',
+    'PENDING',
+    'CASH_ON_DELIVERY',
+    'LOCKER',
+    16,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Leśna 30/17',
+    'Katowice',
+    '91-637',
+    'Poland',
+    'ul. Leśna 30/17',
+    'Katowice',
+    '91-637',
+    'Poland',
+    909.96,
+    922.95,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-11 08:27:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    57,
+    'ZAM-20260126-692482',
+    TIMESTAMP '2025-12-02 13:45:51',
+    'PACKED',
+    'FAILED',
+    'CASH_ON_DELIVERY',
+    'PICKUP',
+    10,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Krótka 40/20',
+    'Częstochowa',
+    '76-345',
+    'Poland',
+    'ul. Krótka 40/20',
+    'Częstochowa',
+    '76-345',
+    'Poland',
+    662.9,
+    662.9,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-02 22:45:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    58,
+    'ZAM-20260126-078243',
+    TIMESTAMP '2026-01-26 15:45:51',
+    'CONFIRMED',
+    'PENDING',
+    'CASH_ON_DELIVERY',
+    'PICKUP',
+    32,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Główna 41/34',
+    'Wrocław',
+    '68-596',
+    'Poland',
+    'ul. Główna 41/34',
+    'Wrocław',
+    '68-596',
+    'Poland',
+    229.94,
+    229.94,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-28 12:45:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    59,
+    'ZAM-20260126-096920',
+    TIMESTAMP '2025-12-14 12:13:51',
+    'IN_TRANSIT',
+    'PAID',
+    'BLIK',
+    'LOCKER',
+    47,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kościelna 88/50',
+    'Radom',
+    '94-148',
+    'Poland',
+    'ul. Kościelna 88/50',
+    'Radom',
+    '94-148',
+    'Poland',
+    1525.94,
+    1406.22,
+    12.99,
+    132.71,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL43999682',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-16 06:13:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    60,
+    'ZAM-20260126-425888',
+    TIMESTAMP '2026-01-13 14:57:51',
+    'SHIPPED',
+    'PAID',
+    'CARD',
     'PICKUP',
     5,
     NULL,
     NULL,
     NULL,
-    'ul. Kościelna 101/17',
-    'Szczecin',
-    '39-967',
+    'ul. Ogrodowa 136/19',
+    'Zabrze',
+    '35-975',
     'Poland',
-    'ul. Kościelna 101/17',
-    'Szczecin',
-    '39-967',
+    'ul. Ogrodowa 136/19',
+    'Zabrze',
+    '35-975',
     'Poland',
-    369.97,
-    369.97,
+    1498.4,
+    1498.4,
     0.0,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL13113968',
+    'PL89555332',
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2026-01-13 17:39:46'
+    TIMESTAMP '2026-01-13 20:57:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    103,
-    'ZAM-20260126-033412',
-    TIMESTAMP '2026-01-13 17:32:46',
-    'PACKED',
-    'PENDING',
-    'TRANSFER',
-    'PICKUP',
-    40,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Nowa 78/41',
-    'Łódź',
-    '58-657',
-    'Poland',
-    'ul. Nowa 78/41',
-    'Łódź',
-    '58-657',
-    'Poland',
-    14.99,
-    14.99,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-14 06:32:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    104,
-    'ZAM-20260126-046852',
-    TIMESTAMP '2025-12-06 12:53:46',
-    'PENDING',
-    'FAILED',
-    'BLIK',
-    'LOCKER',
-    47,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Piaskowa 104/12',
-    'Lublin',
-    '71-857',
-    'Poland',
-    'ul. Piaskowa 104/12',
-    'Lublin',
-    '71-857',
-    'Poland',
-    479.95,
-    449.75,
-    12.99,
-    43.19,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-08 09:53:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    105,
-    'ZAM-20260126-900080',
-    TIMESTAMP '2025-12-03 06:19:46',
+    61,
+    'ZAM-20260126-585959',
+    TIMESTAMP '2025-12-22 12:12:51',
     'PROCESSING',
-    'PAID',
-    'TRANSFER',
-    'LOCKER',
-    22,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    749.98,
-    762.97,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-04 11:19:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    106,
-    'ZAM-20260126-155526',
-    TIMESTAMP '2025-12-29 14:36:46',
-    'SHIPPED',
-    'PAID',
+    'FAILED',
     'TRANSFER',
     'PICKUP',
-    37,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    'ul. Zielona 91/34',
-    'Kielce',
-    '20-268',
-    'Poland',
-    109.96,
-    109.96,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL90462622',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-30 00:36:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    107,
-    'ZAM-20260126-947855',
-    TIMESTAMP '2025-12-19 10:44:46',
-    'IN_TRANSIT',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    23,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Ogrodowa 108/30',
-    'Gdańsk',
-    '31-873',
-    'Poland',
-    'ul. Ogrodowa 108/30',
-    'Gdańsk',
-    '31-873',
-    'Poland',
-    151.95,
-    151.95,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL95336655',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-20 17:44:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    108,
-    'ZAM-20260126-088951',
-    TIMESTAMP '2025-12-28 01:37:46',
-    'IN_TRANSIT',
-    'PAID',
-    'BLIK',
-    'LOCKER',
-    35,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Słoneczna 130/24',
-    'Łódź',
-    '94-906',
-    'Poland',
-    'ul. Słoneczna 130/24',
-    'Łódź',
-    '94-906',
-    'Poland',
-    242.94,
-    255.93,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL67710071',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-28 05:37:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    109,
-    'ZAM-20260126-951190',
-    TIMESTAMP '2025-12-22 02:20:46',
-    'PENDING',
-    'PENDING',
-    'BLIK',
-    'PICKUP',
-    16,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
-    'Poland',
-    'ul. Kościelna 122/34',
-    'Gdańsk',
-    '39-298',
-    'Poland',
-    1308.89,
-    1182.03,
-    0.0,
-    126.86,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-23 15:20:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    110,
-    'ZAM-20260126-170699',
-    TIMESTAMP '2026-01-19 17:04:46',
-    'IN_TRANSIT',
-    'PAID',
-    'CARD',
-    'PICKUP',
-    36,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 65/20',
-    'Poznań',
-    '54-534',
-    'Poland',
-    'ul. Kolejowa 65/20',
-    'Poznań',
-    '54-534',
-    'Poland',
-    364.96,
-    364.96,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL98723035',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-21 00:04:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    111,
-    'ZAM-20260126-618202',
-    TIMESTAMP '2026-01-23 10:16:46',
-    'DELIVERED',
-    'PAID',
-    'CARD',
-    'PICKUP',
-    19,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
-    'Poland',
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
-    'Poland',
-    1017.89,
-    1017.89,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL83968615',
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-30 10:16:46',
-    TIMESTAMP '2026-01-24 06:16:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    112,
-    'ZAM-20260126-437505',
-    TIMESTAMP '2026-01-03 04:07:46',
-    'IN_TRANSIT',
-    'PAID',
-    'BLIK',
-    'PICKUP',
-    47,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Piaskowa 104/12',
-    'Lublin',
-    '71-857',
-    'Poland',
-    'ul. Piaskowa 104/12',
-    'Lublin',
-    '71-857',
-    'Poland',
-    563.96,
-    563.96,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL73042118',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-04 07:07:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    113,
-    'ZAM-20260126-780450',
-    TIMESTAMP '2025-12-11 10:38:46',
-    'PENDING',
-    'PAID',
-    'TRANSFER',
-    'LOCKER',
-    36,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 65/20',
-    'Poznań',
-    '54-534',
-    'Poland',
-    'ul. Kolejowa 65/20',
-    'Poznań',
-    '54-534',
-    'Poland',
-    324.88,
-    337.87,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-12 12:38:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    114,
-    'ZAM-20260126-003379',
-    TIMESTAMP '2025-12-18 08:00:46',
-    'CONFIRMED',
-    'PENDING',
-    'TRANSFER',
-    'LOCKER',
     24,
     NULL,
     NULL,
     NULL,
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
-    'Poland',
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
-    'Poland',
-    504.91,
-    517.9,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-18 22:00:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    115,
-    'ZAM-20260126-802862',
-    TIMESTAMP '2026-01-03 22:24:46',
-    'PACKED',
-    'PENDING',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    36,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Kolejowa 65/20',
+    'ul. Parkowa 102/28',
     'Poznań',
-    '54-534',
+    '80-622',
     'Poland',
-    'ul. Kolejowa 65/20',
+    'ul. Parkowa 102/28',
     'Poznań',
-    '54-534',
+    '80-622',
     'Poland',
-    875.94,
-    875.94,
+    301.97,
+    301.97,
     0.0,
     0.0,
     NULL,
@@ -7277,336 +5441,30 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2026-01-04 14:24:46'
+    TIMESTAMP '2025-12-23 10:12:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    116,
-    'ZAM-20260126-263234',
-    TIMESTAMP '2025-12-03 04:42:46',
-    'CANCELLED',
-    'CANCELLED',
-    'CASH_ON_DELIVERY',
-    'COURIER',
-    19,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
-    'Poland',
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
-    'Poland',
-    384.93,
-    403.43,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-03 21:42:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2025-12-03 11:42:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    117,
-    'ZAM-20260126-127416',
-    TIMESTAMP '2025-12-10 18:15:46',
-    'PACKED',
-    'PAID',
-    'CARD',
-    'LOCKER',
-    22,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
-    'Poland',
-    16.18,
-    29.17,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-11 08:15:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    118,
-    'ZAM-20260126-531200',
-    TIMESTAMP '2025-12-11 23:20:46',
-    'CANCELLED',
-    'CANCELLED',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    28,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 7/9',
-    'Białystok',
-    '34-140',
-    'Poland',
-    'ul. Krótka 7/9',
-    'Białystok',
-    '34-140',
-    'Poland',
-    139.92,
-    152.91,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-12 11:20:46',
-    'Anulowane przez klienta',
-    NULL,
-    TIMESTAMP '2025-12-12 05:20:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    119,
-    'ZAM-20260126-279590',
-    TIMESTAMP '2025-12-05 19:53:46',
-    'IN_TRANSIT',
-    'PAID',
-    'CARD',
-    'LOCKER',
-    10,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 53/5',
-    'Gdynia',
-    '67-372',
-    'Poland',
-    'ul. Krótka 53/5',
-    'Gdynia',
-    '67-372',
-    'Poland',
-    1021.43,
-    1034.42,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL56060837',
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-05 23:53:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    120,
-    'ZAM-20260126-529979',
-    TIMESTAMP '2026-01-12 17:14:46',
+    62,
+    'ZAM-20260126-239864',
+    TIMESTAMP '2026-01-15 20:43:51',
     'PENDING',
-    'PENDING',
-    'CASH_ON_DELIVERY',
-    'COURIER',
-    20,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Łąkowa 115/33',
-    'Częstochowa',
-    '60-922',
-    'Poland',
-    'ul. Łąkowa 115/33',
-    'Częstochowa',
-    '60-922',
-    'Poland',
-    159.97,
-    178.47,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-14 16:14:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    121,
-    'ZAM-20260126-964543',
-    TIMESTAMP '2026-01-19 11:03:46',
-    'CONFIRMED',
     'PAID',
-    'BLIK',
-    'LOCKER',
-    42,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Rynek 119/15',
-    'Radom',
-    '81-650',
-    'Poland',
-    'ul. Rynek 119/15',
-    'Radom',
-    '81-650',
-    'Poland',
-    157.96,
-    170.95,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-20 20:03:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    122,
-    'ZAM-20260126-023681',
-    TIMESTAMP '2025-12-06 13:18:46',
-    'PROCESSING',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    28,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Krótka 7/9',
-    'Białystok',
-    '34-140',
-    'Poland',
-    'ul. Krótka 7/9',
-    'Białystok',
-    '34-140',
-    'Poland',
-    89.97,
-    102.96,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-07 14:18:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    123,
-    'ZAM-20260126-906844',
-    TIMESTAMP '2025-12-30 07:31:46',
-    'PENDING',
-    'FAILED',
-    'CASH_ON_DELIVERY',
-    'LOCKER',
-    19,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
-    'Poland',
-    'ul. Szkolna 116/19',
-    'Bydgoszcz',
-    '52-645',
-    'Poland',
-    149.99,
-    162.98,
-    12.99,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2025-12-30 21:31:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    124,
-    'ZAM-20260126-265160',
-    TIMESTAMP '2026-01-17 09:07:46',
-    'PACKED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'PICKUP',
-    35,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Słoneczna 130/24',
-    'Łódź',
-    '94-906',
-    'Poland',
-    'ul. Słoneczna 130/24',
-    'Łódź',
-    '94-906',
-    'Poland',
-    116.07,
-    116.07,
-    0.0,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-19 03:07:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    125,
-    'ZAM-20260126-946471',
-    TIMESTAMP '2025-12-07 22:55:46',
-    'PACKED',
-    'PENDING',
     'TRANSFER',
     'PICKUP',
     21,
     NULL,
     NULL,
     NULL,
-    'ul. Piaskowa 114/29',
-    'Bydgoszcz',
-    '45-475',
+    'ul. Szkolna 126/34',
+    'Toruń',
+    '52-110',
     'Poland',
-    'ul. Piaskowa 114/29',
-    'Bydgoszcz',
-    '45-475',
+    'ul. Szkolna 126/34',
+    'Toruń',
+    '52-110',
     'Poland',
-    44.97,
-    44.97,
+    714.64,
+    714.64,
     0.0,
     0.0,
     NULL,
@@ -7617,30 +5475,506 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-08 07:55:46'
+    TIMESTAMP '2026-01-17 06:43:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    126,
-    'ZAM-20260126-442459',
-    TIMESTAMP '2025-12-08 20:35:46',
+    63,
+    'ZAM-20260126-373577',
+    TIMESTAMP '2025-11-29 04:39:51',
+    'CONFIRMED',
+    'PAID',
+    'TRANSFER',
+    'LOCKER',
+    14,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Brzozowa 6/4',
+    'Gdańsk',
+    '50-372',
+    'Poland',
+    'ul. Brzozowa 6/4',
+    'Gdańsk',
+    '50-372',
+    'Poland',
+    381.44,
+    394.43,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-11-29 15:39:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    64,
+    'ZAM-20260126-675087',
+    TIMESTAMP '2026-01-15 08:25:51',
+    'CANCELLED',
+    'CANCELLED',
+    'CASH_ON_DELIVERY',
+    'LOCKER',
+    16,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Leśna 30/17',
+    'Katowice',
+    '91-637',
+    'Poland',
+    'ul. Leśna 30/17',
+    'Katowice',
+    '91-637',
+    'Poland',
+    524.91,
+    537.9,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-16 08:25:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2026-01-15 11:25:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    65,
+    'ZAM-20260126-851654',
+    TIMESTAMP '2025-12-23 00:21:51',
+    'PROCESSING',
+    'PENDING',
+    'CASH_ON_DELIVERY',
+    'PICKUP',
+    11,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kolejowa 136/30',
+    'Gliwice',
+    '95-589',
+    'Poland',
+    'ul. Kolejowa 136/30',
+    'Gliwice',
+    '95-589',
+    'Poland',
+    472.93,
+    472.93,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-24 18:21:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    66,
+    'ZAM-20260126-003618',
+    TIMESTAMP '2026-01-26 00:31:51',
+    'DELIVERED',
+    'PAID',
+    'CARD',
+    'COURIER',
+    45,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Słoneczna 125/40',
+    'Gdynia',
+    '20-959',
+    'Poland',
+    'ul. Słoneczna 125/40',
+    'Gdynia',
+    '20-959',
+    'Poland',
+    745.9,
+    764.4,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL71102242',
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-28 00:31:51',
+    TIMESTAMP '2026-01-26 21:31:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    67,
+    'ZAM-20260126-002532',
+    TIMESTAMP '2026-01-17 10:51:51',
+    'SHIPPED',
+    'PAID',
+    'CASH_ON_DELIVERY',
+    'COURIER',
+    28,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Krótka 131/33',
+    'Rzeszów',
+    '71-257',
+    'Poland',
+    'ul. Krótka 131/33',
+    'Rzeszów',
+    '71-257',
+    'Poland',
+    1220.92,
+    1064.8,
+    18.5,
+    174.62,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL86205001',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-18 12:51:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    68,
+    'ZAM-20260126-791196',
+    TIMESTAMP '2026-01-25 23:32:51',
+    'PACKED',
+    'PAID',
+    'TRANSFER',
+    'LOCKER',
+    10,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Krótka 40/20',
+    'Częstochowa',
+    '76-345',
+    'Poland',
+    'ul. Krótka 40/20',
+    'Częstochowa',
+    '76-345',
+    'Poland',
+    659.95,
+    672.94,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-26 04:32:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    69,
+    'ZAM-20260126-026537',
+    TIMESTAMP '2025-12-04 23:34:51',
+    'CONFIRMED',
+    'FAILED',
+    'BLIK',
+    'COURIER',
+    31,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Nowa 6/45',
+    'Gdynia',
+    '56-694',
+    'Poland',
+    'ul. Nowa 6/45',
+    'Gdynia',
+    '56-694',
+    'Poland',
+    1085.4,
+    1103.9,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-05 06:34:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    70,
+    'ZAM-20260126-609463',
+    TIMESTAMP '2025-12-05 16:55:51',
+    'CANCELLED',
+    'CANCELLED',
+    'CARD',
+    'PICKUP',
+    38,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Rynek 41/20',
+    'Kraków',
+    '89-251',
+    'Poland',
+    'ul. Rynek 41/20',
+    'Kraków',
+    '89-251',
+    'Poland',
+    513.44,
+    513.44,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-06 06:55:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2025-12-07 01:55:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    71,
+    'ZAM-20260126-991857',
+    TIMESTAMP '2025-12-25 09:52:51',
     'PACKED',
     'FAILED',
     'CARD',
+    'PICKUP',
+    37,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Słoneczna 36/32',
+    'Katowice',
+    '91-598',
+    'Poland',
+    'ul. Słoneczna 36/32',
+    'Katowice',
+    '91-598',
+    'Poland',
+    1064.96,
+    1064.96,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-26 20:52:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    72,
+    'ZAM-20260126-419330',
+    TIMESTAMP '2026-01-08 09:05:51',
+    'CANCELLED',
+    'CANCELLED',
+    'BLIK',
+    'PICKUP',
+    47,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kościelna 88/50',
+    'Radom',
+    '94-148',
+    'Poland',
+    'ul. Kościelna 88/50',
+    'Radom',
+    '94-148',
+    'Poland',
+    799.98,
+    799.98,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-08 12:05:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2026-01-10 09:05:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    73,
+    'ZAM-20260126-907755',
+    TIMESTAMP '2026-01-09 05:47:51',
+    'PROCESSING',
+    'PENDING',
+    'BLIK',
+    'LOCKER',
+    8,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Brzozowa 139/9',
+    'Lublin',
+    '61-532',
+    'Poland',
+    'ul. Brzozowa 139/9',
+    'Lublin',
+    '61-532',
+    'Poland',
+    1074.94,
+    1087.93,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-10 14:47:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    74,
+    'ZAM-20260126-638596',
+    TIMESTAMP '2025-11-29 22:11:51',
+    'PACKED',
+    'PENDING',
+    'CARD',
+    'COURIER',
+    19,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
+    'Poland',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
+    'Poland',
+    689.92,
+    639.65,
+    18.5,
+    68.77,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-11-30 14:11:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    75,
+    'ZAM-20260126-111071',
+    TIMESTAMP '2026-01-03 21:57:51',
+    'SHIPPED',
+    'PAID',
+    'TRANSFER',
+    'PICKUP',
+    9,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Łąkowa 52/47',
+    'Częstochowa',
+    '18-556',
+    'Poland',
+    'ul. Łąkowa 52/47',
+    'Częstochowa',
+    '18-556',
+    'Poland',
+    351.67,
+    351.67,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL37885938',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-04 14:57:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    76,
+    'ZAM-20260126-249628',
+    TIMESTAMP '2025-12-22 15:01:51',
+    'DELIVERED',
+    'PAID',
+    'BLIK',
+    'LOCKER',
+    48,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Lipowa 1/13',
+    'Zabrze',
+    '45-188',
+    'Poland',
+    'ul. Lipowa 1/13',
+    'Zabrze',
+    '45-188',
+    'Poland',
+    507.92,
+    520.91,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL68318467',
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-27 15:01:51',
+    TIMESTAMP '2025-12-23 22:01:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    77,
+    'ZAM-20260126-550154',
+    TIMESTAMP '2026-01-09 03:53:51',
+    'PENDING',
+    'PENDING',
+    'TRANSFER',
     'PICKUP',
     22,
     NULL,
     NULL,
     NULL,
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
+    'ul. Rynek 82/16',
+    'Szczecin',
+    '67-191',
     'Poland',
-    'ul. Rynek 91/42',
-    'Łódź',
-    '96-868',
+    'ul. Rynek 82/16',
+    'Szczecin',
+    '67-191',
     'Poland',
-    858.92,
-    858.92,
+    89.98,
+    89.98,
     0.0,
     0.0,
     NULL,
@@ -7651,64 +5985,30 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-10 04:35:46'
+    TIMESTAMP '2026-01-10 18:53:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    127,
-    'ZAM-20260126-656311',
-    TIMESTAMP '2026-01-22 15:47:46',
-    'DELIVERED',
-    'PAID',
-    'CASH_ON_DELIVERY',
-    'COURIER',
-    33,
-    NULL,
-    NULL,
-    NULL,
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
-    'Poland',
-    'ul. Główna 124/47',
-    'Białystok',
-    '54-373',
-    'Poland',
-    729.94,
-    748.44,
-    18.5,
-    0.0,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    'PL48545247',
-    NULL,
-    NULL,
-    TIMESTAMP '2026-01-25 15:47:46',
-    TIMESTAMP '2026-01-24 09:47:46'
-);
-INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    128,
-    'ZAM-20260126-848206',
-    TIMESTAMP '2026-01-05 08:32:46',
+    78,
+    'ZAM-20260126-894994',
+    TIMESTAMP '2025-12-09 04:01:51',
     'PACKED',
     'FAILED',
-    'CARD',
+    'CASH_ON_DELIVERY',
     'LOCKER',
-    24,
+    47,
     NULL,
     NULL,
     NULL,
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
+    'ul. Kościelna 88/50',
+    'Radom',
+    '94-148',
     'Poland',
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
+    'ul. Kościelna 88/50',
+    'Radom',
+    '94-148',
     'Poland',
-    119.96,
-    132.95,
+    1580.91,
+    1593.9,
     12.99,
     0.0,
     NULL,
@@ -7719,98 +6019,234 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2026-01-07 00:32:46'
+    TIMESTAMP '2025-12-10 08:01:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    129,
-    'ZAM-20260126-548775',
-    TIMESTAMP '2025-12-28 14:11:46',
-    'IN_TRANSIT',
-    'PAID',
+    79,
+    'ZAM-20260126-453319',
+    TIMESTAMP '2025-12-05 04:16:51',
+    'PROCESSING',
+    'FAILED',
     'CASH_ON_DELIVERY',
     'COURIER',
-    9,
+    19,
     NULL,
     NULL,
     NULL,
-    'ul. Zielona 108/40',
-    'Warszawa',
-    '60-754',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
     'Poland',
-    'ul. Zielona 108/40',
-    'Warszawa',
-    '60-754',
+    'ul. Ogrodowa 80/45',
+    'Lublin',
+    '87-980',
     'Poland',
-    299.97,
-    318.47,
+    560.7,
+    579.2,
     18.5,
     0.0,
     NULL,
     NULL,
     NULL,
     NULL,
-    'PL68786809',
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-29 00:11:46'
+    NULL,
+    TIMESTAMP '2025-12-05 23:16:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    130,
-    'ZAM-20260126-061874',
-    TIMESTAMP '2025-12-28 18:01:46',
+    80,
+    'ZAM-20260126-436997',
+    TIMESTAMP '2026-01-13 00:57:51',
+    'PENDING',
+    'PENDING',
+    'CARD',
+    'LOCKER',
+    42,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kolejowa 72/28',
+    'Rzeszów',
+    '56-688',
+    'Poland',
+    'ul. Kolejowa 72/28',
+    'Rzeszów',
+    '56-688',
+    'Poland',
+    533.9,
+    546.89,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-14 19:57:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    81,
+    'ZAM-20260126-215113',
+    TIMESTAMP '2025-12-08 12:22:51',
+    'IN_TRANSIT',
+    'PAID',
+    'CARD',
+    'LOCKER',
+    30,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Piaskowa 54/25',
+    'Radom',
+    '24-860',
+    'Poland',
+    'ul. Piaskowa 54/25',
+    'Radom',
+    '24-860',
+    'Poland',
+    819.95,
+    785.89,
+    12.99,
+    47.05,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL61234018',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-09 19:22:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    82,
+    'ZAM-20260126-694160',
+    TIMESTAMP '2025-12-16 06:41:51',
     'CANCELLED',
     'CANCELLED',
     'TRANSFER',
-    'PICKUP',
-    23,
+    'LOCKER',
+    8,
     NULL,
     NULL,
     NULL,
-    'ul. Ogrodowa 108/30',
-    'Gdańsk',
-    '31-873',
+    'ul. Brzozowa 139/9',
+    'Lublin',
+    '61-532',
     'Poland',
-    'ul. Ogrodowa 108/30',
-    'Gdańsk',
-    '31-873',
+    'ul. Brzozowa 139/9',
+    'Lublin',
+    '61-532',
     'Poland',
-    501.9,
-    501.9,
+    1273.93,
+    1286.92,
+    12.99,
     0.0,
-    0.0,
     NULL,
     NULL,
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-29 15:01:46',
+    TIMESTAMP '2025-12-16 10:41:51',
     'Anulowane przez klienta',
     NULL,
-    TIMESTAMP '2025-12-29 02:01:46'
+    TIMESTAMP '2025-12-17 12:41:51'
 );
 INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
-    131,
-    'ZAM-20260126-328378',
-    TIMESTAMP '2025-12-28 12:24:46',
+    83,
+    'ZAM-20260126-110563',
+    TIMESTAMP '2025-12-03 02:08:51',
+    'DELIVERED',
+    'PAID',
+    'TRANSFER',
+    'COURIER',
+    40,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Leśna 3/41',
+    'Bydgoszcz',
+    '95-847',
+    'Poland',
+    'ul. Leśna 3/41',
+    'Bydgoszcz',
+    '95-847',
+    'Poland',
+    342.44,
+    360.94,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL25862667',
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-05 02:08:51',
+    TIMESTAMP '2025-12-03 14:08:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    84,
+    'ZAM-20260126-681028',
+    TIMESTAMP '2026-01-13 20:10:51',
+    'PACKED',
+    'FAILED',
+    'BLIK',
+    'LOCKER',
+    44,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Główna 147/16',
+    'Białystok',
+    '11-763',
+    'Poland',
+    'ul. Główna 147/16',
+    'Białystok',
+    '11-763',
+    'Poland',
+    1884.76,
+    1897.75,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-14 03:10:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    85,
+    'ZAM-20260126-095097',
+    TIMESTAMP '2025-12-08 23:38:51',
     'PACKED',
     'PAID',
     'BLIK',
     'LOCKER',
-    24,
+    39,
     NULL,
     NULL,
     NULL,
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
+    'ul. Brzozowa 126/7',
+    'Częstochowa',
+    '35-588',
     'Poland',
-    'ul. Parkowa 3/43',
-    'Kraków',
-    '50-796',
+    'ul. Brzozowa 126/7',
+    'Częstochowa',
+    '35-588',
     'Poland',
-    669.91,
-    682.9,
+    460.42,
+    473.41,
     12.99,
     0.0,
     NULL,
@@ -7821,5364 +6257,6271 @@ INSERT INTO orders (id, order_number, order_date, status, payment_status, paymen
     NULL,
     NULL,
     NULL,
-    TIMESTAMP '2025-12-28 23:24:46'
+    TIMESTAMP '2025-12-10 01:38:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    86,
+    'ZAM-20260126-827029',
+    TIMESTAMP '2026-01-06 18:47:51',
+    'IN_TRANSIT',
+    'PAID',
+    'CARD',
+    'LOCKER',
+    29,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Sportowa 95/3',
+    'Wrocław',
+    '52-419',
+    'Poland',
+    'ul. Sportowa 95/3',
+    'Wrocław',
+    '52-419',
+    'Poland',
+    1229.92,
+    1126.35,
+    12.99,
+    116.56,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL36473050',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-08 06:47:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    87,
+    'ZAM-20260126-270133',
+    TIMESTAMP '2025-12-29 15:27:51',
+    'IN_TRANSIT',
+    'PAID',
+    'BLIK',
+    'LOCKER',
+    48,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Lipowa 1/13',
+    'Zabrze',
+    '45-188',
+    'Poland',
+    'ul. Lipowa 1/13',
+    'Zabrze',
+    '45-188',
+    'Poland',
+    1247.95,
+    1260.94,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL72337947',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-30 06:27:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    88,
+    'ZAM-20260126-876482',
+    TIMESTAMP '2026-01-05 00:06:51',
+    'PROCESSING',
+    'FAILED',
+    'BLIK',
+    'COURIER',
+    23,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Piaskowa 34/27',
+    'Toruń',
+    '11-734',
+    'Poland',
+    'ul. Piaskowa 34/27',
+    'Toruń',
+    '11-734',
+    'Poland',
+    115.27,
+    133.77,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-06 13:06:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    89,
+    'ZAM-20260126-566537',
+    TIMESTAMP '2025-12-22 10:45:51',
+    'SHIPPED',
+    'PAID',
+    'CARD',
+    'LOCKER',
+    46,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kwiatowa 27/25',
+    'Zabrze',
+    '98-468',
+    'Poland',
+    'ul. Kwiatowa 27/25',
+    'Zabrze',
+    '98-468',
+    'Poland',
+    1418.92,
+    1431.91,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL89819440',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-23 00:45:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    90,
+    'ZAM-20260126-650842',
+    TIMESTAMP '2025-11-28 07:13:51',
+    'IN_TRANSIT',
+    'PAID',
+    'BLIK',
+    'PICKUP',
+    12,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Polna 118/28',
+    'Gdynia',
+    '93-351',
+    'Poland',
+    'ul. Polna 118/28',
+    'Gdynia',
+    '93-351',
+    'Poland',
+    715.52,
+    715.52,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL89781842',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-11-28 10:13:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    91,
+    'ZAM-20260126-984891',
+    TIMESTAMP '2025-12-06 00:09:51',
+    'IN_TRANSIT',
+    'PAID',
+    'CASH_ON_DELIVERY',
+    'LOCKER',
+    7,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Ogrodowa 8/2',
+    'Kielce',
+    '16-616',
+    'Poland',
+    'ul. Ogrodowa 8/2',
+    'Kielce',
+    '16-616',
+    'Poland',
+    447.45,
+    460.44,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL21749118',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-06 07:09:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    92,
+    'ZAM-20260126-908664',
+    TIMESTAMP '2026-01-07 16:50:51',
+    'DELIVERED',
+    'PAID',
+    'BLIK',
+    'PICKUP',
+    9,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Łąkowa 52/47',
+    'Częstochowa',
+    '18-556',
+    'Poland',
+    'ul. Łąkowa 52/47',
+    'Częstochowa',
+    '18-556',
+    'Poland',
+    745.92,
+    637.9,
+    0.0,
+    108.02,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL96990354',
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-13 16:50:51',
+    TIMESTAMP '2026-01-08 13:50:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    93,
+    'ZAM-20260126-750025',
+    TIMESTAMP '2025-12-03 07:54:51',
+    'CANCELLED',
+    'CANCELLED',
+    'TRANSFER',
+    'LOCKER',
+    42,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kolejowa 72/28',
+    'Rzeszów',
+    '56-688',
+    'Poland',
+    'ul. Kolejowa 72/28',
+    'Rzeszów',
+    '56-688',
+    'Poland',
+    47.99,
+    58.14,
+    12.99,
+    2.84,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-03 11:54:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2025-12-04 17:54:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    94,
+    'ZAM-20260126-840229',
+    TIMESTAMP '2026-01-08 09:52:51',
+    'PROCESSING',
+    'PAID',
+    'BLIK',
+    'COURIER',
+    22,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Rynek 82/16',
+    'Szczecin',
+    '67-191',
+    'Poland',
+    'ul. Rynek 82/16',
+    'Szczecin',
+    '67-191',
+    'Poland',
+    837.95,
+    856.45,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-08 16:52:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    95,
+    'ZAM-20260126-303758',
+    TIMESTAMP '2026-01-09 01:49:51',
+    'IN_TRANSIT',
+    'PAID',
+    'CARD',
+    'LOCKER',
+    18,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Zielona 144/11',
+    'Kraków',
+    '37-604',
+    'Poland',
+    'ul. Zielona 144/11',
+    'Kraków',
+    '37-604',
+    'Poland',
+    699.91,
+    712.9,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL84099766',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-09 11:49:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    96,
+    'ZAM-20260126-507014',
+    TIMESTAMP '2025-12-19 03:25:51',
+    'PROCESSING',
+    'FAILED',
+    'CARD',
+    'PICKUP',
+    34,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
+    'Poland',
+    'ul. Ogrodowa 143/14',
+    'Szczecin',
+    '28-538',
+    'Poland',
+    1215.93,
+    1215.93,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-20 14:25:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    97,
+    'ZAM-20260126-676277',
+    TIMESTAMP '2025-12-04 04:00:51',
+    'PACKED',
+    'PENDING',
+    'BLIK',
+    'PICKUP',
+    49,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Wodna 34/27',
+    'Wrocław',
+    '94-380',
+    'Poland',
+    'ul. Wodna 34/27',
+    'Wrocław',
+    '94-380',
+    'Poland',
+    252.96,
+    234.81,
+    0.0,
+    18.15,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-04 16:00:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    98,
+    'ZAM-20260126-985712',
+    TIMESTAMP '2025-12-22 19:19:51',
+    'SHIPPED',
+    'PAID',
+    'TRANSFER',
+    'PICKUP',
+    48,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Lipowa 1/13',
+    'Zabrze',
+    '45-188',
+    'Poland',
+    'ul. Lipowa 1/13',
+    'Zabrze',
+    '45-188',
+    'Poland',
+    59.96,
+    59.96,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL71859306',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-24 06:19:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    99,
+    'ZAM-20260126-708723',
+    TIMESTAMP '2026-01-13 12:11:51',
+    'PACKED',
+    'FAILED',
+    'TRANSFER',
+    'COURIER',
+    14,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Brzozowa 6/4',
+    'Gdańsk',
+    '50-372',
+    'Poland',
+    'ul. Brzozowa 6/4',
+    'Gdańsk',
+    '50-372',
+    'Poland',
+    399.93,
+    418.43,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-13 17:11:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    100,
+    'ZAM-20260126-244506',
+    TIMESTAMP '2025-12-22 05:23:51',
+    'CONFIRMED',
+    'FAILED',
+    'TRANSFER',
+    'COURIER',
+    24,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Parkowa 102/28',
+    'Poznań',
+    '80-622',
+    'Poland',
+    'ul. Parkowa 102/28',
+    'Poznań',
+    '80-622',
+    'Poland',
+    339.92,
+    358.42,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-23 15:23:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    101,
+    'ZAM-20260126-700662',
+    TIMESTAMP '2025-12-01 17:38:51',
+    'CANCELLED',
+    'CANCELLED',
+    'CASH_ON_DELIVERY',
+    'COURIER',
+    27,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kwiatowa 54/5',
+    'Kielce',
+    '96-331',
+    'Poland',
+    'ul. Kwiatowa 54/5',
+    'Kielce',
+    '96-331',
+    'Poland',
+    381.43,
+    363.98,
+    18.5,
+    35.95,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-02 02:38:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2025-12-03 12:38:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    102,
+    'ZAM-20260126-696463',
+    TIMESTAMP '2026-01-11 21:29:51',
+    'PACKED',
+    'PAID',
+    'TRANSFER',
+    'LOCKER',
+    8,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Brzozowa 139/9',
+    'Lublin',
+    '61-532',
+    'Poland',
+    'ul. Brzozowa 139/9',
+    'Lublin',
+    '61-532',
+    'Poland',
+    176.95,
+    189.94,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-12 06:29:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    103,
+    'ZAM-20260126-514127',
+    TIMESTAMP '2026-01-18 12:05:51',
+    'IN_TRANSIT',
+    'PAID',
+    'CASH_ON_DELIVERY',
+    'COURIER',
+    32,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Główna 41/34',
+    'Wrocław',
+    '68-596',
+    'Poland',
+    'ul. Główna 41/34',
+    'Wrocław',
+    '68-596',
+    'Poland',
+    209.97,
+    228.47,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL30406219',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-20 11:05:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    104,
+    'ZAM-20260126-131672',
+    TIMESTAMP '2025-12-29 11:42:51',
+    'PACKED',
+    'PAID',
+    'CARD',
+    'COURIER',
+    41,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Ogrodowa 107/11',
+    'Kraków',
+    '72-652',
+    'Poland',
+    'ul. Ogrodowa 107/11',
+    'Kraków',
+    '72-652',
+    'Poland',
+    449.89,
+    468.39,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-31 07:42:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    105,
+    'ZAM-20260126-876218',
+    TIMESTAMP '2025-12-20 07:20:51',
+    'PENDING',
+    'FAILED',
+    'TRANSFER',
+    'LOCKER',
+    27,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kwiatowa 54/5',
+    'Kielce',
+    '96-331',
+    'Poland',
+    'ul. Kwiatowa 54/5',
+    'Kielce',
+    '96-331',
+    'Poland',
+    428.93,
+    441.92,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-20 15:20:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    106,
+    'ZAM-20260126-587795',
+    TIMESTAMP '2025-12-07 01:24:51',
+    'PROCESSING',
+    'FAILED',
+    'BLIK',
+    'PICKUP',
+    21,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Szkolna 126/34',
+    'Toruń',
+    '52-110',
+    'Poland',
+    'ul. Szkolna 126/34',
+    'Toruń',
+    '52-110',
+    'Poland',
+    319.99,
+    319.99,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-07 09:24:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    107,
+    'ZAM-20260126-833018',
+    TIMESTAMP '2025-12-11 11:01:51',
+    'CANCELLED',
+    'CANCELLED',
+    'BLIK',
+    'PICKUP',
+    45,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Słoneczna 125/40',
+    'Gdynia',
+    '20-959',
+    'Poland',
+    'ul. Słoneczna 125/40',
+    'Gdynia',
+    '20-959',
+    'Poland',
+    229.92,
+    229.92,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-12 06:01:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2025-12-12 02:01:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    108,
+    'ZAM-20260126-549341',
+    TIMESTAMP '2025-11-27 07:08:51',
+    'PROCESSING',
+    'FAILED',
+    'TRANSFER',
+    'PICKUP',
+    39,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Brzozowa 126/7',
+    'Częstochowa',
+    '35-588',
+    'Poland',
+    'ul. Brzozowa 126/7',
+    'Częstochowa',
+    '35-588',
+    'Poland',
+    464.94,
+    464.94,
+    0.0,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-11-28 23:08:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    109,
+    'ZAM-20260126-698865',
+    TIMESTAMP '2026-01-18 10:45:51',
+    'CANCELLED',
+    'CANCELLED',
+    'CARD',
+    'COURIER',
+    7,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Ogrodowa 8/2',
+    'Kielce',
+    '16-616',
+    'Poland',
+    'ul. Ogrodowa 8/2',
+    'Kielce',
+    '16-616',
+    'Poland',
+    844.95,
+    863.45,
+    18.5,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-18 23:45:51',
+    'Anulowane przez klienta',
+    NULL,
+    TIMESTAMP '2026-01-19 06:45:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    110,
+    'ZAM-20260126-152199',
+    TIMESTAMP '2025-11-27 13:53:51',
+    'PROCESSING',
+    'PENDING',
+    'BLIK',
+    'LOCKER',
+    25,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kwiatowa 132/38',
+    'Gliwice',
+    '53-467',
+    'Poland',
+    'ul. Kwiatowa 132/38',
+    'Gliwice',
+    '53-467',
+    'Poland',
+    309.94,
+    322.93,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-11-29 12:53:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    111,
+    'ZAM-20260126-918888',
+    TIMESTAMP '2026-01-13 19:03:51',
+    'IN_TRANSIT',
+    'PAID',
+    'TRANSFER',
+    'LOCKER',
+    2,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kwiatowa 52/34',
+    'Bydgoszcz',
+    '23-655',
+    'Poland',
+    'ul. Kwiatowa 52/34',
+    'Bydgoszcz',
+    '23-655',
+    'Poland',
+    450.43,
+    463.42,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL46192644',
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-15 00:03:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    112,
+    'ZAM-20260126-426042',
+    TIMESTAMP '2026-01-18 13:41:51',
+    'PENDING',
+    'PAID',
+    'TRANSFER',
+    'PICKUP',
+    25,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kwiatowa 132/38',
+    'Gliwice',
+    '53-467',
+    'Poland',
+    'ul. Kwiatowa 132/38',
+    'Gliwice',
+    '53-467',
+    'Poland',
+    1009.9,
+    884.54,
+    0.0,
+    125.36,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2026-01-20 07:41:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    113,
+    'ZAM-20260126-737764',
+    TIMESTAMP '2025-12-18 05:46:51',
+    'DELIVERED',
+    'PAID',
+    'TRANSFER',
+    'LOCKER',
+    46,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Kwiatowa 27/25',
+    'Zabrze',
+    '98-468',
+    'Poland',
+    'ul. Kwiatowa 27/25',
+    'Zabrze',
+    '98-468',
+    'Poland',
+    163.92,
+    176.91,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    'PL64942802',
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-22 05:46:51',
+    TIMESTAMP '2025-12-18 06:46:51'
+);
+INSERT INTO orders (id, order_number, order_date, status, payment_status, payment_method, delivery_method, user_id, guest_email, guest_name, guest_phone, shipping_street, shipping_city, shipping_zip, shipping_country, billing_street, billing_city, billing_zip, billing_country, subtotal, total_amount, delivery_cost, discount_amount, promotion_id, promotion_code, notes, admin_notes, tracking_number, cancelled_at, cancellation_reason, delivered_at, status_changed_at) VALUES (
+    114,
+    'ZAM-20260126-928337',
+    TIMESTAMP '2025-12-01 16:35:51',
+    'PENDING',
+    'PENDING',
+    'CASH_ON_DELIVERY',
+    'LOCKER',
+    24,
+    NULL,
+    NULL,
+    NULL,
+    'ul. Parkowa 102/28',
+    'Poznań',
+    '80-622',
+    'Poland',
+    'ul. Parkowa 102/28',
+    'Poznań',
+    '80-622',
+    'Poland',
+    15.98,
+    28.97,
+    12.99,
+    0.0,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    TIMESTAMP '2025-12-03 04:35:51'
 );
 
 -- Insert order items
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     1,
-    18,
+    48,
     3,
-    189.99,
+    7.99,
     1
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     2,
-    51,
-    3,
-    19.99,
+    68,
+    2,
+    79.99,
     1
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     3,
+    38,
     3,
-    1,
-    359.99,
-    1
+    17.99,
+    2
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     4,
-    63,
+    17,
     3,
-    49.99,
-    1
+    34.99,
+    2
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     5,
-    57,
-    1,
-    149.99,
-    1
+    7,
+    2,
+    6.29,
+    2
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     6,
+    31,
     2,
-    3,
-    149.99,
-    2
+    89.99,
+    3
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     7,
-    27,
-    1,
-    19.99,
-    2
+    30,
+    2,
+    47.99,
+    3
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     8,
-    25,
-    1,
-    8.99,
-    2
+    68,
+    2,
+    79.99,
+    4
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     9,
-    61,
+    30,
     1,
-    53.99,
-    2
+    47.99,
+    4
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     10,
-    3,
-    3,
-    359.99,
-    3
+    32,
+    2,
+    29.99,
+    4
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     11,
-    57,
-    3,
-    149.99,
-    3
+    26,
+    2,
+    12.99,
+    5
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     12,
-    20,
-    3,
-    89.99,
-    3
+    41,
+    1,
+    27.99,
+    6
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     13,
-    67,
-    3,
-    89.99,
-    3
+    8,
+    2,
+    24.99,
+    6
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     14,
-    42,
+    29,
     2,
-    249.99,
-    3
+    67.99,
+    6
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     15,
-    52,
-    1,
-    12.99,
-    4
+    68,
+    3,
+    79.99,
+    6
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     16,
-    56,
-    1,
-    23.99,
-    4
+    30,
+    3,
+    47.99,
+    6
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     17,
-    69,
-    3,
-    35.99,
-    5
+    46,
+    2,
+    24.99,
+    7
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     18,
-    21,
+    31,
     2,
-    269.99,
-    5
+    89.99,
+    7
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     19,
-    59,
+    11,
     1,
-    359.99,
-    5
+    49.99,
+    7
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     20,
-    58,
-    1,
-    129.99,
-    5
+    13,
+    3,
+    127.49,
+    7
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     21,
-    45,
+    4,
     1,
-    29.99,
-    5
+    319.99,
+    8
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     22,
-    9,
+    51,
     1,
-    59.99,
-    6
+    19.99,
+    8
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     23,
-    27,
+    28,
     1,
-    19.99,
-    6
+    44.99,
+    9
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     24,
-    15,
+    65,
     2,
-    79.99,
-    6
+    34.99,
+    9
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     25,
-    53,
+    60,
     3,
-    79.99,
-    6
+    49.99,
+    9
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     26,
-    37,
-    2,
-    21.59,
-    7
+    67,
+    1,
+    80.99,
+    10
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     27,
-    17,
-    2,
-    34.99,
-    7
+    28,
+    3,
+    44.99,
+    10
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     28,
-    51,
-    1,
-    19.99,
-    8
+    61,
+    3,
+    44.99,
+    10
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     29,
-    71,
-    1,
-    39.99,
-    8
+    48,
+    3,
+    7.99,
+    10
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     30,
-    22,
-    2,
-    229.99,
-    8
+    68,
+    3,
+    79.99,
+    11
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     31,
-    35,
+    20,
     2,
-    24.99,
-    9
+    89.99,
+    11
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     32,
-    34,
-    3,
-    69.99,
-    9
+    9,
+    2,
+    59.99,
+    12
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     33,
-    15,
-    3,
-    79.99,
-    10
+    36,
+    2,
+    39.99,
+    12
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     34,
+    4,
     3,
-    3,
-    359.99,
-    10
+    319.99,
+    13
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     35,
-    49,
-    1,
+    43,
+    2,
     14.99,
-    10
+    13
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     36,
-    11,
+    30,
     2,
-    39.99,
-    10
+    47.99,
+    13
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     37,
-    36,
-    2,
-    39.99,
-    11
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    38,
-    48,
-    1,
-    7.99,
-    11
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    39,
-    22,
-    1,
-    229.99,
-    12
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     40,
-    14,
     2,
     29.99,
-    12
+    14
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    41,
-    27,
-    2,
-    19.99,
-    12
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    42,
-    18,
-    3,
-    189.99,
-    12
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    43,
-    27,
-    2,
-    19.99,
-    13
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    44,
-    33,
-    2,
-    49.99,
-    13
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    45,
-    56,
-    3,
-    23.99,
-    13
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    46,
     38,
-    2,
-    19.99,
-    14
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    47,
     7,
-    1,
-    8.09,
-    14
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    48,
-    62,
-    1,
-    48.99,
-    14
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    49,
-    52,
-    2,
-    12.99,
-    14
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    50,
-    47,
     3,
-    49.99,
-    14
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    51,
-    30,
-    1,
-    59.99,
+    6.29,
     15
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    52,
-    33,
-    2,
-    49.99,
+    39,
+    69,
+    3,
+    44.99,
+    15
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    40,
+    9,
+    1,
+    59.99,
     16
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    53,
-    7,
-    1,
-    8.09,
-    16
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    54,
-    49,
-    1,
+    41,
+    43,
+    3,
     14.99,
     16
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    55,
-    61,
+    42,
+    20,
     2,
-    53.99,
+    89.99,
     16
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    56,
-    66,
+    43,
+    17,
     1,
-    509.99,
+    34.99,
+    16
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    44,
+    70,
+    1,
+    49.99,
     17
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    45,
+    30,
+    3,
+    47.99,
+    17
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    46,
+    5,
+    3,
+    299.99,
+    18
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    47,
+    40,
+    2,
+    29.99,
+    18
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    48,
+    60,
+    1,
+    49.99,
+    18
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    49,
+    25,
+    3,
+    8.99,
+    18
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    50,
+    28,
+    1,
+    44.99,
+    18
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    51,
+    37,
+    1,
+    21.59,
+    19
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    52,
+    28,
+    1,
+    44.99,
+    20
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    53,
+    33,
+    2,
+    49.99,
+    20
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    54,
+    8,
+    3,
+    24.99,
+    20
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    55,
+    56,
+    2,
+    29.99,
+    20
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    56,
+    42,
+    3,
+    249.99,
+    20
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     57,
-    41,
-    1,
-    31.99,
-    17
+    18,
+    3,
+    189.99,
+    21
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     58,
-    54,
-    3,
-    39.99,
-    17
+    37,
+    1,
+    21.59,
+    21
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     59,
-    22,
+    59,
     3,
-    229.99,
-    17
+    399.99,
+    21
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     60,
-    6,
-    1,
-    5.99,
-    18
+    70,
+    2,
+    49.99,
+    21
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     61,
-    11,
-    3,
+    64,
+    1,
     39.99,
-    18
+    21
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     62,
-    68,
-    2,
-    67.99,
-    18
+    50,
+    1,
+    349.99,
+    22
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     63,
-    18,
-    2,
-    189.99,
-    18
+    35,
+    3,
+    22.49,
+    22
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     64,
-    70,
-    1,
-    49.99,
-    18
+    29,
+    2,
+    67.99,
+    22
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     65,
-    14,
+    17,
     1,
-    29.99,
-    19
+    34.99,
+    23
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     66,
-    71,
+    16,
     1,
-    39.99,
-    19
+    89.99,
+    23
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     67,
-    49,
-    1,
-    14.99,
-    19
+    52,
+    3,
+    12.99,
+    23
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     68,
-    34,
+    68,
     2,
-    69.99,
-    19
+    79.99,
+    23
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     69,
-    50,
-    3,
-    297.49,
-    20
+    65,
+    1,
+    34.99,
+    24
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     70,
-    16,
-    2,
-    89.99,
-    20
+    57,
+    1,
+    104.99,
+    25
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     71,
-    65,
-    2,
-    34.99,
-    21
+    4,
+    1,
+    319.99,
+    26
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     72,
-    56,
-    2,
-    23.99,
-    21
+    18,
+    3,
+    189.99,
+    26
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     73,
-    29,
-    1,
-    79.99,
-    21
+    21,
+    3,
+    269.99,
+    26
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     74,
-    26,
-    1,
-    9.09,
-    21
+    44,
+    3,
+    19.99,
+    27
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     75,
-    48,
-    3,
-    7.99,
-    21
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    76,
-    43,
-    3,
-    14.99,
-    22
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    77,
-    14,
-    1,
-    29.99,
-    22
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    78,
-    26,
-    3,
-    9.09,
-    22
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    79,
-    49,
-    2,
-    14.99,
-    22
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    80,
-    30,
-    2,
-    59.99,
-    22
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    81,
-    22,
-    1,
-    229.99,
-    23
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    82,
-    41,
-    1,
-    31.99,
-    23
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    83,
-    5,
-    3,
-    239.99,
-    24
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    84,
-    67,
-    3,
-    89.99,
-    24
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    85,
-    66,
-    1,
-    509.99,
-    24
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    86,
-    54,
-    1,
-    39.99,
-    24
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    87,
-    12,
-    2,
-    103.99,
-    25
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    88,
-    29,
-    2,
-    79.99,
-    25
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    89,
-    15,
-    1,
-    79.99,
-    25
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    90,
-    39,
-    3,
-    9.99,
-    25
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    91,
-    14,
-    2,
-    29.99,
-    26
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    92,
-    44,
-    2,
-    19.99,
-    26
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    93,
-    62,
-    3,
-    48.99,
-    26
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    94,
-    69,
-    2,
-    35.99,
-    26
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    95,
-    53,
-    3,
-    79.99,
-    26
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    96,
-    9,
-    1,
-    59.99,
-    27
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    97,
-    1,
-    1,
-    289.99,
-    27
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    98,
-    14,
-    1,
-    29.99,
-    27
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    99,
-    34,
-    1,
-    69.99,
-    28
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    100,
-    30,
-    2,
-    59.99,
-    28
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    101,
-    8,
-    2,
-    24.99,
-    28
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    102,
-    54,
-    1,
-    39.99,
-    28
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    103,
-    44,
-    3,
-    19.99,
-    29
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    104,
-    52,
-    1,
-    12.99,
-    30
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    105,
-    49,
-    3,
-    14.99,
-    30
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    106,
-    43,
-    1,
-    14.99,
-    30
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    107,
     33,
     2,
     49.99,
-    31
+    28
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    108,
-    66,
-    3,
-    509.99,
-    31
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    109,
-    9,
+    76,
+    26,
     1,
-    59.99,
-    32
+    12.99,
+    28
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    110,
-    69,
-    2,
-    35.99,
-    32
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    111,
-    55,
-    1,
-    35.99,
-    32
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    112,
-    53,
-    1,
-    79.99,
-    32
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    113,
-    60,
-    2,
-    37.49,
-    33
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    114,
-    44,
-    1,
-    19.99,
-    33
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    115,
-    43,
+    77,
+    49,
     3,
     14.99,
-    33
+    28
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    116,
-    64,
+    78,
+    30,
     1,
-    39.99,
-    33
+    47.99,
+    29
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    117,
-    50,
-    2,
-    297.49,
-    33
+    79,
+    40,
+    3,
+    29.99,
+    29
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    118,
-    4,
-    2,
-    319.99,
-    34
+    80,
+    69,
+    3,
+    44.99,
+    29
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    119,
+    81,
+    37,
+    3,
+    21.59,
+    30
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    82,
+    20,
+    1,
+    89.99,
+    30
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    83,
     68,
-    2,
-    67.99,
-    34
+    3,
+    79.99,
+    31
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    120,
-    24,
+    84,
+    53,
     2,
-    4.49,
-    34
+    79.99,
+    31
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    121,
-    8,
+    85,
+    14,
     2,
-    24.99,
-    34
+    39.99,
+    31
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    122,
+    86,
+    57,
+    1,
+    104.99,
+    31
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    87,
+    45,
+    1,
+    29.99,
+    31
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    88,
+    10,
+    3,
+    11.24,
+    32
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    89,
     56,
     3,
-    23.99,
-    35
+    29.99,
+    32
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    123,
-    12,
+    90,
+    4,
     1,
-    103.99,
+    319.99,
+    32
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    91,
+    71,
+    2,
+    35.99,
+    32
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    92,
+    17,
+    2,
+    34.99,
+    33
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    93,
+    30,
+    2,
+    47.99,
+    33
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    94,
+    10,
+    1,
+    11.24,
+    33
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    95,
+    34,
+    3,
+    99.99,
+    33
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    96,
+    56,
+    3,
+    29.99,
+    34
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    97,
+    17,
+    1,
+    34.99,
+    34
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    98,
+    12,
+    2,
+    129.99,
+    34
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    99,
+    26,
+    1,
+    12.99,
+    34
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    100,
+    14,
+    1,
+    39.99,
     35
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    124,
-    58,
+    101,
+    63,
     3,
+    49.99,
+    35
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    102,
+    36,
+    1,
+    39.99,
+    35
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    103,
+    58,
+    1,
     129.99,
     35
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    125,
-    22,
+    104,
+    3,
     2,
-    229.99,
+    251.99,
     35
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    126,
-    29,
+    105,
+    19,
     3,
-    79.99,
-    35
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    127,
-    30,
-    3,
-    59.99,
+    249.99,
     36
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    128,
+    106,
+    57,
+    2,
+    104.99,
+    36
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    107,
+    46,
+    1,
+    24.99,
+    36
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    108,
     33,
     3,
     49.99,
     36
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    129,
-    28,
-    2,
-    49.99,
+    109,
+    55,
+    1,
+    44.99,
     36
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    110,
+    50,
+    1,
+    349.99,
+    37
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    111,
+    70,
+    1,
+    49.99,
+    37
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    112,
+    13,
+    2,
+    127.49,
+    37
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    113,
+    48,
+    3,
+    7.99,
+    37
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    114,
+    57,
+    3,
+    104.99,
+    37
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    115,
+    9,
+    2,
+    59.99,
+    38
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    116,
+    8,
+    2,
+    24.99,
+    38
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    117,
+    43,
+    2,
+    14.99,
+    38
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    118,
+    5,
+    1,
+    299.99,
+    38
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    119,
+    12,
+    3,
+    129.99,
+    38
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    120,
+    17,
+    2,
+    34.99,
+    39
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    121,
+    40,
+    2,
+    29.99,
+    39
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    122,
+    53,
+    3,
+    79.99,
+    39
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    123,
+    35,
+    3,
+    22.49,
+    39
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    124,
+    7,
+    3,
+    6.29,
+    40
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    125,
+    4,
+    3,
+    319.99,
+    40
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    126,
+    45,
+    2,
+    29.99,
+    40
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    127,
+    15,
+    1,
+    79.99,
+    40
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    128,
+    46,
+    1,
+    24.99,
+    40
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    129,
+    31,
+    1,
+    89.99,
+    41
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     130,
-    71,
+    29,
     3,
-    39.99,
-    36
+    67.99,
+    41
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     131,
-    55,
-    1,
-    35.99,
-    36
+    7,
+    2,
+    6.29,
+    41
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     132,
-    51,
-    1,
-    19.99,
-    37
+    35,
+    2,
+    22.49,
+    42
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     133,
-    29,
+    17,
     2,
-    79.99,
-    37
+    34.99,
+    42
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     134,
-    68,
-    2,
-    67.99,
-    38
+    59,
+    3,
+    399.99,
+    42
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     135,
-    17,
-    1,
-    34.99,
-    38
+    36,
+    2,
+    39.99,
+    43
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     136,
-    61,
-    1,
-    53.99,
-    38
+    17,
+    3,
+    34.99,
+    43
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     137,
-    10,
-    1,
-    14.99,
-    39
+    67,
+    2,
+    80.99,
+    44
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     138,
-    50,
+    65,
     3,
-    297.49,
-    39
+    34.99,
+    45
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     139,
-    64,
-    1,
-    39.99,
-    39
+    6,
+    2,
+    4.49,
+    45
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     140,
     59,
     2,
-    359.99,
-    39
+    399.99,
+    45
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     141,
-    39,
-    2,
-    9.99,
-    40
+    37,
+    1,
+    21.59,
+    45
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     142,
-    68,
-    1,
-    67.99,
-    40
+    55,
+    3,
+    44.99,
+    46
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     143,
-    32,
+    65,
     2,
-    29.99,
-    40
+    34.99,
+    46
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     144,
-    64,
-    2,
-    39.99,
-    41
+    43,
+    3,
+    14.99,
+    46
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     145,
-    31,
-    1,
-    89.99,
-    41
+    67,
+    3,
+    80.99,
+    46
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     146,
-    14,
-    3,
-    29.99,
-    41
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    147,
-    54,
-    2,
-    39.99,
-    42
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    148,
-    14,
-    1,
-    29.99,
-    42
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    149,
-    39,
-    2,
-    9.99,
-    43
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    150,
     67,
-    1,
-    89.99,
-    43
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    151,
-    50,
     3,
-    297.49,
-    43
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    152,
-    10,
-    2,
-    14.99,
-    44
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    153,
-    16,
-    2,
-    89.99,
-    45
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    154,
-    42,
-    2,
-    249.99,
-    45
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    155,
-    48,
-    2,
-    7.99,
-    45
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    156,
-    13,
-    3,
-    149.99,
-    45
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    157,
-    11,
-    2,
-    39.99,
-    45
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    158,
-    45,
-    3,
-    29.99,
-    46
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    159,
-    53,
-    1,
-    79.99,
-    46
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    160,
-    21,
-    1,
-    269.99,
-    46
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    161,
-    58,
-    2,
-    129.99,
-    46
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    162,
-    40,
-    3,
-    22.49,
+    80.99,
     47
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    163,
-    6,
-    1,
-    5.99,
-    48
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    164,
-    59,
-    1,
-    359.99,
-    48
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    165,
-    12,
+    147,
+    70,
     3,
-    103.99,
-    48
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    166,
-    3,
-    2,
-    359.99,
-    48
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    167,
-    4,
-    3,
-    319.99,
-    49
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    168,
-    6,
-    2,
-    5.99,
-    49
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    169,
-    54,
-    2,
-    39.99,
-    49
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    170,
-    71,
-    1,
-    39.99,
-    49
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    171,
-    5,
-    3,
-    239.99,
-    49
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    172,
-    29,
-    3,
-    79.99,
-    50
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    173,
-    11,
-    1,
-    39.99,
-    50
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    174,
-    5,
-    1,
-    239.99,
-    50
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    175,
-    28,
-    2,
     49.99,
-    51
+    47
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    176,
-    53,
+    148,
+    61,
     3,
-    79.99,
-    51
+    44.99,
+    48
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    177,
-    16,
+    149,
+    67,
     3,
+    80.99,
+    48
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    150,
+    32,
+    3,
+    29.99,
+    48
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    151,
+    24,
+    3,
+    4.49,
+    49
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    152,
+    44,
+    1,
+    19.99,
+    49
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    153,
+    35,
+    2,
+    22.49,
+    49
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    154,
+    31,
+    1,
+    89.99,
+    50
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    155,
+    20,
+    1,
     89.99,
     51
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    178,
-    26,
+    156,
+    49,
     2,
-    9.09,
-    51
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    179,
-    37,
-    3,
-    21.59,
-    51
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    180,
-    15,
-    3,
-    79.99,
+    14.99,
     52
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    181,
-    33,
+    157,
+    23,
     2,
-    49.99,
+    32.99,
+    52
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    158,
+    32,
+    1,
+    29.99,
+    52
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    159,
+    62,
+    3,
+    69.99,
+    52
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    160,
+    38,
+    3,
+    17.99,
+    52
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    161,
+    65,
+    3,
+    34.99,
     53
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    182,
-    69,
-    2,
-    35.99,
-    53
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    183,
-    22,
+    162,
+    48,
     3,
-    229.99,
+    7.99,
     54
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    184,
-    27,
-    2,
-    19.99,
-    54
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    185,
-    7,
-    3,
-    8.09,
-    54
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    186,
-    60,
+    163,
+    57,
     1,
-    37.49,
-    54
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    187,
-    68,
-    3,
-    67.99,
-    54
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    188,
-    4,
-    2,
-    319.99,
+    104.99,
     55
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    189,
-    6,
-    1,
-    5.99,
+    164,
+    20,
+    2,
+    89.99,
     55
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    190,
-    43,
-    2,
-    14.99,
-    56
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    191,
-    57,
-    2,
-    149.99,
-    56
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    192,
-    36,
-    1,
-    39.99,
-    56
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    193,
-    4,
+    165,
+    35,
     3,
-    319.99,
-    57
+    22.49,
+    55
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    194,
-    1,
-    3,
-    289.99,
-    57
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    195,
-    57,
-    2,
-    149.99,
-    57
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    196,
+    166,
     18,
-    3,
-    189.99,
-    57
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    197,
-    42,
     1,
-    249.99,
+    189.99,
+    55
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    167,
+    66,
+    1,
+    599.99,
+    55
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    168,
+    18,
+    1,
+    189.99,
+    56
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    169,
+    9,
+    2,
+    59.99,
+    56
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    170,
+    66,
+    1,
+    599.99,
+    56
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    171,
+    69,
+    1,
+    44.99,
     57
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    198,
-    54,
-    2,
-    39.99,
-    58
+    172,
+    38,
+    1,
+    17.99,
+    57
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    199,
+    173,
+    12,
+    3,
+    129.99,
+    57
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    174,
+    40,
+    2,
+    29.99,
+    57
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    175,
     70,
     3,
     49.99,
+    57
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    176,
+    28,
+    2,
+    44.99,
     58
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    200,
-    66,
-    2,
-    509.99,
+    177,
+    51,
+    1,
+    19.99,
     58
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    178,
+    14,
+    3,
+    39.99,
+    58
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    179,
+    50,
+    2,
+    349.99,
+    59
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    180,
+    27,
+    1,
+    15.99,
+    59
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    181,
+    21,
+    3,
+    269.99,
+    59
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    182,
+    4,
+    3,
+    319.99,
+    60
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    183,
+    6,
+    1,
+    4.49,
+    60
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    184,
+    30,
+    3,
+    47.99,
+    60
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    185,
+    12,
+    3,
+    129.99,
+    60
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    186,
+    22,
+    1,
+    229.99,
+    61
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    187,
+    71,
+    2,
+    35.99,
+    61
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    188,
+    67,
+    3,
+    80.99,
+    62
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    189,
+    10,
+    3,
+    11.24,
+    62
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    190,
+    32,
+    1,
+    29.99,
+    62
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    191,
+    5,
+    1,
+    299.99,
+    62
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    192,
+    71,
+    3,
+    35.99,
+    62
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    193,
+    38,
+    3,
+    17.99,
+    63
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    194,
+    34,
+    2,
+    99.99,
+    63
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    195,
+    13,
+    1,
+    127.49,
+    63
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    196,
+    15,
+    3,
+    79.99,
+    64
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    197,
+    9,
+    3,
+    59.99,
+    64
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    198,
+    17,
+    3,
+    34.99,
+    64
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    199,
+    49,
+    2,
+    14.99,
+    65
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    200,
+    16,
+    2,
+    89.99,
+    65
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     201,
     41,
-    2,
-    31.99,
-    58
+    1,
+    27.99,
+    65
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     202,
-    15,
-    2,
-    79.99,
-    59
+    61,
+    1,
+    44.99,
+    65
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     203,
-    2,
-    3,
-    149.99,
-    59
+    18,
+    1,
+    189.99,
+    65
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     204,
-    17,
-    1,
-    34.99,
-    59
+    26,
+    3,
+    12.99,
+    66
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     205,
-    69,
-    3,
-    35.99,
-    59
+    19,
+    1,
+    249.99,
+    66
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     206,
-    5,
     3,
-    239.99,
-    60
+    1,
+    251.99,
+    66
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     207,
-    45,
+    68,
     2,
-    29.99,
-    60
+    79.99,
+    66
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     208,
-    31,
+    43,
     3,
-    89.99,
-    61
+    14.99,
+    66
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     209,
-    10,
-    3,
-    14.99,
-    61
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    210,
-    28,
-    3,
-    49.99,
-    61
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    211,
-    25,
-    1,
-    8.99,
-    62
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    212,
-    30,
-    1,
-    59.99,
-    63
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    213,
-    15,
-    3,
-    79.99,
-    63
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    214,
-    35,
-    2,
-    24.99,
-    64
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    215,
-    70,
-    3,
-    49.99,
-    64
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    216,
-    40,
-    2,
-    22.49,
-    64
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    217,
-    22,
-    2,
-    229.99,
-    64
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    218,
-    18,
-    3,
-    189.99,
-    65
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    219,
-    31,
-    2,
-    89.99,
-    65
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    220,
-    21,
-    3,
-    269.99,
-    66
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    221,
-    55,
-    2,
-    35.99,
-    66
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    222,
-    10,
-    3,
-    14.99,
-    66
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    223,
-    43,
-    3,
-    14.99,
-    67
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    224,
-    37,
-    2,
-    21.59,
-    67
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    225,
-    55,
-    3,
-    35.99,
-    67
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    226,
-    21,
-    2,
-    269.99,
-    67
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    227,
-    29,
-    3,
-    79.99,
-    67
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    228,
-    16,
-    1,
-    89.99,
-    68
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    229,
-    45,
-    3,
-    29.99,
-    68
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    230,
-    42,
-    2,
-    249.99,
-    68
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    231,
-    65,
-    1,
-    34.99,
-    68
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    232,
-    55,
-    3,
-    35.99,
-    69
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    233,
-    36,
-    2,
-    39.99,
-    69
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    234,
-    43,
-    1,
-    14.99,
-    69
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    235,
-    60,
-    2,
-    37.49,
-    69
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    236,
-    61,
-    3,
-    53.99,
-    69
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    237,
-    29,
-    1,
-    79.99,
-    70
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    238,
-    52,
-    3,
-    12.99,
-    70
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    239,
-    63,
-    3,
-    49.99,
-    71
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    240,
-    28,
-    3,
-    49.99,
-    71
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    241,
-    56,
-    2,
-    23.99,
-    71
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    242,
     32,
     1,
     29.99,
-    71
+    67
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    243,
+    210,
+    41,
+    2,
+    27.99,
+    67
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    211,
+    50,
+    3,
+    349.99,
+    67
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    212,
+    28,
+    1,
+    44.99,
+    67
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    213,
+    64,
+    1,
+    39.99,
+    67
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    214,
+    43,
+    3,
+    14.99,
+    68
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    215,
+    66,
+    1,
+    599.99,
+    68
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    216,
+    49,
+    1,
+    14.99,
+    68
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    217,
+    2,
+    3,
+    149.99,
+    69
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    218,
+    38,
+    1,
+    17.99,
+    69
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    219,
+    11,
+    1,
+    49.99,
+    69
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    220,
+    35,
+    3,
+    22.49,
+    69
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    221,
+    42,
+    2,
+    249.99,
+    69
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    222,
     44,
     1,
     19.99,
-    72
+    70
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    244,
-    12,
+    223,
+    13,
+    1,
+    127.49,
+    70
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    224,
+    23,
+    2,
+    32.99,
+    70
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    225,
+    70,
+    1,
+    49.99,
+    70
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    226,
+    42,
+    1,
+    249.99,
+    70
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    227,
+    4,
     3,
-    103.99,
+    319.99,
+    71
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    228,
+    57,
+    1,
+    104.99,
+    71
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    229,
+    59,
+    2,
+    399.99,
     72
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    245,
+    230,
     58,
-    2,
+    3,
     129.99,
-    72
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    246,
-    64,
-    2,
-    39.99,
-    72
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    247,
-    18,
-    2,
-    189.99,
-    72
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    248,
-    49,
-    3,
-    14.99,
     73
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    249,
-    69,
-    3,
-    35.99,
+    231,
+    55,
+    1,
+    44.99,
     73
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    250,
+    232,
     4,
     2,
     319.99,
     73
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    251,
-    62,
-    1,
-    48.99,
-    73
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    252,
-    53,
-    2,
-    79.99,
-    74
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    253,
-    43,
+    233,
+    12,
     3,
-    14.99,
-    74
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    254,
-    48,
-    3,
-    7.99,
-    75
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    255,
-    2,
-    1,
-    149.99,
-    75
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    256,
-    58,
-    1,
     129.99,
-    75
+    74
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    257,
-    35,
-    1,
-    24.99,
-    76
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    258,
-    49,
-    2,
-    14.99,
-    76
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    259,
-    46,
-    1,
-    24.99,
-    76
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    260,
-    30,
-    2,
-    59.99,
-    77
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    261,
-    34,
-    1,
-    69.99,
-    77
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    262,
-    18,
-    1,
-    189.99,
-    78
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    263,
-    50,
-    2,
-    297.49,
-    78
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    264,
-    36,
-    2,
-    39.99,
-    79
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    265,
-    57,
-    2,
-    149.99,
-    79
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    266,
-    5,
-    1,
-    239.99,
-    79
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    267,
-    53,
-    1,
-    79.99,
-    80
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    268,
+    234,
     29,
-    1,
-    79.99,
-    80
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    269,
-    41,
-    3,
-    31.99,
-    80
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    270,
-    38,
-    3,
-    19.99,
-    81
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    271,
-    62,
-    3,
-    48.99,
-    81
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    272,
-    48,
-    1,
-    7.99,
-    81
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    273,
-    71,
-    2,
-    39.99,
-    81
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    274,
-    63,
-    2,
-    49.99,
-    81
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    275,
-    27,
-    3,
-    19.99,
-    82
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    276,
-    37,
-    1,
-    21.59,
-    83
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    277,
-    63,
-    2,
-    49.99,
-    83
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    278,
-    70,
-    2,
-    49.99,
-    84
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    279,
-    53,
-    3,
-    79.99,
-    84
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    280,
-    3,
-    1,
-    359.99,
-    84
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    281,
-    16,
-    1,
-    89.99,
-    84
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    282,
-    69,
-    1,
-    35.99,
-    84
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    283,
-    44,
-    1,
-    19.99,
-    85
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    284,
-    39,
-    2,
-    9.99,
-    86
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    285,
-    36,
-    2,
-    39.99,
-    86
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    286,
-    68,
     3,
     67.99,
-    87
+    74
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    287,
+    235,
+    30,
+    2,
+    47.99,
+    74
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    236,
+    41,
+    1,
+    27.99,
+    75
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    237,
+    10,
+    3,
+    11.24,
+    75
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    238,
+    16,
+    3,
+    89.99,
+    75
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    239,
+    51,
+    1,
+    19.99,
+    75
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    240,
+    30,
+    1,
+    47.99,
+    76
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    241,
     32,
     2,
     29.99,
+    76
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    242,
+    15,
+    2,
+    79.99,
+    76
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    243,
+    53,
+    3,
+    79.99,
+    76
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    244,
+    61,
+    2,
+    44.99,
+    77
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    245,
+    16,
+    1,
+    89.99,
+    78
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    246,
+    54,
+    1,
+    39.99,
+    78
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    247,
+    67,
+    3,
+    80.99,
+    78
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    248,
+    48,
+    1,
+    7.99,
+    78
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    249,
+    59,
+    3,
+    399.99,
+    78
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    250,
+    7,
+    1,
+    6.29,
+    79
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    251,
+    23,
+    1,
+    32.99,
+    79
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    252,
+    13,
+    3,
+    127.49,
+    79
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    253,
+    11,
+    2,
+    49.99,
+    79
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    254,
+    26,
+    3,
+    12.99,
+    79
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    255,
+    35,
+    2,
+    22.49,
+    80
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    256,
+    34,
+    2,
+    99.99,
+    80
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    257,
+    53,
+    2,
+    79.99,
+    80
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    258,
+    25,
+    1,
+    8.99,
+    80
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    259,
+    54,
+    3,
+    39.99,
+    80
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    260,
+    46,
+    1,
+    24.99,
+    81
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    261,
+    42,
+    3,
+    249.99,
+    81
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    262,
+    61,
+    1,
+    44.99,
+    81
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    263,
+    66,
+    2,
+    599.99,
+    82
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    264,
+    65,
+    1,
+    34.99,
+    82
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    265,
+    25,
+    1,
+    8.99,
+    82
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    266,
+    39,
+    3,
+    9.99,
+    82
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    267,
+    63,
+    2,
+    49.99,
+    83
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    268,
+    46,
+    1,
+    24.99,
+    83
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    269,
+    13,
+    1,
+    127.49,
+    83
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    270,
+    55,
+    2,
+    44.99,
+    83
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    271,
+    31,
+    3,
+    89.99,
+    84
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    272,
+    3,
+    3,
+    251.99,
+    84
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    273,
+    61,
+    2,
+    44.99,
+    84
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    274,
+    42,
+    3,
+    249.99,
+    84
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    275,
+    7,
+    3,
+    6.29,
+    84
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    276,
+    34,
+    3,
+    99.99,
+    85
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    277,
+    38,
+    1,
+    17.99,
+    85
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    278,
+    24,
+    1,
+    4.49,
+    85
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    279,
+    55,
+    2,
+    44.99,
+    85
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    280,
+    30,
+    1,
+    47.99,
+    85
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    281,
+    70,
+    3,
+    49.99,
+    86
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    282,
+    4,
+    3,
+    319.99,
+    86
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    283,
+    9,
+    2,
+    59.99,
+    86
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    284,
+    66,
+    2,
+    599.99,
     87
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    285,
+    27,
+    3,
+    15.99,
+    87
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    286,
+    67,
+    1,
+    80.99,
+    88
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    287,
+    7,
+    1,
+    6.29,
+    88
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     288,
-    24,
-    2,
-    4.49,
-    87
+    41,
+    1,
+    27.99,
+    88
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     289,
+    26,
     3,
-    1,
-    359.99,
-    87
+    12.99,
+    89
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     290,
-    50,
-    1,
-    297.49,
-    87
+    59,
+    3,
+    399.99,
+    89
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     291,
-    67,
+    20,
     2,
     89.99,
-    88
+    89
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     292,
-    38,
-    2,
-    19.99,
-    88
+    28,
+    3,
+    44.99,
+    90
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     293,
-    62,
-    1,
-    48.99,
-    89
+    19,
+    2,
+    249.99,
+    90
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     294,
-    28,
+    29,
     1,
-    49.99,
-    89
+    67.99,
+    90
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     295,
-    23,
+    7,
     2,
-    32.99,
+    6.29,
     90
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     296,
-    71,
-    2,
-    39.99,
-    90
+    12,
+    1,
+    129.99,
+    91
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     297,
-    3,
-    3,
-    359.99,
-    90
+    13,
+    1,
+    127.49,
+    91
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     298,
-    70,
+    28,
     2,
-    49.99,
-    90
+    44.99,
+    91
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     299,
-    14,
+    34,
     1,
-    29.99,
+    99.99,
     91
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     300,
-    13,
-    3,
-    149.99,
+    21,
+    2,
+    269.99,
     92
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     301,
-    24,
-    1,
-    4.49,
+    54,
+    2,
+    39.99,
     92
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     302,
-    52,
-    2,
-    12.99,
+    67,
+    1,
+    80.99,
     92
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     303,
-    58,
+    43,
     3,
-    129.99,
+    14.99,
     92
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     304,
-    70,
-    3,
-    49.99,
-    92
+    30,
+    1,
+    47.99,
+    93
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     305,
-    29,
+    21,
     3,
-    79.99,
-    93
+    269.99,
+    94
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     306,
-    69,
+    48,
     1,
-    35.99,
-    93
+    7.99,
+    94
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     307,
-    15,
+    51,
     1,
-    79.99,
-    93
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    308,
-    58,
-    1,
-    129.99,
-    93
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    309,
-    60,
-    1,
-    37.49,
-    94
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    310,
-    4,
-    3,
-    319.99,
-    94
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    311,
-    6,
-    3,
-    5.99,
-    94
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    312,
-    38,
-    2,
     19.99,
     94
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    313,
-    42,
-    1,
-    249.99,
-    94
+    308,
+    64,
+    3,
+    39.99,
+    95
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    314,
+    309,
+    54,
+    1,
+    39.99,
+    95
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    310,
+    18,
+    1,
+    189.99,
+    95
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    311,
+    28,
+    2,
+    44.99,
+    95
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    312,
     58,
     2,
     129.99,
     95
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    315,
-    30,
+    313,
+    23,
     2,
-    59.99,
+    32.99,
+    96
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    314,
+    1,
+    2,
+    289.99,
+    96
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    315,
+    18,
+    3,
+    189.99,
     96
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     316,
-    15,
+    26,
     1,
-    79.99,
+    12.99,
     97
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     317,
-    34,
+    53,
     3,
-    69.99,
+    79.99,
     97
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     318,
-    19,
-    1,
-    249.99,
-    97
+    49,
+    3,
+    14.99,
+    98
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     319,
-    60,
-    2,
-    37.49,
-    97
+    43,
+    1,
+    14.99,
+    98
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     320,
-    32,
-    2,
-    29.99,
-    98
+    46,
+    3,
+    24.99,
+    99
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     321,
-    50,
-    2,
-    297.49,
-    98
+    8,
+    3,
+    24.99,
+    99
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     322,
-    68,
-    3,
-    67.99,
-    98
+    19,
+    1,
+    249.99,
+    99
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     323,
-    43,
-    2,
-    14.99,
-    98
+    55,
+    3,
+    44.99,
+    100
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     324,
     62,
     1,
-    48.99,
-    99
+    69.99,
+    100
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     325,
-    63,
-    3,
-    49.99,
+    45,
+    2,
+    29.99,
     100
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     326,
-    4,
-    3,
-    319.99,
+    47,
+    2,
+    37.49,
     100
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     327,
-    58,
+    24,
     2,
-    129.99,
-    100
+    4.49,
+    101
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     328,
-    57,
-    3,
-    149.99,
+    58,
+    2,
+    129.99,
     101
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     329,
-    54,
-    1,
-    39.99,
+    47,
+    3,
+    37.49,
     101
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     330,
-    67,
+    57,
     1,
-    89.99,
-    101
+    104.99,
+    102
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     331,
-    35,
+    27,
     2,
-    24.99,
+    15.99,
     102
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     332,
-    4,
-    1,
-    319.99,
+    44,
+    2,
+    19.99,
     102
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     333,
-    10,
-    1,
-    14.99,
+    16,
+    2,
+    89.99,
     103
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     334,
-    57,
-    3,
-    149.99,
-    104
+    32,
+    1,
+    29.99,
+    103
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     335,
-    10,
-    2,
-    14.99,
+    45,
+    1,
+    29.99,
     104
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     336,
-    5,
-    1,
-    239.99,
-    105
+    32,
+    2,
+    29.99,
+    104
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     337,
-    66,
-    1,
-    509.99,
-    105
+    36,
+    3,
+    39.99,
+    104
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     338,
-    63,
-    1,
-    49.99,
-    106
+    57,
+    2,
+    104.99,
+    104
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     339,
-    44,
+    39,
     3,
-    19.99,
-    106
+    9.99,
+    104
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     340,
-    41,
-    1,
-    31.99,
-    107
+    6,
+    2,
+    4.49,
+    105
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     341,
-    27,
-    2,
-    19.99,
-    107
+    15,
+    3,
+    79.99,
+    105
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     342,
-    64,
+    16,
+    2,
+    89.99,
+    105
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    343,
+    4,
+    1,
+    319.99,
+    106
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    344,
+    43,
+    3,
+    14.99,
+    107
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    345,
+    65,
+    3,
+    34.99,
+    107
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    346,
+    54,
     2,
     39.99,
     107
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    343,
-    55,
+    347,
+    5,
     1,
-    35.99,
+    299.99,
     108
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    344,
+    348,
     16,
-    2,
+    1,
     89.99,
     108
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    345,
-    25,
-    3,
-    8.99,
+    349,
+    43,
+    2,
+    14.99,
     108
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    346,
-    21,
-    3,
-    269.99,
-    109
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    347,
-    62,
-    1,
-    48.99,
-    109
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    348,
-    9,
-    1,
-    59.99,
-    109
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    349,
-    53,
-    3,
-    79.99,
-    109
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     350,
-    47,
-    3,
-    49.99,
-    109
+    35,
+    2,
+    22.49,
+    108
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     351,
-    4,
+    18,
     1,
-    319.99,
-    110
+    189.99,
+    109
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     352,
-    49,
-    3,
-    14.99,
-    110
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    353,
-    15,
-    3,
-    79.99,
-    111
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    354,
     1,
     2,
     289.99,
-    111
+    109
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    353,
+    47,
+    2,
+    37.49,
+    109
+);
+INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
+    354,
+    64,
+    2,
+    39.99,
+    110
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     355,
-    10,
-    3,
-    14.99,
-    111
+    68,
+    1,
+    79.99,
+    110
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     356,
-    52,
-    1,
-    12.99,
-    111
+    60,
+    3,
+    49.99,
+    110
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     357,
-    34,
-    2,
-    69.99,
+    21,
+    1,
+    269.99,
     111
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     358,
-    18,
+    41,
     2,
-    189.99,
-    112
+    27.99,
+    111
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
     359,
-    58,
-    1,
-    129.99,
-    112
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    360,
-    61,
-    1,
-    53.99,
-    112
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    361,
-    44,
-    3,
-    19.99,
-    113
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    362,
-    47,
-    2,
-    49.99,
-    113
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    363,
-    38,
-    2,
-    19.99,
-    113
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    364,
-    39,
-    2,
-    9.99,
-    113
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    365,
-    65,
-    3,
-    34.99,
-    113
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    366,
-    14,
-    3,
-    29.99,
-    114
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    367,
-    13,
-    2,
-    149.99,
-    114
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    368,
-    38,
-    2,
-    19.99,
-    114
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    369,
-    36,
-    1,
-    39.99,
-    114
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    370,
-    65,
-    1,
-    34.99,
-    114
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    371,
     64,
     1,
     39.99,
-    115
+    111
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    372,
-    68,
-    2,
-    67.99,
-    115
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    373,
-    4,
-    2,
-    319.99,
-    115
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    374,
-    30,
+    360,
+    24,
     1,
-    59.99,
-    115
+    4.49,
+    111
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    375,
-    40,
+    361,
+    14,
     2,
-    22.49,
-    116
+    39.99,
+    111
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    376,
-    63,
-    1,
-    49.99,
-    116
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    377,
-    20,
+    362,
+    42,
     3,
-    89.99,
-    116
+    249.99,
+    112
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    378,
-    27,
+    363,
+    51,
     1,
     19.99,
-    116
+    112
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    379,
-    7,
-    2,
-    8.09,
-    117
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    380,
-    70,
-    1,
-    49.99,
-    118
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    381,
-    10,
-    2,
-    14.99,
-    118
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    382,
-    23,
-    1,
-    32.99,
-    118
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    383,
-    25,
-    1,
-    8.99,
-    118
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    384,
-    6,
-    3,
-    5.99,
-    118
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    385,
-    23,
-    1,
-    32.99,
-    119
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    386,
-    41,
-    3,
-    31.99,
-    119
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    387,
-    50,
-    3,
-    297.49,
-    119
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    388,
+    364,
     11,
-    1,
-    39.99,
-    120
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    389,
-    9,
-    2,
-    59.99,
-    120
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    390,
-    47,
     3,
     49.99,
-    121
+    112
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    391,
-    48,
-    1,
-    7.99,
-    121
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    392,
-    14,
+    365,
+    56,
     3,
     29.99,
-    122
+    112
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    393,
-    57,
-    1,
-    149.99,
-    123
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    394,
-    7,
-    1,
-    8.09,
-    124
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    395,
-    61,
+    366,
+    54,
     2,
-    53.99,
-    124
+    39.99,
+    113
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    396,
+    367,
     49,
     3,
     14.99,
-    125
+    113
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    397,
-    9,
+    368,
+    26,
     3,
-    59.99,
-    126
+    12.99,
+    113
 );
 INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    398,
-    1,
+    369,
+    48,
     2,
-    289.99,
-    126
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    399,
-    23,
-    3,
-    32.99,
-    126
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    400,
-    4,
-    1,
-    319.99,
-    127
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    401,
-    34,
-    2,
-    69.99,
-    127
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    402,
-    20,
-    3,
-    89.99,
-    127
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    403,
-    27,
-    3,
-    19.99,
-    128
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    404,
-    30,
-    1,
-    59.99,
-    128
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    405,
-    20,
-    1,
-    89.99,
-    129
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    406,
-    30,
-    1,
-    59.99,
-    129
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    407,
-    2,
-    1,
-    149.99,
-    129
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    408,
-    63,
-    3,
-    49.99,
-    130
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    409,
-    67,
-    3,
-    89.99,
-    130
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    410,
-    25,
-    2,
-    8.99,
-    130
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    411,
-    41,
-    2,
-    31.99,
-    130
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    412,
-    31,
-    1,
-    89.99,
-    131
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    413,
-    28,
-    3,
-    49.99,
-    131
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    414,
-    53,
-    2,
-    79.99,
-    131
-);
-INSERT INTO order_items (id, product_id, quantity, price, order_id) VALUES (
-    415,
-    20,
-    3,
-    89.99,
-    131
+    7.99,
+    114
 );
 
 -- Insert reviews
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     1,
-    66,
-    46,
+    26,
+    35,
     'APPROVED',
-    5,
-    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
-    TIMESTAMP '2025-12-19 08:25:46'
+    3,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2026-01-10 13:22:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     2,
-    18,
-    41,
-    'APPROVED',
-    3,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2026-01-23 19:49:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    3,
-    43,
-    4,
-    'APPROVED',
-    5,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2026-01-25 19:46:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    4,
-    62,
-    30,
+    8,
+    17,
     'APPROVED',
     5,
     'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2026-01-10 18:29:46'
+    TIMESTAMP '2026-01-17 11:53:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    5,
-    42,
-    47,
+    3,
+    1,
+    14,
     'APPROVED',
     4,
     'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2026-01-10 05:11:46'
+    TIMESTAMP '2025-12-15 02:51:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    4,
+    48,
+    9,
+    'APPROVED',
+    5,
+    'Solidne wykonanie, polecam.',
+    TIMESTAMP '2025-12-12 17:34:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    5,
+    51,
+    18,
+    'APPROVED',
+    4,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2025-12-05 13:20:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     6,
-    34,
-    45,
-    'REJECTED',
+    27,
+    27,
+    'PENDING',
     5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2026-01-14 11:00:46'
+    'Solidne wykonanie, polecam.',
+    TIMESTAMP '2025-12-27 09:23:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     7,
-    12,
-    39,
+    1,
+    28,
     'APPROVED',
     4,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2025-12-15 00:50:46'
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2026-01-16 01:20:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     8,
-    18,
-    2,
-    'APPROVED',
-    5,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2026-01-02 01:44:46'
+    27,
+    50,
+    'PENDING',
+    3,
+    'Dobry produkt w rozsądnej cenie.',
+    TIMESTAMP '2026-01-14 22:16:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     9,
-    40,
-    32,
+    12,
+    27,
     'APPROVED',
-    3,
-    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
-    TIMESTAMP '2026-01-14 20:15:46'
+    4,
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2026-01-02 06:20:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     10,
-    52,
-    39,
-    'APPROVED',
+    10,
+    20,
+    'REJECTED',
     3,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2025-12-07 14:09:46'
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2026-01-02 12:08:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     11,
-    68,
-    47,
-    'REJECTED',
-    5,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2025-12-08 07:26:46'
+    52,
+    11,
+    'APPROVED',
+    4,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2025-12-09 16:06:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     12,
-    53,
-    17,
+    52,
+    48,
     'APPROVED',
-    3,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2026-01-03 01:37:46'
+    4,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-12 14:41:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     13,
-    9,
-    39,
+    68,
+    47,
     'APPROVED',
-    3,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2026-01-18 18:37:46'
+    5,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2026-01-15 22:32:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     14,
-    67,
-    20,
+    28,
+    23,
     'APPROVED',
     5,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2025-12-08 17:20:46'
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-24 01:15:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     15,
-    64,
-    43,
+    69,
+    49,
     'APPROVED',
     5,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-19 22:58:46'
+    'Dobry produkt w rozsądnej cenie.',
+    TIMESTAMP '2026-01-02 08:45:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     16,
-    46,
-    11,
-    'APPROVED',
-    5,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2025-12-27 17:02:46'
+    50,
+    47,
+    'PENDING',
+    3,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2025-12-13 20:05:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     17,
-    64,
-    20,
-    'PENDING',
-    4,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2025-11-28 12:19:46'
+    6,
+    6,
+    'APPROVED',
+    3,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-12-28 21:21:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     18,
-    64,
-    31,
-    'APPROVED',
-    5,
-    'Bardzo dobra jakość w przystępnej cenie.',
-    TIMESTAMP '2026-01-17 04:17:46'
+    30,
+    25,
+    'PENDING',
+    4,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-17 17:02:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     19,
-    59,
-    46,
+    29,
+    22,
     'PENDING',
-    4,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2025-11-28 13:24:46'
+    3,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2025-12-23 14:37:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     20,
-    12,
-    27,
-    'APPROVED',
-    5,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-12 01:39:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    21,
-    26,
-    15,
-    'APPROVED',
-    5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2025-12-28 14:55:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    22,
-    35,
-    10,
-    'APPROVED',
-    3,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2026-01-08 05:07:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    23,
-    27,
+    40,
     19,
     'APPROVED',
     4,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2026-01-02 17:29:46'
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2026-01-21 21:20:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    24,
-    48,
-    48,
-    'REJECTED',
-    5,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-12 16:01:46'
+    21,
+    8,
+    31,
+    'APPROVED',
+    4,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2026-01-11 17:13:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    25,
-    13,
-    48,
+    22,
+    23,
+    9,
+    'APPROVED',
+    4,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-19 18:21:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    23,
+    31,
+    22,
     'APPROVED',
     5,
     'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
-    TIMESTAMP '2026-01-16 21:59:46'
+    TIMESTAMP '2026-01-03 21:45:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    24,
+    24,
+    31,
+    'PENDING',
+    5,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2026-01-22 13:02:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    25,
+    27,
+    8,
+    'APPROVED',
+    5,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2026-01-21 00:52:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     26,
-    54,
-    6,
+    56,
+    25,
     'APPROVED',
     4,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2025-12-09 02:36:46'
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2025-12-23 11:56:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     27,
-    1,
-    8,
-    'PENDING',
+    44,
+    37,
+    'APPROVED',
     3,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-24 04:25:46'
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2026-01-08 23:19:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     28,
-    66,
-    15,
+    16,
+    8,
     'APPROVED',
-    3,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2025-12-14 06:22:46'
+    4,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-12-02 23:19:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     29,
-    68,
-    48,
-    'APPROVED',
-    4,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2026-01-17 13:17:46'
+    50,
+    15,
+    'REJECTED',
+    5,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-08 00:55:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     30,
-    3,
-    33,
-    'APPROVED',
-    3,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2026-01-02 22:41:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    31,
-    25,
-    28,
-    'APPROVED',
+    2,
+    39,
+    'REJECTED',
     4,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-13 00:56:46'
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-15 17:37:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    32,
     31,
-    25,
+    28,
+    50,
     'APPROVED',
     3,
-    'Bardzo dobra jakość w przystępnej cenie.',
-    TIMESTAMP '2025-12-23 18:29:46'
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-26 21:41:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    33,
-    58,
     32,
+    53,
+    38,
     'APPROVED',
     5,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2025-12-12 09:07:46'
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-23 09:45:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    33,
+    33,
+    20,
+    'APPROVED',
+    5,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-21 23:18:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     34,
-    9,
-    21,
+    42,
+    25,
     'APPROVED',
-    3,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2026-01-16 04:29:46'
+    4,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-02 23:25:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     35,
-    71,
-    22,
+    40,
+    36,
     'APPROVED',
-    3,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2025-12-24 18:17:46'
+    5,
+    'Solidne wykonanie, polecam.',
+    TIMESTAMP '2026-01-03 06:23:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     36,
-    48,
-    32,
-    'APPROVED',
-    3,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2026-01-23 18:24:46'
+    22,
+    7,
+    'REJECTED',
+    4,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-24 21:24:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     37,
-    10,
-    22,
+    16,
+    6,
     'APPROVED',
-    5,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2026-01-22 02:06:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    38,
-    71,
-    38,
-    'REJECTED',
     4,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2025-12-02 12:16:46'
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2025-11-29 13:09:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    39,
-    19,
-    11,
-    'APPROVED',
-    5,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2025-12-10 08:11:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    40,
-    66,
-    11,
+    38,
+    58,
+    27,
     'APPROVED',
     4,
     'Bardzo dobra jakość w przystępnej cenie.',
-    TIMESTAMP '2026-01-06 19:03:46'
+    TIMESTAMP '2025-12-21 08:03:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    41,
-    8,
-    50,
-    'APPROVED',
-    3,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2026-01-13 12:45:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    42,
-    49,
-    47,
-    'APPROVED',
-    5,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2026-01-06 01:28:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    43,
-    5,
-    11,
-    'APPROVED',
-    5,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-13 01:36:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    44,
-    49,
     39,
-    'APPROVED',
-    4,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2026-01-09 22:02:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    45,
-    29,
-    13,
-    'APPROVED',
-    3,
-    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
-    TIMESTAMP '2025-12-12 20:06:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    46,
-    24,
-    32,
-    'APPROVED',
-    5,
-    'Bardzo dobre, zamawiam już kolejny raz.',
-    TIMESTAMP '2026-01-24 20:35:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    47,
-    12,
-    23,
-    'APPROVED',
-    3,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2025-12-10 05:54:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    48,
-    14,
+    33,
     6,
     'APPROVED',
     3,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2026-01-22 04:46:46'
+    'Solidne wykonanie, polecam.',
+    TIMESTAMP '2026-01-14 13:07:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    49,
-    18,
-    21,
+    40,
+    54,
+    24,
+    'APPROVED',
+    4,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2026-01-12 22:28:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    41,
+    64,
+    51,
     'APPROVED',
     4,
     'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2026-01-07 06:34:46'
+    TIMESTAMP '2025-12-07 06:40:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    42,
+    54,
+    30,
+    'APPROVED',
+    4,
+    'Solidne wykonanie, polecam.',
+    TIMESTAMP '2026-01-04 23:28:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    43,
+    58,
+    20,
+    'APPROVED',
+    3,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2026-01-06 00:00:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    44,
+    46,
+    37,
+    'APPROVED',
+    5,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2026-01-09 05:57:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    45,
+    46,
+    49,
+    'APPROVED',
+    5,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-11 18:51:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    46,
+    47,
+    24,
+    'APPROVED',
+    4,
+    'Dobry produkt w rozsądnej cenie.',
+    TIMESTAMP '2026-01-17 05:39:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    47,
+    62,
+    30,
+    'PENDING',
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-18 05:20:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    48,
+    9,
+    41,
+    'PENDING',
+    4,
+    'Dobry produkt w rozsądnej cenie.',
+    TIMESTAMP '2025-12-01 10:31:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    49,
+    29,
+    47,
+    'APPROVED',
+    3,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2026-01-02 16:36:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     50,
-    16,
-    51,
+    34,
+    20,
     'APPROVED',
-    5,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2025-12-26 00:40:46'
+    3,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-23 16:06:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     51,
-    67,
-    47,
+    33,
+    26,
     'APPROVED',
-    5,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-30 23:53:46'
+    3,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-17 17:59:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     52,
-    14,
-    2,
-    'APPROVED',
-    4,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2026-01-15 04:56:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    53,
-    35,
-    25,
-    'APPROVED',
-    3,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2026-01-26 11:14:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    54,
-    51,
-    39,
-    'APPROVED',
-    3,
-    'Bardzo dobra jakość w przystępnej cenie.',
-    TIMESTAMP '2026-01-09 06:31:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    55,
-    31,
-    43,
-    'APPROVED',
-    4,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2026-01-06 12:49:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    56,
-    58,
-    3,
-    'APPROVED',
-    5,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2026-01-20 22:00:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    57,
-    12,
-    7,
-    'APPROVED',
-    4,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2025-12-31 07:36:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    58,
-    62,
-    22,
-    'APPROVED',
-    3,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2025-12-13 21:53:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    59,
-    40,
-    31,
-    'APPROVED',
-    4,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2025-12-15 01:46:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    60,
-    15,
-    32,
-    'APPROVED',
-    3,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-30 04:18:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    61,
-    54,
-    31,
-    'APPROVED',
-    4,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2026-01-14 10:40:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    62,
-    1,
+    13,
     33,
-    'APPROVED',
-    3,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2026-01-12 01:00:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    63,
-    14,
-    35,
-    'REJECTED',
-    3,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2025-12-19 11:38:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    64,
-    40,
-    32,
     'APPROVED',
     5,
     'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-22 18:20:46'
+    TIMESTAMP '2026-01-15 23:12:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    65,
-    15,
+    53,
+    60,
     31,
-    'REJECTED',
-    3,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-21 09:26:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    66,
-    12,
-    25,
-    'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-15 01:10:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    67,
-    71,
-    35,
     'APPROVED',
     5,
     'Bardzo dobre, zamawiam już kolejny raz.',
-    TIMESTAMP '2026-01-16 23:00:46'
+    TIMESTAMP '2025-12-27 07:06:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    54,
+    36,
+    49,
+    'APPROVED',
+    4,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-11-29 09:14:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    55,
+    1,
+    33,
+    'REJECTED',
+    5,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2025-12-14 07:53:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    56,
+    14,
+    45,
+    'APPROVED',
+    4,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-03 19:15:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    57,
+    59,
+    44,
+    'APPROVED',
+    3,
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2025-12-30 17:54:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    58,
+    11,
+    50,
+    'APPROVED',
+    4,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-28 18:11:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    59,
+    7,
+    43,
+    'APPROVED',
+    5,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2025-12-17 10:20:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    60,
+    8,
+    21,
+    'APPROVED',
+    5,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2026-01-05 09:48:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    61,
+    62,
+    38,
+    'APPROVED',
+    3,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-11-28 20:51:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    62,
+    37,
+    49,
+    'REJECTED',
+    3,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2026-01-21 22:44:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    63,
+    31,
+    33,
+    'APPROVED',
+    3,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2026-01-26 07:48:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    64,
+    58,
+    9,
+    'APPROVED',
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-12 12:58:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    65,
+    62,
+    26,
+    'APPROVED',
+    3,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-28 12:51:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    66,
+    47,
+    34,
+    'APPROVED',
+    5,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2026-01-22 10:08:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    67,
+    9,
+    33,
+    'APPROVED',
+    5,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-21 15:59:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     68,
-    21,
-    15,
+    55,
+    6,
     'APPROVED',
-    4,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2026-01-26 09:12:46'
+    3,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2025-12-09 20:00:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     69,
-    35,
-    15,
+    11,
+    6,
     'APPROVED',
-    4,
-    'Bardzo dobra jakość w przystępnej cenie.',
-    TIMESTAMP '2025-12-19 11:15:46'
+    3,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2025-11-29 10:40:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     70,
-    34,
-    51,
+    40,
+    20,
     'APPROVED',
-    4,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2025-12-06 10:18:46'
+    5,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2026-01-11 09:48:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     71,
-    57,
+    39,
+    4,
+    'APPROVED',
     5,
-    'PENDING',
-    3,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-02 00:41:46'
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-12-25 09:52:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     72,
-    7,
-    23,
+    54,
+    44,
     'APPROVED',
-    5,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-08 03:48:46'
+    4,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-12-08 08:08:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     73,
-    34,
-    25,
+    55,
+    32,
     'APPROVED',
-    3,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2025-12-10 19:45:46'
+    5,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2026-01-16 04:09:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     74,
-    8,
-    5,
+    61,
+    12,
     'APPROVED',
     4,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2025-12-22 21:41:46'
+    'Solidne wykonanie, polecam.',
+    TIMESTAMP '2026-01-04 13:26:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     75,
-    6,
-    47,
+    28,
+    19,
     'APPROVED',
     5,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-18 20:17:46'
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2026-01-18 12:31:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     76,
-    8,
-    8,
-    'REJECTED',
+    70,
+    18,
+    'APPROVED',
     3,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2025-12-04 03:40:46'
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2025-12-18 20:09:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     77,
-    35,
-    7,
+    70,
+    37,
     'APPROVED',
-    4,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2026-01-12 18:02:46'
+    5,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2026-01-14 15:03:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     78,
-    38,
-    30,
+    5,
+    9,
     'APPROVED',
     5,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2025-12-12 01:06:46'
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-27 02:02:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     79,
-    9,
-    49,
+    70,
+    5,
     'APPROVED',
-    3,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-06 08:55:46'
+    4,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-25 08:19:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     80,
-    48,
-    7,
+    12,
+    27,
     'APPROVED',
     3,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2025-12-07 09:00:46'
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2026-01-13 01:09:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     81,
-    1,
-    29,
-    'APPROVED',
-    5,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2025-12-11 20:31:46'
+    52,
+    31,
+    'PENDING',
+    3,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-12-27 13:38:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     82,
-    25,
-    20,
-    'PENDING',
-    5,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2025-12-28 07:47:46'
+    67,
+    21,
+    'APPROVED',
+    4,
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2025-11-28 14:55:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     83,
-    34,
-    49,
-    'REJECTED',
-    5,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-11-29 03:21:46'
+    39,
+    10,
+    'APPROVED',
+    4,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2025-12-04 10:18:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     84,
-    44,
-    22,
-    'PENDING',
-    5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2025-12-24 13:29:46'
+    32,
+    36,
+    'REJECTED',
+    4,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-24 04:14:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     85,
-    5,
-    43,
+    39,
+    34,
     'APPROVED',
-    5,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2026-01-09 04:51:46'
+    3,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-20 03:09:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     86,
-    19,
-    21,
+    36,
+    25,
     'APPROVED',
     5,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2026-01-18 12:30:46'
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2026-01-14 19:48:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     87,
+    11,
     50,
-    47,
     'APPROVED',
-    4,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2026-01-20 23:03:46'
+    5,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-12 07:48:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     88,
-    13,
-    21,
+    59,
+    14,
     'APPROVED',
-    5,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2025-12-12 10:30:46'
+    4,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2025-12-22 15:41:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     89,
-    2,
-    45,
+    36,
+    41,
     'APPROVED',
-    4,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2026-01-23 19:57:46'
+    5,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2026-01-22 11:07:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     90,
-    6,
-    25,
+    64,
+    30,
     'APPROVED',
-    4,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2026-01-18 21:44:46'
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-10 04:54:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     91,
-    6,
     31,
+    41,
     'APPROVED',
     4,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-13 01:49:46'
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2025-12-31 19:19:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     92,
-    35,
-    50,
-    'APPROVED',
-    5,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-12 02:35:46'
+    14,
+    18,
+    'REJECTED',
+    3,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2026-01-17 05:54:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     93,
-    44,
-    9,
+    32,
+    14,
     'APPROVED',
-    3,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-04 04:00:46'
+    5,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2026-01-01 02:03:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     94,
-    69,
-    2,
+    38,
+    27,
     'APPROVED',
-    5,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2025-12-30 06:33:46'
+    4,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2025-12-05 07:50:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     95,
-    68,
-    20,
+    4,
+    25,
     'APPROVED',
     5,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-15 19:14:46'
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-19 12:26:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     96,
-    25,
+    30,
     28,
-    'APPROVED',
-    4,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2025-12-04 02:12:46'
+    'REJECTED',
+    5,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2025-12-16 19:00:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     97,
-    5,
-    37,
+    40,
+    8,
     'APPROVED',
     4,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2025-12-05 15:49:46'
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2025-12-31 16:29:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     98,
-    49,
-    12,
+    31,
+    28,
     'APPROVED',
-    5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2026-01-01 10:11:46'
+    4,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2026-01-15 16:53:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     99,
-    67,
-    31,
-    'APPROVED',
-    3,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-07 21:18:46'
+    10,
+    2,
+    'REJECTED',
+    4,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2026-01-21 06:47:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     100,
-    27,
-    21,
+    32,
+    13,
     'APPROVED',
-    5,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2025-12-13 08:19:46'
+    3,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2025-12-09 17:52:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     101,
-    20,
-    41,
+    67,
+    37,
     'APPROVED',
     5,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2025-12-09 01:13:46'
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2025-12-21 13:28:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     102,
-    41,
-    35,
+    44,
+    17,
     'APPROVED',
-    4,
+    5,
     'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2025-12-02 19:09:46'
+    TIMESTAMP '2026-01-26 16:09:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     103,
-    39,
-    3,
+    15,
+    30,
     'APPROVED',
-    3,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2025-12-18 14:27:46'
+    5,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2026-01-15 13:19:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     104,
-    34,
-    18,
-    'PENDING',
+    25,
+    7,
+    'APPROVED',
     3,
     'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2025-12-16 08:22:46'
+    TIMESTAMP '2025-12-28 01:55:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     105,
-    57,
-    39,
+    12,
+    32,
     'APPROVED',
     4,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2025-12-13 16:44:46'
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-16 09:33:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     106,
-    18,
-    34,
+    1,
+    22,
     'APPROVED',
-    5,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2026-01-09 17:34:46'
+    4,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2025-12-02 19:19:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     107,
-    68,
-    49,
+    10,
+    50,
     'APPROVED',
-    5,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2025-12-28 10:34:46'
+    4,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2026-01-16 07:59:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     108,
-    38,
-    11,
+    3,
+    30,
     'APPROVED',
     5,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-15 19:16:46'
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2026-01-21 11:09:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     109,
-    53,
-    34,
+    8,
+    27,
     'APPROVED',
-    5,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2025-12-02 19:46:46'
+    3,
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2026-01-07 23:32:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     110,
-    61,
-    16,
+    22,
+    6,
     'APPROVED',
-    4,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2025-12-03 04:34:46'
+    3,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2025-12-28 11:50:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     111,
-    4,
-    50,
+    48,
+    40,
     'APPROVED',
     3,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2025-12-28 00:04:46'
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-14 22:08:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     112,
-    18,
-    7,
-    'APPROVED',
     3,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2025-11-28 23:03:46'
+    39,
+    'APPROVED',
+    4,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2026-01-08 22:58:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     113,
-    24,
-    23,
-    'APPROVED',
-    4,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2025-12-04 09:29:46'
+    65,
+    26,
+    'PENDING',
+    3,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2025-12-21 15:28:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     114,
-    33,
     16,
+    20,
     'APPROVED',
-    3,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2025-11-30 01:39:46'
+    4,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2026-01-22 05:45:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     115,
-    59,
-    14,
+    71,
+    35,
     'APPROVED',
     4,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2025-12-16 03:53:46'
+    'Solidne wykonanie, polecam.',
+    TIMESTAMP '2026-01-11 17:21:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     116,
-    64,
-    42,
+    67,
+    46,
     'APPROVED',
-    3,
-    'Bardzo dobre, zamawiam już kolejny raz.',
-    TIMESTAMP '2026-01-03 02:50:46'
+    4,
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2026-01-10 09:20:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     117,
-    42,
-    38,
+    8,
+    34,
     'APPROVED',
     3,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2026-01-22 00:27:46'
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2026-01-12 00:35:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     118,
-    40,
-    21,
-    'PENDING',
-    5,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2026-01-03 21:42:46'
+    17,
+    51,
+    'APPROVED',
+    4,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2026-01-19 04:00:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     119,
-    4,
-    21,
-    'PENDING',
+    61,
+    18,
+    'APPROVED',
     3,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-24 15:36:46'
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2025-12-30 20:04:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     120,
-    32,
-    10,
+    55,
+    23,
     'APPROVED',
-    5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2025-12-11 03:56:46'
+    4,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2026-01-18 19:40:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     121,
-    66,
-    9,
-    'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-05 08:35:46'
+    4,
+    27,
+    'REJECTED',
+    5,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2026-01-23 19:14:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     122,
-    9,
-    12,
-    'PENDING',
     5,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2026-01-17 05:03:46'
+    46,
+    'APPROVED',
+    5,
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2025-12-08 19:53:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     123,
-    5,
-    18,
-    'PENDING',
-    5,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2025-12-28 04:58:46'
+    61,
+    6,
+    'APPROVED',
+    3,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2025-12-04 19:55:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     124,
-    13,
-    22,
-    'REJECTED',
-    5,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-26 02:22:46'
+    56,
+    36,
+    'APPROVED',
+    3,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-11-27 05:13:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     125,
-    15,
-    7,
+    53,
+    31,
     'APPROVED',
-    5,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2026-01-01 16:28:46'
+    3,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2026-01-10 17:01:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     126,
-    68,
-    16,
-    'APPROVED',
-    5,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2026-01-24 21:09:46'
+    24,
+    22,
+    'REJECTED',
+    3,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2025-12-17 07:48:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     127,
-    23,
-    15,
+    42,
+    27,
     'APPROVED',
     3,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2025-12-08 00:27:46'
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2025-12-21 08:49:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     128,
-    34,
-    19,
+    44,
+    38,
     'APPROVED',
-    3,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2026-01-24 16:15:46'
+    4,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-19 16:27:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     129,
-    7,
-    12,
+    69,
+    34,
     'APPROVED',
-    4,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2026-01-19 13:31:46'
+    3,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2025-12-09 01:24:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     130,
-    70,
-    28,
+    26,
+    14,
     'APPROVED',
     3,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2025-12-28 13:03:46'
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2025-12-11 11:40:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     131,
-    66,
-    24,
+    41,
+    37,
     'APPROVED',
     3,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-29 07:25:46'
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2026-01-08 04:01:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     132,
-    18,
-    34,
+    44,
+    23,
     'APPROVED',
-    3,
-    'Bardzo dobre, zamawiam już kolejny raz.',
-    TIMESTAMP '2026-01-24 01:28:46'
+    5,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-11-29 18:23:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     133,
-    43,
-    20,
+    26,
+    2,
     'APPROVED',
     3,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2025-12-12 04:36:46'
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2026-01-11 19:43:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     134,
-    64,
-    31,
+    25,
+    30,
     'APPROVED',
     3,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2025-11-29 00:02:46'
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2025-12-25 12:53:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     135,
-    62,
-    42,
+    57,
+    4,
     'APPROVED',
-    5,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2025-12-20 03:16:46'
+    4,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-06 13:45:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     136,
-    17,
-    24,
+    57,
+    3,
     'APPROVED',
-    4,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2026-01-09 14:45:46'
+    3,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-11-30 08:55:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     137,
-    61,
-    6,
-    'APPROVED',
+    55,
+    2,
+    'PENDING',
     5,
     'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-01 14:25:46'
+    TIMESTAMP '2025-12-03 16:44:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     138,
-    24,
-    37,
+    49,
+    27,
     'APPROVED',
-    4,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2025-12-09 22:03:46'
+    5,
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2026-01-04 21:10:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     139,
-    15,
-    17,
-    'PENDING',
-    5,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2025-12-28 05:35:46'
+    7,
+    8,
+    'APPROVED',
+    4,
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2026-01-26 14:48:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     140,
-    71,
-    35,
+    13,
+    14,
     'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-12 19:19:46'
+    4,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2025-11-27 22:41:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     141,
-    38,
-    41,
+    61,
+    39,
     'APPROVED',
-    4,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2025-12-05 16:25:46'
+    5,
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2026-01-06 17:54:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     142,
-    39,
-    8,
-    'REJECTED',
-    4,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-09 11:49:46'
+    9,
+    43,
+    'APPROVED',
+    5,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2025-12-15 10:17:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     143,
-    41,
-    25,
+    34,
+    51,
     'APPROVED',
     4,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2025-12-07 18:41:46'
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2026-01-20 00:27:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     144,
-    63,
-    6,
+    44,
+    25,
     'APPROVED',
-    3,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2026-01-11 09:26:46'
+    5,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-27 01:34:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     145,
-    47,
+    19,
     41,
     'APPROVED',
     3,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2026-01-24 23:45:46'
+    'Dobry produkt w rozsądnej cenie.',
+    TIMESTAMP '2026-01-23 06:59:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     146,
-    6,
-    35,
+    64,
+    41,
     'APPROVED',
     5,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2025-11-27 01:07:46'
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2026-01-24 09:49:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     147,
-    8,
-    27,
+    30,
+    28,
     'APPROVED',
     5,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2026-01-11 18:31:46'
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2026-01-04 13:34:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     148,
-    11,
-    2,
-    'APPROVED',
-    4,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2025-12-14 17:52:46'
+    61,
+    12,
+    'PENDING',
+    3,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2025-12-27 06:57:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     149,
-    48,
-    6,
-    'PENDING',
-    3,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2026-01-24 10:28:46'
+    18,
+    26,
+    'APPROVED',
+    4,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2026-01-02 09:59:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     150,
-    35,
-    20,
+    17,
+    47,
     'APPROVED',
     5,
-    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
-    TIMESTAMP '2025-12-26 06:12:46'
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2026-01-01 12:10:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     151,
-    19,
-    42,
+    24,
+    16,
     'APPROVED',
-    3,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2025-12-14 00:47:46'
+    5,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-04 04:29:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     152,
-    62,
-    41,
+    20,
+    9,
     'APPROVED',
-    4,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-01 09:45:46'
+    3,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2025-12-21 18:25:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     153,
-    63,
-    44,
-    'PENDING',
-    4,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2025-12-15 10:54:46'
+    16,
+    41,
+    'APPROVED',
+    3,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-21 11:08:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     154,
-    49,
-    13,
+    45,
+    31,
     'APPROVED',
-    4,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2025-11-30 23:58:46'
+    5,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2026-01-11 01:51:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     155,
-    65,
-    40,
-    'PENDING',
-    4,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2026-01-24 14:10:46'
+    46,
+    12,
+    'APPROVED',
+    5,
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2025-12-25 18:02:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     156,
-    68,
-    35,
-    'APPROVED',
-    4,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-13 13:47:46'
+    37,
+    23,
+    'PENDING',
+    5,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-12-16 10:42:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     157,
-    34,
-    32,
+    8,
+    50,
     'APPROVED',
     5,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2026-01-17 07:52:46'
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2026-01-01 09:43:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     158,
-    7,
-    30,
-    'APPROVED',
-    4,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2026-01-25 11:03:46'
+    31,
+    40,
+    'REJECTED',
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-24 16:02:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     159,
-    47,
+    70,
     13,
     'APPROVED',
     3,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2026-01-10 19:14:46'
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2025-12-11 10:20:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     160,
-    24,
-    45,
-    'PENDING',
-    4,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2025-11-30 08:27:46'
+    20,
+    38,
+    'APPROVED',
+    5,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-06 22:58:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     161,
-    45,
-    34,
-    'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-28 23:49:46'
+    20,
+    18,
+    'PENDING',
+    4,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2026-01-20 12:40:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     162,
-    4,
+    58,
     7,
     'APPROVED',
     5,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2026-01-14 20:50:46'
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2026-01-16 08:37:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     163,
+    42,
     18,
-    7,
-    'REJECTED',
-    5,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-11-27 16:54:46'
+    'PENDING',
+    3,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2025-12-03 11:23:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     164,
-    55,
-    44,
+    6,
+    13,
     'APPROVED',
-    5,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2025-12-16 00:49:46'
+    4,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2025-12-23 05:14:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     165,
-    7,
-    40,
+    41,
+    41,
     'APPROVED',
-    5,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2025-12-26 02:17:46'
+    4,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-06 06:50:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     166,
-    70,
-    35,
-    'PENDING',
+    24,
+    20,
+    'APPROVED',
     3,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2026-01-19 00:52:46'
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-23 07:36:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     167,
-    13,
-    35,
+    17,
+    22,
     'APPROVED',
     4,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2026-01-10 17:07:46'
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-01 06:39:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     168,
-    65,
-    35,
+    67,
+    16,
     'APPROVED',
-    3,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-13 08:33:46'
+    5,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2025-12-21 02:31:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     169,
-    51,
-    18,
-    'PENDING',
-    5,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2026-01-09 19:14:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    170,
-    34,
-    45,
-    'APPROVED',
-    5,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2026-01-11 03:56:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    171,
-    59,
-    18,
-    'APPROVED',
-    5,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2026-01-11 23:18:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    172,
-    49,
-    33,
-    'APPROVED',
-    4,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2025-12-24 03:47:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    173,
-    32,
     37,
-    'APPROVED',
-    3,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2025-12-05 14:03:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    174,
-    71,
-    6,
-    'PENDING',
-    4,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2025-12-15 09:49:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    175,
-    64,
-    29,
-    'REJECTED',
-    4,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-20 05:20:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    176,
-    17,
-    2,
-    'APPROVED',
-    3,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2025-12-09 18:04:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    177,
-    55,
-    28,
-    'REJECTED',
-    3,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2025-12-02 16:33:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    178,
-    30,
-    43,
-    'PENDING',
-    4,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-08 06:09:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    179,
-    18,
-    39,
-    'APPROVED',
-    4,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2025-12-15 10:14:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    180,
-    49,
-    28,
-    'APPROVED',
-    5,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2025-12-03 10:41:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    181,
-    9,
-    29,
-    'APPROVED',
-    5,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2025-12-15 08:14:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    182,
-    68,
-    51,
-    'APPROVED',
-    4,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2025-11-27 16:01:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    183,
-    11,
-    24,
-    'APPROVED',
-    3,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2025-12-29 13:11:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    184,
-    68,
-    21,
-    'APPROVED',
-    5,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2026-01-07 12:37:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    185,
-    65,
-    47,
-    'APPROVED',
-    3,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2026-01-08 08:10:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    186,
-    8,
-    10,
-    'APPROVED',
-    3,
-    'Bardzo dobre, zamawiam już kolejny raz.',
-    TIMESTAMP '2025-12-02 14:45:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    187,
-    22,
-    39,
-    'REJECTED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-11-29 19:50:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    188,
-    67,
-    49,
-    'APPROVED',
-    4,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2025-12-25 03:11:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    189,
-    16,
-    9,
-    'APPROVED',
-    4,
-    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
-    TIMESTAMP '2025-12-18 03:46:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    190,
-    56,
-    12,
-    'APPROVED',
-    4,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2026-01-10 04:07:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    191,
-    48,
-    17,
-    'APPROVED',
-    3,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2025-12-16 17:11:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    192,
-    32,
-    32,
-    'REJECTED',
-    4,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2026-01-06 16:53:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    193,
-    71,
-    45,
-    'APPROVED',
-    3,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2025-12-02 03:22:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    194,
-    54,
-    23,
-    'APPROVED',
-    3,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2025-12-15 11:35:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    195,
-    33,
-    9,
-    'PENDING',
-    4,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2025-12-12 04:57:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    196,
-    17,
-    31,
-    'APPROVED',
-    5,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2026-01-13 00:09:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    197,
-    25,
-    31,
-    'APPROVED',
-    3,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2026-01-01 20:33:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    198,
-    19,
-    11,
-    'REJECTED',
-    3,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2026-01-26 19:03:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    199,
-    32,
-    12,
-    'REJECTED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-28 23:00:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    200,
-    36,
-    2,
-    'APPROVED',
-    5,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-12 08:29:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    201,
-    48,
-    11,
-    'APPROVED',
-    5,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-24 13:13:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    202,
-    19,
-    47,
-    'APPROVED',
-    3,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2026-01-01 11:33:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    203,
-    41,
-    41,
-    'APPROVED',
-    5,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2026-01-20 08:55:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    204,
-    60,
-    28,
-    'APPROVED',
-    4,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2026-01-09 06:42:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    205,
-    29,
-    11,
-    'APPROVED',
-    5,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2026-01-18 01:12:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    206,
-    11,
-    30,
-    'APPROVED',
-    4,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2025-12-30 22:51:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    207,
-    8,
-    37,
-    'APPROVED',
-    5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2025-12-16 06:57:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    208,
-    21,
-    20,
-    'APPROVED',
-    3,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2025-11-29 00:30:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    209,
-    5,
-    12,
-    'APPROVED',
-    4,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2026-01-05 15:39:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    210,
-    37,
-    13,
-    'APPROVED',
-    3,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2025-11-28 20:16:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    211,
-    3,
-    21,
-    'APPROVED',
-    5,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-30 02:10:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    212,
-    6,
-    16,
-    'APPROVED',
-    4,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-25 15:35:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    213,
-    62,
-    18,
-    'APPROVED',
-    5,
-    'Bardzo dobra jakość w przystępnej cenie.',
-    TIMESTAMP '2025-12-26 16:36:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    214,
-    51,
-    36,
-    'APPROVED',
-    5,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-24 02:31:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    215,
-    45,
-    22,
-    'APPROVED',
-    5,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-20 08:22:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    216,
-    18,
-    32,
-    'APPROVED',
-    5,
-    'Bardzo dobre, zamawiam już kolejny raz.',
-    TIMESTAMP '2025-12-26 03:40:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    217,
-    56,
-    21,
-    'APPROVED',
-    3,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2026-01-19 04:27:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    218,
-    41,
-    8,
-    'APPROVED',
-    5,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-20 21:04:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    219,
-    36,
-    13,
-    'APPROVED',
-    3,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2026-01-10 01:27:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    220,
-    37,
-    27,
-    'PENDING',
-    3,
-    'Dobra jakość, ale cena mogłaby być niższa.',
-    TIMESTAMP '2025-12-26 14:24:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    221,
-    54,
-    22,
-    'REJECTED',
-    3,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2026-01-14 01:47:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    222,
-    23,
-    49,
-    'APPROVED',
-    4,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2025-11-27 19:54:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    223,
-    11,
-    5,
-    'APPROVED',
-    4,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2025-12-17 05:19:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    224,
-    45,
-    22,
-    'APPROVED',
-    4,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2025-12-22 02:18:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    225,
-    13,
-    7,
-    'REJECTED',
-    4,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2026-01-24 15:53:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    226,
-    58,
-    33,
-    'APPROVED',
-    3,
-    'Bardzo dobre, zamawiam już kolejny raz.',
-    TIMESTAMP '2026-01-18 07:27:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    227,
-    9,
-    28,
-    'APPROVED',
-    5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2026-01-17 12:03:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    228,
-    22,
-    16,
-    'APPROVED',
-    4,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2025-12-23 12:12:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    229,
-    44,
-    28,
-    'REJECTED',
-    3,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2025-11-27 08:13:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    230,
-    26,
-    15,
-    'APPROVED',
-    3,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-18 14:09:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    231,
-    34,
-    12,
-    'APPROVED',
-    4,
-    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
-    TIMESTAMP '2025-12-31 23:25:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    232,
-    37,
-    26,
-    'APPROVED',
-    4,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2026-01-04 10:29:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    233,
-    30,
-    41,
-    'APPROVED',
-    3,
-    'Godne polecenia, bardzo dobry wybór.',
-    TIMESTAMP '2026-01-18 15:34:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    234,
-    12,
-    47,
-    'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-16 17:36:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    235,
-    46,
-    29,
-    'APPROVED',
-    3,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2025-12-28 14:16:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    236,
-    3,
-    51,
-    'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-17 05:03:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    237,
-    58,
-    13,
-    'APPROVED',
-    5,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2025-12-12 07:10:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    238,
-    3,
-    11,
-    'REJECTED',
-    3,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2025-11-28 14:04:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    239,
-    59,
-    6,
-    'APPROVED',
-    4,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2025-12-24 06:26:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    240,
-    51,
-    49,
-    'APPROVED',
-    4,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2026-01-15 20:38:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    241,
-    7,
-    18,
-    'APPROVED',
-    4,
-    'Bardzo dobra jakość w przystępnej cenie.',
-    TIMESTAMP '2026-01-11 01:14:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    242,
-    67,
-    30,
-    'REJECTED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-04 10:05:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    243,
-    65,
-    25,
-    'APPROVED',
-    4,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2025-12-18 09:02:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    244,
-    64,
-    10,
-    'APPROVED',
-    4,
-    'Świetna karma, pies je z wielkim apetytem.',
-    TIMESTAMP '2025-12-16 20:52:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    245,
-    12,
-    17,
-    'APPROVED',
-    5,
-    'Produkt ok, spełnia swoje zadanie.',
-    TIMESTAMP '2026-01-25 14:21:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    246,
-    14,
-    36,
-    'APPROVED',
-    4,
-    'Solidne wykonanie, polecam.',
-    TIMESTAMP '2026-01-17 21:04:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    247,
-    60,
-    51,
-    'APPROVED',
-    5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2025-12-05 07:11:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    248,
-    14,
-    23,
-    'APPROVED',
-    4,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2026-01-19 12:24:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    249,
-    1,
-    24,
-    'APPROVED',
-    5,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2026-01-24 21:08:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    250,
-    9,
-    33,
-    'APPROVED',
-    4,
-    'Kot oszalał na punkcie tych przysmaków!',
-    TIMESTAMP '2025-12-31 06:28:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    251,
-    54,
-    36,
-    'APPROVED',
-    4,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2026-01-01 03:03:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    252,
-    46,
-    32,
-    'APPROVED',
-    3,
-    'Zwierzak jest szczęśliwy, więc ja też!',
-    TIMESTAMP '2025-12-19 12:01:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    253,
-    49,
-    25,
-    'APPROVED',
-    3,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2025-12-21 15:35:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    254,
-    44,
-    34,
-    'APPROVED',
-    5,
-    'Bardzo dobre, zamawiam już kolejny raz.',
-    TIMESTAMP '2025-12-22 22:19:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    255,
-    61,
-    19,
-    'PENDING',
-    5,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2025-12-07 09:52:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    256,
-    68,
-    47,
-    'APPROVED',
-    4,
-    'Na pewno wrócę po więcej!',
-    TIMESTAMP '2026-01-20 04:45:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    257,
-    66,
-    8,
-    'APPROVED',
-    5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2026-01-01 03:09:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    258,
-    15,
-    27,
-    'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2026-01-23 00:29:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    259,
-    27,
-    35,
-    'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-14 08:37:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    260,
-    21,
-    22,
-    'APPROVED',
-    5,
-    'Mój chomik uwielbia tę karmę.',
-    TIMESTAMP '2025-12-20 08:13:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    261,
-    39,
-    48,
-    'REJECTED',
-    5,
-    'Super! Zwierzak jest zachwycony.',
-    TIMESTAMP '2025-12-04 14:16:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    262,
-    45,
-    35,
-    'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-14 14:04:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    263,
-    45,
-    20,
-    'APPROVED',
-    5,
-    'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2026-01-18 09:26:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    264,
-    53,
-    2,
-    'APPROVED',
-    3,
-    'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-12-08 18:54:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    265,
-    40,
-    8,
-    'APPROVED',
-    5,
-    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
-    TIMESTAMP '2026-01-14 09:11:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    266,
-    53,
-    28,
-    'APPROVED',
-    5,
-    'Polecam, szybka dostawa i świetna obsługa.',
-    TIMESTAMP '2026-01-21 14:15:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    267,
-    27,
-    25,
-    'APPROVED',
-    4,
-    'Bardzo dobre, zamawiam już kolejny raz.',
-    TIMESTAMP '2026-01-08 16:32:46'
-);
-INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    268,
-    8,
     42,
     'APPROVED',
     3,
-    'Szybka wysyłka, produkt dobrze zapakowany.',
-    TIMESTAMP '2026-01-07 03:39:46'
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-11 02:30:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    269,
-    27,
-    51,
+    170,
+    49,
+    9,
+    'APPROVED',
+    4,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2026-01-24 23:43:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    171,
+    12,
+    14,
+    'APPROVED',
+    4,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-07 15:44:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    172,
+    35,
+    6,
+    'REJECTED',
+    3,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2026-01-17 23:02:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    173,
+    63,
+    31,
+    'APPROVED',
+    4,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-29 02:23:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    174,
+    13,
+    16,
     'APPROVED',
     3,
-    'Dobry produkt w rozsądnej cenie.',
-    TIMESTAMP '2025-12-06 05:55:46'
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2026-01-25 18:41:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    270,
-    29,
-    40,
+    175,
+    47,
+    20,
+    'PENDING',
+    3,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2026-01-20 18:06:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    176,
+    9,
+    26,
     'APPROVED',
-    5,
-    'Jestem pod wrażeniem jakości.',
-    TIMESTAMP '2025-12-09 16:31:46'
+    3,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2025-12-09 18:24:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
-    271,
-    56,
-    27,
+    177,
+    15,
+    12,
     'APPROVED',
     5,
     'Produkt zgodny z opisem, jestem zadowolony/a.',
-    TIMESTAMP '2025-11-30 05:00:46'
+    TIMESTAMP '2025-12-10 23:20:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    178,
+    33,
+    40,
+    'APPROVED',
+    3,
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2025-12-07 04:57:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    179,
+    11,
+    16,
+    'APPROVED',
+    3,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2025-12-03 09:30:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    180,
+    48,
+    7,
+    'PENDING',
+    3,
+    'Solidne wykonanie, polecam.',
+    TIMESTAMP '2025-11-30 22:34:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    181,
+    16,
+    44,
+    'APPROVED',
+    3,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2026-01-13 14:08:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    182,
+    2,
+    32,
+    'APPROVED',
+    4,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2026-01-21 00:44:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    183,
+    28,
+    7,
+    'APPROVED',
+    5,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-12-05 05:05:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    184,
+    16,
+    36,
+    'APPROVED',
+    3,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-22 23:06:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    185,
+    62,
+    44,
+    'APPROVED',
+    5,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-07 23:16:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    186,
+    20,
+    18,
+    'APPROVED',
+    4,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2026-01-22 11:44:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    187,
+    28,
+    36,
+    'APPROVED',
+    3,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-26 19:42:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    188,
+    50,
+    44,
+    'APPROVED',
+    4,
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2025-12-04 08:50:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    189,
+    1,
+    27,
+    'APPROVED',
+    5,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2026-01-04 12:45:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    190,
+    55,
+    10,
+    'APPROVED',
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-26 15:27:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    191,
+    43,
+    15,
+    'APPROVED',
+    5,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2025-12-14 10:08:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    192,
+    33,
+    28,
+    'PENDING',
+    4,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2026-01-19 23:38:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    193,
+    28,
+    7,
+    'REJECTED',
+    3,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-05 11:56:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    194,
+    57,
+    21,
+    'PENDING',
+    4,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-24 00:43:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    195,
+    65,
+    19,
+    'APPROVED',
+    3,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-11-27 16:53:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    196,
+    52,
+    51,
+    'APPROVED',
+    3,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2026-01-16 18:11:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    197,
+    11,
+    47,
+    'APPROVED',
+    3,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-31 03:42:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    198,
+    35,
+    10,
+    'APPROVED',
+    4,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-23 08:14:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    199,
+    65,
+    31,
+    'PENDING',
+    3,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-03 04:35:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    200,
+    6,
+    6,
+    'APPROVED',
+    5,
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2025-12-17 05:37:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    201,
+    36,
+    17,
+    'APPROVED',
+    5,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2026-01-14 11:33:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    202,
+    32,
+    38,
+    'APPROVED',
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-06 07:22:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    203,
+    43,
+    45,
+    'APPROVED',
+    3,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2025-12-09 10:41:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    204,
+    33,
+    33,
+    'APPROVED',
+    4,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2025-12-12 23:31:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    205,
+    60,
+    15,
+    'APPROVED',
+    5,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-24 16:08:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    206,
+    34,
+    37,
+    'APPROVED',
+    3,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2026-01-02 23:06:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    207,
+    54,
+    27,
+    'APPROVED',
+    4,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2025-12-25 07:41:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    208,
+    19,
+    7,
+    'PENDING',
+    3,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2026-01-19 11:36:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    209,
+    45,
+    20,
+    'APPROVED',
+    4,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2025-12-14 08:49:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    210,
+    38,
+    51,
+    'APPROVED',
+    3,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2026-01-02 02:50:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    211,
+    62,
+    6,
+    'APPROVED',
+    3,
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2026-01-22 10:22:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    212,
+    31,
+    50,
+    'APPROVED',
+    3,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-22 08:02:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    213,
+    34,
+    8,
+    'APPROVED',
+    5,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-16 14:17:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    214,
+    26,
+    31,
+    'APPROVED',
+    4,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2026-01-06 21:25:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    215,
+    36,
+    25,
+    'PENDING',
+    5,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2026-01-23 09:26:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    216,
+    8,
+    24,
+    'APPROVED',
+    4,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2026-01-02 23:31:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    217,
+    14,
+    7,
+    'PENDING',
+    5,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2026-01-01 19:58:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    218,
+    19,
+    43,
+    'APPROVED',
+    3,
+    'Dobry produkt w rozsądnej cenie.',
+    TIMESTAMP '2025-12-14 09:41:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    219,
+    62,
+    44,
+    'APPROVED',
+    4,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2026-01-17 16:05:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    220,
+    9,
+    42,
+    'APPROVED',
+    3,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-29 18:43:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    221,
+    1,
+    19,
+    'APPROVED',
+    4,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2025-12-09 16:37:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    222,
+    5,
+    16,
+    'APPROVED',
+    4,
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2025-12-22 04:58:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    223,
+    62,
+    35,
+    'PENDING',
+    5,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2026-01-06 17:17:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    224,
+    8,
+    23,
+    'APPROVED',
+    3,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2026-01-03 08:27:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    225,
+    24,
+    41,
+    'APPROVED',
+    5,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2026-01-07 15:43:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    226,
+    50,
+    46,
+    'APPROVED',
+    4,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-11-30 21:03:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    227,
+    35,
+    37,
+    'REJECTED',
+    3,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-16 15:38:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    228,
+    44,
+    11,
+    'APPROVED',
+    4,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-24 23:44:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    229,
+    59,
+    19,
+    'APPROVED',
+    5,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-03 14:41:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    230,
+    27,
+    24,
+    'PENDING',
+    3,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2026-01-23 02:26:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    231,
+    24,
+    25,
+    'REJECTED',
+    3,
+    'Solidne wykonanie, polecam.',
+    TIMESTAMP '2025-12-28 10:28:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    232,
+    32,
+    36,
+    'APPROVED',
+    4,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2026-01-04 07:52:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    233,
+    59,
+    30,
+    'APPROVED',
+    3,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2026-01-10 13:28:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    234,
+    1,
+    15,
+    'APPROVED',
+    5,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2026-01-08 04:17:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    235,
+    56,
+    36,
+    'APPROVED',
+    5,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2025-11-29 16:47:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    236,
+    49,
+    13,
+    'APPROVED',
+    4,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2025-12-12 11:08:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    237,
+    11,
+    50,
+    'REJECTED',
+    5,
+    'Godne polecenia, bardzo dobry wybór.',
+    TIMESTAMP '2025-11-27 06:01:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    238,
+    32,
+    15,
+    'PENDING',
+    4,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2025-12-12 04:41:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    239,
+    22,
+    21,
+    'APPROVED',
+    5,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2025-12-31 18:17:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    240,
+    23,
+    12,
+    'PENDING',
+    4,
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2025-11-30 06:21:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    241,
+    40,
+    4,
+    'PENDING',
+    3,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-25 10:08:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    242,
+    47,
+    28,
+    'APPROVED',
+    3,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2025-12-03 16:59:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    243,
+    50,
+    15,
+    'APPROVED',
+    4,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2026-01-09 03:15:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    244,
+    16,
+    25,
+    'APPROVED',
+    4,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2025-12-14 16:12:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    245,
+    30,
+    41,
+    'APPROVED',
+    5,
+    'Dobry produkt w rozsądnej cenie.',
+    TIMESTAMP '2025-11-28 19:58:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    246,
+    45,
+    40,
+    'APPROVED',
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2026-01-12 08:20:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    247,
+    41,
+    26,
+    'APPROVED',
+    3,
+    'Jestem pod wrażeniem jakości.',
+    TIMESTAMP '2025-12-10 23:39:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    248,
+    13,
+    22,
+    'APPROVED',
+    5,
+    'Wysokiej jakości produkt, polecam wszystkim właścicielom zwierząt.',
+    TIMESTAMP '2026-01-16 04:32:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    249,
+    63,
+    40,
+    'REJECTED',
+    4,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-21 13:04:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    250,
+    43,
+    45,
+    'APPROVED',
+    4,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2026-01-04 10:40:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    251,
+    32,
+    14,
+    'APPROVED',
+    3,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2026-01-20 14:34:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    252,
+    9,
+    9,
+    'REJECTED',
+    4,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-14 23:42:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    253,
+    48,
+    33,
+    'APPROVED',
+    5,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2026-01-04 06:40:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    254,
+    53,
+    18,
+    'APPROVED',
+    5,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2025-12-02 00:42:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    255,
+    23,
+    2,
+    'APPROVED',
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2026-01-22 20:20:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    256,
+    40,
+    50,
+    'PENDING',
+    5,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2026-01-14 03:14:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    257,
+    42,
+    36,
+    'APPROVED',
+    3,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-11 02:08:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    258,
+    7,
+    10,
+    'APPROVED',
+    4,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2025-12-16 13:25:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    259,
+    40,
+    15,
+    'APPROVED',
+    4,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-12 11:52:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    260,
+    30,
+    17,
+    'REJECTED',
+    3,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2026-01-07 00:07:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    261,
+    27,
+    44,
+    'APPROVED',
+    3,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2026-01-19 23:02:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    262,
+    11,
+    40,
+    'APPROVED',
+    5,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-18 22:09:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    263,
+    66,
+    14,
+    'APPROVED',
+    5,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-19 18:49:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    264,
+    51,
+    49,
+    'APPROVED',
+    3,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2025-12-01 16:50:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    265,
+    63,
+    51,
+    'APPROVED',
+    5,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-11-30 07:38:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    266,
+    54,
+    17,
+    'APPROVED',
+    3,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-03 08:27:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    267,
+    39,
+    21,
+    'APPROVED',
+    5,
+    'Dobra jakość, ale cena mogłaby być niższa.',
+    TIMESTAMP '2025-12-18 00:46:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    268,
+    43,
+    42,
+    'APPROVED',
+    5,
+    'Szybka wysyłka, produkt dobrze zapakowany.',
+    TIMESTAMP '2026-01-06 03:53:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    269,
+    65,
+    46,
+    'APPROVED',
+    5,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2025-12-16 14:18:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    270,
+    7,
+    44,
+    'APPROVED',
+    3,
+    'Bardzo dobra jakość w przystępnej cenie.',
+    TIMESTAMP '2025-11-30 01:40:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    271,
+    18,
+    35,
+    'APPROVED',
+    3,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2026-01-24 09:35:51'
 );
 INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
     272,
-    60,
+    24,
+    9,
+    'APPROVED',
     4,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-17 00:12:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    273,
+    18,
+    2,
+    'APPROVED',
+    3,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2026-01-20 22:50:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    274,
+    11,
+    46,
+    'APPROVED',
+    4,
+    'Na pewno wrócę po więcej!',
+    TIMESTAMP '2025-12-12 15:02:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    275,
+    66,
+    15,
+    'APPROVED',
+    3,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2026-01-22 07:00:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    276,
+    13,
+    15,
+    'APPROVED',
+    4,
+    'Zwierzak jest szczęśliwy, więc ja też!',
+    TIMESTAMP '2025-12-24 21:31:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    277,
+    16,
+    15,
+    'APPROVED',
+    5,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2026-01-10 21:27:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    278,
+    10,
+    7,
+    'APPROVED',
+    3,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-23 17:22:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    279,
+    26,
+    33,
+    'REJECTED',
+    5,
+    'Kot oszalał na punkcie tych przysmaków!',
+    TIMESTAMP '2026-01-18 06:01:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    280,
+    35,
+    44,
+    'REJECTED',
+    5,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-15 04:47:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    281,
+    33,
+    5,
+    'APPROVED',
+    5,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-13 08:10:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    282,
+    9,
+    22,
+    'APPROVED',
+    5,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2025-12-24 10:55:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    283,
+    45,
+    13,
+    'APPROVED',
+    4,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2026-01-14 14:06:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    284,
+    7,
+    3,
+    'REJECTED',
+    4,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2026-01-18 15:54:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    285,
+    27,
+    46,
+    'APPROVED',
+    4,
+    'Polecam, szybka dostawa i świetna obsługa.',
+    TIMESTAMP '2026-01-13 07:22:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    286,
+    9,
+    43,
+    'APPROVED',
+    5,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-12-10 18:59:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    287,
+    41,
+    14,
+    'APPROVED',
+    3,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2026-01-15 22:26:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    288,
+    38,
+    43,
     'APPROVED',
     5,
     'Świetny produkt! Mój pies/kot go uwielbia.',
-    TIMESTAMP '2025-12-23 08:18:46'
+    TIMESTAMP '2025-12-16 06:06:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    289,
+    22,
+    31,
+    'APPROVED',
+    5,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2026-01-20 16:08:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    290,
+    20,
+    3,
+    'APPROVED',
+    3,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-13 16:36:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    291,
+    8,
+    50,
+    'APPROVED',
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2025-12-27 10:49:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    292,
+    24,
+    2,
+    'APPROVED',
+    4,
+    'Super! Zwierzak jest zachwycony.',
+    TIMESTAMP '2025-12-31 18:06:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    293,
+    15,
+    37,
+    'PENDING',
+    4,
+    'Mój chomik uwielbia tę karmę.',
+    TIMESTAMP '2025-11-28 18:43:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    294,
+    8,
+    15,
+    'APPROVED',
+    3,
+    'Produkt zgodny z opisem, jestem zadowolony/a.',
+    TIMESTAMP '2025-12-25 12:43:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    295,
+    53,
+    48,
+    'APPROVED',
+    4,
+    'Świetna karma, pies je z wielkim apetytem.',
+    TIMESTAMP '2025-12-19 21:15:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    296,
+    12,
+    21,
+    'APPROVED',
+    4,
+    'Mój pupil je z apetytem, na pewno zamówię ponownie.',
+    TIMESTAMP '2025-12-12 15:26:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    297,
+    25,
+    30,
+    'APPROVED',
+    3,
+    'Produkt ok, spełnia swoje zadanie.',
+    TIMESTAMP '2025-12-25 19:39:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    298,
+    6,
+    17,
+    'APPROVED',
+    3,
+    'Świetny produkt! Mój pies/kot go uwielbia.',
+    TIMESTAMP '2026-01-03 21:55:51'
+);
+INSERT INTO reviews (id, product_id, user_id, status, rating, comment, created_at) VALUES (
+    299,
+    7,
+    10,
+    'APPROVED',
+    4,
+    'Bardzo dobre, zamawiam już kolejny raz.',
+    TIMESTAMP '2025-12-02 02:21:51'
 );
 
 -- Reset sequences
@@ -13187,12 +12530,12 @@ ALTER TABLE categories ALTER COLUMN id RESTART WITH 7;
 ALTER TABLE subcategories ALTER COLUMN id RESTART WITH 61;
 ALTER TABLE users ALTER COLUMN id RESTART WITH 52;
 ALTER TABLE products ALTER COLUMN id RESTART WITH 72;
-ALTER TABLE orders ALTER COLUMN id RESTART WITH 132;
-ALTER TABLE order_items ALTER COLUMN id RESTART WITH 416;
-ALTER TABLE reviews ALTER COLUMN id RESTART WITH 273;
+ALTER TABLE orders ALTER COLUMN id RESTART WITH 115;
+ALTER TABLE order_items ALTER COLUMN id RESTART WITH 370;
+ALTER TABLE reviews ALTER COLUMN id RESTART WITH 300;
 
 -- Enable foreign key checks
 SET REFERENTIAL_INTEGRITY TRUE;
 
 -- Done!
--- Total records: 1023
+-- Total records: 987
