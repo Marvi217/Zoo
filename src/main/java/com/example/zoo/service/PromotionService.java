@@ -340,6 +340,14 @@ public class PromotionService {
         return promotionRepository.countActivePromotions(LocalDate.now());
     }
 
+    public long getUpcomingPromotionsCount() {
+        return promotionRepository.countUpcomingPromotions(LocalDate.now());
+    }
+
+    public long getTotalUsageCount() {
+        return promotionRepository.sumTotalUsage();
+    }
+
     public List<Promotion> getPromotionsEndingSoon(int days) {
         LocalDate now = LocalDate.now();
         LocalDate futureDate = now.plusDays(days);

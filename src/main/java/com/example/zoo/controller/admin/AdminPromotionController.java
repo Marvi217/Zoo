@@ -63,13 +63,10 @@ public class AdminPromotionController {
             promotions = promotionService.getAllPromotions(pageRequest);
         }
 
-        // Statystyki promocji
+        // Statystyki promocji (używamy wydajnych zapytań COUNT/SUM)
         long activePromotionsCount = promotionService.getActivePromotionsCount();
-        long scheduledPromotionsCount = promotionService.getUpcomingPromotions(PageRequest.of(0, 1)).getTotalElements();
-        int totalUses = promotionService.getAllPromotions(PageRequest.of(0, Integer.MAX_VALUE))
-                .getContent().stream()
-                .mapToInt(Promotion::getCurrentUsage)
-                .sum();
+        long scheduledPromotionsCount = promotionService.getUpcomingPromotionsCount();
+        long totalUses = promotionService.getTotalUsageCount();
 
         model.addAttribute("promotions", promotions);
         model.addAttribute("currentPage", page);
