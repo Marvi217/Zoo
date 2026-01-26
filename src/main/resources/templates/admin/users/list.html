@@ -170,6 +170,11 @@
 
 <script>
     function openPasswordModal(userId, userEmail) {
+        // Validate userId is a number to prevent injection
+        if (!/^\d+$/.test(userId)) {
+            console.error('Invalid user ID');
+            return;
+        }
         document.getElementById('modalUserEmail').textContent = 'Użytkownik: ' + userEmail;
         document.getElementById('passwordForm').action = '/admin/users/' + userId + '/change-password-redirect';
         document.getElementById('newPassword').value = '';

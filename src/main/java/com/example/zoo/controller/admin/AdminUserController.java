@@ -199,8 +199,9 @@ public class AdminUserController {
     public String toggleActive(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
             User user = userService.getUserById(id);
+            boolean wasActive = user.isActive();
             userService.toggleActive(id);
-            String status = user.isActive() ? "zablokowany" : "odblokowany";
+            String status = wasActive ? "zablokowany" : "odblokowany";
             redirectAttributes.addFlashAttribute("success",
                     "Użytkownik '" + user.getEmail() + "' został " + status);
         } catch (Exception e) {
@@ -219,6 +220,11 @@ public class AdminUserController {
 
         if (!newPassword.equals(confirmPassword)) {
             redirectAttributes.addFlashAttribute("error", "Hasła nie są identyczne");
+            return "redirect:/admin/users";
+        }
+
+        if (newPassword.length() < 6) {
+            redirectAttributes.addFlashAttribute("error", "Hasło musi mieć co najmniej 6 znaków");
             return "redirect:/admin/users";
         }
 
