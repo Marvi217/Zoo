@@ -279,12 +279,16 @@ public class Product {
         }
         Integer buyQty = promotion.getBuyQuantity();
         Integer getQty = promotion.getGetQuantity();
-        if (buyQty == null || getQty == null || buyQty <= 0) {
+        if (buyQty == null || getQty == null || buyQty <= 0 || getQty < 0) {
+            return null;
+        }
+        int totalQty = buyQty + getQty;
+        if (totalQty <= 0) {
             return null;
         }
         // Effective price per item = (price * buyQty) / (buyQty + getQty)
         BigDecimal totalPrice = price.multiply(new BigDecimal(buyQty));
-        BigDecimal totalQuantity = new BigDecimal(buyQty + getQty);
+        BigDecimal totalQuantity = new BigDecimal(totalQty);
         return totalPrice.divide(totalQuantity, 2, RoundingMode.HALF_UP);
     }
 
