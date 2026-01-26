@@ -74,7 +74,9 @@
             <div class="availability" th:classappend="${product.available ? 'in-stock' : 'low-stock'}">
                 <span class="availability-icon">✓</span>
                 <span class="availability-text"
-                      th:text="${product.available ? #{product.available} : #{product.unavailable}}">Dostępny - wysyłka w 24h</span>
+                      th:if="${product.available}" th:text="#{product.available}">Dostępny - wysyłka w 24h</span>
+                <span class="availability-text"
+                      th:unless="${product.available}" th:text="#{product.unavailable}">Niedostępny</span>
             </div>
 
             <!-- PURCHASE SECTION -->
@@ -162,8 +164,10 @@
                 </div>
                 <div class="spec-item">
                     <span class="spec-label" th:text="#{product.specs.availability}">Dostępność:</span>
-                    <span class="spec-value"
-                          th:text="${product.available ? #{product.specs.available} : #{product.specs.unavailable}}">Dostępny</span>
+                    <span class="spec-value" th:if="${product.available}"
+                          th:text="#{product.specs.available}">Dostępny</span>
+                    <span class="spec-value" th:unless="${product.available}"
+                          th:text="#{product.specs.unavailable}">Niedostępny</span>
                 </div>
             </div>
         </div>
