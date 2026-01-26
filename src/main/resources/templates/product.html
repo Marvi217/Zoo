@@ -35,7 +35,7 @@
 
         <!-- PRODUCT INFO -->
         <div class="product-info">
-            <div class="product-badge" th:if="${product.hasDiscount}"
+            <div class="product-badge" th:if="${product.hasDiscount and !product.buyXGetYPromotion and product.discountPercent > 0}"
                  th:text="'-' + ${product.discountPercent} + '%'">-25%</div>
 
             <h1 class="product-title" th:text="${product.name}">Nazwa produktu</h1>
@@ -53,12 +53,12 @@
 
             <!-- PRICE -->
             <div class="price-section">
-                <div class="old-price" th:if="${product.hasDiscount}"
+                <div class="old-price" th:if="${product.hasDiscount and !product.buyXGetYPromotion}"
                      th:text="${#numbers.formatDecimal(product.oldPrice, 1, 2)} + ' ' + #{general.currency}">252.00 zł</div>
                 <div class="current-price"
                      th:text="${#numbers.formatDecimal(product.currentPrice, 1, 2)} + ' ' + #{general.currency}">189.00 zł</div>
                 <div class="price-info">
-                    <span class="savings" th:if="${product.hasDiscount}">
+                    <span class="savings" th:if="${product.hasDiscount and !product.buyXGetYPromotion and product.savingsAmount > 0}">
                         <span th:text="#{product.price.savings}">Oszczędzasz</span>
                         <span th:text="${#numbers.formatDecimal(product.savingsAmount, 1, 2)}">63</span>
                         <span th:text="#{general.currency}">zł</span>!
