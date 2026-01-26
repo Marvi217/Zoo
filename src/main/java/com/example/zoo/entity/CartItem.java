@@ -16,4 +16,12 @@ public class CartItem {
     public BigDecimal getSubtotal() {
         return product.getPrice().multiply(BigDecimal.valueOf(quantity));
     }
+
+    public BigDecimal getPrice() {
+        return product.getPrice();
+    }
+
+    public BigDecimal getTotalPrice() {
+        return getSubtotal();
+    }
 }
