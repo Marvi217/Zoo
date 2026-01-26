@@ -67,7 +67,7 @@ public class CategoryController {
         }
 
         Sort sortOrder;
-        switch (sort != null ? sort : "newest") {
+        switch (sort != null ? sort : "default") {
             case "price-asc" -> sortOrder = Sort.by("price").ascending();
             case "price-desc" -> sortOrder = Sort.by("price").descending();
             case "popularity" -> sortOrder = Sort.by("stockQuantity").descending();
@@ -116,7 +116,7 @@ public class CategoryController {
         model.addAttribute("starHelper", new StarHelper());
         
         // Add current filter values for form preservation
-        model.addAttribute("currentSort", sort != null ? sort : "newest");
+        model.addAttribute("currentSort", sort != null ? sort : "default");
         model.addAttribute("selectedSubcategories", subcategory != null ? subcategory : Collections.emptyList());
         model.addAttribute("selectedBrands", brands != null ? brands : Collections.emptyList());
         model.addAttribute("currentMinPrice", minPrice);

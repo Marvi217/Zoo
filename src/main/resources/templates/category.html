@@ -99,7 +99,7 @@
                 <div class="sort-controls">
                     <label th:text="#{category.sort}">Sortuj:</label>
                     <select id="sortSelect" onchange="updateSort(this.value)">
-                        <option value="newest" th:selected="${currentSort == 'newest' or currentSort == null}"
+                        <option value="default" th:selected="${currentSort == 'default' or currentSort == null}"
                                 th:text="#{category.sort.default}">Domyślnie</option>
                         <option value="price-asc" th:selected="${currentSort == 'price-asc'}"
                                 th:text="#{category.sort.price.asc}">Cena: rosnąco</option>
@@ -173,14 +173,16 @@
             <!-- PAGINATION -->
             <div class="pagination" th:if="${productPage.totalPages > 1}">
                 <a th:if="${productPage.number > 0}"
-                   th:href="@{/category/{slug}(slug=${category.slug}, page=${productPage.number - 1}, sort=${currentSort}, minPrice=${currentMinPrice}, maxPrice=${currentMaxPrice})}"
-                   class="pagination-btn">← Poprzednia</a>
+                   th:data-page="${productPage.number - 1}"
+                   onclick="goToPage(this.getAttribute('data-page'))"
+                   class="pagination-btn" style="cursor: pointer;">← Poprzednia</a>
                 <span class="pagination-info">
                     <span th:text="${productPage.number + 1}">1</span> / <span th:text="${productPage.totalPages}">1</span>
                 </span>
                 <a th:if="${productPage.number < productPage.totalPages - 1}"
-                   th:href="@{/category/{slug}(slug=${category.slug}, page=${productPage.number + 1}, sort=${currentSort}, minPrice=${currentMinPrice}, maxPrice=${currentMaxPrice})}"
-                   class="pagination-btn">Następna →</a>
+                   th:data-page="${productPage.number + 1}"
+                   onclick="goToPage(this.getAttribute('data-page'))"
+                   class="pagination-btn" style="cursor: pointer;">Następna →</a>
             </div>
         </div>
     </div>
@@ -200,6 +202,12 @@
         const sortInput = form.querySelector('input[name="sort"]');
         sortInput.value = sortValue;
         form.submit();
+    }
+
+    function goToPage(pageNum) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('page', pageNum);
+        window.location.href = url.toString();
     }
 
     function toggleFilters() {
