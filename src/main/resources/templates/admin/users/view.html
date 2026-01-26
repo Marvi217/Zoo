@@ -100,20 +100,16 @@
                             </td>
                             <td th:text="${#temporals.format(order.orderDate, 'dd.MM.yyyy HH:mm')}">01.01.2024</td>
                             <td>
-                                <span class="badge" 
-                                      th:text="${order.status.displayName}"
-                                      th:styleappend="${order.status.name() == 'DELIVERED' ? 'background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; font-size: 11px;' : 
-                                                       order.status.name() == 'CANCELLED' ? 'background: #f8d7da; color: #721c24; padding: 4px 8px; border-radius: 4px; font-size: 11px;' :
-                                                       'background: #fff3cd; color: #856404; padding: 4px 8px; border-radius: 4px; font-size: 11px;'}">
+                                <span th:text="${order.status.displayName}"
+                                      style="padding: 4px 8px; border-radius: 4px; font-size: 11px;"
+                                      th:style="${order.status.name() == 'DELIVERED'} ? 'background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; font-size: 11px;' : (${order.status.name() == 'CANCELLED'} ? 'background: #f8d7da; color: #721c24; padding: 4px 8px; border-radius: 4px; font-size: 11px;' : 'background: #fff3cd; color: #856404; padding: 4px 8px; border-radius: 4px; font-size: 11px;')">
                                     Status
                                 </span>
                             </td>
                             <td>
-                                <span class="badge" 
-                                      th:text="${order.paymentStatus.displayName}"
-                                      th:styleappend="${order.paymentStatus.name() == 'PAID' ? 'background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; font-size: 11px;' : 
-                                                       order.paymentStatus.name() == 'FAILED' ? 'background: #f8d7da; color: #721c24; padding: 4px 8px; border-radius: 4px; font-size: 11px;' :
-                                                       'background: #e1f5fe; color: #01579b; padding: 4px 8px; border-radius: 4px; font-size: 11px;'}">
+                                <span th:text="${order.paymentStatus.displayName}"
+                                      style="padding: 4px 8px; border-radius: 4px; font-size: 11px;"
+                                      th:style="${order.paymentStatus.name() == 'PAID'} ? 'background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; font-size: 11px;' : (${order.paymentStatus.name() == 'FAILED'} ? 'background: #f8d7da; color: #721c24; padding: 4px 8px; border-radius: 4px; font-size: 11px;' : 'background: #e1f5fe; color: #01579b; padding: 4px 8px; border-radius: 4px; font-size: 11px;')">
                                     Status płatności
                                 </span>
                             </td>
@@ -161,11 +157,9 @@
                             </td>
                             <td th:text="${#temporals.format(review.createdAt, 'dd.MM.yyyy HH:mm')}">01.01.2024</td>
                             <td>
-                                <span class="badge" 
-                                      th:text="${review.status}"
-                                      th:styleappend="${review.status.name() == 'APPROVED' ? 'background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; font-size: 11px;' : 
-                                                       review.status.name() == 'REJECTED' ? 'background: #f8d7da; color: #721c24; padding: 4px 8px; border-radius: 4px; font-size: 11px;' :
-                                                       'background: #fff3cd; color: #856404; padding: 4px 8px; border-radius: 4px; font-size: 11px;'}">
+                                <span th:text="${review.status}"
+                                      style="padding: 4px 8px; border-radius: 4px; font-size: 11px;"
+                                      th:style="${review.status.name() == 'APPROVED'} ? 'background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; font-size: 11px;' : (${review.status.name() == 'REJECTED'} ? 'background: #f8d7da; color: #721c24; padding: 4px 8px; border-radius: 4px; font-size: 11px;' : 'background: #fff3cd; color: #856404; padding: 4px 8px; border-radius: 4px; font-size: 11px;')">
                                     Status
                                 </span>
                             </td>
