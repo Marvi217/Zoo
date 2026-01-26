@@ -97,6 +97,17 @@
         <div class="cart-summary">
             <h2 th:text="#{cart.summary}">Podsumowanie</h2>
 
+            <!-- Product list in summary -->
+            <div class="summary-products">
+                <div th:each="item : ${cart.items}" class="summary-product-row">
+                    <div class="summary-product-info">
+                        <span class="summary-product-name" th:text="${item.product.name}">Produkt</span>
+                        <span class="summary-product-qty" th:text="'× ' + ${item.quantity}">× 1</span>
+                    </div>
+                    <span class="summary-product-price" th:text="${#numbers.formatDecimal(item.totalPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                </div>
+            </div>
+
             <div class="summary-row">
                 <span th:text="#{cart.subtotal}">Wartość produktów</span>
                 <span th:text="${#numbers.formatDecimal(cart.subtotal, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>

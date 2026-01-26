@@ -1387,6 +1387,52 @@ footer {
     color: var(--brand-green);
 }
 
+/* Summary Products List */
+.summary-products {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.summary-product-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    font-size: 14px;
+    gap: 10px;
+}
+
+.summary-product-row:not(:last-child) {
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.summary-product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.summary-product-name {
+    color: var(--text-dark);
+    font-weight: 500;
+    line-height: 1.3;
+    word-wrap: break-word;
+}
+
+.summary-product-qty {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.summary-product-price {
+    font-weight: 600;
+    color: var(--text-dark);
+    white-space: nowrap;
+}
+
 /* Summary Total (used in cart.html) */
 .summary-total {
     display: flex;
