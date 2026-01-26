@@ -42,7 +42,11 @@
 
             <div th:each="item : ${cart.items}" class="cart-item">
                 <div class="item-product">
-                    <div class="item-image" th:text="${item.product.imageUrl}">🦴</div>
+                    <div class="item-image">
+                        <img th:if="${item.product.imageUrl != null and !item.product.imageUrl.isEmpty()}"
+                             th:src="${item.product.imageUrl}" th:alt="${item.product.name}">
+                        <span th:if="${item.product.imageUrl == null or item.product.imageUrl.isEmpty()}">🦴</span>
+                    </div>
                     <div class="item-details">
                         <h3 class="item-name" th:text="${item.product.name}">Nazwa produktu</h3>
                         <p class="item-brand" th:if="${item.product.brand != null}"
