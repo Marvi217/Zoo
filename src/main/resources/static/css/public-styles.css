@@ -3138,3 +3138,30 @@ footer {
         gap: 10px;
     }
 }
+
+/* ============================================
+   COLLAPSIBLE FILTER LIST
+   ============================================ */
+
+.brand-hidden {
+    display: none;
+}
+
+.btn-expand-filters {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--brand-green);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.btn-expand-filters:hover {
+    background: var(--brand-light);
+    border-color: var(--brand-green);
+}

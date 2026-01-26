@@ -32,58 +32,64 @@
 
         <!-- FILTERS SIDEBAR -->
         <aside class="sidebar">
-            <form id="filterForm" method="get" th:action="@{/category/{slug}(slug=${category.slug})}">
+            <div id="filterContainer">
                 <!-- Mobile close button -->
                 <button type="button" class="mobile-filter-close" onclick="toggleFilters()">✕</button>
                 
-                <!-- SUBCATEGORIES SECTION -->
+                <!-- SUBCATEGORIES SECTION - only show items with products > 0 -->
                 <div class="filter-section" th:if="${subCategories != null and !subCategories.isEmpty()}">
                     <h3 class="filter-title" th:text="#{category.filter.subcategories}">Subkategorie</h3>
-                    <div class="filter-group">
-                        <label class="filter-option" th:each="sub : ${subCategories}">
-                            <input type="checkbox" name="subcategory" th:value="${sub.id}"
-                                   th:checked="${selectedSubcategories.contains(sub.id)}">
-                            <span th:text="${sub.name}">Subkategoria</span>
-                            <span class="filter-count" th:text="'(' + ${sub.productCount} + ')'"></span>
-                        </label>
+                    <div class="filter-group" id="subcategoryFilters">
+                        <th:block th:each="sub, stat : ${subCategories}">
+                            <label class="filter-option" th:if="${sub.productCount > 0}">
+                                <input type="checkbox" name="subcategory" th:value="${sub.id}"
+                                       th:checked="${selectedSubcategories.contains(sub.id)}"
+                                       onchange="applyFiltersAsync()">
+                                <span th:text="${sub.name}">Subkategoria</span>
+                                <span class="filter-count" th:text="'(' + ${sub.productCount} + ')'"></span>
+                            </label>
+                        </th:block>
                     </div>
                 </div>
 
-                <!-- BRANDS SECTION -->
+                <!-- BRANDS SECTION - only show items with products > 0, collapsible after 5 -->
                 <div class="filter-section" th:if="${brandFilters != null and !brandFilters.isEmpty()}">
                     <h3 class="filter-title" th:text="#{category.filter.brand}">Marki</h3>
-                    <div class="filter-group">
-                        <label class="filter-option" th:each="brand : ${brandFilters}">
-                            <input type="checkbox" name="brands" th:value="${brand.id}"
-                                   th:checked="${selectedBrands.contains(brand.id)}">
-                            <span th:text="${brand.name}">Marka</span>
-                            <span class="filter-count" th:text="'(' + ${brand.count} + ')'"></span>
-                        </label>
+                    <div class="filter-group" id="brandFilters">
+                        <th:block th:each="brand, stat : ${brandFilters}">
+                            <label class="filter-option" th:if="${brand.count > 0}"
+                                   th:classappend="${stat.index >= 5} ? 'brand-hidden'">
+                                <input type="checkbox" name="brands" th:value="${brand.id}"
+                                       th:checked="${selectedBrands.contains(brand.id)}"
+                                       onchange="applyFiltersAsync()">
+                                <span th:text="${brand.name}">Marka</span>
+                                <span class="filter-count" th:text="'(' + ${brand.count} + ')'"></span>
+                            </label>
+                        </th:block>
                     </div>
+                    <button type="button" class="btn-expand-filters" id="expandBrandsBtn" 
+                            onclick="toggleBrandsList()" th:text="#{category.filter.expand}">Rozwiń</button>
                 </div>
 
                 <!-- PRICE RANGE SECTION -->
                 <div class="filter-section">
                     <h3 class="filter-title" th:text="#{category.filter.price}">Cena</h3>
                     <div class="price-inputs">
-                        <input type="number" name="minPrice" th:placeholder="#{category.filter.price.min}"
+                        <input type="number" id="minPriceInput" th:placeholder="#{category.filter.price.min}"
                                th:value="${currentMinPrice}" min="0" step="1">
                         <span>-</span>
-                        <input type="number" name="maxPrice" th:placeholder="#{category.filter.price.max}"
+                        <input type="number" id="maxPriceInput" th:placeholder="#{category.filter.price.max}"
                                th:value="${currentMaxPrice}" min="0" step="1">
                         <span th:text="#{general.currency}">zł</span>
                     </div>
                 </div>
 
-                <!-- Preserve sort parameter -->
-                <input type="hidden" name="sort" th:value="${currentSort}">
-
                 <!-- APPLY FILTERS BUTTON -->
                 <div class="filter-actions">
-                    <button type="submit" class="btn-apply-filters" th:text="#{category.filter.apply}">Zastosuj filtry</button>
+                    <button type="button" class="btn-apply-filters" onclick="applyFiltersAsync()" th:text="#{category.filter.apply}">Zastosuj filtry</button>
                     <a th:href="@{/category/{slug}(slug=${category.slug})}" class="btn-clear-filters" th:text="#{category.filter.clear}">Wyczyść</a>
                 </div>
-            </form>
+            </div>
         </aside>
 
         <!-- PRODUCTS SECTION -->
@@ -196,12 +202,63 @@
     <p th:text="#{footer.copyright}">&copy; 2026 PetMarket - Wszystkie prawa zastrzeżone</p>
 </footer>
 
-<script>
+<script th:inline="javascript">
+    const categorySlug = /*[[${category.slug}]]*/ '';
+    let brandsExpanded = false;
+    
+    // Hide expand button if less than 6 brands
+    document.addEventListener('DOMContentLoaded', function() {
+        const hiddenBrands = document.querySelectorAll('.brand-hidden');
+        const expandBtn = document.getElementById('expandBrandsBtn');
+        if (hiddenBrands.length === 0 && expandBtn) {
+            expandBtn.style.display = 'none';
+        }
+    });
+
+    function toggleBrandsList() {
+        const hiddenBrands = document.querySelectorAll('.brand-hidden');
+        const expandBtn = document.getElementById('expandBrandsBtn');
+        brandsExpanded = !brandsExpanded;
+        
+        hiddenBrands.forEach(brand => {
+            brand.style.display = brandsExpanded ? 'flex' : 'none';
+        });
+        
+        expandBtn.textContent = brandsExpanded ? 'Zwiń' : 'Rozwiń';
+    }
+
+    function applyFiltersAsync() {
+        // Collect selected subcategories
+        const subcategoryCheckboxes = document.querySelectorAll('#subcategoryFilters input[type="checkbox"]:checked');
+        const subcategories = Array.from(subcategoryCheckboxes).map(cb => cb.value);
+        
+        // Collect selected brands
+        const brandCheckboxes = document.querySelectorAll('#brandFilters input[type="checkbox"]:checked');
+        const brands = Array.from(brandCheckboxes).map(cb => cb.value);
+        
+        // Get price range
+        const minPrice = document.getElementById('minPriceInput')?.value;
+        const maxPrice = document.getElementById('maxPriceInput')?.value;
+        
+        // Get current sort
+        const sortSelect = document.getElementById('sortSelect');
+        const sort = sortSelect ? sortSelect.value : 'default';
+        
+        // Build URL with parameters
+        const url = new URL(window.location.origin + '/category/' + categorySlug);
+        
+        subcategories.forEach(id => url.searchParams.append('subcategory', id));
+        brands.forEach(id => url.searchParams.append('brands', id));
+        if (minPrice) url.searchParams.set('minPrice', minPrice);
+        if (maxPrice) url.searchParams.set('maxPrice', maxPrice);
+        url.searchParams.set('sort', sort);
+        
+        // Navigate to filtered URL
+        window.location.href = url.toString();
+    }
+
     function updateSort(sortValue) {
-        const form = document.getElementById('filterForm');
-        const sortInput = form.querySelector('input[name="sort"]');
-        sortInput.value = sortValue;
-        form.submit();
+        applyFiltersAsync();
     }
 
     function goToPage(pageNum) {
