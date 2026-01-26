@@ -38,7 +38,8 @@ public class CategoryController {
     @GetMapping("/{slug}")
     public String showCategory(
             @PathVariable String slug,
-            @RequestParam(required = false) String brand,
+            @RequestParam(required = false) List<Long> subcategory,
+            @RequestParam(required = false) List<Long> brands,
             @RequestParam(required = false) Double minPrice,
             @RequestParam(required = false) Double maxPrice,
             @RequestParam(required = false) String sort,
@@ -50,12 +51,13 @@ public class CategoryController {
         if (category == null) return "redirect:/";
 
         List<FilterTag> activeFilters = new ArrayList<>();
-        Brand brandObject = (brand != null && !brand.isEmpty())
-                ? brandService.getBrandBySlug(brand).orElse(null)
-                : null;
 
-        if (brandObject != null) {
-            activeFilters.add(new FilterTag("Marka: " + brandObject.getName(), brand));
+        // Build active filters for display
+        if (subcategory != null && !subcategory.isEmpty()) {
+            activeFilters.add(new FilterTag("Subkategorie: " + subcategory.size(), "subcategory"));
+        }
+        if (brands != null && !brands.isEmpty()) {
+            activeFilters.add(new FilterTag("Marki: " + brands.size(), "brands"));
         }
         if (minPrice != null) {
             activeFilters.add(new FilterTag("Cena od: " + minPrice + " zł", "minPrice"));
@@ -69,7 +71,9 @@ public class CategoryController {
             case "price-asc" -> sortOrder = Sort.by("price").ascending();
             case "price-desc" -> sortOrder = Sort.by("price").descending();
             case "popularity" -> sortOrder = Sort.by("stockQuantity").descending();
-            case "rating" -> sortOrder = Sort.by("rating").descending(); // Zmienione z "id" na "rating"
+            case "rating" -> sortOrder = Sort.by("rating").descending();
+            case "name-asc" -> sortOrder = Sort.by("name").ascending();
+            case "name-desc" -> sortOrder = Sort.by("name").descending();
             default -> sortOrder = Sort.by("id").descending();
         }
 
@@ -78,9 +82,19 @@ public class CategoryController {
         java.math.BigDecimal min = (minPrice != null) ? java.math.BigDecimal.valueOf(minPrice) : null;
         java.math.BigDecimal max = (maxPrice != null) ? java.math.BigDecimal.valueOf(maxPrice) : null;
 
-        Page<Product> productPage = productService.getProductsByCategory(category, brandObject, min, max, pageable);
+        // Use advanced filtering with subcategories and brands
+        List<Long> subcategoryIds = (subcategory != null && !subcategory.isEmpty()) ? subcategory : null;
+        List<Long> brandIds = (brands != null && !brands.isEmpty()) ? brands : null;
+
+        Page<Product> productPage = productService.getProductsByCategoryAdvanced(category, subcategoryIds, brandIds, min, max, pageable);
 
         Map<Integer, Long> ratingCounts = productService.getRatingCountsForCategory(slug);
+
+        // Get subcategories with product counts for filter sidebar
+        List<Map<String, Object>> subcategoryFilters = productService.getSubcategoryFilters(slug);
+
+        // Get brands with product counts for filter sidebar
+        List<Map<String, Object>> brandFilters = productService.getBrandsWithCountByCategory(category);
 
         Set<Long> wishlistProductIds = new HashSet<>();
         User user = (User) session.getAttribute("user");
@@ -91,6 +105,8 @@ public class CategoryController {
         model.addAttribute("ratingCounts", ratingCounts);
         model.addAttribute("category", category);
         model.addAttribute("subCategories", category.getSubcategories());
+        model.addAttribute("subcategoryFilters", subcategoryFilters);
+        model.addAttribute("brandFilters", brandFilters);
         model.addAttribute("activeFilters", activeFilters);
         model.addAttribute("productPage", productPage);
         model.addAttribute("products", productPage.getContent());
@@ -98,6 +114,13 @@ public class CategoryController {
         model.addAttribute("allBrands", brandService.getAllBrands());
         model.addAttribute("wishlistProductIds", wishlistProductIds);
         model.addAttribute("starHelper", new StarHelper());
+
+        // Add current filter values for form preservation
+        model.addAttribute("currentSort", sort != null ? sort : "newest");
+        model.addAttribute("selectedSubcategories", subcategory != null ? subcategory : Collections.emptyList());
+        model.addAttribute("selectedBrands", brands != null ? brands : Collections.emptyList());
+        model.addAttribute("currentMinPrice", minPrice);
+        model.addAttribute("currentMaxPrice", maxPrice);
 
         return "category";
     }
