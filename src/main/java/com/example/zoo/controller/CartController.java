@@ -1,6 +1,7 @@
 package com.example.zoo.controller;
 
 import com.example.zoo.SecurityHelper;
+import com.example.zoo.dto.CartViewModel;
 import com.example.zoo.entity.*;
 import com.example.zoo.repository.UserCartRepository;
 import com.example.zoo.service.ProductService;
@@ -65,18 +66,23 @@ public class CartController {
     public String showCart(HttpSession session, Model model) {
         User user = securityHelper.getCurrentUser(session);
 
+        List<CartItem> cartItems;
+        BigDecimal subtotal;
+
         if (user != null) {
             UserCart userCart = getUserCart(user);
-            List<CartItem> cartItems = userCart.getItems().stream()
+            cartItems = userCart.getItems().stream()
                     .map(item -> new CartItem(item.getProduct(), item.getQuantity()))
                     .collect(Collectors.toList());
-            model.addAttribute("cartItems", cartItems);
-            model.addAttribute("total", userCart.getTotal());
+            subtotal = userCart.getTotal();
         } else {
             Cart cart = getSessionCart(session);
-            model.addAttribute("cartItems", cart.getItems());
-            model.addAttribute("total", cart.getTotal());
+            cartItems = cart.getItems();
+            subtotal = cart.getTotal();
         }
+
+        CartViewModel cartViewModel = new CartViewModel(cartItems, subtotal);
+        model.addAttribute("cart", cartViewModel);
         return "cart";
     }
 
