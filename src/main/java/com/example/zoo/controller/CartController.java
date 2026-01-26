@@ -72,12 +72,22 @@ public class CartController {
         if (user != null) {
             UserCart userCart = getUserCart(user);
             cartItems = userCart.getItems().stream()
-                    .map(item -> new CartItem(item.getProduct(), item.getQuantity()))
+                    .map(item -> {
+                        // Refresh product from database to avoid LazyInitializationException
+                        Product freshProduct = productService.getProductById(item.getProduct().getId());
+                        return new CartItem(freshProduct, item.getQuantity());
+                    })
                     .collect(Collectors.toList());
             subtotal = userCart.getTotal();
         } else {
             Cart cart = getSessionCart(session);
-            cartItems = cart.getItems();
+            cartItems = cart.getItems().stream()
+                    .map(item -> {
+                        // Refresh product from database to avoid LazyInitializationException
+                        Product freshProduct = productService.getProductById(item.getProduct().getId());
+                        return new CartItem(freshProduct, item.getQuantity());
+                    })
+                    .collect(Collectors.toList());
             subtotal = cart.getTotal();
         }
 
