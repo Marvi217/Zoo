@@ -100,6 +100,13 @@ public interface PromotionRepository extends JpaRepository<Promotion, Long> {
             "AND (p.endDate IS NULL OR p.endDate >= :currentDate)")
     long countActivePromotions(@Param("currentDate") LocalDate currentDate);
 
+    @Query("SELECT COUNT(p) FROM Promotion p WHERE p.active = true " +
+            "AND p.startDate > :currentDate")
+    long countUpcomingPromotions(@Param("currentDate") LocalDate currentDate);
+
+    @Query("SELECT COALESCE(SUM(p.currentUsage), 0) FROM Promotion p")
+    long sumTotalUsage();
+
     @Query("SELECT p.type, COUNT(p) FROM Promotion p GROUP BY p.type")
     List<Object[]> countPromotionsByType();
 

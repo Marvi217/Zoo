@@ -48,9 +48,10 @@ public class AdminPromotionController {
         PageRequest pageRequest = PageRequest.of(page, size, Sort.by("startDate").descending());
         Page<Promotion> promotions;
 
-        // Filtrowanie według statusu
+        // Filtrowanie według statusu (obsługa zarówno uppercase jak i lowercase)
         if (status != null) {
-            promotions = switch (status) {
+            String statusLower = status.toLowerCase();
+            promotions = switch (statusLower) {
                 case "active" -> promotionService.getActivePromotions(pageRequest);
                 case "upcoming" -> promotionService.getUpcomingPromotions(pageRequest);
                 case "expired" -> promotionService.getExpiredPromotions(pageRequest);
@@ -62,12 +63,24 @@ public class AdminPromotionController {
             promotions = promotionService.getAllPromotions(pageRequest);
         }
 
+        // Statystyki promocji (używamy wydajnych zapytań COUNT/SUM)
+        long activePromotionsCount = promotionService.getActivePromotionsCount();
+        long scheduledPromotionsCount = promotionService.getUpcomingPromotionsCount();
+        long totalUses = promotionService.getTotalUsageCount();
+
         model.addAttribute("promotions", promotions);
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", promotions.getTotalPages());
+        model.addAttribute("currentStatus", status);
         model.addAttribute("selectedStatus", status);
         model.addAttribute("selectedType", type);
         model.addAttribute("promotionTypes", PromotionType.values());
+        
+        // Dodanie statystyk
+        model.addAttribute("activePromotionsCount", activePromotionsCount);
+        model.addAttribute("scheduledPromotionsCount", scheduledPromotionsCount);
+        model.addAttribute("totalDiscountsMonth", 0.0); // TODO: Implement actual calculation
+        model.addAttribute("totalUses", totalUses);
 
         return "admin/promotions/list";
     }
