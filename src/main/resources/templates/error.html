@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wystąpił błąd - PetMarket</title>
+    <title th:text="#{general.error} + ' - PetMarket'">Wystąpił błąd - PetMarket</title>
     <link rel="stylesheet" href="/css/public-styles.css">
     <style>
         :root {
@@ -83,18 +83,18 @@
 
 <div class="error-card">
     <div class="error-icon">🦴</div>
-    <h1>Ups! Coś poszło nie tak...</h1>
+    <h1 th:text="#{general.error}">Ups! Coś poszło nie tak...</h1>
 
-    <p>
-        Przepraszamy, ale wystąpił nieoczekiwany problem. Nasz zespół techniczny został powiadomiony (lub właśnie goni uciekającego chomika).
+    <p th:text="#{error.message}">
+        Przepraszamy, ale wystąpił nieoczekiwany problem.
     </p>
 
     <div class="error-details">
         Status: <span th:text="${status}">500</span><br>
-        Błąd: <span th:text="${error}">Internal Server Error</span>
+        <span th:text="#{general.error}">Błąd</span>: <span th:text="${error}">Internal Server Error</span>
     </div>
 
-    <a th:href="@{/static}" class="btn-back">Wróć na stronę główną</a>
+    <a th:href="@{/}" class="btn-back" th:text="#{breadcrumb.home}">Wróć na stronę główną</a>
 </div>
 
 </body>

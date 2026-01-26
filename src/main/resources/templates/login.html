@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pl" class="auth-page">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" class="auth-page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@
 
         <!-- SUCCESS MESSAGE - Konto aktywowane -->
         <div th:if="${param.activated}" class="alert alert-success">
-            ✓ <span th:text="#{login.success.activated}">Konto zostało aktywowane! Możesz się teraz zalogować.</span>
+            ✔ <span th:text="#{login.success.activated}">Konto zostało aktywowane! Możesz się teraz zalogować.</span>
         </div>
 
         <!-- ERROR MESSAGE - Nieprawidłowy kod aktywacyjny -->
@@ -56,7 +56,7 @@
 
         <!-- INFO MESSAGE - Wylogowanie -->
         <div th:if="${param.logout}" class="alert alert-info">
-            ✓ <span th:text="#{login.success.logout}">Zostałeś pomyślnie wylogowany.</span>
+            ✔ <span th:text="#{login.success.logout}">Zostałeś pomyślnie wylogowany.</span>
         </div>
 
         <!-- LOGIN FORM -->

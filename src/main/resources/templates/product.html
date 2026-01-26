@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${product.name} + ' - PetMarket'">Produkt - PetMarket</title>
+    <title th:text="${product.name} + ' ' + #{product.title.suffix}">Produkt - PetMarket</title>
     <link rel="stylesheet" href="/css/public-styles.css">
 </head>
 <body>
 <div th:replace="~{fragments/header :: navbar}"></div>
 <div th:replace="~{fragments/header :: categoryBar}"></div>
+
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
-    <a th:href="@{/}">Strona główna</a> /
-    <a th:href="@{/category/{slug}(slug=${product.category.slug})}" th:text="${product.category.name}">Kategoria</a> /
+    <a th:href="@{/}" th:text="#{breadcrumb.home}">Strona główna</a> /
+    <a th:href="@{/category/{slug}(slug=${product.category.slug})}"
+       th:text="${product.category.name}">Kategoria</a> /
     <span th:text="${product.name}">Produkt</span>
 </div>
 
 <!-- MAIN CONTENT -->
 <div class="container">
-
     <div class="product-layout">
 
         <!-- GALLERY -->
@@ -34,11 +35,10 @@
 
         <!-- PRODUCT INFO -->
         <div class="product-info">
-            <div class="product-badge" th:if="${product.hasDiscount}" th:text="'-' + ${product.discountPercent} + '%'">-25%</div>
+            <div class="product-badge" th:if="${product.hasDiscount}"
+                 th:text="'-' + ${product.discountPercent} + '%'">-25%</div>
 
-            <h1 class="product-title" th:text="${product.name}">
-                Karma sucha dla psa Royal Canin Medium Adult 15kg
-            </h1>
+            <h1 class="product-title" th:text="${product.name}">Nazwa produktu</h1>
 
             <div class="product-rating">
                 <span class="stars">
@@ -47,33 +47,34 @@
                 </span>
                 <span class="rating-score" th:text="${#numbers.formatDecimal(product.rating, 1, 1)}">4.8</span>
                 <span class="rating-count">
-                    <a href="#reviews" th:text="'(' + ${reviewCount} + ' opinii)'">(124 opinii)</a>
+                    <a href="#reviews">(<span th:text="${reviewCount}">124</span> <span th:text="#{product.rating.reviews}">opinii</span>)</a>
                 </span>
             </div>
 
             <!-- PRICE -->
             <div class="price-section">
-                <div class="old-price" th:if="${product.hasDiscount}" th:text="${#numbers.formatDecimal(product.oldPrice, 1, 2)} + ' zł'">
-                    252.00 zł
-                </div>
-                <div class="current-price" th:text="${#numbers.formatDecimal(product.currentPrice, 1, 2)} + ' zł'">
-                    189.00 zł
-                </div>
+                <div class="old-price" th:if="${product.hasDiscount}"
+                     th:text="${#numbers.formatDecimal(product.oldPrice, 1, 2)} + ' ' + #{general.currency}">252.00 zł</div>
+                <div class="current-price"
+                     th:text="${#numbers.formatDecimal(product.currentPrice, 1, 2)} + ' ' + #{general.currency}">189.00 zł</div>
                 <div class="price-info">
                     <span class="savings" th:if="${product.hasDiscount}">
-                        Oszczędzasz <span th:text="${#numbers.formatDecimal(product.savingsAmount, 1, 2)}">63</span> zł!
+                        <span th:text="#{product.price.savings}">Oszczędzasz</span>
+                        <span th:text="${#numbers.formatDecimal(product.savingsAmount, 1, 2)}">63</span>
+                        <span th:text="#{general.currency}">zł</span>!
                     </span>
-                    <span th:unless="${product.hasDiscount}">Najlepsza cena w ostatnich 30 dniach</span>
+                    <span th:unless="${product.hasDiscount}" th:text="#{product.price.best}">Najlepsza cena w ostatnich 30 dniach</span>
                 </div>
-                <div class="promotion-info" th:if="${product.buyXGetYPromotion}" style="margin-top: 10px; padding: 10px 15px; background: #fff3cd; border-radius: 8px; color: #856404; font-weight: 600;">
-                    🎁 <span th:text="${product.buyXGetYDescription}">Kup X dostań Y gratis</span>
+                <div class="promotion-info" th:if="${product.buyXGetYPromotion}">
+                    🎁 <span th:text="${product.buyXGetYDescription}">Promocja</span>
                 </div>
             </div>
 
             <!-- AVAILABILITY -->
             <div class="availability" th:classappend="${product.available ? 'in-stock' : 'low-stock'}">
                 <span class="availability-icon">✓</span>
-                <span class="availability-text" th:text="${product.available ? 'Dostępny - wysyłka w 24h' : 'Tymczasowo niedostępny'}">Dostępny - wysyłka w 24h</span>
+                <span class="availability-text"
+                      th:text="${product.available ? #{product.available} : #{product.unavailable}}">Dostępny - wysyłka w 24h</span>
             </div>
 
             <!-- PURCHASE SECTION -->
@@ -87,7 +88,7 @@
                     </div>
                     <button type="submit" class="btn-add-to-cart">
                         <span style="font-size: 20px;">🛒</span>
-                        <span>Dodaj do koszyka</span>
+                        <span th:text="#{product.add.to.cart}">Dodaj do koszyka</span>
                     </button>
                 </div>
             </form>
@@ -97,138 +98,118 @@
                 <div class="delivery-item">
                     <span class="delivery-icon">🚚</span>
                     <div class="delivery-text">
-                        <strong>Darmowa dostawa</strong>
-                        <span>od 199 zł</span>
+                        <strong th:text="#{product.delivery.free}">Darmowa dostawa</strong>
+                        <span th:text="#{product.delivery.free.from}">od 199 zł</span>
                     </div>
                 </div>
                 <div class="delivery-item">
                     <span class="delivery-icon">📦</span>
                     <div class="delivery-text">
-                        <strong>Wysyłka w 24h</strong>
-                        <span>Zamów do 15:00</span>
+                        <strong th:text="#{product.delivery.24h}">Wysyłka w 24h</strong>
+                        <span th:text="#{product.delivery.24h.info}">Zamów do 15:00</span>
                     </div>
                 </div>
                 <div class="delivery-item">
                     <span class="delivery-icon">🔄</span>
                     <div class="delivery-text">
-                        <strong>30 dni na zwrot</strong>
-                        <span>Bez pytań</span>
+                        <strong th:text="#{product.returns}">30 dni na zwrot</strong>
+                        <span th:text="#{product.returns.info}">Bez pytań</span>
                     </div>
                 </div>
                 <div class="delivery-item">
                     <span class="delivery-icon">💳</span>
                     <div class="delivery-text">
-                        <strong>Bezpieczne płatności</strong>
-                        <span>SSL & 3D Secure</span>
+                        <strong th:text="#{product.payments}">Bezpieczne płatności</strong>
+                        <span th:text="#{product.payments.info}">SSL & 3D Secure</span>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
     <!-- TABS -->
     <div class="product-tabs">
         <div class="tab-header">
-            <button class="tab-btn active" onclick="switchTab(0)">Opis</button>
-            <button class="tab-btn" onclick="switchTab(1)">Specyfikacja</button>
-            <button class="tab-btn" onclick="switchTab(2)">Składniki</button>
+            <button class="tab-btn active" onclick="switchTab(0)" th:text="#{product.tab.description}">Opis</button>
+            <button class="tab-btn" onclick="switchTab(1)" th:text="#{product.tab.specs}">Specyfikacja</button>
+            <button class="tab-btn" onclick="switchTab(2)" th:text="#{product.tab.ingredients}">Składniki</button>
             <button class="tab-btn" onclick="switchTab(3)" id="reviews">
-                Opinie (<span th:text="${reviewCount}">124</span>)
+                <span th:text="#{product.tab.reviews}">Opinie</span> (<span th:text="${reviewCount}">124</span>)
             </button>
         </div>
 
         <!-- DESCRIPTION TAB -->
         <div class="tab-content active">
-            <h3>Opis produktu</h3>
-            <div th:utext="${product.description}">
-                <p>
-                    Royal Canin Medium Adult to kompletna i zbilansowana karma sucha, specjalnie opracowana dla psów dorosłych ras średnich (od 11 do 25 kg) w wieku od 12 miesięcy do 7 lat.
-                </p>
-                <p>
-                    Karma zawiera optymalną równowagę składników odżywczych dostosowaną do potrzeb psów średnich ras. Wyjątkowy kompleks przeciwutleniaczy wspiera naturalne mechanizmy obronne organizmu, a odpowiednia zawartość białka pomaga utrzymać prawidłową masę mięśniową.
-                </p>
-            </div>
+            <h3 th:text="#{product.description.title}">Opis produktu</h3>
+            <div th:utext="${product.description}">Opis produktu...</div>
         </div>
 
         <!-- SPECIFICATION TAB -->
         <div class="tab-content">
-            <h3>Specyfikacja techniczna</h3>
+            <h3 th:text="#{product.specs.title}">Specyfikacja techniczna</h3>
             <div class="specifications">
                 <div class="spec-item">
-                    <span class="spec-label">Marka:</span>
+                    <span class="spec-label" th:text="#{product.specs.brand}">Marka:</span>
                     <span class="spec-value" th:text="${product.brand?.name}">Royal Canin</span>
                 </div>
                 <div class="spec-item">
-                    <span class="spec-label">Kategoria:</span>
+                    <span class="spec-label" th:text="#{product.specs.category}">Kategoria:</span>
                     <span class="spec-value" th:text="${product.category?.name}">Karma</span>
                 </div>
                 <div class="spec-item" th:if="${product.weight != null}">
-                    <span class="spec-label">Waga:</span>
+                    <span class="spec-label" th:text="#{product.specs.weight}">Waga:</span>
                     <span class="spec-value" th:text="${product.weight}">15 kg</span>
                 </div>
                 <div class="spec-item">
-                    <span class="spec-label">Dostępność:</span>
-                    <span class="spec-value" th:text="${product.available ? 'Dostępny' : 'Niedostępny'}">Dostępny</span>
+                    <span class="spec-label" th:text="#{product.specs.availability}">Dostępność:</span>
+                    <span class="spec-value"
+                          th:text="${product.available ? #{product.specs.available} : #{product.specs.unavailable}}">Dostępny</span>
                 </div>
             </div>
         </div>
 
         <!-- INGREDIENTS TAB -->
         <div class="tab-content">
-            <h3>Składniki</h3>
-            <div th:utext="${product.ingredients}">
-                <p>
-                    <strong>Składniki:</strong> Drób (mąka z kurczaka, tłuszcz drobiowy), ryż, kukurydza, hydrolizat białek zwierzęcych...
-                </p>
-            </div>
+            <h3 th:text="#{product.ingredients.title}">Składniki</h3>
+            <div th:utext="${product.ingredients}">Składniki produktu...</div>
         </div>
 
         <!-- REVIEWS TAB -->
         <div class="tab-content">
-            <h3>Opinie klientów</h3>
+            <h3 th:text="#{product.reviews.title}">Opinie klientów</h3>
 
-            <div class="review-summary" th:if="${product.reviewCount > 0}">
+            <!-- Reviews Summary -->
+            <div class="review-summary">
                 <div class="overall-rating">
                     <div class="overall-score" th:text="${#numbers.formatDecimal(product.rating, 1, 1)}">4.8</div>
                     <div class="overall-stars">★★★★★</div>
-                    <div>Na podstawie <span th:text="${reviewCount}">124</span> opinii</div>
+                    <div th:text="#{product.reviews.based.on} + ' ' + ${reviewCount} + ' ' + #{product.rating.reviews}">Na podstawie 124 opinii</div>
                 </div>
 
                 <div class="rating-bars">
                     <div class="rating-bar-item">
-                        <span class="bar-label">5 gwiazdek</span>
-                        <div class="bar">
-                            <div class="bar-fill" style="width: 85%;"></div>
-                        </div>
-                        <span class="bar-count">105</span>
+                        <span class="bar-label" th:text="#{product.reviews.stars5}">5 gwiazdek</span>
+                        <div class="bar"><div class="bar-fill" style="width: 80%;"></div></div>
+                        <span class="bar-count">95</span>
                     </div>
                     <div class="rating-bar-item">
-                        <span class="bar-label">4 gwiazdki</span>
-                        <div class="bar">
-                            <div class="bar-fill" style="width: 10%;"></div>
-                        </div>
-                        <span class="bar-count">12</span>
+                        <span class="bar-label" th:text="#{product.reviews.stars4}">4 gwiazdki</span>
+                        <div class="bar"><div class="bar-fill" style="width: 15%;"></div></div>
+                        <span class="bar-count">18</span>
                     </div>
                     <div class="rating-bar-item">
-                        <span class="bar-label">3 gwiazdki</span>
-                        <div class="bar">
-                            <div class="bar-fill" style="width: 3%;"></div>
-                        </div>
-                        <span class="bar-count">4</span>
+                        <span class="bar-label" th:text="#{product.reviews.stars3}">3 gwiazdki</span>
+                        <div class="bar"><div class="bar-fill" style="width: 3%;"></div></div>
+                        <span class="bar-count">8</span>
                     </div>
                     <div class="rating-bar-item">
-                        <span class="bar-label">2 gwiazdki</span>
-                        <div class="bar">
-                            <div class="bar-fill" style="width: 1%;"></div>
-                        </div>
+                        <span class="bar-label" th:text="#{product.reviews.stars2}">2 gwiazdki</span>
+                        <div class="bar"><div class="bar-fill" style="width: 1%;"></div></div>
                         <span class="bar-count">2</span>
                     </div>
                     <div class="rating-bar-item">
-                        <span class="bar-label">1 gwiazdka</span>
-                        <div class="bar">
-                            <div class="bar-fill" style="width: 1%;"></div>
-                        </div>
+                        <span class="bar-label" th:text="#{product.reviews.stars1}">1 gwiazdka</span>
+                        <div class="bar"><div class="bar-fill" style="width: 1%;"></div></div>
                         <span class="bar-count">1</span>
                     </div>
                 </div>
@@ -238,7 +219,8 @@
             <div th:each="review : ${reviews}" class="review-item">
                 <div class="review-header">
                     <span class="reviewer-name" th:text="${review.user.fullName}">Anna K.</span>
-                    <span class="review-date" th:text="${#temporals.format(review.createdAt, 'dd MMMM yyyy')}">15 stycznia 2025</span>
+                    <span class="review-date"
+                          th:text="${#temporals.format(review.createdAt, 'dd MMMM yyyy')}">15 stycznia 2025</span>
                 </div>
                 <div class="review-stars" th:text="${'★'.repeat(review.rating) + '☆'.repeat(5 - review.rating)}">★★★★★</div>
                 <p class="review-text" th:text="${review.comment}">Świetna karma!</p>
@@ -253,7 +235,7 @@
             </div>
 
             <div th:if="${canReview}" class="review-form-container">
-                <h4 class="review-form-title">✍️ Dodaj swoją opinię</h4>
+                <h4 class="review-form-title" th:text="#{product.reviews.add}">✍️ Dodaj swoją opinię</h4>
                 <form th:action="@{/product/{id}/review(id=${product.id})}" method="post">
                     <div class="star-rating-input" id="starRating">
                         <input type="radio" name="rating" value="5" id="star5" required>
@@ -268,25 +250,25 @@
                         <label for="star1" onclick="setRating(1)">★</label>
                     </div>
                     <textarea name="comment" class="review-textarea"
-                              placeholder="Podziel się swoją opinią o produkcie... (opcjonalnie)"
+                              th:placeholder="#{product.reviews.placeholder}"
                               rows="4"></textarea>
-                    <button type="submit" class="review-submit-btn">📝 Dodaj opinię</button>
+                    <button type="submit" class="review-submit-btn" th:text="#{product.reviews.submit}">📝 Dodaj opinię</button>
                 </form>
             </div>
 
             <div th:if="${hasReviewed}" class="review-info-message info">
-                ✅ Dziękujemy! Już oceniłeś ten produkt.
+                <span th:text="#{product.reviews.thanks}">✅ Dziękujemy! Już oceniłeś ten produkt.</span>
             </div>
 
             <div th:if="${not canReview and not hasReviewed}" class="review-info-message info">
-                ℹ️ Aby dodać opinię, musisz kupić i otrzymać ten produkt.
+                <span th:text="#{product.reviews.must.buy}">ℹ️ Aby dodać opinię, musisz kupić i otrzymać ten produkt.</span>
             </div>
         </div>
     </div>
 
     <!-- RELATED PRODUCTS -->
     <section class="related-products" th:if="${relatedProducts != null and !relatedProducts.isEmpty()}">
-        <h2 class="section-title">Podobne produkty</h2>
+        <h2 class="section-title" th:text="#{product.related}">Podobne produkty</h2>
         <div class="products-grid">
             <a th:each="prod : ${relatedProducts}"
                th:href="@{/product/{id}(id=${prod.id})}"
@@ -294,7 +276,8 @@
                 <div class="product-card-image" th:text="${prod.imageUrl}">🦴</div>
                 <div class="product-card-info">
                     <h3 class="product-card-name" th:text="${prod.name}">Produkt</h3>
-                    <div class="product-card-price" th:text="${#numbers.formatDecimal(prod.price, 1, 2)} + ' zł'">0.00 zł</div>
+                    <div class="product-card-price"
+                         th:text="${#numbers.formatDecimal(prod.price, 1, 2)} + ' ' + #{general.currency}">0.00 zł</div>
                 </div>
             </a>
         </div>
@@ -304,7 +287,7 @@
 
 <!-- FOOTER -->
 <footer>
-    <p>&copy; 2026 PetMarket - Wszystkie prawa zastrzeżone</p>
+    <p th:text="#{footer.copyright}">&copy; 2026 PetMarket - Wszystkie prawa zastrzeżone</p>
 </footer>
 
 <script>
