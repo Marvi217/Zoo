@@ -75,6 +75,26 @@ public class ProductService {
         return productRepository.findFilteredProducts(category, brand, minPrice, maxPrice, pageable);
     }
 
+    public Page<Product> getProductsByCategoryAdvanced(Category category,
+                                                        List<Long> subcategoryIds,
+                                                        List<Long> brandIds,
+                                                        BigDecimal minPrice,
+                                                        BigDecimal maxPrice,
+                                                        Pageable pageable) {
+        return productRepository.findFilteredProductsAdvanced(category, subcategoryIds, brandIds, minPrice, maxPrice, pageable);
+    }
+
+    public List<Map<String, Object>> getBrandsWithCountByCategory(Category category) {
+        List<Object[]> results = productRepository.findBrandsWithCountByCategory(category);
+        return results.stream().map(row -> {
+            Map<String, Object> map = new HashMap<>();
+            map.put("id", row[0]);
+            map.put("name", row[1]);
+            map.put("count", ((Number) row[2]).longValue());
+            return map;
+        }).collect(Collectors.toList());
+    }
+
     public List<Product> getProductsByCategory(Category category) {
         return productRepository.findByCategory(category);
     }

@@ -122,6 +122,22 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             @Param("maxPrice") java.math.BigDecimal maxPrice,
             Pageable pageable);
 
+    @Query("SELECT p FROM Product p WHERE p.category = :category " +
+            "AND (:subcategoryIds IS NULL OR p.subcategory.id IN :subcategoryIds) " +
+            "AND (:brandIds IS NULL OR p.brand.id IN :brandIds) " +
+            "AND (:minPrice IS NULL OR p.price >= :minPrice) " +
+            "AND (:maxPrice IS NULL OR p.price <= :maxPrice)")
+    Page<Product> findFilteredProductsAdvanced(
+            @Param("category") Category category,
+            @Param("subcategoryIds") List<Long> subcategoryIds,
+            @Param("brandIds") List<Long> brandIds,
+            @Param("minPrice") java.math.BigDecimal minPrice,
+            @Param("maxPrice") java.math.BigDecimal maxPrice,
+            Pageable pageable);
+
+    @Query("SELECT p.brand.id, p.brand.name, COUNT(p) FROM Product p WHERE p.category = :category GROUP BY p.brand.id, p.brand.name ORDER BY p.brand.name")
+    List<Object[]> findBrandsWithCountByCategory(@Param("category") Category category);
+
     @Query("SELECT AVG(r.rating) FROM Review r WHERE r.product.id = :productId")
     Double getAverageRatingForProduct(@Param("productId") Long productId);
 
