@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <div class="item-price">
+                <div class="item-price" th:data-label="#{cart.price} + ':'">
                     <span class="old-price" th:if="${item.product.hasDiscount}"
                           th:text="${#numbers.formatDecimal(item.product.oldPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                     <span class="current-price"
@@ -71,7 +71,7 @@
                     </form>
                 </div>
 
-                <div class="item-total"
+                <div class="item-total" th:data-label="#{cart.total} + ':'"
                      th:text="${#numbers.formatDecimal(item.totalPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</div>
 
                 <div class="item-actions">

@@ -1520,14 +1520,9 @@ footer {
         padding-left: 85px;
     }
 
-    .item-price::before {
-        content: 'Cena:';
-        font-weight: normal;
-        color: var(--text-muted);
-    }
-
+    .item-price::before,
     .item-total::before {
-        content: 'Suma:';
+        content: attr(data-label);
         font-weight: normal;
         color: var(--text-muted);
     }
