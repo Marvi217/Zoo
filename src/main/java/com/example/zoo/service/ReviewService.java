@@ -181,6 +181,10 @@ public class ReviewService {
         return reviewRepository.findByProductIdOrderByCreatedAtDesc(productId, pageable);
     }
 
+    public Page<Review> getReviewsByUser(Long userId, Pageable pageable) {
+        return reviewRepository.findByUserIdOrderByCreatedAtDesc(userId, pageable);
+    }
+
     public Page<Review> getApprovedReviewsByProduct(Long productId, Pageable pageable) {
         return reviewRepository.findByProductIdAndStatusOrderByCreatedAtDesc(
                 productId,

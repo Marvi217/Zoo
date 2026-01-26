@@ -5,6 +5,7 @@ import com.example.zoo.entity.User;
 import com.example.zoo.enums.UserRole;
 import com.example.zoo.service.UserService;
 import com.example.zoo.service.OrderService;
+import com.example.zoo.service.ReviewService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -26,6 +27,7 @@ public class AdminUserController {
 
     private final UserService userService;
     private final OrderService orderService;
+    private final ReviewService reviewService;
 
     @GetMapping
     public String listUsers(
@@ -68,8 +70,9 @@ public class AdminUserController {
         }
 
         model.addAttribute("user", user);
-        model.addAttribute("orders", orderService.getUserOrders(id, PageRequest.of(0, 10)));
+        model.addAttribute("orders", orderService.getUserOrders(id, PageRequest.of(0, 100, Sort.by("orderDate").descending())));
         model.addAttribute("orderStats", orderService.getUserOrderStatistics(id));
+        model.addAttribute("reviews", reviewService.getReviewsByUser(id, PageRequest.of(0, 100, Sort.by("createdAt").descending())));
 
         return "admin/users/view";
     }
