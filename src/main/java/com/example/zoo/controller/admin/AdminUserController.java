@@ -196,14 +196,42 @@ public class AdminUserController {
     }
 
     @PostMapping("/{id}/toggle-active")
-    @ResponseBody
-    public String toggleActive(@PathVariable Long id) {
+    public String toggleActive(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
+            User user = userService.getUserById(id);
             userService.toggleActive(id);
-            return "success";
+            String status = user.isActive() ? "zablokowany" : "odblokowany";
+            redirectAttributes.addFlashAttribute("success",
+                    "Użytkownik '" + user.getEmail() + "' został " + status);
         } catch (Exception e) {
-            return "error: " + e.getMessage();
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas zmiany statusu: " + e.getMessage());
         }
+        return "redirect:/admin/users";
+    }
+
+    @PostMapping("/{id}/change-password-redirect")
+    public String changePasswordAndRedirectToList(
+            @PathVariable Long id,
+            @RequestParam String newPassword,
+            @RequestParam String confirmPassword,
+            RedirectAttributes redirectAttributes) {
+
+        if (!newPassword.equals(confirmPassword)) {
+            redirectAttributes.addFlashAttribute("error", "Hasła nie są identyczne");
+            return "redirect:/admin/users";
+        }
+
+        try {
+            User user = userService.getUserById(id);
+            userService.changePassword(id, newPassword);
+            redirectAttributes.addFlashAttribute("success", 
+                    "Hasło dla użytkownika '" + user.getEmail() + "' zostało zmienione pomyślnie");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas zmiany hasła: " + e.getMessage());
+        }
+        return "redirect:/admin/users";
     }
 
     @PostMapping("/{id}/change-role")

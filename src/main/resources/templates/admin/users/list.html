@@ -25,7 +25,6 @@
                 </div>
                 <div class="page-actions" style="display: flex; gap: 10px;">
                     <a th:href="@{/admin/users/export}" class="btn btn-secondary" style="text-decoration: none; padding: 10px 15px; background: #6c757d; color: white; border-radius: 5px;">📥 Eksportuj CSV</a>
-                    <a th:href="@{/admin/users/new}" class="btn btn-primary" style="text-decoration: none; padding: 10px 15px; background: var(--brand-green); color: white; border-radius: 5px;">➕ Nowy użytkownik</a>
                 </div>
             </div>
 
@@ -106,6 +105,15 @@
                                 <div class="action-buttons" style="display: flex; justify-content: flex-end; gap: 8px;">
                                     <a th:href="@{/admin/users/{id}(id=${user.id})}" class="action-btn view" title="Szczegóły" style="text-decoration: none;">👁️</a>
                                     <a th:href="@{/admin/users/{id}/edit(id=${user.id})}" class="action-btn edit" title="Edytuj" style="text-decoration: none;">✏️</a>
+                                    <form th:action="@{/admin/users/{id}/toggle-active(id=${user.id})}" method="post" style="display:inline;">
+                                        <button type="submit" class="action-btn" 
+                                                th:title="${user.active ? 'Zbanuj użytkownika' : 'Odbanuj użytkownika'}"
+                                                th:style="${user.active ? 'border:none; background:none; cursor:pointer; color: #dc3545;' : 'border:none; background:none; cursor:pointer; color: #28a745;'}"
+                                                th:text="${user.active ? '🚫' : '✅'}">🚫</button>
+                                    </form>
+                                    <button type="button" class="action-btn password-reset-btn" title="Resetuj hasło" 
+                                            style="border:none; background:none; cursor:pointer; color: #007bff;"
+                                            th:attr="data-user-id=${user.id},data-user-email=${user.email}">🔑</button>
                                     <form th:action="@{/admin/users/{id}/delete(id=${user.id})}" method="post"
                                           onsubmit="return confirm('Czy na pewno chcesz usunąć tego użytkownika? Operacja jest nieodwracalna.')" style="display:inline;">
                                         <button type="submit" class="action-btn delete" style="border:none; background:none; cursor:pointer; color: #dc3545;">🗑️</button>
@@ -133,5 +141,61 @@
         </div>
     </main>
 </div>
+
+<!-- Password Reset Modal -->
+<div id="passwordModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 30px; border-radius: 10px; width: 400px; max-width: 90%;">
+        <h3 style="margin-bottom: 20px;">🔑 Resetuj hasło</h3>
+        <p id="modalUserEmail" style="margin-bottom: 15px; color: #666;"></p>
+        <form id="passwordForm" method="post">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nowe hasło</label>
+                <input type="password" name="newPassword" id="newPassword" required minlength="6" 
+                       style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Potwierdź hasło</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" required minlength="6"
+                       style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;">
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button type="button" onclick="closePasswordModal()" 
+                        style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">Anuluj</button>
+                <button type="submit" 
+                        style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Zapisz hasło</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openPasswordModal(userId, userEmail) {
+        document.getElementById('modalUserEmail').textContent = 'Użytkownik: ' + userEmail;
+        document.getElementById('passwordForm').action = '/admin/users/' + userId + '/change-password-redirect';
+        document.getElementById('newPassword').value = '';
+        document.getElementById('confirmPassword').value = '';
+        document.getElementById('passwordModal').style.display = 'flex';
+    }
+    
+    function closePasswordModal() {
+        document.getElementById('passwordModal').style.display = 'none';
+    }
+    
+    // Close modal when clicking outside
+    document.getElementById('passwordModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePasswordModal();
+        }
+    });
+    
+    // Add click handlers to password reset buttons
+    document.querySelectorAll('.password-reset-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var userId = this.getAttribute('data-user-id');
+            var userEmail = this.getAttribute('data-user-email');
+            openPasswordModal(userId, userEmail);
+        });
+    });
+</script>
 </body>
 </html>
