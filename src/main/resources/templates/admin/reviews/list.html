@@ -47,7 +47,7 @@
                             <label style="display:block; font-size: 12px; margin-bottom: 5px;">Min. ocena</label>
                             <select name="minRating" class="form-control" style="padding: 8px; border-radius: 5px; border: 1px solid #ddd;">
                                 <option value="">Dowolna</option>
-                                <option th:each="r : ${#numbers.sequence(1,5)}" th:value="${r}" th:text="${r} + ' ⭐'" th:selected="${param.minRating != null && param.minRating[0] == r.toString()}"></option>
+                                <option th:each="r : ${#numbers.sequence(1,5)}" th:value="${r}" th:text="${r} + ' ⭐'" th:selected="${selectedMinRating != null && selectedMinRating == r}"></option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-secondary" style="background: #eee; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Filtruj</button>

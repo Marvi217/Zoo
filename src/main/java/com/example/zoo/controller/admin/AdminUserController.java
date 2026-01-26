@@ -5,6 +5,7 @@ import com.example.zoo.entity.User;
 import com.example.zoo.enums.UserRole;
 import com.example.zoo.service.UserService;
 import com.example.zoo.service.OrderService;
+import com.example.zoo.service.ReviewService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -26,6 +27,7 @@ public class AdminUserController {
 
     private final UserService userService;
     private final OrderService orderService;
+    private final ReviewService reviewService;
 
     @GetMapping
     public String listUsers(
@@ -68,8 +70,9 @@ public class AdminUserController {
         }
 
         model.addAttribute("user", user);
-        model.addAttribute("orders", orderService.getUserOrders(id, PageRequest.of(0, 10)));
+        model.addAttribute("orders", orderService.getUserOrders(id, PageRequest.of(0, 100, Sort.by("orderDate").descending())));
         model.addAttribute("orderStats", orderService.getUserOrderStatistics(id));
+        model.addAttribute("reviews", reviewService.getReviewsByUser(id, PageRequest.of(0, 100, Sort.by("createdAt").descending())));
 
         return "admin/users/view";
     }
@@ -196,14 +199,48 @@ public class AdminUserController {
     }
 
     @PostMapping("/{id}/toggle-active")
-    @ResponseBody
-    public String toggleActive(@PathVariable Long id) {
+    public String toggleActive(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
+            User user = userService.getUserById(id);
+            boolean wasActive = user.isActive();
             userService.toggleActive(id);
-            return "success";
+            String status = wasActive ? "zablokowany" : "odblokowany";
+            redirectAttributes.addFlashAttribute("success",
+                    "Użytkownik '" + user.getEmail() + "' został " + status);
         } catch (Exception e) {
-            return "error: " + e.getMessage();
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas zmiany statusu: " + e.getMessage());
         }
+        return "redirect:/admin/users";
+    }
+
+    @PostMapping("/{id}/change-password-redirect")
+    public String changePasswordAndRedirectToList(
+            @PathVariable Long id,
+            @RequestParam String newPassword,
+            @RequestParam String confirmPassword,
+            RedirectAttributes redirectAttributes) {
+
+        if (!newPassword.equals(confirmPassword)) {
+            redirectAttributes.addFlashAttribute("error", "Hasła nie są identyczne");
+            return "redirect:/admin/users";
+        }
+
+        if (newPassword.length() < 6) {
+            redirectAttributes.addFlashAttribute("error", "Hasło musi mieć co najmniej 6 znaków");
+            return "redirect:/admin/users";
+        }
+
+        try {
+            User user = userService.getUserById(id);
+            userService.changePassword(id, newPassword);
+            redirectAttributes.addFlashAttribute("success",
+                    "Hasło dla użytkownika '" + user.getEmail() + "' zostało zmienione pomyślnie");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas zmiany hasła: " + e.getMessage());
+        }
+        return "redirect:/admin/users";
     }
 
     @PostMapping("/{id}/change-role")

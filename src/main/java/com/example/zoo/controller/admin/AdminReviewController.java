@@ -41,6 +41,7 @@ public class AdminReviewController {
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", reviews.getTotalPages());
         model.addAttribute("selectedStatus", status);
+        model.addAttribute("selectedMinRating", minRating);
         model.addAttribute("pendingCount", reviewService.getPendingReviewsCount());
 
         return "admin/reviews/list";
