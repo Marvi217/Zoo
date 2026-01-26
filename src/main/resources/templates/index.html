@@ -80,7 +80,8 @@
                                 <button type="submit"
                                         class="btn-add-cart"
                                         th:disabled="${product.status.name() != 'ACTIVE' or product.stockQuantity == 0}">
-                                    <span th:text="${product.stockQuantity == 0 ? #{home.out.of.stock} : #{home.add.to.cart}}">Do koszyka</span>
+                                    <span th:if="${product.stockQuantity == 0}" th:text="#{home.out.of.stock}">Brak w magazynie</span>
+                                    <span th:unless="${product.stockQuantity == 0}" th:text="#{home.add.to.cart}">Do koszyka</span>
                                 </button>
                             </form>
                         </div>

@@ -50,7 +50,9 @@
                 <h1 class="content-title" th:text="#{wishlist.header}">Ulubione produkty</h1>
                 <p class="content-subtitle">
                     <span th:text="${products.size()}">0</span>
-                    <span th:text="${products.size()} == 1 ? #{wishlist.count.singular} : (${products.size()} < 5 ? #{wishlist.count.few} : #{wishlist.count.many})">produktów</span>
+                    <span th:if="${products.size() == 1}" th:text="#{wishlist.count.singular}">produkt</span>
+                    <span th:if="${products.size() > 1 and products.size() < 5}" th:text="#{wishlist.count.few}">produkty</span>
+                    <span th:if="${products.size() >= 5}" th:text="#{wishlist.count.many}">produktów</span>
                 </p>
             </div>
 
