@@ -1240,6 +1240,12 @@ footer {
     white-space: nowrap;
 }
 
+.item-price .promo-hint {
+    font-size: 11px;
+    color: #6b7280;
+    font-style: italic;
+}
+
 /* Quantity Controls */
 .item-quantity {
     display: flex;

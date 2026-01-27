@@ -57,15 +57,35 @@ public class Cart {
         return getTotal();
     }
 
+    /**
+     * Calculate total discount, including BuyXGetY promotions.
+     * For BuyXGetY: discount = (regular price * quantity) - actual total price
+     * For regular discounts: discount = (oldPrice - currentPrice) * quantity
+     */
     public BigDecimal getTotalDiscount() {
         return items.stream()
-                .filter(item -> item.getProduct() != null && item.getProduct().isHasDiscount())
                 .map(item -> {
-                    BigDecimal oldPrice = item.getProduct().getOldPrice();
-                    BigDecimal currentPrice = item.getProduct().getPrice();
-                    if (oldPrice != null && currentPrice != null) {
-                        return oldPrice.subtract(currentPrice).multiply(BigDecimal.valueOf(item.getQuantity()));
+                    if (item.getProduct() == null) {
+                        return BigDecimal.ZERO;
                     }
+                    
+                    // For BuyXGetY promotions
+                    if (item.getProduct().isBuyXGetYPromotion() && item.isPromoApplied()) {
+                        // Discount = what you would have paid - what you actually pay
+                        BigDecimal regularTotal = item.getProduct().getPrice().multiply(BigDecimal.valueOf(item.getQuantity()));
+                        BigDecimal actualTotal = item.getTotalPrice();
+                        return regularTotal.subtract(actualTotal);
+                    }
+                    
+                    // For regular discounts
+                    if (item.getProduct().isHasDiscount() && !item.getProduct().isBuyXGetYPromotion()) {
+                        BigDecimal oldPrice = item.getProduct().getOldPrice();
+                        BigDecimal currentPrice = item.getProduct().getPrice();
+                        if (oldPrice != null && currentPrice != null) {
+                            return oldPrice.subtract(currentPrice).multiply(BigDecimal.valueOf(item.getQuantity()));
+                        }
+                    }
+                    
                     return BigDecimal.ZERO;
                 })
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
