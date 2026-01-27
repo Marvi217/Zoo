@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="#{checkout.title}">Kasa - PetMarket</title>
     <link rel="stylesheet" href="/css/public-styles.css">
+    <!-- InPost Geowidget v4 - działa BEZ tokenu -->
+    <link rel="stylesheet" href="https://geowidget.easypack24.net/css/easypack.css"/>
+    <script src="https://geowidget.easypack24.net/js/sdk-for-javascript.js" async></script>
     <style>
-        /* Style dla wyszukiwarki paczkomatów InPost */
+        /* Style dla mapy paczkomatów InPost - Geowidget v4 */
         .inpost-map-container {
             display: none;
             margin-top: 15px;
@@ -54,141 +57,30 @@
             font-size: 15px;
         }
 
-        .inpost-search-box {
-            display: flex;
-            gap: 10px;
+        /* Kontener na oficjalny Geowidget InPost */
+        #easypack-map {
+            width: 100%;
+            height: 450px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
             margin-bottom: 15px;
         }
 
-        .inpost-search-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-        }
-
-        .inpost-search-input:focus {
-            border-color: #ffcd00;
-            outline: none;
-        }
-
-        .inpost-search-btn {
-            padding: 12px 20px;
-            background: #ffcd00;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .inpost-search-btn:hover {
-            background: #e6b800;
-            transform: translateY(-1px);
-        }
-
-        .inpost-search-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-
-        .inpost-results {
-            max-height: 350px;
-            overflow-y: auto;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            background: white;
-        }
-
-        .inpost-results:empty {
-            display: none;
-        }
-
-        .inpost-result-item {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .inpost-result-item:last-child {
-            border-bottom: none;
-        }
-
-        .inpost-result-item:hover {
-            background: #fffdf5;
-        }
-
-        .inpost-result-item.selected {
-            background: #fff9e6;
-            border-left: 3px solid #ffcd00;
-        }
-
-        .inpost-result-name {
-            font-weight: 700;
-            color: #333;
-            font-size: 14px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .inpost-result-name::before {
-            content: "📦";
-            font-size: 16px;
-        }
-
-        .inpost-result-address {
-            color: #666;
-            font-size: 13px;
-            margin-bottom: 5px;
-            padding-left: 26px;
-        }
-
-        .inpost-result-details {
+        .inpost-hint {
             font-size: 12px;
             color: #888;
-            padding-left: 26px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 6px;
         }
 
-        .inpost-loading {
-            text-align: center;
-            padding: 30px;
+        .inpost-hint strong {
             color: #666;
         }
 
-        .inpost-loading::before {
-            content: "⏳";
-            display: block;
-            font-size: 24px;
-            margin-bottom: 10px;
-            animation: pulse 1s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .inpost-no-results {
-            text-align: center;
-            padding: 30px;
-            color: #666;
-        }
-
-        .inpost-no-results::before {
-            content: "🔍";
-            display: block;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
+        /* Wybrany paczkomat */
         .selected-locker-info {
             margin-top: 15px;
             padding: 15px;
@@ -256,20 +148,10 @@
             background: #ffcd00;
         }
 
-        .inpost-hint {
-            font-size: 12px;
-            color: #888;
-            margin-top: 10px;
-            padding: 10px;
-            background: #f5f5f5;
-            border-radius: 6px;
+        /* Ukryte pola dla InPost */
+        .inpost-hidden-fields {
+            display: none;
         }
-
-        .inpost-hint strong {
-            color: #666;
-        }
-
-        /* Style dla odbioru w sklepie */
         .store-pickup-info {
             display: none;
             margin-top: 15px;
@@ -488,29 +370,19 @@
                             </div>
                         </label>
 
-                        <!-- Wyszukiwarka paczkomatów InPost -->
+                        <!-- Mapa paczkomatów InPost - Geowidget v4 (bez tokenu) -->
                         <div class="inpost-map-container" id="inpost-map-container">
                             <div class="inpost-header">
                                 <span class="inpost-logo">InPost</span>
-                                <span class="inpost-header-text">Wybierz paczkomat</span>
-                            </div>
-
-                            <div class="inpost-search-box">
-                                <input type="text"
-                                       class="inpost-search-input"
-                                       id="inpost-search-input"
-                                       placeholder="Wpisz miasto, ulicę lub kod pocztowy..."
-                                       onkeypress="if(event.key === 'Enter') { event.preventDefault(); searchLockers(); }">
-                                <button type="button" class="inpost-search-btn" onclick="searchLockers()" id="inpost-search-btn">
-                                    🔍 Szukaj
-                                </button>
+                                <span class="inpost-header-text">Wybierz paczkomat na mapie</span>
                             </div>
 
                             <div class="inpost-hint">
-                                <strong>Wskazówka:</strong> Wpisz nazwę miasta lub ulicę, aby znaleźć najbliższe paczkomaty. Możesz też wpisać kod paczkomatu, np. "WAW123M".
+                                <strong>Wskazówka:</strong> Wyszukaj paczkomat wpisując miasto lub adres w polu wyszukiwania na mapie. Kliknij na wybrany paczkomat, aby go zaznaczyć.
                             </div>
 
-                            <div class="inpost-results" id="inpost-results"></div>
+                            <!-- Oficjalny Geowidget InPost v4 - BEZ TOKENU -->
+                            <div id="easypack-map"></div>
 
                             <!-- Informacja o wybranym paczkomacie -->
                             <div class="selected-locker-info" id="selected-locker-info">
@@ -656,111 +528,93 @@
     <p th:text="#{footer.copyright}">&copy; 2026 PetMarket - Wszystkie prawa zastrzeżone</p>
 </footer>
 
-<!-- Skrypt wyszukiwarki paczkomatów -->
+<!-- Skrypt obsługi InPost Geowidget v4 (BEZ TOKENU) -->
 <script>
-    // Przykładowa baza paczkomatów (w produkcji zastąp prawdziwym API InPost)
-    const sampleLockers = [
-        { id: "WAW123M", name: "WAW123M", city: "Warszawa", street: "ul. Marszałkowska 100", zipCode: "00-001", description: "Przy wejściu do galerii" },
-        { id: "WAW124M", name: "WAW124M", city: "Warszawa", street: "ul. Puławska 50", zipCode: "02-508", description: "Obok sklepu Żabka" },
-        { id: "WAW125M", name: "WAW125M", city: "Warszawa", street: "ul. Targowa 72", zipCode: "03-734", description: "Przy stacji metra" },
-        { id: "WAW126M", name: "WAW126M", city: "Warszawa", street: "ul. Grochowska 207", zipCode: "04-077", description: "Parking Biedronki" },
-        { id: "WAW127M", name: "WAW127M", city: "Warszawa", street: "ul. Świętokrzyska 18", zipCode: "00-052", description: "Centrum Handlowe" },
-        { id: "KRK001M", name: "KRK001M", city: "Kraków", street: "ul. Floriańska 25", zipCode: "31-019", description: "Przy Bramie Floriańskiej" },
-        { id: "KRK002M", name: "KRK002M", city: "Kraków", street: "ul. Dietla 50", zipCode: "31-039", description: "Obok apteki" },
-        { id: "KRK003M", name: "KRK003M", city: "Kraków", street: "ul. Karmelicka 12", zipCode: "31-128", description: "Przy przystanku tramwajowym" },
-        { id: "GDA001M", name: "GDA001M", city: "Gdańsk", street: "ul. Długa 45", zipCode: "80-831", description: "Stare Miasto" },
-        { id: "GDA002M", name: "GDA002M", city: "Gdańsk", street: "ul. Grunwaldzka 100", zipCode: "80-244", description: "Galeria Bałtycka" },
-        { id: "POZ001M", name: "POZ001M", city: "Poznań", street: "ul. Półwiejska 32", zipCode: "61-888", description: "Centrum miasta" },
-        { id: "POZ002M", name: "POZ002M", city: "Poznań", street: "ul. Głogowska 80", zipCode: "60-741", description: "Przy dworcu PKP" },
-        { id: "WRO001M", name: "WRO001M", city: "Wrocław", street: "ul. Świdnicka 15", zipCode: "50-066", description: "Rynek" },
-        { id: "WRO002M", name: "WRO002M", city: "Wrocław", street: "ul. Legnicka 55", zipCode: "54-203", description: "Magnolia Park" },
-        { id: "LOD001M", name: "LOD001M", city: "Łódź", street: "ul. Piotrkowska 100", zipCode: "90-004", description: "Deptak" },
-        { id: "LOD002M", name: "LOD002M", city: "Łódź", street: "ul. Piłsudskiego 20", zipCode: "90-051", description: "Manufaktura" },
-        { id: "KAT001M", name: "KAT001M", city: "Katowice", street: "ul. 3 Maja 30", zipCode: "40-097", description: "Centrum" },
-        { id: "SZC001M", name: "SZC001M", city: "Szczecin", street: "al. Wojska Polskiego 15", zipCode: "70-470", description: "Przy Galaxy" },
-        { id: "BIA001M", name: "BIA001M", city: "Białystok", street: "ul. Lipowa 20", zipCode: "15-427", description: "Centrum Handlowe Alfa" },
-        { id: "BIA002M", name: "BIA002M", city: "Białystok", street: "ul. Wyszyńskiego 10", zipCode: "15-888", description: "Galeria Jurowiecka" },
-    ];
+    /**
+     * ========================================
+     * INPOST GEOWIDGET v4 - BEZ TOKENU
+     * ========================================
+     * Oficjalny widget InPost, działa bez rejestracji
+     */
 
-    // Funkcja wyszukiwania paczkomatów
-    function searchLockers() {
-        const searchInput = document.getElementById('inpost-search-input');
-        const resultsContainer = document.getElementById('inpost-results');
-        const searchBtn = document.getElementById('inpost-search-btn');
-        const query = searchInput.value.trim().toLowerCase();
+    let easypackMap = null;
+    let geowidgetInitialized = false;
 
-        if (query.length < 2) {
-            resultsContainer.innerHTML = '<div class="inpost-no-results">Wpisz minimum 2 znaki, aby wyszukać paczkomaty</div>';
+    // Inicjalizacja Geowidget v4 po załadowaniu SDK
+    window.easyPackAsyncInit = function() {
+        // Konfiguracja widgetu
+        easyPack.init({
+            defaultLocale: 'pl',
+            mapType: 'osm', // OpenStreetMap
+            searchType: 'osm',
+            points: {
+                types: ['parcel_locker'] // Tylko paczkomaty (bez POP)
+            },
+            map: {
+                initialTypes: ['parcel_locker'],
+                defaultLocation: [52.229676, 21.012229], // Warszawa
+                initialZoom: 6
+            }
+        });
+
+        geowidgetInitialized = true;
+        console.log('InPost Geowidget v4 zainicjalizowany');
+    };
+
+    // Funkcja do inicjalizacji mapy w kontenerze
+    function initInpostMap() {
+        if (!geowidgetInitialized) {
+            console.log('Czekam na inicjalizację Geowidget...');
+            setTimeout(initInpostMap, 200);
             return;
         }
 
-        // Pokaż loading
-        searchBtn.disabled = true;
-        resultsContainer.innerHTML = '<div class="inpost-loading">Szukam paczkomatów...</div>';
+        if (easypackMap) {
+            return; // Już zainicjalizowana
+        }
 
-        // Symulacja opóźnienia API
-        setTimeout(() => {
-            // Filtruj paczkomaty
-            const results = sampleLockers.filter(locker =>
-                locker.city.toLowerCase().includes(query) ||
-                locker.street.toLowerCase().includes(query) ||
-                locker.zipCode.includes(query) ||
-                locker.name.toLowerCase().includes(query)
-            );
-
-            searchBtn.disabled = false;
-
-            if (results.length === 0) {
-                resultsContainer.innerHTML = '<div class="inpost-no-results">Nie znaleziono paczkomatów dla podanej lokalizacji.<br>Spróbuj wpisać inną nazwę miejscowości lub ulicy.</div>';
-                return;
-            }
-
-            // Wyświetl wyniki
-            resultsContainer.innerHTML = results.map(locker => `
-                <div class="inpost-result-item" onclick="selectLocker('${locker.id}', '${locker.name}', '${locker.street}, ${locker.zipCode} ${locker.city}', '${locker.description}')">
-                    <div class="inpost-result-name">${locker.name}</div>
-                    <div class="inpost-result-address">${locker.street}, ${locker.zipCode} ${locker.city}</div>
-                    <div class="inpost-result-details">${locker.description} • Dostępny 24/7</div>
-                </div>
-            `).join('');
-        }, 500);
+        // Tworzymy widget mapy z callbackiem na wybór punktu
+        easypackMap = easyPack.mapWidget('easypack-map', function(point) {
+            onPointSelected(point);
+        });
     }
 
-    // Funkcja wyboru paczkomatu
-    function selectLocker(id, name, address, description) {
-        // Zapisz dane paczkomatu
-        document.getElementById('inpost-locker-id').value = id;
+    // Obsługa wyboru paczkomatu
+    function onPointSelected(point) {
+        console.log('Wybrany punkt:', point);
+
+        const name = point.name || '';
+        const address = point.address || {};
+        const street = address.line1 || '';
+        const city = address.line2 || '';
+        const fullAddress = street + (city ? ', ' + city : '');
+        const description = point.location_description || 'Paczkomat InPost';
+
+        // Zapisz do ukrytych pól formularza
+        document.getElementById('inpost-locker-id').value = name;
         document.getElementById('inpost-locker-name').value = name;
-        document.getElementById('inpost-locker-address').value = address;
+        document.getElementById('inpost-locker-address').value = fullAddress;
 
         // Wyświetl informację o wybranym paczkomacie
         document.getElementById('locker-name').textContent = name;
-        document.getElementById('locker-address').textContent = address;
+        document.getElementById('locker-address').textContent = fullAddress;
         document.getElementById('locker-hours').textContent = description + ' • Dostępny 24/7';
 
-        // Pokaż sekcję z wybranym paczkomatem, ukryj wyszukiwarkę
+        // Pokaż sekcję z wybranym paczkomatem
         document.getElementById('selected-locker-info').classList.add('visible');
-        document.querySelector('.inpost-search-box').style.display = 'none';
-        document.querySelector('.inpost-hint').style.display = 'none';
-        document.getElementById('inpost-results').style.display = 'none';
 
-        // Zaznacz wybrany element na liście
-        document.querySelectorAll('.inpost-result-item').forEach(item => {
-            item.classList.remove('selected');
-        });
+        // Przewiń do potwierdzenia
+        setTimeout(() => {
+            document.getElementById('selected-locker-info').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }, 300);
     }
 
     // Zmień wybrany paczkomat
     function changeLocker() {
-        // Ukryj informację o wybranym paczkomacie
         document.getElementById('selected-locker-info').classList.remove('visible');
-
-        // Pokaż wyszukiwarkę
-        document.querySelector('.inpost-search-box').style.display = 'flex';
-        document.querySelector('.inpost-hint').style.display = 'block';
-        document.getElementById('inpost-results').style.display = 'block';
-
-        // Wyczyść ukryte pola
         document.getElementById('inpost-locker-id').value = '';
         document.getElementById('inpost-locker-name').value = '';
         document.getElementById('inpost-locker-address').value = '';
@@ -776,10 +630,11 @@
         inpostContainer.classList.remove('visible');
         storePickupInfo.classList.remove('visible');
 
-        // Pokaż odpowiednią sekcję w zależności od wybranej metody
         if (selectedMethod === 'inpost') {
             inpostContainer.classList.add('visible');
             hideAddressSection();
+            // Inicjalizuj mapę
+            setTimeout(initInpostMap, 100);
         } else if (selectedMethod === 'pickup') {
             storePickupInfo.classList.add('visible');
             hideAddressSection();
@@ -793,13 +648,8 @@
         const addressSection = document.getElementById('default-address-display');
         const addressFormContainer = document.getElementById('address-form-container');
 
-        if (addressSection) {
-            addressSection.style.display = 'none';
-        }
-        if (addressFormContainer) {
-            addressFormContainer.style.display = 'none';
-        }
-
+        if (addressSection) addressSection.style.display = 'none';
+        if (addressFormContainer) addressFormContainer.style.display = 'none';
         setFormFieldsRequired(false);
     }
 
@@ -807,9 +657,8 @@
     function showAddressSection() {
         const addressSection = document.getElementById('default-address-display');
         const addressFormContainer = document.getElementById('address-form-container');
-        const defaultAddress = addressSection !== null;
 
-        if (defaultAddress && addressSection) {
+        if (addressSection) {
             addressSection.style.display = '';
             if (addressFormContainer && !addressFormContainer.classList.contains('hidden')) {
                 addressFormContainer.style.display = '';
@@ -821,82 +670,63 @@
         }
     }
 
-    // Pokaż formularz adresu (ukryj domyślny adres)
+    // Pokaż formularz adresu
     function showAddressForm() {
         const defaultDisplay = document.getElementById('default-address-display');
         const formContainer = document.getElementById('address-form-container');
         const addressIdInput = document.getElementById('selected-address-id');
 
-        if (defaultDisplay) {
-            defaultDisplay.classList.add('hidden');
-        }
-        if (formContainer) {
-            formContainer.classList.remove('hidden');
-        }
-        if (addressIdInput) {
-            addressIdInput.value = '';
-        }
-
+        if (defaultDisplay) defaultDisplay.classList.add('hidden');
+        if (formContainer) formContainer.classList.remove('hidden');
+        if (addressIdInput) addressIdInput.value = '';
         setFormFieldsRequired(true);
     }
 
-    // Użyj domyślnego adresu (ukryj formularz)
+    // Użyj domyślnego adresu
     function useDefaultAddress() {
         const defaultDisplay = document.getElementById('default-address-display');
         const formContainer = document.getElementById('address-form-container');
         const addressIdInput = document.getElementById('selected-address-id');
         const originalAddressId = document.querySelector('[data-original-address-id]');
 
-        if (defaultDisplay) {
-            defaultDisplay.classList.remove('hidden');
-        }
-        if (formContainer) {
-            formContainer.classList.add('hidden');
-        }
+        if (defaultDisplay) defaultDisplay.classList.remove('hidden');
+        if (formContainer) formContainer.classList.add('hidden');
         if (addressIdInput && originalAddressId) {
             addressIdInput.value = originalAddressId.getAttribute('data-original-address-id');
         }
-
         setFormFieldsRequired(false);
     }
 
-    // Wypełnij formularz danymi z zapisanego adresu
+    // Wypełnij formularz z zapisanego adresu
     function fillAddressFromSaved() {
         const select = document.getElementById('saved-address-select');
-        const selectedOption = select.options[select.selectedIndex];
+        const opt = select.options[select.selectedIndex];
 
-        if (selectedOption.value === '') {
-            document.getElementById('shippingName').value = '';
-            document.getElementById('shippingStreet').value = '';
-            document.getElementById('shippingZipCode').value = '';
-            document.getElementById('shippingCity').value = '';
-            document.getElementById('shippingPhone').value = '';
+        if (opt.value === '') {
+            ['shippingName', 'shippingStreet', 'shippingZipCode', 'shippingCity', 'shippingPhone']
+                .forEach(id => document.getElementById(id).value = '');
             return;
         }
 
-        document.getElementById('shippingName').value = selectedOption.getAttribute('data-name') || '';
-        document.getElementById('shippingStreet').value = selectedOption.getAttribute('data-street') || '';
-        document.getElementById('shippingZipCode').value = selectedOption.getAttribute('data-zipcode') || '';
-        document.getElementById('shippingCity').value = selectedOption.getAttribute('data-city') || '';
-        document.getElementById('shippingPhone').value = selectedOption.getAttribute('data-phone') || '';
+        document.getElementById('shippingName').value = opt.getAttribute('data-name') || '';
+        document.getElementById('shippingStreet').value = opt.getAttribute('data-street') || '';
+        document.getElementById('shippingZipCode').value = opt.getAttribute('data-zipcode') || '';
+        document.getElementById('shippingCity').value = opt.getAttribute('data-city') || '';
+        document.getElementById('shippingPhone').value = opt.getAttribute('data-phone') || '';
     }
 
-    // Włącz/wyłącz walidację pól formularza
+    // Włącz/wyłącz walidację pól
     function setFormFieldsRequired(required) {
-        const fields = ['shippingName', 'shippingStreet', 'shippingZipCode', 'shippingCity', 'shippingPhone', 'email'];
-        fields.forEach(fieldId => {
-            const field = document.getElementById(fieldId);
-            if (field) {
-                if (required) {
-                    field.setAttribute('required', 'required');
-                } else {
-                    field.removeAttribute('required');
+        ['shippingName', 'shippingStreet', 'shippingZipCode', 'shippingCity', 'shippingPhone', 'email']
+            .forEach(id => {
+                const field = document.getElementById(id);
+                if (field) {
+                    required ? field.setAttribute('required', 'required') : field.removeAttribute('required');
                 }
-            }
-        });
+            });
     }
 
-    // Walidacja formularza przed wysłaniem
+    // Walidacja formularza
     function validateCheckoutForm(event) {
         const selectedMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
 
@@ -904,40 +734,38 @@
             const lockerId = document.getElementById('inpost-locker-id').value;
             if (!lockerId) {
                 event.preventDefault();
-                alert('Proszę wybrać paczkomat z listy.');
-                document.getElementById('inpost-search-input').focus();
+                alert('Proszę wybrać paczkomat na mapie.');
                 return false;
             }
         }
-
         return true;
     }
 
-    // Inicjalizacja
+    // Inicjalizacja po załadowaniu DOM
     document.addEventListener('DOMContentLoaded', function() {
+        // Checkbox "Zapisz adres"
         const saveAddressCheckbox = document.getElementById('saveAddress');
         const addressLabelGroup = document.getElementById('address-label-group');
 
         if (saveAddressCheckbox && addressLabelGroup) {
             saveAddressCheckbox.addEventListener('change', function() {
-                if (this.checked) {
-                    addressLabelGroup.classList.remove('hidden');
-                } else {
-                    addressLabelGroup.classList.add('hidden');
-                }
+                this.checked ? addressLabelGroup.classList.remove('hidden') : addressLabelGroup.classList.add('hidden');
             });
         }
 
+        // Ustaw wymagane pola
         const defaultDisplay = document.getElementById('default-address-display');
         if (defaultDisplay && !defaultDisplay.classList.contains('hidden')) {
             setFormFieldsRequired(false);
         }
 
+        // Zapisz oryginalny ID adresu
         const addressIdInput = document.getElementById('selected-address-id');
         if (addressIdInput && addressIdInput.value) {
             addressIdInput.setAttribute('data-original-address-id', addressIdInput.value);
         }
 
+        // Walidacja formularza
         const checkoutForm = document.querySelector('form');
         if (checkoutForm) {
             checkoutForm.addEventListener('submit', validateCheckoutForm);
