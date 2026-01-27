@@ -171,6 +171,9 @@ public class CheckoutController {
             @RequestParam(required = false) Boolean saveAddress,
             @RequestParam(required = false) String voucherCode,
             @RequestParam(required = false) String addressLabel,
+            @RequestParam(required = false) String inpostLockerId,
+            @RequestParam(required = false) String inpostLockerName,
+            @RequestParam(required = false) String inpostLockerAddress,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
 
@@ -251,15 +254,33 @@ public class CheckoutController {
                 }
             }
 
-            order.setShippingAddress(address);
-
+            // Map form delivery method values to DeliveryMethod enum
             DeliveryMethod delivery;
-            try {
-                delivery = DeliveryMethod.valueOf(deliveryMethod);
-            } catch (IllegalArgumentException e) {
-                delivery = DeliveryMethod.COURIER;
+            switch (deliveryMethod.toLowerCase()) {
+                case "inpost":
+                    delivery = DeliveryMethod.LOCKER;
+                    break;
+                case "pickup":
+                    delivery = DeliveryMethod.PICKUP;
+                    break;
+                case "courier":
+                default:
+                    delivery = DeliveryMethod.COURIER;
+                    break;
             }
             order.setDeliveryMethod(delivery);
+
+            // Handle paczkomat (InPost locker) address
+            if (delivery == DeliveryMethod.LOCKER && inpostLockerId != null && !inpostLockerId.isEmpty()) {
+                address = new Address();
+                // Use locker ID as street identifier and locker address for the rest
+                address.setStreet("Paczkomat " + inpostLockerName + " - " + inpostLockerAddress);
+                address.setCity("");
+                address.setZipCode("");
+                address.setCountry("Poland");
+            }
+
+            order.setShippingAddress(address);
 
             BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
             order.setDeliveryCost(deliveryCost);
