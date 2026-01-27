@@ -116,6 +116,8 @@ public class CheckoutController {
         model.addAttribute("isGuest", isGuest);
         model.addAttribute("checkoutForm", new CheckoutForm());
         model.addAttribute("cart", new CartViewModel(cartData.items, cartData.total));
+        model.addAttribute("deliveryMethods", DeliveryMethod.values());
+        model.addAttribute("paymentMethods", PaymentMethod.values());
 
         return "checkout";
     }

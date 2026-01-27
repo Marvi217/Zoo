@@ -1,6 +1,7 @@
 package com.example.zoo.dto;
 
 import com.example.zoo.entity.CartItem;
+import com.example.zoo.enums.DeliveryMethod;
 import lombok.Getter;
 
 import java.math.BigDecimal;
@@ -13,8 +14,7 @@ public class CartViewModel {
     private final BigDecimal deliveryCost;
     private final BigDecimal totalAmount;
 
-    private static final BigDecimal FREE_SHIPPING_THRESHOLD = new BigDecimal("200");
-    private static final BigDecimal STANDARD_DELIVERY_COST = new BigDecimal("15");
+    private static final BigDecimal FREE_SHIPPING_THRESHOLD = new BigDecimal("199");
 
     public CartViewModel(List<CartItem> items, BigDecimal subtotal) {
         this.items = items;
@@ -27,7 +27,7 @@ public class CartViewModel {
         if (subtotal.compareTo(FREE_SHIPPING_THRESHOLD) >= 0) {
             return BigDecimal.ZERO;
         }
-        return STANDARD_DELIVERY_COST;
+        return DeliveryMethod.COURIER.getPrice();
     }
 
 }

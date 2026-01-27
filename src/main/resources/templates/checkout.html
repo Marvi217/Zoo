@@ -471,7 +471,7 @@
                             <div class="option-content">
                                 <div class="option-header">
                                     <span class="option-name" th:text="#{checkout.delivery.courier}">Kurier DPD</span>
-                                    <span class="option-price">15 <span th:text="#{general.currency}">zł</span></span>
+                                    <span class="option-price" th:text="${T(com.example.zoo.enums.DeliveryMethod).COURIER.price} + ' zł'">18.50 zł</span>
                                 </div>
                                 <p class="option-desc" th:text="#{checkout.delivery.courier.desc}">Dostawa w 1-2 dni robocze</p>
                             </div>
@@ -482,7 +482,7 @@
                             <div class="option-content">
                                 <div class="option-header">
                                     <span class="option-name" th:text="#{checkout.delivery.inpost}">Paczkomat InPost</span>
-                                    <span class="option-price">12 <span th:text="#{general.currency}">zł</span></span>
+                                    <span class="option-price" th:text="${T(com.example.zoo.enums.DeliveryMethod).LOCKER.price} + ' zł'">12.99 zł</span>
                                 </div>
                                 <p class="option-desc" th:text="#{checkout.delivery.inpost.desc}">Dostawa do paczkomatu w 1-2 dni</p>
                             </div>
@@ -657,7 +657,16 @@
 </footer>
 
 <!-- Skrypt wyszukiwarki paczkomatów -->
-<script>
+<script th:inline="javascript">
+    // Delivery costs from server
+    const deliveryCosts = {
+        courier: /*[[${T(com.example.zoo.enums.DeliveryMethod).COURIER.price}]]*/ 18.50,
+        inpost: /*[[${T(com.example.zoo.enums.DeliveryMethod).LOCKER.price}]]*/ 12.99,
+        pickup: /*[[${T(com.example.zoo.enums.DeliveryMethod).PICKUP.price}]]*/ 0.00
+    };
+    const freeShippingThreshold = 199;
+    const subtotal = /*[[${cart.subtotal}]]*/ 0;
+
     // Przykładowa baza paczkomatów (w produkcji zastąp prawdziwym API InPost)
     const sampleLockers = [
         { id: "WAW123M", name: "WAW123M", city: "Warszawa", street: "ul. Marszałkowska 100", zipCode: "00-001", description: "Przy wejściu do galerii" },
@@ -786,6 +795,33 @@
         } else {
             showAddressSection();
         }
+
+        // Update delivery cost in summary
+        updateDeliveryCostDisplay(selectedMethod);
+    }
+
+    // Update delivery cost display in the summary
+    function updateDeliveryCostDisplay(method) {
+        const deliveryCostElement = document.querySelector('.summary-row:nth-child(2) span:last-child');
+        const totalElement = document.querySelector('.summary-total span:last-child');
+        
+        if (!deliveryCostElement || !totalElement) return;
+        
+        let deliveryCost = deliveryCosts[method] || 0;
+        
+        // Free shipping if subtotal >= threshold
+        if (subtotal >= freeShippingThreshold) {
+            deliveryCost = 0;
+        }
+        
+        if (deliveryCost > 0) {
+            deliveryCostElement.textContent = deliveryCost.toFixed(2) + ' zł';
+        } else {
+            deliveryCostElement.textContent = 'Gratis';
+        }
+        
+        const newTotal = subtotal + deliveryCost;
+        totalElement.textContent = newTotal.toFixed(2) + ' zł';
     }
 
     // Ukryj sekcję adresu
