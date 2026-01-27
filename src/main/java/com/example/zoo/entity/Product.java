@@ -35,7 +35,9 @@ public class Product {
     @Column(length = 2000)
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // EAGER fetch required because products are stored in HTTP session (cart)
+    // and brand name is displayed in cart/checkout templates
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
@@ -88,7 +90,9 @@ public class Product {
     @Builder.Default
     private List<ProductImage> images = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
+    // EAGER fetch required because products are stored in HTTP session (cart)
+    // and promotion calculations are done in CartItem methods after session is closed
+    @ManyToMany(mappedBy = "products", fetch = FetchType.EAGER)
     @Builder.Default
     private Set<Promotion> promotions = new HashSet<>();
 
