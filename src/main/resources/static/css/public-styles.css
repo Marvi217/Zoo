@@ -1758,6 +1758,137 @@ footer {
     }
 }
 
+/* Checkout Address Selection */
+.saved-address-card {
+    background: var(--bg-light);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.saved-address-card.selected {
+    border-color: var(--brand-green);
+    background: var(--brand-light);
+}
+
+.saved-address-card .address-label {
+    font-weight: 600;
+    color: var(--brand-green);
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.saved-address-card .address-name {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.saved-address-card .address-details {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.btn-change-address,
+.btn-use-default {
+    background: transparent;
+    border: 2px solid var(--brand-green);
+    color: var(--brand-green);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-change-address:hover,
+.btn-use-default:hover {
+    background: var(--brand-green);
+    color: white;
+}
+
+.btn-use-default {
+    margin-top: 20px;
+    display: block;
+}
+
+.saved-addresses-selector {
+    margin-bottom: 20px;
+}
+
+.saved-addresses-selector label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.saved-addresses-selector select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+.saved-addresses-selector select:focus {
+    border-color: var(--brand-green);
+    outline: none;
+}
+
+.save-address-group {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand-green);
+    cursor: pointer;
+}
+
+#address-label-group {
+    margin-top: 15px;
+}
+
+#address-label-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+#address-label-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+#address-label-group input:focus {
+    border-color: var(--brand-green);
+    outline: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
 /* ========================================
    ORDER SUCCESS PAGE
    ======================================== */

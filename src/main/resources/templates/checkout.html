@@ -30,46 +30,105 @@
                 <section class="checkout-section">
                     <h2 th:text="#{checkout.delivery.address}">Adres dostawy</h2>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label th:text="#{register.firstname} + ' *'">Imię *</label>
-                            <input type="text" th:field="*{firstName}" required>
+                    <!-- WYŚWIETLANIE DOMYŚLNEGO ADRESU (jeśli użytkownik zalogowany i ma adres) -->
+                    <div th:if="${defaultAddress != null}" id="default-address-display">
+                        <input type="hidden" name="addressId" th:value="${defaultAddress.id}" id="selected-address-id">
+
+                        <div class="saved-address-card selected">
+                            <div class="address-label" th:text="${defaultAddress.label}">Dom</div>
+                            <div class="address-name" th:text="${defaultAddress.name}">Jan Kowalski</div>
+                            <div class="address-details">
+                                <span th:text="${defaultAddress.street}">ul. Przykładowa 123</span><br>
+                                <span th:text="${defaultAddress.zipCode + ' ' + defaultAddress.city}">00-000 Warszawa</span><br>
+                                <span th:if="${defaultAddress.phoneNumber}" th:text="'Tel: ' + ${defaultAddress.phoneNumber}">Tel: +48 123 456 789</span>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label th:text="#{register.lastname} + ' *'">Nazwisko *</label>
-                            <input type="text" th:field="*{lastName}" required>
-                        </div>
+
+                        <button type="button" class="btn-change-address" onclick="showAddressForm()">
+                            Inny adres
+                        </button>
                     </div>
 
-                    <div class="form-group">
-                        <label th:text="#{checkout.street} + ' *'">Ulica i numer *</label>
-                        <input type="text" th:field="*{street}"
-                               th:placeholder="#{checkout.street.placeholder}" required>
-                    </div>
+                    <!-- FORMULARZ ADRESU (ukryty jeśli jest domyślny adres) -->
+                    <div id="address-form-container" th:classappend="${defaultAddress != null} ? 'hidden' : ''">
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label th:text="#{addresses.zipcode} + ' *'">Kod pocztowy *</label>
-                            <input type="text" th:field="*{zipCode}"
-                                   th:placeholder="#{addresses.zipcode.placeholder}" required>
+                        <!-- Wybór zapisanego adresu (dla zalogowanych) -->
+                        <div th:if="${savedAddresses != null and !savedAddresses.isEmpty()}" class="saved-addresses-selector" id="saved-addresses-section">
+                            <label>Wybierz zapisany adres:</label>
+                            <select id="saved-address-select" onchange="fillAddressFromSaved()">
+                                <option value="">-- Nowy adres --</option>
+                                <option th:each="addr : ${savedAddresses}"
+                                        th:value="${addr.id}"
+                                        th:data-name="${addr.name}"
+                                        th:data-street="${addr.street}"
+                                        th:data-zipcode="${addr.zipCode}"
+                                        th:data-city="${addr.city}"
+                                        th:data-country="${addr.country}"
+                                        th:data-phone="${addr.phoneNumber}"
+                                        th:text="${addr.label + ' - ' + addr.street + ', ' + addr.city}">
+                                    Adres
+                                </option>
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label th:text="#{addresses.city} + ' *'">Miasto *</label>
-                            <input type="text" th:field="*{city}"
-                                   th:placeholder="#{addresses.city.placeholder}" required>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label th:text="#{register.firstname} + ' *'">Imię *</label>
+                                <input type="text" name="shippingName" id="shippingName"
+                                       th:value="${user != null ? user.fullName : ''}" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label th:text="#{profile.phone} + ' *'">Numer telefonu *</label>
-                        <input type="tel" th:field="*{phone}"
-                               placeholder="+48 123 456 789" required>
-                    </div>
+                        <div class="form-group">
+                            <label th:text="#{checkout.street} + ' *'">Ulica i numer *</label>
+                            <input type="text" name="shippingStreet" id="shippingStreet"
+                                   th:placeholder="#{checkout.street.placeholder}" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label th:text="#{login.email} + ' *'">Email *</label>
-                        <input type="email" th:field="*{email}"
-                               th:placeholder="#{login.email.placeholder}" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label th:text="#{addresses.zipcode} + ' *'">Kod pocztowy *</label>
+                                <input type="text" name="shippingZipCode" id="shippingZipCode"
+                                       th:placeholder="#{addresses.zipcode.placeholder}" required>
+                            </div>
+                            <div class="form-group">
+                                <label th:text="#{addresses.city} + ' *'">Miasto *</label>
+                                <input type="text" name="shippingCity" id="shippingCity"
+                                       th:placeholder="#{addresses.city.placeholder}" required>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="shippingCountry" value="Poland">
+
+                        <div class="form-group">
+                            <label th:text="#{profile.phone} + ' *'">Numer telefonu *</label>
+                            <input type="tel" name="shippingPhone" id="shippingPhone"
+                                   placeholder="+48 123 456 789" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label th:text="#{login.email} + ' *'">Email *</label>
+                            <input type="email" name="email" id="email"
+                                   th:value="${user != null ? user.email : ''}"
+                                   th:placeholder="#{login.email.placeholder}" required>
+                        </div>
+
+                        <!-- CHECKBOX ZAPISZ ADRES (tylko dla zalogowanych) -->
+                        <div th:if="${user != null}" class="form-group save-address-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="saveAddress" id="saveAddress" value="true">
+                                <span>Zapisz ten adres do mojego konta</span>
+                            </label>
+                            <div id="address-label-group" class="hidden">
+                                <label for="addressLabel">Nazwa adresu (np. Dom, Biuro):</label>
+                                <input type="text" name="addressLabel" id="addressLabel" placeholder="np. Dom, Biuro, Praca">
+                            </div>
+                        </div>
+
+                        <!-- Przycisk powrotu do domyślnego adresu -->
+                        <button type="button" th:if="${defaultAddress != null}" class="btn-use-default" onclick="useDefaultAddress()">
+                            Użyj domyślnego adresu
+                        </button>
                     </div>
                 </section>
 
@@ -213,6 +272,117 @@
 <footer>
     <p th:text="#{footer.copyright}">&copy; 2026 PetMarket - Wszystkie prawa zastrzeżone</p>
 </footer>
+
+<script>
+    // Pokaż formularz adresu (ukryj domyślny adres)
+    function showAddressForm() {
+        const defaultDisplay = document.getElementById('default-address-display');
+        const formContainer = document.getElementById('address-form-container');
+        const addressIdInput = document.getElementById('selected-address-id');
+
+        if (defaultDisplay) {
+            defaultDisplay.classList.add('hidden');
+        }
+        if (formContainer) {
+            formContainer.classList.remove('hidden');
+        }
+        // Wyczyść addressId żeby używał nowego adresu
+        if (addressIdInput) {
+            addressIdInput.value = '';
+        }
+
+        // Włącz walidację formularza
+        setFormFieldsRequired(true);
+    }
+
+    // Użyj domyślnego adresu (ukryj formularz)
+    function useDefaultAddress() {
+        const defaultDisplay = document.getElementById('default-address-display');
+        const formContainer = document.getElementById('address-form-container');
+        const addressIdInput = document.getElementById('selected-address-id');
+        const originalAddressId = document.querySelector('[data-original-address-id]');
+
+        if (defaultDisplay) {
+            defaultDisplay.classList.remove('hidden');
+        }
+        if (formContainer) {
+            formContainer.classList.add('hidden');
+        }
+        // Przywróć addressId
+        if (addressIdInput && originalAddressId) {
+            addressIdInput.value = originalAddressId.getAttribute('data-original-address-id');
+        }
+
+        // Wyłącz walidację formularza
+        setFormFieldsRequired(false);
+    }
+
+    // Wypełnij formularz danymi z zapisanego adresu
+    function fillAddressFromSaved() {
+        const select = document.getElementById('saved-address-select');
+        const selectedOption = select.options[select.selectedIndex];
+
+        if (selectedOption.value === '') {
+            // Nowy adres - wyczyść pola
+            document.getElementById('shippingName').value = '';
+            document.getElementById('shippingStreet').value = '';
+            document.getElementById('shippingZipCode').value = '';
+            document.getElementById('shippingCity').value = '';
+            document.getElementById('shippingPhone').value = '';
+            return;
+        }
+
+        // Wypełnij pola danymi z wybranego adresu
+        document.getElementById('shippingName').value = selectedOption.getAttribute('data-name') || '';
+        document.getElementById('shippingStreet').value = selectedOption.getAttribute('data-street') || '';
+        document.getElementById('shippingZipCode').value = selectedOption.getAttribute('data-zipcode') || '';
+        document.getElementById('shippingCity').value = selectedOption.getAttribute('data-city') || '';
+        document.getElementById('shippingPhone').value = selectedOption.getAttribute('data-phone') || '';
+    }
+
+    // Włącz/wyłącz walidację pól formularza
+    function setFormFieldsRequired(required) {
+        const fields = ['shippingName', 'shippingStreet', 'shippingZipCode', 'shippingCity', 'shippingPhone'];
+        fields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                if (required) {
+                    field.setAttribute('required', 'required');
+                } else {
+                    field.removeAttribute('required');
+                }
+            }
+        });
+    }
+
+    // Pokaż/ukryj pole nazwy adresu przy zaznaczeniu checkboxa
+    document.addEventListener('DOMContentLoaded', function() {
+        const saveAddressCheckbox = document.getElementById('saveAddress');
+        const addressLabelGroup = document.getElementById('address-label-group');
+
+        if (saveAddressCheckbox && addressLabelGroup) {
+            saveAddressCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    addressLabelGroup.classList.remove('hidden');
+                } else {
+                    addressLabelGroup.classList.add('hidden');
+                }
+            });
+        }
+
+        // Jeśli jest domyślny adres, wyłącz walidację pól formularza
+        const defaultDisplay = document.getElementById('default-address-display');
+        if (defaultDisplay && !defaultDisplay.classList.contains('hidden')) {
+            setFormFieldsRequired(false);
+        }
+
+        // Zapisz oryginalny addressId
+        const addressIdInput = document.getElementById('selected-address-id');
+        if (addressIdInput && addressIdInput.value) {
+            addressIdInput.setAttribute('data-original-address-id', addressIdInput.value);
+        }
+    });
+</script>
 
 </body>
 </html>

@@ -105,6 +105,10 @@ public class CheckoutController {
             savedAddresses = addressService.getUserAddresses(user);
             model.addAttribute("user", user);
             model.addAttribute("savedAddresses", savedAddresses);
+
+            // Pobierz domyślny adres
+            UserAddress defaultAddress = addressService.getDefaultAddress(user).orElse(null);
+            model.addAttribute("defaultAddress", defaultAddress);
         }
 
         emailService.sendSimpleMessage("test@o2.pl","Test mail","Test mail");
