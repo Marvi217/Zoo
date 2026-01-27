@@ -55,7 +55,11 @@
                 </div>
 
                 <div class="item-price" th:data-label="#{cart.price} + ':'">
-                    <span class="old-price" th:if="${item.product.hasDiscount}"
+                    <!-- For BuyXGetY promotions, show promo description instead of crossed out price -->
+                    <span class="promo-badge" th:if="${item.product.buyXGetYPromotion}"
+                          th:text="${item.product.buyXGetYDescription}">Kup 2 dostań 1 gratis</span>
+                    <!-- For regular discounts, show old price crossed out -->
+                    <span class="old-price" th:if="${item.product.hasDiscount and !item.product.buyXGetYPromotion}"
                           th:text="${#numbers.formatDecimal(item.product.oldPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                     <span class="current-price"
                           th:text="${#numbers.formatDecimal(item.price, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
@@ -81,9 +85,7 @@
 
             <!-- CART ACTIONS -->
             <div class="cart-actions">
-                <form th:action="@{/cart/clear}" method="post">
-                    <button type="submit" class="btn-secondary" th:text="#{cart.clear}">Wyczyść koszyk</button>
-                </form>
+                <button type="button" class="btn-secondary" onclick="clearCart()" th:text="#{cart.clear}">Wyczyść koszyk</button>
                 <a th:href="@{/}" class="btn-outline" th:text="#{cart.continue}">Kontynuuj zakupy</a>
             </div>
         </div>
@@ -100,8 +102,8 @@
                         <span class="summary-product-qty" th:text="'× ' + ${item.quantity}">× 1</span>
                     </div>
                     <div class="summary-product-prices">
-                        <!-- Show original price if discounted -->
-                        <span th:if="${item.product.hasDiscount}" class="summary-original-price"
+                        <!-- Show original price if discounted (but not for BuyXGetY) -->
+                        <span th:if="${item.product.hasDiscount and !item.product.buyXGetYPromotion}" class="summary-original-price"
                               th:text="${#numbers.formatDecimal(item.product.oldPrice * item.quantity, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                         <!-- Current price -->
                         <span class="summary-product-price" th:text="${#numbers.formatDecimal(item.totalPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
@@ -176,6 +178,32 @@ function updateCartQuantity(button) {
     .catch(error => {
         console.error('Error:', error);
         button.disabled = false;
+    });
+}
+
+function clearCart() {
+    if (!confirm('Czy na pewno chcesz wyczyścić koszyk?')) {
+        return;
+    }
+    
+    fetch('/cart/clear-async', {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Requested-With': 'XMLHttpRequest' 
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.reload();
+        } else {
+            alert(data.message || 'Wystąpił błąd');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Wystąpił błąd podczas czyszczenia koszyka');
     });
 }
 </script>

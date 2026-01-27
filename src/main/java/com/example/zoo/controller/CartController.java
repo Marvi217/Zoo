@@ -312,6 +312,34 @@ public class CartController {
         return "redirect:/cart";
     }
 
+    @PostMapping("/clear-async")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> clearCartAsync(HttpSession session) {
+        try {
+            User user = securityHelper.getCurrentUser(session);
+
+            if (user != null) {
+                UserCart userCart = getUserCart(user);
+                userCart.clear();
+                userCartRepository.save(userCart);
+            } else {
+                Cart cart = getSessionCart(session);
+                cart.clear();
+            }
+
+            return ResponseEntity.ok(Map.of(
+                    "success", true,
+                    "message", "Koszyk został wyczyszczony"
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(Map.of(
+                    "success", false,
+                    "message", "Wystąpił błąd: " + e.getMessage()
+            ));
+        }
+    }
+
     @PostMapping("/add-async")
     @ResponseBody
     public ResponseEntity<?> addToCartAsync(
