@@ -1,6 +1,8 @@
 package com.example.zoo.controller;
 
 import com.example.zoo.SecurityHelper;
+import com.example.zoo.dto.CartViewModel;
+import com.example.zoo.dto.CheckoutForm;
 import com.example.zoo.entity.*;
 import com.example.zoo.enums.OrderStatus;
 import com.example.zoo.enums.PaymentMethod;
@@ -107,11 +109,11 @@ public class CheckoutController {
             model.addAttribute("savedAddresses", savedAddresses);
         }
 
-        emailService.sendSimpleMessage("test@o2.pl","Test mail","Test mail");
-
         model.addAttribute("cartItems", cartData.items);
         model.addAttribute("total", cartData.total);
         model.addAttribute("isGuest", isGuest);
+        model.addAttribute("checkoutForm", new CheckoutForm());
+        model.addAttribute("cart", new CartViewModel(cartData.items, cartData.total));
 
         return "checkout";
     }
