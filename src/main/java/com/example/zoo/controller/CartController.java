@@ -1,7 +1,6 @@
 package com.example.zoo.controller;
 
 import com.example.zoo.SecurityHelper;
-import com.example.zoo.dto.CartViewModel;
 import com.example.zoo.entity.*;
 import com.example.zoo.repository.UserCartRepository;
 import com.example.zoo.service.ProductService;
@@ -66,23 +65,20 @@ public class CartController {
     public String showCart(HttpSession session, Model model) {
         User user = securityHelper.getCurrentUser(session);
 
-        List<CartItem> cartItems;
-        BigDecimal subtotal;
-
         if (user != null) {
             UserCart userCart = getUserCart(user);
-            cartItems = userCart.getItems().stream()
-                    .map(item -> new CartItem(item.getProduct(), item.getQuantity()))
-                    .collect(Collectors.toList());
-            subtotal = userCart.getTotal();
+            // Convert UserCart items to Cart for template compatibility
+            Cart cart = new Cart();
+            userCart.getItems().forEach(item -> cart.addItem(item.getProduct(), item.getQuantity()));
+            model.addAttribute("cart", cart);
+            model.addAttribute("cartItems", cart.getItems());
+            model.addAttribute("total", cart.getTotal());
         } else {
             Cart cart = getSessionCart(session);
-            cartItems = cart.getItems();
-            subtotal = cart.getTotal();
+            model.addAttribute("cart", cart);
+            model.addAttribute("cartItems", cart.getItems());
+            model.addAttribute("total", cart.getTotal());
         }
-
-        CartViewModel cartViewModel = new CartViewModel(cartItems, subtotal);
-        model.addAttribute("cart", cartViewModel);
         return "cart";
     }
 
@@ -314,6 +310,34 @@ public class CartController {
 
         redirectAttributes.addFlashAttribute("success", "Koszyk został wyczyszczony");
         return "redirect:/cart";
+    }
+
+    @PostMapping("/clear-async")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> clearCartAsync(HttpSession session) {
+        try {
+            User user = securityHelper.getCurrentUser(session);
+
+            if (user != null) {
+                UserCart userCart = getUserCart(user);
+                userCart.clear();
+                userCartRepository.save(userCart);
+            } else {
+                Cart cart = getSessionCart(session);
+                cart.clear();
+            }
+
+            return ResponseEntity.ok(Map.of(
+                    "success", true,
+                    "message", "Koszyk został wyczyszczony"
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(Map.of(
+                    "success", false,
+                    "message", "Wystąpił błąd: " + e.getMessage()
+            ));
+        }
     }
 
     @PostMapping("/add-async")

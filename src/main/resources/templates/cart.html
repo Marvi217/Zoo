@@ -42,7 +42,11 @@
 
             <div th:each="item : ${cart.items}" class="cart-item">
                 <div class="item-product">
-                    <div class="item-image" th:text="${item.product.imageUrl}">🦴</div>
+                    <div class="item-image">
+                        <img th:if="${item.product.imageUrl != null and !item.product.imageUrl.isEmpty()}"
+                             th:src="${item.product.imageUrl}" th:alt="${item.product.name}">
+                        <span th:if="${item.product.imageUrl == null or item.product.imageUrl.isEmpty()}">🦴</span>
+                    </div>
                     <div class="item-details">
                         <h3 class="item-name" th:text="${item.product.name}">Nazwa produktu</h3>
                         <p class="item-brand" th:if="${item.product.brand != null}"
@@ -50,41 +54,41 @@
                     </div>
                 </div>
 
-                <div class="item-price">
-                    <span class="old-price" th:if="${item.product.hasDiscount}"
+                <div class="item-price" th:data-label="#{cart.price} + ':'">
+                    <!-- For BuyXGetY promotions, show promo description only when promo is applied -->
+                    <span class="promo-badge" th:if="${item.promoApplied}"
+                          th:text="${item.product.buyXGetYDescription}">Kup 2 dostań 1 gratis</span>
+                    <!-- Show info when BuyXGetY exists but not yet applied -->
+                    <span class="promo-hint" th:if="${item.product.buyXGetYPromotion and !item.promoApplied}"
+                          th:text="'Dodaj ' + ${item.product.buyXGetYTotalQuantity - item.quantity} + ' więcej dla promocji'">Dodaj więcej dla promocji</span>
+                    <!-- For regular discounts, show old price crossed out -->
+                    <span class="old-price" th:if="${item.product.hasDiscount and !item.product.buyXGetYPromotion}"
                           th:text="${#numbers.formatDecimal(item.product.oldPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                     <span class="current-price"
                           th:text="${#numbers.formatDecimal(item.price, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                 </div>
 
                 <div class="item-quantity">
-                    <form th:action="@{/cart/update}" method="post" class="quantity-form">
-                        <input type="hidden" name="productId" th:value="${item.product.id}">
-                        <button type="submit" name="action" value="decrease" class="qty-btn">−</button>
-                        <input type="number" name="quantity" th:value="${item.quantity}"
-                               min="1" max="10" readonly class="qty-input">
-                        <button type="submit" name="action" value="increase" class="qty-btn">+</button>
-                    </form>
+                    <div class="quantity-form">
+                        <button type="button" class="qty-btn" th:data-product-id="${item.product.id}" th:data-action="decrease" onclick="updateCartQuantity(this)">−</button>
+                        <input type="number" th:value="${item.quantity}" min="1" max="10" readonly class="qty-input">
+                        <button type="button" class="qty-btn" th:data-product-id="${item.product.id}" th:data-action="increase" onclick="updateCartQuantity(this)">+</button>
+                    </div>
                 </div>
 
-                <div class="item-total"
+                <div class="item-total" th:data-label="#{cart.total} + ':'"
                      th:text="${#numbers.formatDecimal(item.totalPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</div>
 
                 <div class="item-actions">
-                    <form th:action="@{/cart/remove}" method="post">
-                        <input type="hidden" name="productId" th:value="${item.product.id}">
-                        <button type="submit" class="btn-remove" th:title="#{cart.remove}">
-                            🗑️
-                        </button>
-                    </form>
+                    <a th:href="@{/cart/remove/{id}(id=${item.product.id})}" class="btn-remove" th:title="#{cart.remove}">
+                        🗑️
+                    </a>
                 </div>
             </div>
 
             <!-- CART ACTIONS -->
             <div class="cart-actions">
-                <form th:action="@{/cart/clear}" method="post">
-                    <button type="submit" class="btn-secondary" th:text="#{cart.clear}">Wyczyść koszyk</button>
-                </form>
+                <button type="button" class="btn-secondary" onclick="clearCart()" th:text="#{cart.clear}">Wyczyść koszyk</button>
                 <a th:href="@{/}" class="btn-outline" th:text="#{cart.continue}">Kontynuuj zakupy</a>
             </div>
         </div>
@@ -93,9 +97,32 @@
         <div class="cart-summary">
             <h2 th:text="#{cart.summary}">Podsumowanie</h2>
 
+            <!-- Product list in summary -->
+            <div class="summary-products">
+                <div th:each="item : ${cart.items}" class="summary-product-row">
+                    <div class="summary-product-info">
+                        <span class="summary-product-name" th:text="${item.product.name}">Produkt</span>
+                        <span class="summary-product-qty" th:text="'× ' + ${item.quantity}">× 1</span>
+                    </div>
+                    <div class="summary-product-prices">
+                        <!-- Show original price if discounted (but not for BuyXGetY) -->
+                        <span th:if="${item.product.hasDiscount and !item.product.buyXGetYPromotion}" class="summary-original-price"
+                              th:text="${#numbers.formatDecimal(item.product.oldPrice * item.quantity, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                        <!-- Current price -->
+                        <span class="summary-product-price" th:text="${#numbers.formatDecimal(item.totalPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="summary-row">
                 <span th:text="#{cart.subtotal}">Wartość produktów</span>
                 <span th:text="${#numbers.formatDecimal(cart.subtotal, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+            </div>
+
+            <!-- Show discount row if any items have discount -->
+            <div th:if="${cart.totalDiscount != null and cart.totalDiscount > 0}" class="summary-row summary-discount">
+                <span th:text="#{cart.discount}">Upust</span>
+                <span th:text="'-' + ${#numbers.formatDecimal(cart.totalDiscount, 1, 2)} + ' ' + #{general.currency}">-0.00 zł</span>
             </div>
 
             <div class="summary-row">
@@ -121,6 +148,68 @@
 <footer>
     <p th:text="#{footer.copyright}">&copy; 2026 PetMarket - Wszystkie prawa zastrzeżone</p>
 </footer>
+
+<script>
+    function updateCartQuantity(button) {
+        const productId = button.getAttribute('data-product-id');
+        const action = button.getAttribute('data-action');
+
+        button.disabled = true;
+
+        const params = new URLSearchParams();
+        params.append('productId', productId);
+        params.append('action', action);
+
+        fetch('/cart/update', {
+            method: 'POST',
+            body: params,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Reload the page to show updated cart
+                    window.location.reload();
+                } else {
+                    alert(data.message || 'Wystąpił błąd');
+                    button.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                button.disabled = false;
+            });
+    }
+
+    function clearCart() {
+        if (!confirm('Czy na pewno chcesz wyczyścić koszyk?')) {
+            return;
+        }
+
+        fetch('/cart/clear-async', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.reload();
+                } else {
+                    alert(data.message || 'Wystąpił błąd');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Wystąpił błąd podczas czyszczenia koszyka');
+            });
+    }
+</script>
 
 </body>
 </html>
