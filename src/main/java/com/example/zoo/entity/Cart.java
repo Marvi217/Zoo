@@ -10,6 +10,8 @@ import java.util.Optional;
 @Data
 public class Cart {
     private List<CartItem> items = new ArrayList<>();
+    private static final BigDecimal FREE_DELIVERY_THRESHOLD = new BigDecimal("199");
+    private static final BigDecimal DELIVERY_COST = new BigDecimal("15");
 
     public void addItem(Product product, Integer quantity) {
         if (product == null || product.getId() == null) return;
@@ -49,6 +51,35 @@ public class Cart {
         return items.stream()
                 .map(CartItem::getSubtotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    public BigDecimal getSubtotal() {
+        return getTotal();
+    }
+
+    public BigDecimal getTotalDiscount() {
+        return items.stream()
+                .filter(item -> item.getProduct() != null && item.getProduct().isHasDiscount())
+                .map(item -> {
+                    BigDecimal oldPrice = item.getProduct().getOldPrice();
+                    BigDecimal currentPrice = item.getProduct().getPrice();
+                    if (oldPrice != null && currentPrice != null) {
+                        return oldPrice.subtract(currentPrice).multiply(BigDecimal.valueOf(item.getQuantity()));
+                    }
+                    return BigDecimal.ZERO;
+                })
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    public BigDecimal getDeliveryCost() {
+        if (getSubtotal().compareTo(FREE_DELIVERY_THRESHOLD) >= 0) {
+            return BigDecimal.ZERO;
+        }
+        return DELIVERY_COST;
+    }
+
+    public BigDecimal getTotalAmount() {
+        return getSubtotal().add(getDeliveryCost());
     }
 
     public Integer getTotalItems() {

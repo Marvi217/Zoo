@@ -67,13 +67,15 @@ public class CartController {
 
         if (user != null) {
             UserCart userCart = getUserCart(user);
-            List<CartItem> cartItems = userCart.getItems().stream()
-                    .map(item -> new CartItem(item.getProduct(), item.getQuantity()))
-                    .collect(Collectors.toList());
-            model.addAttribute("cartItems", cartItems);
-            model.addAttribute("total", userCart.getTotal());
+            // Convert UserCart items to Cart for template compatibility
+            Cart cart = new Cart();
+            userCart.getItems().forEach(item -> cart.addItem(item.getProduct(), item.getQuantity()));
+            model.addAttribute("cart", cart);
+            model.addAttribute("cartItems", cart.getItems());
+            model.addAttribute("total", cart.getTotal());
         } else {
             Cart cart = getSessionCart(session);
+            model.addAttribute("cart", cart);
             model.addAttribute("cartItems", cart.getItems());
             model.addAttribute("total", cart.getTotal());
         }
