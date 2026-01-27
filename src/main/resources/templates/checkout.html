@@ -30,146 +30,109 @@
                 <section class="checkout-section">
                     <h2 th:text="#{checkout.delivery.address}">Adres dostawy</h2>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label th:text="#{register.firstname} + ' *'">Imię *</label>
-                            <input type="text" th:field="*{firstName}" required>
-                        </div>
-                        <div class="form-group">
-                            <label th:text="#{register.lastname} + ' *'">Nazwisko *</label>
-                            <input type="text" th:field="*{lastName}" required>
-                        </div>
-                    </div>
+                    <!-- Hidden input to store selected address ID -->
+                    <input type="hidden" name="addressId" id="selected-address-id" 
+                           th:value="${defaultAddress != null ? defaultAddress.id : ''}">
 
-                    <div class="form-group">
-                        <label th:text="#{checkout.street} + ' *'">Ulica i numer *</label>
-                        <input type="text" th:field="*{street}"
-                               th:placeholder="#{checkout.street.placeholder}" required>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label th:text="#{addresses.zipcode} + ' *'">Kod pocztowy *</label>
-                            <input type="text" th:field="*{zipCode}"
-                                   th:placeholder="#{addresses.zipcode.placeholder}" required>
-                        </div>
-                        <div class="form-group">
-                            <label th:text="#{addresses.city} + ' *'">Miasto *</label>
-                            <input type="text" th:field="*{city}"
-                                   th:placeholder="#{addresses.city.placeholder}" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label th:text="#{profile.phone} + ' *'">Numer telefonu *</label>
-                        <input type="tel" th:field="*{phone}"
-                               placeholder="+48 123 456 789" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label th:text="#{login.email} + ' *'">Email *</label>
-                        <input type="email" th:field="*{email}"
-                               th:placeholder="#{login.email.placeholder}" required>
-                        <!-- WYŚWIETLANIE DOMYŚLNEGO ADRESU (jeśli użytkownik zalogowany i ma adres) -->
-                        <div th:if="${defaultAddress != null}" id="default-address-display">
-                            <input type="hidden" name="addressId" th:value="${defaultAddress.id}" id="selected-address-id">
-
-                            <div class="saved-address-card selected">
-                                <div class="address-label" th:text="${defaultAddress.label}">Dom</div>
-                                <div class="address-name" th:text="${defaultAddress.name}">Jan Kowalski</div>
-                                <div class="address-details">
-                                    <span th:text="${defaultAddress.street}">ul. Przykładowa 123</span><br>
-                                    <span th:text="${defaultAddress.zipCode + ' ' + defaultAddress.city}">00-000 Warszawa</span><br>
-                                    <span th:if="${defaultAddress.phoneNumber}" th:text="'Tel: ' + ${defaultAddress.phoneNumber}">Tel: +48 123 456 789</span>
-                                </div>
+                    <!-- WYŚWIETLANIE DOMYŚLNEGO ADRESU (jeśli użytkownik zalogowany i ma adres) -->
+                    <div th:if="${defaultAddress != null}" id="default-address-display">
+                        <div class="saved-address-card selected">
+                            <div class="address-badge" th:text="#{addresses.default}">Domyślny</div>
+                            <div class="address-label" th:text="${defaultAddress.label}">Dom</div>
+                            <div class="address-name" th:text="${defaultAddress.name}">Jan Kowalski</div>
+                            <div class="address-details">
+                                <span th:text="${defaultAddress.street}">ul. Przykładowa 123</span><br>
+                                <span th:text="${defaultAddress.zipCode + ' ' + defaultAddress.city}">00-000 Warszawa</span><br>
+                                <span th:if="${defaultAddress.phoneNumber}" th:text="'Tel: ' + ${defaultAddress.phoneNumber}">Tel: +48 123 456 789</span>
                             </div>
-
-                            <button type="button" class="btn-change-address" onclick="showAddressForm()">
-                                Inny adres
-                            </button>
                         </div>
 
-                        <!-- FORMULARZ ADRESU (ukryty jeśli jest domyślny adres) -->
-                        <div id="address-form-container" th:classappend="${defaultAddress != null} ? 'hidden' : ''">
+                        <button type="button" class="btn-change-address" onclick="showAddressForm()">
+                            <span class="btn-icon">📍</span> Inny adres dostawy
+                        </button>
+                    </div>
 
-                            <!-- Wybór zapisanego adresu (dla zalogowanych) -->
-                            <div th:if="${savedAddresses != null and !savedAddresses.isEmpty()}" class="saved-addresses-selector" id="saved-addresses-section">
-                                <label>Wybierz zapisany adres:</label>
-                                <select id="saved-address-select" onchange="fillAddressFromSaved()">
-                                    <option value="">-- Nowy adres --</option>
-                                    <option th:each="addr : ${savedAddresses}"
-                                            th:value="${addr.id}"
-                                            th:data-name="${addr.name}"
-                                            th:data-street="${addr.street}"
-                                            th:data-zipcode="${addr.zipCode}"
-                                            th:data-city="${addr.city}"
-                                            th:data-country="${addr.country}"
-                                            th:data-phone="${addr.phoneNumber}"
-                                            th:text="${addr.label + ' - ' + addr.street + ', ' + addr.city}">
-                                        Adres
-                                    </option>
-                                </select>
-                            </div>
+                    <!-- FORMULARZ ADRESU (widoczny od razu jeśli brak domyślnego adresu) -->
+                    <div id="address-form-container" th:classappend="${defaultAddress != null} ? 'hidden' : ''">
 
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label th:text="#{register.firstname} + ' *'">Imię *</label>
-                                    <input type="text" name="shippingName" id="shippingName"
-                                           th:value="${user != null ? user.fullName : ''}" required>
-                                </div>
-                            </div>
+                        <!-- Wybór zapisanego adresu (dla zalogowanych z zapisanymi adresami) -->
+                        <div th:if="${savedAddresses != null and !savedAddresses.isEmpty()}" class="saved-addresses-selector" id="saved-addresses-section">
+                            <label th:text="#{checkout.select.saved.address}">Wybierz zapisany adres:</label>
+                            <select id="saved-address-select" onchange="fillAddressFromSaved()">
+                                <option value="" th:text="#{checkout.new.address}">-- Nowy adres --</option>
+                                <option th:each="addr : ${savedAddresses}"
+                                        th:value="${addr.id}"
+                                        th:data-name="${addr.name}"
+                                        th:data-street="${addr.street}"
+                                        th:data-zipcode="${addr.zipCode}"
+                                        th:data-city="${addr.city}"
+                                        th:data-country="${addr.country}"
+                                        th:data-phone="${addr.phoneNumber}"
+                                        th:text="${addr.label + ' - ' + addr.street + ', ' + addr.city}">
+                                    Adres
+                                </option>
+                            </select>
+                        </div>
 
+                        <div class="form-group">
+                            <label th:text="#{addresses.name} + ' *'">Imię i nazwisko *</label>
+                            <input type="text" name="shippingName" id="shippingName"
+                                   th:value="${user != null ? user.fullName : ''}" 
+                                   th:placeholder="#{addresses.name.placeholder}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label th:text="#{checkout.street} + ' *'">Ulica i numer *</label>
+                            <input type="text" name="shippingStreet" id="shippingStreet"
+                                   th:placeholder="#{checkout.street.placeholder}" required>
+                        </div>
+
+                        <div class="form-row">
                             <div class="form-group">
-                                <label th:text="#{checkout.street} + ' *'">Ulica i numer *</label>
-                                <input type="text" name="shippingStreet" id="shippingStreet"
-                                       th:placeholder="#{checkout.street.placeholder}" required>
+                                <label th:text="#{addresses.zipcode} + ' *'">Kod pocztowy *</label>
+                                <input type="text" name="shippingZipCode" id="shippingZipCode"
+                                       th:placeholder="#{addresses.zipcode.placeholder}" required>
                             </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label th:text="#{addresses.zipcode} + ' *'">Kod pocztowy *</label>
-                                    <input type="text" name="shippingZipCode" id="shippingZipCode"
-                                           th:placeholder="#{addresses.zipcode.placeholder}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label th:text="#{addresses.city} + ' *'">Miasto *</label>
-                                    <input type="text" name="shippingCity" id="shippingCity"
-                                           th:placeholder="#{addresses.city.placeholder}" required>
-                                </div>
-                            </div>
-
-                            <input type="hidden" name="shippingCountry" value="Poland">
-
                             <div class="form-group">
-                                <label th:text="#{profile.phone} + ' *'">Numer telefonu *</label>
-                                <input type="tel" name="shippingPhone" id="shippingPhone"
-                                       placeholder="+48 123 456 789" required>
+                                <label th:text="#{addresses.city} + ' *'">Miasto *</label>
+                                <input type="text" name="shippingCity" id="shippingCity"
+                                       th:placeholder="#{addresses.city.placeholder}" required>
                             </div>
-
-                            <div class="form-group">
-                                <label th:text="#{login.email} + ' *'">Email *</label>
-                                <input type="email" name="email" id="email"
-                                       th:value="${user != null ? user.email : ''}"
-                                       th:placeholder="#{login.email.placeholder}" required>
-                            </div>
-
-                            <!-- CHECKBOX ZAPISZ ADRES (tylko dla zalogowanych) -->
-                            <div th:if="${user != null}" class="form-group save-address-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="saveAddress" id="saveAddress" value="true">
-                                    <span>Zapisz ten adres do mojego konta</span>
-                                </label>
-                                <div id="address-label-group" class="hidden">
-                                    <label for="addressLabel">Nazwa adresu (np. Dom, Biuro):</label>
-                                    <input type="text" name="addressLabel" id="addressLabel" placeholder="np. Dom, Biuro, Praca">
-                                </div>
-                            </div>
-
-                            <!-- Przycisk powrotu do domyślnego adresu -->
-                            <button type="button" th:if="${defaultAddress != null}" class="btn-use-default" onclick="useDefaultAddress()">
-                                Użyj domyślnego adresu
-                            </button>
                         </div>
+
+                        <input type="hidden" name="shippingCountry" value="Poland">
+
+                        <div class="form-group">
+                            <label th:text="#{profile.phone} + ' *'">Numer telefonu *</label>
+                            <input type="tel" name="shippingPhone" id="shippingPhone"
+                                   placeholder="+48 123 456 789" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label th:text="#{login.email} + ' *'">Email *</label>
+                            <input type="email" name="email" id="email"
+                                   th:value="${user != null ? user.email : ''}"
+                                   th:placeholder="#{login.email.placeholder}" required>
+                        </div>
+
+                        <!-- CHECKBOX ZAPISZ ADRES (tylko dla zalogowanych) -->
+                        <div th:if="${user != null}" class="save-address-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="saveAddress" id="saveAddress" value="true">
+                                <span th:text="#{checkout.save.address}">Zapisz ten adres do mojego konta</span>
+                            </label>
+                            <div id="address-label-group" class="hidden">
+                                <label for="addressLabel" th:text="#{checkout.address.label}">Nazwa adresu (np. Dom, Biuro):</label>
+                                <input type="text" name="addressLabel" id="addressLabel" 
+                                       th:placeholder="#{addresses.label.placeholder}">
+                            </div>
+                        </div>
+
+                        <!-- Przycisk powrotu do domyślnego adresu -->
+                        <button type="button" th:if="${defaultAddress != null}" class="btn-use-default" onclick="useDefaultAddress()">
+                            <span class="btn-icon">↩</span> <span th:text="#{checkout.use.default.address}">Użyj domyślnego adresu</span>
+                        </button>
+                    </div>
                 </section>
 
                 <!-- DELIVERY METHOD -->
@@ -381,7 +344,7 @@
 
     // Włącz/wyłącz walidację pól formularza
     function setFormFieldsRequired(required) {
-        const fields = ['shippingName', 'shippingStreet', 'shippingZipCode', 'shippingCity', 'shippingPhone'];
+        const fields = ['shippingName', 'shippingStreet', 'shippingZipCode', 'shippingCity', 'shippingPhone', 'email'];
         fields.forEach(fieldId => {
             const field = document.getElementById(fieldId);
             if (field) {
