@@ -171,6 +171,9 @@ public class CheckoutController {
             @RequestParam(required = false) Boolean saveAddress,
             @RequestParam(required = false) String voucherCode,
             @RequestParam(required = false) String addressLabel,
+            @RequestParam(required = false) String inpostLockerId,
+            @RequestParam(required = false) String inpostLockerName,
+            @RequestParam(required = false) String inpostLockerAddress,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
 
@@ -251,15 +254,57 @@ public class CheckoutController {
                 }
             }
 
-            order.setShippingAddress(address);
-
+            // Map form delivery method values to DeliveryMethod enum
             DeliveryMethod delivery;
-            try {
-                delivery = DeliveryMethod.valueOf(deliveryMethod);
-            } catch (IllegalArgumentException e) {
-                delivery = DeliveryMethod.COURIER;
+            switch (deliveryMethod.toLowerCase()) {
+                case "inpost":
+                    delivery = DeliveryMethod.LOCKER;
+                    break;
+                case "pickup":
+                    delivery = DeliveryMethod.PICKUP;
+                    break;
+                case "courier":
+                default:
+                    delivery = DeliveryMethod.COURIER;
+                    break;
             }
             order.setDeliveryMethod(delivery);
+
+            // Handle paczkomat (InPost locker) address
+            if (delivery == DeliveryMethod.LOCKER && inpostLockerId != null && !inpostLockerId.isEmpty()) {
+                address = new Address();
+                String lockerName = inpostLockerName != null ? inpostLockerName : inpostLockerId;
+                String lockerAddr = inpostLockerAddress != null ? inpostLockerAddress : "";
+                
+                // Parse address format: "street, zipCode city"
+                String streetPart = "";
+                String cityPart = "";
+                String zipCodePart = "";
+                
+                if (!lockerAddr.isEmpty()) {
+                    int commaIndex = lockerAddr.indexOf(',');
+                    if (commaIndex > 0) {
+                        streetPart = lockerAddr.substring(0, commaIndex).trim();
+                        String rest = lockerAddr.substring(commaIndex + 1).trim();
+                        // Try to extract zip code (format: XX-XXX) and city
+                        if (rest.length() >= 6 && rest.charAt(2) == '-') {
+                            zipCodePart = rest.substring(0, 6).trim();
+                            cityPart = rest.substring(6).trim();
+                        } else {
+                            cityPart = rest;
+                        }
+                    } else {
+                        streetPart = lockerAddr;
+                    }
+                }
+                
+                address.setStreet("Paczkomat " + lockerName + (streetPart.isEmpty() ? "" : ", " + streetPart));
+                address.setCity(cityPart.isEmpty() ? "Paczkomat" : cityPart);
+                address.setZipCode(zipCodePart.isEmpty() ? "00-000" : zipCodePart);
+                address.setCountry("Poland");
+            }
+
+            order.setShippingAddress(address);
 
             BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
             order.setDeliveryCost(deliveryCost);
