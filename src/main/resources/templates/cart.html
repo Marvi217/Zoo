@@ -49,7 +49,7 @@
                     </div>
                     <div class="item-details">
                         <h3 class="item-name" th:text="${item.product.name}">Nazwa produktu</h3>
-                        <p class="item-brand" th:if="${item.product.brand != null}"
+                        <p class="item-brand" th:if="${item.product.brand != null and item.product.brand.name != null}"
                            th:text="${item.product.brand.name}">Marka</p>
                     </div>
                 </div>
