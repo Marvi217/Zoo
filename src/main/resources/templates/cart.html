@@ -60,7 +60,7 @@
                           th:text="${item.product.buyXGetYDescription}">Kup 2 dostań 1 gratis</span>
                     <!-- Show info when BuyXGetY exists but not yet applied -->
                     <span class="promo-hint" th:if="${item.product.buyXGetYPromotion and !item.promoApplied}"
-                          th:text="'Dodaj ' + (item.product.buyXGetYTotalQuantity - item.quantity) + ' więcej dla promocji'">Dodaj więcej dla promocji</span>
+                          th:text="'Dodaj ' + ${item.product.buyXGetYTotalQuantity - item.quantity} + ' więcej dla promocji'">Dodaj więcej dla promocji</span>
                     <!-- For regular discounts, show old price crossed out -->
                     <span class="old-price" th:if="${item.product.hasDiscount and !item.product.buyXGetYPromotion}"
                           th:text="${#numbers.formatDecimal(item.product.oldPrice, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
