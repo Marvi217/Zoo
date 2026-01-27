@@ -253,22 +253,13 @@ public class CheckoutController {
 
             order.setShippingAddress(address);
 
-            DeliveryMethod delivery;
-            try {
-                delivery = DeliveryMethod.valueOf(deliveryMethod);
-            } catch (IllegalArgumentException e) {
-                delivery = DeliveryMethod.COURIER;
-            }
+            DeliveryMethod delivery = mapDeliveryMethod(deliveryMethod);
             order.setDeliveryMethod(delivery);
 
             BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
             order.setDeliveryCost(deliveryCost);
 
-            try {
-                order.setPaymentMethod(PaymentMethod.valueOf(paymentMethod));
-            } catch (IllegalArgumentException e) {
-                order.setPaymentMethod(PaymentMethod.CARD);
-            }
+            order.setPaymentMethod(mapPaymentMethod(paymentMethod));
 
             List<OrderItem> orderItems = new ArrayList<>();
             for (var cartItem : cartData.items) {
@@ -350,5 +341,30 @@ public class CheckoutController {
             return BigDecimal.ZERO;
         }
         return method.getPrice();
+    }
+
+    private DeliveryMethod mapDeliveryMethod(String method) {
+        if (method == null) {
+            return DeliveryMethod.COURIER;
+        }
+        return switch (method.toLowerCase()) {
+            case "courier" -> DeliveryMethod.COURIER;
+            case "inpost" -> DeliveryMethod.LOCKER;
+            case "pickup" -> DeliveryMethod.PICKUP;
+            default -> DeliveryMethod.COURIER;
+        };
+    }
+
+    private PaymentMethod mapPaymentMethod(String method) {
+        if (method == null) {
+            return PaymentMethod.CARD;
+        }
+        return switch (method.toLowerCase()) {
+            case "online" -> PaymentMethod.CARD;
+            case "transfer" -> PaymentMethod.TRANSFER;
+            case "cod" -> PaymentMethod.CASH_ON_DELIVERY;
+            case "blik" -> PaymentMethod.BLIK;
+            default -> PaymentMethod.CARD;
+        };
     }
 }
