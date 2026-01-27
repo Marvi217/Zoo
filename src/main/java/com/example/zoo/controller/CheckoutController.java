@@ -273,10 +273,34 @@ public class CheckoutController {
             // Handle paczkomat (InPost locker) address
             if (delivery == DeliveryMethod.LOCKER && inpostLockerId != null && !inpostLockerId.isEmpty()) {
                 address = new Address();
-                // Use locker ID as street identifier and locker address for the rest
-                address.setStreet("Paczkomat " + inpostLockerName + " - " + inpostLockerAddress);
-                address.setCity("");
-                address.setZipCode("");
+                String lockerName = inpostLockerName != null ? inpostLockerName : inpostLockerId;
+                String lockerAddr = inpostLockerAddress != null ? inpostLockerAddress : "";
+                
+                // Parse address format: "street, zipCode city"
+                String streetPart = "";
+                String cityPart = "";
+                String zipCodePart = "";
+                
+                if (!lockerAddr.isEmpty()) {
+                    int commaIndex = lockerAddr.indexOf(',');
+                    if (commaIndex > 0) {
+                        streetPart = lockerAddr.substring(0, commaIndex).trim();
+                        String rest = lockerAddr.substring(commaIndex + 1).trim();
+                        // Try to extract zip code (format: XX-XXX) and city
+                        if (rest.length() >= 6 && rest.charAt(2) == '-') {
+                            zipCodePart = rest.substring(0, 6).trim();
+                            cityPart = rest.substring(6).trim();
+                        } else {
+                            cityPart = rest;
+                        }
+                    } else {
+                        streetPart = lockerAddr;
+                    }
+                }
+                
+                address.setStreet("Paczkomat " + lockerName + (streetPart.isEmpty() ? "" : ", " + streetPart));
+                address.setCity(cityPart.isEmpty() ? "Paczkomat" : cityPart);
+                address.setZipCode(zipCodePart.isEmpty() ? "00-000" : zipCodePart);
                 address.setCountry("Poland");
             }
 
