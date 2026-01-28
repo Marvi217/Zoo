@@ -32,13 +32,16 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final ProductService productService;
     private final CartService cartService;
+    private final EmailService emailService;
 
     public OrderService(OrderRepository orderRepository,
                         ProductService productService,
-                        CartService cartService) {
+                        CartService cartService,
+                        EmailService emailService) {
         this.orderRepository = orderRepository;
         this.productService = productService;
         this.cartService = cartService;
+        this.emailService = emailService;
     }
 
 
@@ -277,19 +280,76 @@ public class OrderService {
                 .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono zamówienia o ID: " + orderId));
 
         order.setTrackingNumber(trackingNumber);
-        order.setDeliveryMethod(carrier);
+
+        // Użyj przekazanego przewoźnika lub zachowaj istniejącą metodę dostawy (wybraną przez klienta)
+        DeliveryMethod effectiveCarrier = carrier != null ? carrier : order.getDeliveryMethod();
+        if (effectiveCarrier != null) {
+            order.setDeliveryMethod(effectiveCarrier);
+        }
 
         order.setStatus(OrderStatus.SHIPPED);
 
         String shippingNote = String.format("[%s] Zamówienie wysłane. Przewoźnik: %s, Numer: %s",
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),
-                carrier,
+                effectiveCarrier != null ? effectiveCarrier.getDescription() : "Nieznany",
                 trackingNumber);
 
         order.setAdminNotes(order.getAdminNotes() != null ?
                 order.getAdminNotes() + "\n" + shippingNote : shippingNote);
 
         orderRepository.save(order);
+    }
+
+    @Transactional
+    public Order generateTrackingAndNotify(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono zamówienia o ID: " + orderId));
+
+        if (order.getTrackingNumber() != null) {
+            throw new IllegalStateException("Zamówienie ma już wygenerowany numer przesyłki");
+        }
+
+        // Generuj numer przesyłki w zależności od przewoźnika
+        String trackingNumber = generateTrackingNumber(order.getDeliveryMethod());
+        order.setTrackingNumber(trackingNumber);
+        order.setStatus(OrderStatus.SHIPPED);
+
+        String shippingNote = String.format("[%s] Przesyłka wygenerowana automatycznie. Przewoźnik: %s, Numer: %s",
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),
+                order.getDeliveryMethod() != null ? order.getDeliveryMethod().getDescription() : "Nieznany",
+                trackingNumber);
+
+        order.setAdminNotes(order.getAdminNotes() != null ?
+                order.getAdminNotes() + "\n" + shippingNote : shippingNote);
+
+        orderRepository.save(order);
+
+        // Wyślij powiadomienie email do klienta
+        try {
+            emailService.sendShippingNotification(order);
+        } catch (Exception e) {
+            log.error("Nie udało się wysłać powiadomienia email dla zamówienia {}: {}", orderId, e.getMessage());
+        }
+
+        log.info("Wygenerowano numer przesyłki {} dla zamówienia {}", trackingNumber, orderId);
+        return order;
+    }
+
+    private String generateTrackingNumber(DeliveryMethod deliveryMethod) {
+        String prefix;
+        if (deliveryMethod == null) {
+            prefix = "PKG";
+        } else {
+            prefix = switch (deliveryMethod) {
+                case LOCKER -> "INP";  // InPost
+                case COURIER -> "DPD"; // Kurier
+                case PICKUP -> "ODO";  // Odbiór osobisty
+            };
+        }
+        // Format: PREFIX + timestamp + random 4 digits
+        long timestamp = System.currentTimeMillis();
+        int random = new Random().nextInt(9000) + 1000;
+        return prefix + timestamp + random;
     }
 
     @Transactional

@@ -360,11 +360,7 @@ public class CheckoutController {
     }
 
     private DeliveryMethod mapDeliveryMethod(String method) {
-        if (method == null) {
-            return DeliveryMethod.COURIER;
-        }
         return switch (method.toLowerCase()) {
-            case "courier" -> DeliveryMethod.COURIER;
             case "inpost" -> DeliveryMethod.LOCKER;
             case "pickup" -> DeliveryMethod.PICKUP;
             default -> DeliveryMethod.COURIER;
