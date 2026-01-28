@@ -16,6 +16,7 @@ import com.example.zoo.service.PromotionService;
 import com.example.zoo.service.UserAddressService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,10 +34,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Controller
 @RequestMapping("/checkout")
 @RequiredArgsConstructor
 public class CheckoutController {
+
+    private static final String DEFAULT_COUNTRY = "Poland";
 
     private final OrderService orderService;
     private final UserRepository userRepository;
@@ -228,7 +232,7 @@ public class CheckoutController {
                     address.setCity("");
                 }
                 address.setZipCode("");
-                address.setCountry("Poland");
+                address.setCountry(DEFAULT_COUNTRY);
 
                 // Add locker name to notes
                 if (inpostLockerName != null && !inpostLockerName.isEmpty()) {
@@ -250,7 +254,7 @@ public class CheckoutController {
                 address.setStreet(street);
                 address.setCity(city);
                 address.setZipCode(zipCode);
-                address.setCountry(country != null ? country : "Poland");
+                address.setCountry(country != null ? country : DEFAULT_COUNTRY);
 
                 if (Boolean.TRUE.equals(saveAddress) && currentUser != null) {
                     try {
@@ -263,18 +267,15 @@ public class CheckoutController {
                         newUserAddress.setStreet(street);
                         newUserAddress.setCity(city);
                         newUserAddress.setZipCode(zipCode);
-                        newUserAddress.setCountry(country != null ? country : "Poland");
+                        newUserAddress.setCountry(country != null ? country : DEFAULT_COUNTRY);
                         newUserAddress.setPhoneNumber(phone);
 
                         UserAddress savedAddress = addressService.saveAddress(newUserAddress, currentUser);
 
-                        System.out.println("✓ Adres został zapisany dla przyszłych zamówień");
-                        System.out.println("  - ID: " + savedAddress.getId());
-                        System.out.println("  - Label: " + savedAddress.getLabel());
-                        System.out.println("  - Is Default: " + savedAddress.isDefault());
+                        log.info("✓ Adres został zapisany dla przyszłych zamówień - ID: {}, Label: {}, Is Default: {}",
+                                savedAddress.getId(), savedAddress.getLabel(), savedAddress.isDefault());
                     } catch (Exception e) {
-                        System.err.println("⚠ Nie udało się zapisać adresu: " + e.getMessage());
-                        e.printStackTrace();
+                        log.error("⚠ Nie udało się zapisać adresu: {}", e.getMessage(), e);
                     }
                 }
             }
@@ -327,12 +328,12 @@ public class CheckoutController {
 
             orderService.save(order);
 
-            System.out.println("=== NEW ORDER ===");
-            System.out.println("Order Number: " + order.getOrderNumber());
-            System.out.println("Customer Type: " + (currentUser != null ? "Logged User" : "Guest"));
-            System.out.println("Customer Name: " + (currentUser != null ? currentUser.getFullName() : order.getGuestName()));
-            System.out.println("Delivery Method: " + delivery);
-            System.out.println("Address Saved: " + (Boolean.TRUE.equals(saveAddress) && currentUser != null ? "Yes" : "No"));
+            log.info("=== NEW ORDER === Order Number: {}, Customer: {} ({}), Delivery: {}, Address Saved: {}",
+                    order.getOrderNumber(),
+                    currentUser != null ? currentUser.getFullName() : order.getGuestName(),
+                    currentUser != null ? "Logged User" : "Guest",
+                    delivery,
+                    Boolean.TRUE.equals(saveAddress) && currentUser != null ? "Yes" : "No");
 
             clearCart(session);
 
@@ -340,19 +341,35 @@ public class CheckoutController {
             return "redirect:/checkout/payment?orderNumber=" + order.getOrderNumber();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Błąd podczas składania zamówienia: {}", e.getMessage(), e);
             redirectAttributes.addFlashAttribute("error", "Błąd podczas składania zamówienia: " + e.getMessage());
             return "redirect:/checkout";
         }
     }
 
     @GetMapping("/payment")
-    public String showPaymentGateway(@RequestParam String orderNumber, Model model, RedirectAttributes redirectAttributes) {
+    public String showPaymentGateway(@RequestParam String orderNumber, Model model,
+                                     HttpSession session, RedirectAttributes redirectAttributes) {
         try {
             Order order = orderService.getOrderByNumber(orderNumber);
+
+            // Security: Verify the user is authorized to access this order
+            User currentUser = securityHelper.getCurrentUser(session);
+            if (!isAuthorizedForOrder(order, currentUser, session)) {
+                redirectAttributes.addFlashAttribute("error", "Brak dostępu do tego zamówienia");
+                return "redirect:/";
+            }
+
+            // Validate order state - only PENDING orders should show payment gateway
+            if (order.getPaymentStatus() != com.example.zoo.enums.PaymentStatus.PENDING) {
+                redirectAttributes.addFlashAttribute("error", "To zamówienie zostało już opłacone lub anulowane");
+                return "redirect:/";
+            }
+
             model.addAttribute("order", order);
             return "payment-gateway";
         } catch (Exception e) {
+            log.error("Zamówienie nie zostało znalezione: {}", orderNumber, e);
             redirectAttributes.addFlashAttribute("error", "Zamówienie nie zostało znalezione");
             return "redirect:/";
         }
@@ -362,10 +379,24 @@ public class CheckoutController {
     public String simulatePayment(
             @RequestParam String orderNumber,
             @RequestParam String status,
+            HttpSession session,
             RedirectAttributes redirectAttributes) {
 
         try {
             Order order = orderService.getOrderByNumber(orderNumber);
+
+            // Security: Verify the user is authorized to access this order
+            User currentUser = securityHelper.getCurrentUser(session);
+            if (!isAuthorizedForOrder(order, currentUser, session)) {
+                redirectAttributes.addFlashAttribute("error", "Brak dostępu do tego zamówienia");
+                return "redirect:/";
+            }
+
+            // Validate order state - only PENDING payment orders can be updated
+            if (order.getPaymentStatus() != com.example.zoo.enums.PaymentStatus.PENDING) {
+                redirectAttributes.addFlashAttribute("error", "Status płatności tego zamówienia nie może być już zmieniony");
+                return "redirect:/";
+            }
 
             switch (status.toUpperCase()) {
                 case "PAID":
@@ -377,7 +408,8 @@ public class CheckoutController {
                     try {
                         emailService.sendOrderConfirmationEmail(order);
                     } catch (Exception e) {
-                        System.err.println("Nie udało się wysłać emaila: " + e.getMessage());
+                        log.error("Nie udało się wysłać emaila potwierdzenia dla zamówienia {}: {}",
+                                order.getOrderNumber(), e.getMessage());
                     }
 
                     redirectAttributes.addFlashAttribute("orderNumber", order.getOrderNumber());
@@ -402,9 +434,32 @@ public class CheckoutController {
                     return "redirect:/checkout/payment?orderNumber=" + orderNumber;
             }
         } catch (Exception e) {
+            log.error("Błąd podczas przetwarzania płatności: {}", e.getMessage(), e);
             redirectAttributes.addFlashAttribute("error", "Błąd podczas przetwarzania płatności: " + e.getMessage());
             return "redirect:/";
         }
+    }
+
+    /**
+     * Check if the current user/session is authorized to access the order.
+     */
+    private boolean isAuthorizedForOrder(Order order, User currentUser, HttpSession session) {
+        // If order belongs to a logged-in user, check if current user matches
+        if (order.getUser() != null) {
+            return currentUser != null && currentUser.getId().equals(order.getUser().getId());
+        }
+
+        // For guest orders, we use session-based verification
+        // The order was just created in this session, so we allow access
+        // In a real production environment, you might use a token-based approach
+        String guestEmail = order.getGuestEmail();
+        if (guestEmail != null && currentUser == null) {
+            // Allow guest access - the order number serves as a token in this simulation
+            // In production, consider using a more secure token-based approach
+            return true;
+        }
+
+        return false;
     }
 
     @GetMapping("/confirmation")

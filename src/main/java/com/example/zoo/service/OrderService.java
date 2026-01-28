@@ -71,9 +71,7 @@ public class OrderService {
                 .orElseThrow(() -> new EntityNotFoundException("Nie znaleziono zamówienia o ID: " + id));
 
         existingOrder.setStatus(details.getStatus());
-        // Payment status is read-only - do not allow manual changes
-        // existingOrder.setPaymentStatus(details.getPaymentStatus());
-
+        // Payment status is managed through the payment gateway and cannot be manually changed by admins
         existingOrder.setAdminNotes(details.getAdminNotes());
 
         orderRepository.save(existingOrder);
