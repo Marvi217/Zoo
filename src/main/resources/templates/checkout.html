@@ -239,22 +239,24 @@
 
                     <div class="delivery-options">
                         <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="courier" checked onchange="handleDeliveryChange()">
+                            <input type="radio" name="deliveryMethod" value="courier" checked
+                                   data-price="18.50" onchange="handleDeliveryChange()">
                             <div class="option-content">
                                 <div class="option-header">
-                                    <span class="option-name" th:text="#{checkout.delivery.courier}">Kurier DPD</span>
-                                    <span class="option-price">15 <span th:text="#{general.currency}">zł</span></span>
+                                    <span class="option-name" th:text="#{checkout.delivery.courier}">Kurier InPost (Adres)</span>
+                                    <span class="option-price">18,50 <span th:text="#{general.currency}">zł</span></span>
                                 </div>
                                 <p class="option-desc" th:text="#{checkout.delivery.courier.desc}">Dostawa w 1-2 dni robocze</p>
                             </div>
                         </label>
 
                         <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="inpost" onchange="handleDeliveryChange()">
+                            <input type="radio" name="deliveryMethod" value="inpost"
+                                   data-price="12.99" onchange="handleDeliveryChange()">
                             <div class="option-content">
                                 <div class="option-header">
                                     <span class="option-name" th:text="#{checkout.delivery.inpost}">Paczkomat InPost</span>
-                                    <span class="option-price">12 <span th:text="#{general.currency}">zł</span></span>
+                                    <span class="option-price">12,99 <span th:text="#{general.currency}">zł</span></span>
                                 </div>
                                 <p class="option-desc" th:text="#{checkout.delivery.inpost.desc}">Dostawa do paczkomatu w 1-2 dni</p>
                             </div>
@@ -292,7 +294,8 @@
                         </div>
 
                         <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="pickup" onchange="handleDeliveryChange()">
+                            <input type="radio" name="deliveryMethod" value="pickup"
+                                   data-price="0.00" onchange="handleDeliveryChange()">
                             <div class="option-content">
                                 <div class="option-header">
                                     <span class="option-name">Odbiór w sklepie</span>
@@ -490,19 +493,19 @@
                 <div class="summary-breakdown">
                     <div class="summary-row">
                         <span th:text="#{cart.subtotal}">Wartość produktów</span>
-                        <span th:text="${#numbers.formatDecimal(cart.subtotal, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                        <span id="summary-subtotal"
+                              th:data-subtotal="${cart.subtotal}"
+                              th:text="${#numbers.formatDecimal(cart.subtotal, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                     </div>
 
                     <div class="summary-row">
                         <span th:text="#{cart.delivery}">Dostawa</span>
-                        <span th:if="${cart.deliveryCost > 0}"
-                              th:text="${#numbers.formatDecimal(cart.deliveryCost, 1, 2)} + ' ' + #{general.currency}">15.00 zł</span>
-                        <span th:if="${cart.deliveryCost == 0}" th:text="#{cart.free}">Gratis</span>
+                        <span id="summary-delivery">18,50 zł</span>
                     </div>
 
                     <div class="summary-total">
                         <span th:text="#{cart.order.total}">Do zapłaty</span>
-                        <span th:text="${#numbers.formatDecimal(cart.totalAmount, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                        <span id="summary-total">0.00 zł</span>
                     </div>
                 </div>
 
@@ -619,9 +622,13 @@
         document.getElementById('inpost-locker-address').value = '';
     }
 
+    // Próg darmowej dostawy
+    const FREE_SHIPPING_THRESHOLD = 199.00;
+
     // Obsługa zmiany metody dostawy
     function handleDeliveryChange() {
-        const selectedMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
+        const selectedInput = document.querySelector('input[name="deliveryMethod"]:checked');
+        const selectedMethod = selectedInput.value;
         const inpostContainer = document.getElementById('inpost-map-container');
         const storePickupInfo = document.getElementById('store-pickup-info');
 
@@ -640,6 +647,40 @@
         } else {
             showAddressSection();
         }
+
+        // Aktualizuj ceny w podsumowaniu
+        updatePriceSummary(selectedInput);
+    }
+
+    // Aktualizacja podsumowania cen
+    function updatePriceSummary(selectedInput) {
+        const subtotalElement = document.getElementById('summary-subtotal');
+        const deliveryElement = document.getElementById('summary-delivery');
+        const totalElement = document.getElementById('summary-total');
+
+        const subtotal = parseFloat(subtotalElement.getAttribute('data-subtotal')) || 0;
+        let deliveryPrice = parseFloat(selectedInput.getAttribute('data-price')) || 0;
+
+        // Darmowa dostawa powyżej progu
+        if (subtotal >= FREE_SHIPPING_THRESHOLD) {
+            deliveryPrice = 0;
+        }
+
+        const total = subtotal + deliveryPrice;
+
+        // Formatowanie cen
+        if (deliveryPrice === 0) {
+            deliveryElement.textContent = 'Gratis';
+        } else {
+            deliveryElement.textContent = formatPrice(deliveryPrice) + ' zł';
+        }
+
+        totalElement.textContent = formatPrice(total) + ' zł';
+    }
+
+    // Formatowanie ceny z przecinkiem
+    function formatPrice(price) {
+        return price.toFixed(2).replace('.', ',');
     }
 
     // Ukryj sekcję adresu
@@ -768,6 +809,12 @@
         const checkoutForm = document.querySelector('form');
         if (checkoutForm) {
             checkoutForm.addEventListener('submit', validateCheckoutForm);
+        }
+
+        // Inicjalizuj ceny przy załadowaniu strony
+        const selectedDelivery = document.querySelector('input[name="deliveryMethod"]:checked');
+        if (selectedDelivery) {
+            updatePriceSummary(selectedDelivery);
         }
     });
 </script>
