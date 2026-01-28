@@ -124,7 +124,7 @@
     <div class="order-info">
         <h3 th:text="#{payment.gateway.order.details} ?: 'Szczegóły zamówienia'">Szczegóły zamówienia</h3>
         <p><strong th:text="#{order.number} ?: 'Numer zamówienia'">Numer zamówienia</strong>: <span th:text="${order.orderNumber}">ORD-12345</span></p>
-        <p><strong th:text="#{payment.gateway.payment.method} ?: 'Metoda płatności'">Metoda płatności</strong>: <span th:text="${order.paymentMethod?.description} ?: ${order.paymentMethod}">Karta</span></p>
+        <p><strong th:text="#{payment.gateway.payment.method} ?: 'Metoda płatności'">Metoda płatności</strong>: <span th:text="${order.paymentMethod?.displayName} ?: ${order.paymentMethod}">Karta</span></p>
         <p class="total"><span th:text="#{cart.order.total} ?: 'Do zapłaty'">Do zapłaty</span>: <span th:text="${#numbers.formatDecimal(order.totalAmount, 1, 2)} + ' zł'">0.00 zł</span></p>
     </div>
     <div class="payment-buttons">
