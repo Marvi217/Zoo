@@ -404,6 +404,9 @@ public class CheckoutController {
                     order.setStatus(OrderStatus.CONFIRMED);
                     orderService.save(order);
 
+                    // Schedule status change to PROCESSING after 30 seconds
+                    orderService.scheduleStatusChangeToProcessing(order.getId());
+
                     // Send confirmation email
                     try {
                         emailService.sendOrderConfirmationEmail(order);
