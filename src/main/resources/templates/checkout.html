@@ -233,6 +233,89 @@
 
             <!-- LEFT COLUMN - FORM -->
             <div class="checkout-form">
+                <!-- DELIVERY METHOD -->
+                <section class="checkout-section">
+                    <h2 th:text="#{checkout.delivery.method}">Sposób dostawy</h2>
+
+                    <div class="delivery-options">
+                        <label class="delivery-option">
+                            <input type="radio" name="deliveryMethod" value="courier" checked onchange="handleDeliveryChange()">
+                            <div class="option-content">
+                                <div class="option-header">
+                                    <span class="option-name" th:text="#{checkout.delivery.courier}">Kurier DPD</span>
+                                    <span class="option-price">15 <span th:text="#{general.currency}">zł</span></span>
+                                </div>
+                                <p class="option-desc" th:text="#{checkout.delivery.courier.desc}">Dostawa w 1-2 dni robocze</p>
+                            </div>
+                        </label>
+
+                        <label class="delivery-option">
+                            <input type="radio" name="deliveryMethod" value="inpost" onchange="handleDeliveryChange()">
+                            <div class="option-content">
+                                <div class="option-header">
+                                    <span class="option-name" th:text="#{checkout.delivery.inpost}">Paczkomat InPost</span>
+                                    <span class="option-price">12 <span th:text="#{general.currency}">zł</span></span>
+                                </div>
+                                <p class="option-desc" th:text="#{checkout.delivery.inpost.desc}">Dostawa do paczkomatu w 1-2 dni</p>
+                            </div>
+                        </label>
+
+                        <!-- Mapa paczkomatów InPost - Geowidget v4 (bez tokenu) -->
+                        <div class="inpost-map-container" id="inpost-map-container">
+                            <div class="inpost-header">
+                                <span class="inpost-logo">InPost</span>
+                                <span class="inpost-header-text">Wybierz paczkomat na mapie</span>
+                            </div>
+
+                            <div class="inpost-hint">
+                                <strong>Wskazówka:</strong> Wyszukaj paczkomat wpisując miasto lub adres w polu wyszukiwania na mapie. Kliknij na wybrany paczkomat, aby go zaznaczyć.
+                            </div>
+
+                            <!-- Oficjalny Geowidget InPost v4 - BEZ TOKENU -->
+                            <div id="easypack-map"></div>
+
+                            <!-- Informacja o wybranym paczkomacie -->
+                            <div class="selected-locker-info" id="selected-locker-info">
+                                <h4>Wybrany paczkomat</h4>
+                                <p class="locker-name" id="locker-name"></p>
+                                <p class="locker-address" id="locker-address"></p>
+                                <p class="locker-hours" id="locker-hours"></p>
+                                <button type="button" class="btn-change-locker" onclick="changeLocker()">Zmień paczkomat</button>
+                            </div>
+
+                            <!-- Ukryte pola do przesłania danych paczkomatu -->
+                            <div class="inpost-hidden-fields">
+                                <input type="hidden" name="inpostLockerId" id="inpost-locker-id">
+                                <input type="hidden" name="inpostLockerName" id="inpost-locker-name">
+                                <input type="hidden" name="inpostLockerAddress" id="inpost-locker-address">
+                            </div>
+                        </div>
+
+                        <label class="delivery-option">
+                            <input type="radio" name="deliveryMethod" value="pickup" onchange="handleDeliveryChange()">
+                            <div class="option-content">
+                                <div class="option-header">
+                                    <span class="option-name">Odbiór w sklepie</span>
+                                    <span class="option-price" th:text="#{cart.free}">Gratis</span>
+                                </div>
+                                <p class="option-desc">Odbierz zamówienie osobiście w naszym sklepie</p>
+                            </div>
+                        </label>
+
+                        <!-- Informacja o odbiorze w sklepie -->
+                        <div class="store-pickup-info" id="store-pickup-info">
+                            <h4>Punkt odbioru</h4>
+                            <p class="store-name">PetMarket - Sklep stacjonarny</p>
+                            <p class="store-address">ul. Zwierzęca 15, 00-001 Warszawa</p>
+                            <div class="store-hours">
+                                <strong>Godziny otwarcia:</strong><br>
+                                Pon-Pt: 9:00 - 20:00<br>
+                                Sob: 10:00 - 18:00<br>
+                                Nd: 10:00 - 16:00
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- DELIVERY ADDRESS -->
                 <section class="checkout-section">
@@ -340,90 +423,6 @@
                         <button type="button" th:if="${defaultAddress != null}" class="btn-use-default" onclick="useDefaultAddress()">
                             <span class="btn-icon">↩</span> <span th:text="#{checkout.use.default.address}">Użyj domyślnego adresu</span>
                         </button>
-                    </div>
-                </section>
-
-                <!-- DELIVERY METHOD -->
-                <section class="checkout-section">
-                    <h2 th:text="#{checkout.delivery.method}">Sposób dostawy</h2>
-
-                    <div class="delivery-options">
-                        <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="courier" checked onchange="handleDeliveryChange()">
-                            <div class="option-content">
-                                <div class="option-header">
-                                    <span class="option-name" th:text="#{checkout.delivery.courier}">Kurier DPD</span>
-                                    <span class="option-price">15 <span th:text="#{general.currency}">zł</span></span>
-                                </div>
-                                <p class="option-desc" th:text="#{checkout.delivery.courier.desc}">Dostawa w 1-2 dni robocze</p>
-                            </div>
-                        </label>
-
-                        <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="inpost" onchange="handleDeliveryChange()">
-                            <div class="option-content">
-                                <div class="option-header">
-                                    <span class="option-name" th:text="#{checkout.delivery.inpost}">Paczkomat InPost</span>
-                                    <span class="option-price">12 <span th:text="#{general.currency}">zł</span></span>
-                                </div>
-                                <p class="option-desc" th:text="#{checkout.delivery.inpost.desc}">Dostawa do paczkomatu w 1-2 dni</p>
-                            </div>
-                        </label>
-
-                        <!-- Mapa paczkomatów InPost - Geowidget v4 (bez tokenu) -->
-                        <div class="inpost-map-container" id="inpost-map-container">
-                            <div class="inpost-header">
-                                <span class="inpost-logo">InPost</span>
-                                <span class="inpost-header-text">Wybierz paczkomat na mapie</span>
-                            </div>
-
-                            <div class="inpost-hint">
-                                <strong>Wskazówka:</strong> Wyszukaj paczkomat wpisując miasto lub adres w polu wyszukiwania na mapie. Kliknij na wybrany paczkomat, aby go zaznaczyć.
-                            </div>
-
-                            <!-- Oficjalny Geowidget InPost v4 - BEZ TOKENU -->
-                            <div id="easypack-map"></div>
-
-                            <!-- Informacja o wybranym paczkomacie -->
-                            <div class="selected-locker-info" id="selected-locker-info">
-                                <h4>Wybrany paczkomat</h4>
-                                <p class="locker-name" id="locker-name"></p>
-                                <p class="locker-address" id="locker-address"></p>
-                                <p class="locker-hours" id="locker-hours"></p>
-                                <button type="button" class="btn-change-locker" onclick="changeLocker()">Zmień paczkomat</button>
-                            </div>
-
-                            <!-- Ukryte pola do przesłania danych paczkomatu -->
-                            <div class="inpost-hidden-fields">
-                                <input type="hidden" name="inpostLockerId" id="inpost-locker-id">
-                                <input type="hidden" name="inpostLockerName" id="inpost-locker-name">
-                                <input type="hidden" name="inpostLockerAddress" id="inpost-locker-address">
-                            </div>
-                        </div>
-
-                        <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="pickup" onchange="handleDeliveryChange()">
-                            <div class="option-content">
-                                <div class="option-header">
-                                    <span class="option-name">Odbiór w sklepie</span>
-                                    <span class="option-price" th:text="#{cart.free}">Gratis</span>
-                                </div>
-                                <p class="option-desc">Odbierz zamówienie osobiście w naszym sklepie</p>
-                            </div>
-                        </label>
-
-                        <!-- Informacja o odbiorze w sklepie -->
-                        <div class="store-pickup-info" id="store-pickup-info">
-                            <h4>Punkt odbioru</h4>
-                            <p class="store-name">PetMarket - Sklep stacjonarny</p>
-                            <p class="store-address">ul. Zwierzęca 15, 00-001 Warszawa</p>
-                            <div class="store-hours">
-                                <strong>Godziny otwarcia:</strong><br>
-                                Pon-Pt: 9:00 - 20:00<br>
-                                Sob: 10:00 - 18:00<br>
-                                Nd: 10:00 - 16:00
-                            </div>
-                        </div>
                     </div>
                 </section>
 
