@@ -66,23 +66,33 @@
                     <div class="card" style="margin-top: 20px;">
                         <div class="card-header"><h2 class="card-title">Logistyka</h2></div>
                         <div class="card-body">
-                            <form th:action="@{/admin/orders/{id}/tracking(id=${order.id})}" method="post" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 15px; align-items: flex-end;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
                                 <div>
-                                    <label>Przewoźnik</label>
-                                    <select name="carrier" class="form-control" required>
-                                        <option value="" disabled th:selected="${order.deliveryMethod == null}">Wybierz...</option>
-                                        <option th:each="method : ${T(com.example.zoo.enums.DeliveryMethod).values()}"
-                                                th:value="${method}"
-                                                th:text="${method}"
-                                                th:selected="${method == order.deliveryMethod}"></option>
-                                    </select>
+                                    <label style="font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase;">Przewoźnik (wybrany przez klienta)</label>
+                                    <div style="padding: 10px; background: #f5f5f5; border-radius: 6px; font-weight: 500;"
+                                         th:text="${order.deliveryMethod != null ? order.deliveryMethod.description : 'Nie wybrano'}">
+                                        Kurier InPost
+                                    </div>
                                 </div>
                                 <div>
-                                    <label>Numer przesyłki</label>
-                                    <input type="text" name="trackingNumber" th:value="${order.trackingNumber}" class="form-control" placeholder="np. 123456789" required>
+                                    <label style="font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase;">Numer przesyłki</label>
+                                    <div th:if="${order.trackingNumber != null}" style="padding: 10px; background: #e8f5e9; border-radius: 6px; font-weight: 500; color: #2e7d32;"
+                                         th:text="${order.trackingNumber}">
+                                        123456789
+                                    </div>
+                                    <div th:if="${order.trackingNumber == null}" style="padding: 10px; background: #fff3e0; border-radius: 6px; color: #e65100;">
+                                        Brak - wygeneruj numer
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Zapisz i wyślij</button>
+                            </div>
+                            <form th:action="@{/admin/orders/{id}/generate-tracking(id=${order.id})}" method="post" th:if="${order.trackingNumber == null}">
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                    Generuj numer przesyłki i wyślij powiadomienie
+                                </button>
                             </form>
+                            <div th:if="${order.trackingNumber != null}" style="padding: 10px; background: #e8f5e9; border-radius: 6px; text-align: center; color: #2e7d32;">
+                                Przesyłka została utworzona i klient otrzymał powiadomienie
+                            </div>
                         </div>
                     </div>
                 </div>
