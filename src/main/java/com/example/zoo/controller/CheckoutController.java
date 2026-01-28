@@ -116,6 +116,8 @@ public class CheckoutController {
         model.addAttribute("isGuest", isGuest);
         model.addAttribute("checkoutForm", new CheckoutForm());
         model.addAttribute("cart", new CartViewModel(cartData.items, cartData.total));
+        model.addAttribute("deliveryMethods", DeliveryMethod.values());
+        model.addAttribute("paymentMethods", PaymentMethod.values());
 
         return "checkout";
     }
@@ -171,9 +173,6 @@ public class CheckoutController {
             @RequestParam(required = false) Boolean saveAddress,
             @RequestParam(required = false) String voucherCode,
             @RequestParam(required = false) String addressLabel,
-            @RequestParam(required = false) String inpostLockerId,
-            @RequestParam(required = false) String inpostLockerName,
-            @RequestParam(required = false) String inpostLockerAddress,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
 
@@ -254,66 +253,15 @@ public class CheckoutController {
                 }
             }
 
-            // Map form delivery method values to DeliveryMethod enum
-            DeliveryMethod delivery;
-            switch (deliveryMethod.toLowerCase()) {
-                case "inpost":
-                    delivery = DeliveryMethod.LOCKER;
-                    break;
-                case "pickup":
-                    delivery = DeliveryMethod.PICKUP;
-                    break;
-                case "courier":
-                default:
-                    delivery = DeliveryMethod.COURIER;
-                    break;
-            }
-            order.setDeliveryMethod(delivery);
-
-            // Handle paczkomat (InPost locker) address
-            if (delivery == DeliveryMethod.LOCKER && inpostLockerId != null && !inpostLockerId.isEmpty()) {
-                address = new Address();
-                String lockerName = inpostLockerName != null ? inpostLockerName : inpostLockerId;
-                String lockerAddr = inpostLockerAddress != null ? inpostLockerAddress : "";
-
-                // Parse address format: "street, zipCode city"
-                String streetPart = "";
-                String cityPart = "";
-                String zipCodePart = "";
-
-                if (!lockerAddr.isEmpty()) {
-                    int commaIndex = lockerAddr.indexOf(',');
-                    if (commaIndex > 0) {
-                        streetPart = lockerAddr.substring(0, commaIndex).trim();
-                        String rest = lockerAddr.substring(commaIndex + 1).trim();
-                        // Try to extract zip code (format: XX-XXX) and city
-                        if (rest.length() >= 6 && rest.charAt(2) == '-') {
-                            zipCodePart = rest.substring(0, 6).trim();
-                            cityPart = rest.substring(6).trim();
-                        } else {
-                            cityPart = rest;
-                        }
-                    } else {
-                        streetPart = lockerAddr;
-                    }
-                }
-
-                address.setStreet("Paczkomat " + lockerName + (streetPart.isEmpty() ? "" : ", " + streetPart));
-                address.setCity(cityPart.isEmpty() ? "Paczkomat" : cityPart);
-                address.setZipCode(zipCodePart.isEmpty() ? "00-000" : zipCodePart);
-                address.setCountry("Poland");
-            }
-
             order.setShippingAddress(address);
+
+            DeliveryMethod delivery = mapDeliveryMethod(deliveryMethod);
+            order.setDeliveryMethod(delivery);
 
             BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
             order.setDeliveryCost(deliveryCost);
 
-            try {
-                order.setPaymentMethod(PaymentMethod.valueOf(paymentMethod));
-            } catch (IllegalArgumentException e) {
-                order.setPaymentMethod(PaymentMethod.CARD);
-            }
+            order.setPaymentMethod(mapPaymentMethod(paymentMethod));
 
             List<OrderItem> orderItems = new ArrayList<>();
             for (var cartItem : cartData.items) {
@@ -395,5 +343,29 @@ public class CheckoutController {
             return BigDecimal.ZERO;
         }
         return method.getPrice();
+    }
+
+    private DeliveryMethod mapDeliveryMethod(String method) {
+        if (method == null) {
+            return DeliveryMethod.COURIER;
+        }
+        return switch (method.toLowerCase()) {
+            case "courier" -> DeliveryMethod.COURIER;
+            case "inpost" -> DeliveryMethod.LOCKER;
+            case "pickup" -> DeliveryMethod.PICKUP;
+            default -> DeliveryMethod.COURIER;
+        };
+    }
+
+    private PaymentMethod mapPaymentMethod(String method) {
+        if (method == null) {
+            return PaymentMethod.CARD;
+        }
+        return switch (method.toLowerCase()) {
+            case "transfer" -> PaymentMethod.TRANSFER;
+            case "cod" -> PaymentMethod.CASH_ON_DELIVERY;
+            case "blik" -> PaymentMethod.BLIK;
+            default -> PaymentMethod.CARD;
+        };
     }
 }
