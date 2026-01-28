@@ -243,7 +243,7 @@
                             <div class="option-content">
                                 <div class="option-header">
                                     <span class="option-name" th:text="#{checkout.delivery.courier}">Kurier DPD</span>
-                                    <span class="option-price">15 <span th:text="#{general.currency}">zł</span></span>
+                                    <span class="option-price">18,50 <span th:text="#{general.currency}">zł</span></span>
                                 </div>
                                 <p class="option-desc" th:text="#{checkout.delivery.courier.desc}">Dostawa w 1-2 dni robocze</p>
                             </div>
@@ -254,7 +254,7 @@
                             <div class="option-content">
                                 <div class="option-header">
                                     <span class="option-name" th:text="#{checkout.delivery.inpost}">Paczkomat InPost</span>
-                                    <span class="option-price">12 <span th:text="#{general.currency}">zł</span></span>
+                                    <span class="option-price">12,99 <span th:text="#{general.currency}">zł</span></span>
                                 </div>
                                 <p class="option-desc" th:text="#{checkout.delivery.inpost.desc}">Dostawa do paczkomatu w 1-2 dni</p>
                             </div>
@@ -503,14 +503,15 @@
 
                     <div class="summary-row">
                         <span th:text="#{cart.delivery}">Dostawa</span>
-                        <span th:if="${cart.deliveryCost > 0}"
-                              th:text="${#numbers.formatDecimal(cart.deliveryCost, 1, 2)} + ' ' + #{general.currency}">15.00 zł</span>
-                        <span th:if="${cart.deliveryCost == 0}" th:text="#{cart.free}">Gratis</span>
+                        <span id="delivery-cost-display"
+                              th:data-subtotal="${cart.subtotal}"
+                              th:text="${cart.deliveryCost > 0 ? #numbers.formatDecimal(cart.deliveryCost, 1, 2) + ' zł' : 'Gratis'}">18,50 zł</span>
                     </div>
 
                     <div class="summary-total">
                         <span th:text="#{cart.order.total}">Do zapłaty</span>
-                        <span th:text="${#numbers.formatDecimal(cart.totalAmount, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                        <span id="total-amount-display"
+                              th:text="${#numbers.formatDecimal(cart.totalAmount, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                     </div>
                 </div>
 
@@ -627,6 +628,14 @@
         document.getElementById('inpost-locker-address').value = '';
     }
 
+    // Ceny dostaw zgodne z cennikiem (DeliveryMethod.java)
+    const DELIVERY_PRICES = {
+        courier: 18.50,
+        inpost: 12.99,
+        pickup: 0.00
+    };
+    const FREE_SHIPPING_THRESHOLD = 199.00;
+
     // Obsługa zmiany metody dostawy
     function handleDeliveryChange() {
         const selectedMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
@@ -648,6 +657,36 @@
         } else {
             showAddressSection();
         }
+
+        // Aktualizuj cenę dostawy w podsumowaniu
+        updateDeliveryCost(selectedMethod);
+    }
+
+    // Aktualizacja ceny dostawy w podsumowaniu
+    function updateDeliveryCost(method) {
+        const deliveryCostEl = document.getElementById('delivery-cost-display');
+        const totalAmountEl = document.getElementById('total-amount-display');
+
+        if (!deliveryCostEl || !totalAmountEl) return;
+
+        const subtotal = parseFloat(deliveryCostEl.getAttribute('data-subtotal')) || 0;
+        let deliveryCost = DELIVERY_PRICES[method] || 0;
+
+        // Darmowa dostawa przy zamówieniu >= 199 zł (nie dotyczy odbioru osobistego)
+        if (subtotal >= FREE_SHIPPING_THRESHOLD && method !== 'pickup') {
+            deliveryCost = 0;
+        }
+
+        // Aktualizuj wyświetlaną cenę dostawy
+        if (deliveryCost === 0) {
+            deliveryCostEl.textContent = 'Gratis';
+        } else {
+            deliveryCostEl.textContent = deliveryCost.toFixed(2).replace('.', ',') + ' zł';
+        }
+
+        // Aktualizuj sumę
+        const total = subtotal + deliveryCost;
+        totalAmountEl.textContent = total.toFixed(2).replace('.', ',') + ' zł';
     }
 
     // Ukryj sekcję adresu
