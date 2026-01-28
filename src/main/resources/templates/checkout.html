@@ -239,7 +239,7 @@
 
                     <div class="delivery-options">
                         <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="courier" checked onchange="handleDeliveryChange()">
+                            <input type="radio" name="deliveryMethod" value="courier" onchange="handleDeliveryChange()">
                             <div class="option-content">
                                 <div class="option-header">
                                     <span class="option-name" th:text="#{checkout.delivery.courier}">Kurier DPD</span>
@@ -318,7 +318,7 @@
                 </section>
 
                 <!-- DELIVERY ADDRESS -->
-                <section class="checkout-section">
+                <section class="checkout-section" id="delivery-address-section" style="display: none;">
                     <h2 th:text="#{checkout.delivery.address}">Adres dostawy</h2>
 
                     <!-- Hidden input to store selected address ID -->
@@ -644,9 +644,11 @@
 
     // Ukryj sekcję adresu
     function hideAddressSection() {
+        const deliveryAddressSection = document.getElementById('delivery-address-section');
         const addressSection = document.getElementById('default-address-display');
         const addressFormContainer = document.getElementById('address-form-container');
 
+        if (deliveryAddressSection) deliveryAddressSection.style.display = 'none';
         if (addressSection) addressSection.style.display = 'none';
         if (addressFormContainer) addressFormContainer.style.display = 'none';
         setFormFieldsRequired(false);
@@ -654,9 +656,12 @@
 
     // Pokaż sekcję adresu
     function showAddressSection() {
+        const deliveryAddressSection = document.getElementById('delivery-address-section');
         const addressSection = document.getElementById('default-address-display');
         const addressFormContainer = document.getElementById('address-form-container');
 
+        if (deliveryAddressSection) deliveryAddressSection.style.display = '';
+        
         if (addressSection) {
             addressSection.style.display = '';
             if (addressFormContainer && !addressFormContainer.classList.contains('hidden')) {
@@ -752,11 +757,8 @@
             });
         }
 
-        // Ustaw wymagane pola
-        const defaultDisplay = document.getElementById('default-address-display');
-        if (defaultDisplay && !defaultDisplay.classList.contains('hidden')) {
-            setFormFieldsRequired(false);
-        }
+        // Ustaw wymagane pola - początkowo nie wymagane bo sekcja adresu jest ukryta
+        setFormFieldsRequired(false);
 
         // Zapisz oryginalny ID adresu
         const addressIdInput = document.getElementById('selected-address-id');
