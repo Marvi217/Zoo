@@ -1,5 +1,8 @@
 package com.example.zoo.service;
 
+import com.example.zoo.entity.Order;
+import com.example.zoo.entity.OrderItem;
+import com.example.zoo.enums.DeliveryMethod;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -7,6 +10,8 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @Slf4j
 @Service
@@ -55,5 +60,64 @@ public class EmailServiceImpl implements EmailService {
                 activationLink);
 
         sendSimpleMessage(to, subject, text);
+    }
+
+    @Override
+    public void sendOrderConfirmationEmail(Order order) {
+        String to = order.getCustomerEmail();
+        if (to == null || to.isEmpty()) {
+            log.warn("Brak adresu email dla zamówienia {}", order.getOrderNumber());
+            return;
+        }
+
+        String subject = "Potwierdzenie zamówienia #" + order.getOrderNumber() + " - PetMarket";
+
+        StringBuilder itemsList = new StringBuilder();
+        if (order.getItems() != null) {
+            for (OrderItem item : order.getItems()) {
+                String productName = item.getProduct() != null ? item.getProduct().getName() : "Produkt";
+                BigDecimal price = item.getPrice() != null ? item.getPrice() : BigDecimal.ZERO;
+                int quantity = item.getQuantity();
+                BigDecimal itemTotal = price.multiply(BigDecimal.valueOf(quantity));
+
+                itemsList.append(String.format("- %s x%d: %.2f zł\n",
+                        productName, quantity, itemTotal));
+            }
+        }
+
+        StringBuilder text = new StringBuilder();
+        text.append("Dziękujemy za złożenie zamówienia w PetMarket!\n\n");
+        text.append("Numer zamówienia: ").append(order.getOrderNumber()).append("\n\n");
+        text.append("=== ZAMÓWIONE PRODUKTY ===\n");
+        text.append(itemsList);
+        text.append("\n");
+
+        if (order.getSubtotal() != null) {
+            text.append("Wartość produktów: ").append(String.format("%.2f zł", order.getSubtotal())).append("\n");
+        }
+        if (order.getDeliveryCost() != null && order.getDeliveryCost().compareTo(BigDecimal.ZERO) > 0) {
+            text.append("Koszt dostawy: ").append(String.format("%.2f zł", order.getDeliveryCost())).append("\n");
+        }
+        if (order.getDiscountAmount() != null && order.getDiscountAmount().compareTo(BigDecimal.ZERO) > 0) {
+            text.append("Rabat: -").append(String.format("%.2f zł", order.getDiscountAmount())).append("\n");
+        }
+        text.append("\n");
+        text.append("SUMA: ").append(String.format("%.2f zł", order.getTotalAmount())).append("\n\n");
+
+        // Shipping notification - only add if NOT pickup
+        if (order.getDeliveryMethod() != DeliveryMethod.PICKUP) {
+            text.append("Zostaniesz powiadomiony, gdy przesyłka zostanie wysłana.\n\n");
+        }
+
+        text.append("Dziękujemy za zakupy!\n");
+        text.append("Zespół PetMarket");
+
+        try {
+            sendSimpleMessage(to, subject, text.toString());
+            log.info("Wysłano potwierdzenie zamówienia {} na adres {}", order.getOrderNumber(), to);
+        } catch (Exception e) {
+            log.error("Nie udało się wysłać potwierdzenia zamówienia {} na adres {}: {}",
+                    order.getOrderNumber(), to, e.getMessage());
+        }
     }
 }

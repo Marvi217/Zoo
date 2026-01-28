@@ -4,6 +4,11 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Database ###
+db/*.db
+db/*.mv.db
+db/*.trace.db
+
 ### STS ###
 .apt_generated
 .classpath
