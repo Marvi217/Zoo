@@ -173,6 +173,8 @@ public class CheckoutController {
             @RequestParam(required = false) Boolean saveAddress,
             @RequestParam(required = false) String voucherCode,
             @RequestParam(required = false) String addressLabel,
+            @RequestParam(required = false) String inpostLockerName,
+            @RequestParam(required = false) String inpostLockerAddress,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
 
@@ -208,8 +210,32 @@ public class CheckoutController {
             }
 
             Address address = null;
+            DeliveryMethod delivery = mapDeliveryMethod(deliveryMethod);
 
-            if (addressId != null && currentUser != null) {
+            // Handle InPost locker - use locker address as shipping address
+            if (delivery == DeliveryMethod.LOCKER && inpostLockerAddress != null && !inpostLockerAddress.isEmpty()) {
+                address = new Address();
+                // Parse InPost locker address (format: "street, city" or just address)
+                String lockerAddress = inpostLockerAddress;
+                String lockerCity = "";
+                if (lockerAddress.contains(",")) {
+                    String[] parts = lockerAddress.split(",", 2);
+                    address.setStreet(parts[0].trim());
+                    lockerCity = parts.length > 1 ? parts[1].trim() : "";
+                    address.setCity(lockerCity);
+                } else {
+                    address.setStreet(lockerAddress);
+                    address.setCity("");
+                }
+                address.setZipCode("");
+                address.setCountry("Poland");
+
+                // Add locker name to notes
+                if (inpostLockerName != null && !inpostLockerName.isEmpty()) {
+                    order.setNotes((order.getNotes() != null ? order.getNotes() + "\n" : "") +
+                            "Paczkomat InPost: " + inpostLockerName);
+                }
+            } else if (addressId != null && currentUser != null) {
                 UserAddress userAddress = addressService.getAddressById(addressId, currentUser)
                         .orElseThrow(() -> new IllegalArgumentException("Wybrany adres nie istnieje"));
 
@@ -255,7 +281,6 @@ public class CheckoutController {
 
             order.setShippingAddress(address);
 
-            DeliveryMethod delivery = mapDeliveryMethod(deliveryMethod);
             order.setDeliveryMethod(delivery);
 
             BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
@@ -311,14 +336,74 @@ public class CheckoutController {
 
             clearCart(session);
 
-            redirectAttributes.addFlashAttribute("orderNumber", order.getOrderNumber());
-            redirectAttributes.addFlashAttribute("success", "Zamówienie zostało złożone!");
-            return "redirect:/checkout/confirmation";
+            // Redirect to payment gateway simulation
+            return "redirect:/checkout/payment?orderNumber=" + order.getOrderNumber();
 
         } catch (Exception e) {
             e.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "Błąd podczas składania zamówienia: " + e.getMessage());
             return "redirect:/checkout";
+        }
+    }
+
+    @GetMapping("/payment")
+    public String showPaymentGateway(@RequestParam String orderNumber, Model model, RedirectAttributes redirectAttributes) {
+        try {
+            Order order = orderService.getOrderByNumber(orderNumber);
+            model.addAttribute("order", order);
+            return "payment-gateway";
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Zamówienie nie zostało znalezione");
+            return "redirect:/";
+        }
+    }
+
+    @PostMapping("/payment/simulate")
+    public String simulatePayment(
+            @RequestParam String orderNumber,
+            @RequestParam String status,
+            RedirectAttributes redirectAttributes) {
+
+        try {
+            Order order = orderService.getOrderByNumber(orderNumber);
+
+            switch (status.toUpperCase()) {
+                case "PAID":
+                    order.setPaymentStatus(com.example.zoo.enums.PaymentStatus.PAID);
+                    order.setStatus(OrderStatus.CONFIRMED);
+                    orderService.save(order);
+
+                    // Send confirmation email
+                    try {
+                        emailService.sendOrderConfirmationEmail(order);
+                    } catch (Exception e) {
+                        System.err.println("Nie udało się wysłać emaila: " + e.getMessage());
+                    }
+
+                    redirectAttributes.addFlashAttribute("orderNumber", order.getOrderNumber());
+                    redirectAttributes.addFlashAttribute("success", "Płatność zakończona sukcesem!");
+                    return "redirect:/checkout/confirmation";
+
+                case "FAILED":
+                    order.setPaymentStatus(com.example.zoo.enums.PaymentStatus.FAILED);
+                    orderService.save(order);
+                    redirectAttributes.addFlashAttribute("error", "Płatność nie powiodła się. Spróbuj ponownie.");
+                    return "redirect:/checkout/payment?orderNumber=" + orderNumber;
+
+                case "CANCELLED":
+                    order.setPaymentStatus(com.example.zoo.enums.PaymentStatus.CANCELLED);
+                    order.setStatus(OrderStatus.CANCELLED);
+                    orderService.save(order);
+                    redirectAttributes.addFlashAttribute("error", "Płatność została anulowana.");
+                    return "redirect:/";
+
+                default:
+                    redirectAttributes.addFlashAttribute("error", "Nieznany status płatności");
+                    return "redirect:/checkout/payment?orderNumber=" + orderNumber;
+            }
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Błąd podczas przetwarzania płatności: " + e.getMessage());
+            return "redirect:/";
         }
     }
 

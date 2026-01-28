@@ -177,20 +177,8 @@ public class AdminOrderController {
             HttpSession session,
             RedirectAttributes redirectAttributes) {
 
-        User currentUser = securityHelper.getCurrentUser(session);
-
-        if (currentUser == null || !currentUser.isAdmin()) {
-            redirectAttributes.addFlashAttribute("error", "Brak dostępu");
-            return "redirect:/";
-        }
-
-        try {
-            orderService.updatePaymentStatus(id, paymentStatus);
-            redirectAttributes.addFlashAttribute("success", "Status płatności został zaktualizowany");
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Błąd podczas aktualizacji statusu płatności: " + e.getMessage());
-        }
-
+        // Payment status is read-only and cannot be changed manually by admin
+        redirectAttributes.addFlashAttribute("error", "Status płatności jest tylko do odczytu i nie może być zmieniany ręcznie.");
         return "redirect:/admin/orders/" + id;
     }
 

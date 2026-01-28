@@ -71,7 +71,8 @@ public class OrderService {
                 .orElseThrow(() -> new EntityNotFoundException("Nie znaleziono zamówienia o ID: " + id));
 
         existingOrder.setStatus(details.getStatus());
-        existingOrder.setPaymentStatus(details.getPaymentStatus());
+        // Payment status is read-only - do not allow manual changes
+        // existingOrder.setPaymentStatus(details.getPaymentStatus());
 
         existingOrder.setAdminNotes(details.getAdminNotes());
 
