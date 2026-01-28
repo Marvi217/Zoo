@@ -1,5 +1,7 @@
 package com.example.zoo.service;
 
+import com.example.zoo.entity.Order;
+import com.example.zoo.enums.DeliveryMethod;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -55,5 +57,43 @@ public class EmailServiceImpl implements EmailService {
                 activationLink);
 
         sendSimpleMessage(to, subject, text);
+    }
+
+    @Override
+    public void sendShippingNotification(Order order) {
+        String customerEmail = order.getCustomerEmail();
+        String customerName = order.getCustomerName();
+        String trackingNumber = order.getTrackingNumber();
+        String carrierName = order.getDeliveryMethod() != null
+                ? order.getDeliveryMethod().getDescription()
+                : "Kurier";
+
+        String subject = "Twoje zamówienie #" + order.getOrderNumber() + " zostało wysłane!";
+
+        String trackingInfo = "";
+        if (order.getDeliveryMethod() == DeliveryMethod.LOCKER) {
+            trackingInfo = "Możesz śledzić przesyłkę na stronie: https://inpost.pl/sledzenie-przesylek?number=" + trackingNumber;
+        } else if (order.getDeliveryMethod() == DeliveryMethod.COURIER) {
+            trackingInfo = "Numer przesyłki do śledzenia: " + trackingNumber;
+        }
+
+        String text = String.format(
+                "Cześć %s!\n\n" +
+                        "Mamy świetne wieści - Twoje zamówienie #%s zostało właśnie wysłane!\n\n" +
+                        "Szczegóły przesyłki:\n" +
+                        "- Przewoźnik: %s\n" +
+                        "- Numer przesyłki: %s\n\n" +
+                        "%s\n\n" +
+                        "Dziękujemy za zakupy w naszym sklepie!\n\n" +
+                        "Pozdrawiamy,\n" +
+                        "Zespół PetMarket",
+                customerName != null ? customerName : "Kliencie",
+                order.getOrderNumber(),
+                carrierName,
+                trackingNumber,
+                trackingInfo);
+
+        sendSimpleMessage(customerEmail, subject, text);
+        log.info("Wysłano powiadomienie o wysyłce do {} dla zamówienia {}", customerEmail, order.getOrderNumber());
     }
 }
