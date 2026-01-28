@@ -432,17 +432,25 @@
 
                     <div class="payment-options">
                         <label class="payment-option">
-                            <input type="radio" name="paymentMethod" value="online" checked>
+                            <input type="radio" name="paymentMethod" value="card" checked>
                             <div class="option-content">
-                                <span class="option-name" th:text="#{checkout.payment.online}">Płatność online</span>
-                                <p class="option-desc" th:text="#{checkout.payment.online.desc}">Szybkie i bezpieczne płatności</p>
+                                <span class="option-name" th:text="#{checkout.payment.card}">Karta płatnicza</span>
+                                <p class="option-desc" th:text="#{checkout.payment.card.desc}">Szybka i bezpieczna płatność kartą</p>
+                            </div>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="blik">
+                            <div class="option-content">
+                                <span class="option-name" th:text="#{checkout.payment.blik}">BLIK</span>
+                                <p class="option-desc" th:text="#{checkout.payment.blik.desc}">Szybka płatność kodem BLIK</p>
                             </div>
                         </label>
 
                         <label class="payment-option">
                             <input type="radio" name="paymentMethod" value="transfer">
                             <div class="option-content">
-                                <span class="option-name" th:text="#{checkout.payment.transfer}">Przelew tradycyjny</span>
+                                <span class="option-name" th:text="#{checkout.payment.transfer}">Przelew bankowy</span>
                                 <p class="option-desc" th:text="#{checkout.payment.transfer.desc}">Realizacja po zaksięgowaniu wpłaty</p>
                             </div>
                         </label>
@@ -450,8 +458,8 @@
                         <label class="payment-option">
                             <input type="radio" name="paymentMethod" value="cod">
                             <div class="option-content">
-                                <span class="option-name" th:text="#{checkout.payment.cod}">Za pobraniem</span>
-                                <p class="option-desc" th:text="#{checkout.payment.cod.desc}">Płatność przy odbiorze + 5 zł</p>
+                                <span class="option-name" th:text="#{checkout.payment.cod}">Płatność przy odbiorze</span>
+                                <p class="option-desc" th:text="#{checkout.payment.cod.desc}">Płatność gotówką przy odbiorze + 5 zł</p>
                             </div>
                         </label>
                     </div>

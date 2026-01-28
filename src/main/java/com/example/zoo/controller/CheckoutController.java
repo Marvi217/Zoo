@@ -261,7 +261,9 @@ public class CheckoutController {
             BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
             order.setDeliveryCost(deliveryCost);
 
-            order.setPaymentMethod(mapPaymentMethod(paymentMethod));
+            PaymentMethod payment = mapPaymentMethod(paymentMethod);
+            order.setPaymentMethod(payment);
+            BigDecimal paymentFee = payment.getPrice();
 
             List<OrderItem> orderItems = new ArrayList<>();
             for (var cartItem : cartData.items) {
@@ -296,7 +298,7 @@ public class CheckoutController {
                 }
             }
 
-            order.setTotalAmount(cartData.total.subtract(discountAmount).add(deliveryCost));
+            order.setTotalAmount(cartData.total.subtract(discountAmount).add(deliveryCost).add(paymentFee));
 
             orderService.save(order);
 
