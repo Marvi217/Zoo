@@ -418,6 +418,7 @@ public class CheckoutController {
 
                 case "FAILED":
                     order.setPaymentStatus(com.example.zoo.enums.PaymentStatus.FAILED);
+                    order.setStatus(OrderStatus.FAILED);
                     orderService.save(order);
                     redirectAttributes.addFlashAttribute("error", "Płatność nie powiodła się. Spróbuj ponownie.");
                     return "redirect:/checkout/payment?orderNumber=" + orderNumber;
