@@ -239,24 +239,22 @@
 
                     <div class="delivery-options">
                         <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="courier" checked
-                                   data-price="18.50" onchange="handleDeliveryChange()">
+                            <input type="radio" name="deliveryMethod" value="courier" checked onchange="handleDeliveryChange()">
                             <div class="option-content">
                                 <div class="option-header">
-                                    <span class="option-name" th:text="#{checkout.delivery.courier}">Kurier InPost (Adres)</span>
-                                    <span class="option-price">18,50 <span th:text="#{general.currency}">zł</span></span>
+                                    <span class="option-name" th:text="#{checkout.delivery.courier}">Kurier DPD</span>
+                                    <span class="option-price">15 <span th:text="#{general.currency}">zł</span></span>
                                 </div>
                                 <p class="option-desc" th:text="#{checkout.delivery.courier.desc}">Dostawa w 1-2 dni robocze</p>
                             </div>
                         </label>
 
                         <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="inpost"
-                                   data-price="12.99" onchange="handleDeliveryChange()">
+                            <input type="radio" name="deliveryMethod" value="inpost" onchange="handleDeliveryChange()">
                             <div class="option-content">
                                 <div class="option-header">
                                     <span class="option-name" th:text="#{checkout.delivery.inpost}">Paczkomat InPost</span>
-                                    <span class="option-price">12,99 <span th:text="#{general.currency}">zł</span></span>
+                                    <span class="option-price">12 <span th:text="#{general.currency}">zł</span></span>
                                 </div>
                                 <p class="option-desc" th:text="#{checkout.delivery.inpost.desc}">Dostawa do paczkomatu w 1-2 dni</p>
                             </div>
@@ -294,8 +292,7 @@
                         </div>
 
                         <label class="delivery-option">
-                            <input type="radio" name="deliveryMethod" value="pickup"
-                                   data-price="0.00" onchange="handleDeliveryChange()">
+                            <input type="radio" name="deliveryMethod" value="pickup" onchange="handleDeliveryChange()">
                             <div class="option-content">
                                 <div class="option-header">
                                     <span class="option-name">Odbiór w sklepie</span>
@@ -435,17 +432,25 @@
 
                     <div class="payment-options">
                         <label class="payment-option">
-                            <input type="radio" name="paymentMethod" value="online" checked>
+                            <input type="radio" name="paymentMethod" value="card" checked>
                             <div class="option-content">
-                                <span class="option-name" th:text="#{checkout.payment.online}">Płatność online</span>
-                                <p class="option-desc" th:text="#{checkout.payment.online.desc}">Szybkie i bezpieczne płatności</p>
+                                <span class="option-name" th:text="#{checkout.payment.card}">Karta płatnicza</span>
+                                <p class="option-desc" th:text="#{checkout.payment.card.desc}">Szybka i bezpieczna płatność kartą</p>
+                            </div>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="blik">
+                            <div class="option-content">
+                                <span class="option-name" th:text="#{checkout.payment.blik}">BLIK</span>
+                                <p class="option-desc" th:text="#{checkout.payment.blik.desc}">Szybka płatność kodem BLIK</p>
                             </div>
                         </label>
 
                         <label class="payment-option">
                             <input type="radio" name="paymentMethod" value="transfer">
                             <div class="option-content">
-                                <span class="option-name" th:text="#{checkout.payment.transfer}">Przelew tradycyjny</span>
+                                <span class="option-name" th:text="#{checkout.payment.transfer}">Przelew bankowy</span>
                                 <p class="option-desc" th:text="#{checkout.payment.transfer.desc}">Realizacja po zaksięgowaniu wpłaty</p>
                             </div>
                         </label>
@@ -453,8 +458,8 @@
                         <label class="payment-option">
                             <input type="radio" name="paymentMethod" value="cod">
                             <div class="option-content">
-                                <span class="option-name" th:text="#{checkout.payment.cod}">Za pobraniem</span>
-                                <p class="option-desc" th:text="#{checkout.payment.cod.desc}">Płatność przy odbiorze + 5 zł</p>
+                                <span class="option-name" th:text="#{checkout.payment.cod}">Płatność przy odbiorze</span>
+                                <p class="option-desc" th:text="#{checkout.payment.cod.desc}">Płatność gotówką przy odbiorze + 5 zł</p>
                             </div>
                         </label>
                     </div>
@@ -493,19 +498,19 @@
                 <div class="summary-breakdown">
                     <div class="summary-row">
                         <span th:text="#{cart.subtotal}">Wartość produktów</span>
-                        <span id="summary-subtotal"
-                              th:data-subtotal="${cart.subtotal}"
-                              th:text="${#numbers.formatDecimal(cart.subtotal, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                        <span th:text="${#numbers.formatDecimal(cart.subtotal, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                     </div>
 
                     <div class="summary-row">
                         <span th:text="#{cart.delivery}">Dostawa</span>
-                        <span id="summary-delivery">18,50 zł</span>
+                        <span th:if="${cart.deliveryCost > 0}"
+                              th:text="${#numbers.formatDecimal(cart.deliveryCost, 1, 2)} + ' ' + #{general.currency}">15.00 zł</span>
+                        <span th:if="${cart.deliveryCost == 0}" th:text="#{cart.free}">Gratis</span>
                     </div>
 
                     <div class="summary-total">
                         <span th:text="#{cart.order.total}">Do zapłaty</span>
-                        <span id="summary-total">0.00 zł</span>
+                        <span th:text="${#numbers.formatDecimal(cart.totalAmount, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                     </div>
                 </div>
 
@@ -622,13 +627,9 @@
         document.getElementById('inpost-locker-address').value = '';
     }
 
-    // Próg darmowej dostawy
-    const FREE_SHIPPING_THRESHOLD = 199.00;
-
     // Obsługa zmiany metody dostawy
     function handleDeliveryChange() {
-        const selectedInput = document.querySelector('input[name="deliveryMethod"]:checked');
-        const selectedMethod = selectedInput.value;
+        const selectedMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
         const inpostContainer = document.getElementById('inpost-map-container');
         const storePickupInfo = document.getElementById('store-pickup-info');
 
@@ -647,40 +648,6 @@
         } else {
             showAddressSection();
         }
-
-        // Aktualizuj ceny w podsumowaniu
-        updatePriceSummary(selectedInput);
-    }
-
-    // Aktualizacja podsumowania cen
-    function updatePriceSummary(selectedInput) {
-        const subtotalElement = document.getElementById('summary-subtotal');
-        const deliveryElement = document.getElementById('summary-delivery');
-        const totalElement = document.getElementById('summary-total');
-
-        const subtotal = parseFloat(subtotalElement.getAttribute('data-subtotal')) || 0;
-        let deliveryPrice = parseFloat(selectedInput.getAttribute('data-price')) || 0;
-
-        // Darmowa dostawa powyżej progu
-        if (subtotal >= FREE_SHIPPING_THRESHOLD) {
-            deliveryPrice = 0;
-        }
-
-        const total = subtotal + deliveryPrice;
-
-        // Formatowanie cen
-        if (deliveryPrice === 0) {
-            deliveryElement.textContent = 'Gratis';
-        } else {
-            deliveryElement.textContent = formatPrice(deliveryPrice) + ' zł';
-        }
-
-        totalElement.textContent = formatPrice(total) + ' zł';
-    }
-
-    // Formatowanie ceny z przecinkiem
-    function formatPrice(price) {
-        return price.toFixed(2).replace('.', ',');
     }
 
     // Ukryj sekcję adresu
@@ -809,12 +776,6 @@
         const checkoutForm = document.querySelector('form');
         if (checkoutForm) {
             checkoutForm.addEventListener('submit', validateCheckoutForm);
-        }
-
-        // Inicjalizuj ceny przy załadowaniu strony
-        const selectedDelivery = document.querySelector('input[name="deliveryMethod"]:checked');
-        if (selectedDelivery) {
-            updatePriceSummary(selectedDelivery);
         }
     });
 </script>
