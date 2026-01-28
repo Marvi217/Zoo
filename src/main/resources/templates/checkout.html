@@ -621,7 +621,10 @@
 
     // Obsługa zmiany metody dostawy
     function handleDeliveryChange() {
-        const selectedMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
+        const selectedRadio = document.querySelector('input[name="deliveryMethod"]:checked');
+        if (!selectedRadio) return;
+        
+        const selectedMethod = selectedRadio.value;
         const inpostContainer = document.getElementById('inpost-map-container');
         const storePickupInfo = document.getElementById('store-pickup-info');
 
@@ -732,7 +735,14 @@
 
     // Walidacja formularza
     function validateCheckoutForm(event) {
-        const selectedMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
+        const selectedRadio = document.querySelector('input[name="deliveryMethod"]:checked');
+        if (!selectedRadio) {
+            event.preventDefault();
+            alert('Proszę wybrać metodę dostawy.');
+            return false;
+        }
+        
+        const selectedMethod = selectedRadio.value;
 
         if (selectedMethod === 'inpost') {
             const lockerId = document.getElementById('inpost-locker-id').value;
