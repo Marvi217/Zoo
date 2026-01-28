@@ -173,6 +173,9 @@ public class CheckoutController {
             @RequestParam(required = false) Boolean saveAddress,
             @RequestParam(required = false) String voucherCode,
             @RequestParam(required = false) String addressLabel,
+            @RequestParam(required = false) String inpostLockerId,
+            @RequestParam(required = false) String inpostLockerName,
+            @RequestParam(required = false) String inpostLockerAddress,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
 
@@ -251,6 +254,15 @@ public class CheckoutController {
                         e.printStackTrace();
                     }
                 }
+            }
+
+            // Obsługa paczkomatu InPost - adres paczkomatu jako adres dostawy
+            if ("inpost".equalsIgnoreCase(deliveryMethod) && inpostLockerId != null && !inpostLockerId.isEmpty()) {
+                address = new Address();
+                address.setStreet("Paczkomat: " + inpostLockerId);
+                address.setCity(inpostLockerAddress != null ? inpostLockerAddress : "");
+                address.setZipCode("");
+                address.setCountry("Poland");
             }
 
             order.setShippingAddress(address);

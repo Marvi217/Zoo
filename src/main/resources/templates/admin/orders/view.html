@@ -66,10 +66,10 @@
                     <div class="card" style="margin-top: 20px;">
                         <div class="card-header"><h2 class="card-title">Logistyka</h2></div>
                         <div class="card-body">
-                            <form th:action="@{/admin/orders/{id}/tracking(id=${order.id})}" method="post" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 15px; align-items: flex-end;">
+                            <form th:action="@{/admin/orders/{id}/tracking(id=${order.id})}" method="post" style="display: grid; grid-template-columns: 1fr 1fr auto auto; gap: 15px; align-items: flex-end;">
                                 <div>
                                     <label>Przewoźnik</label>
-                                    <select name="carrier" class="form-control" required>
+                                    <select name="carrier" class="form-control" id="carrierSelect" required>
                                         <option value="" disabled th:selected="${order.deliveryMethod == null}">Wybierz...</option>
                                         <option th:each="method : ${T(com.example.zoo.enums.DeliveryMethod).values()}"
                                                 th:value="${method}"
@@ -79,12 +79,34 @@
                                 </div>
                                 <div>
                                     <label>Numer przesyłki</label>
-                                    <input type="text" name="trackingNumber" th:value="${order.trackingNumber}" class="form-control" placeholder="np. 123456789" required>
+                                    <input type="text" name="trackingNumber" id="trackingNumberInput" th:value="${order.trackingNumber}" class="form-control" placeholder="np. 123456789" required>
                                 </div>
+                                <button type="button" class="btn btn-secondary" onclick="generateTrackingNumber()">Generuj</button>
                                 <button type="submit" class="btn btn-primary">Zapisz i wyślij</button>
                             </form>
                         </div>
                     </div>
+                    <script>
+                        function generateTrackingNumber() {
+                            const carrier = document.getElementById('carrierSelect').value;
+                            let prefix = '';
+
+                            // Prefiks w zależności od przewoźnika
+                            if (carrier === 'LOCKER') {
+                                prefix = 'INP';
+                            } else if (carrier === 'COURIER') {
+                                prefix = 'COR';
+                            } else {
+                                prefix = 'PKG';
+                            }
+
+                            // Generuj losowy numer: PREFIX + 15 cyfr
+                            const randomDigits = Array.from({length: 15}, () => Math.floor(Math.random() * 10)).join('');
+                            const trackingNumber = prefix + randomDigits;
+
+                            document.getElementById('trackingNumberInput').value = trackingNumber;
+                        }
+                    </script>
                 </div>
 
                 <div class="order-right">
@@ -116,15 +138,29 @@
                     <div class="card" style="margin-top: 20px;">
                         <div class="card-header"><h2 class="card-title">Klient</h2></div>
                         <div class="card-body">
-                            <p><strong th:text="${order.user.firstName + ' ' + order.user.lastName}">Jan Kowalski</strong></p>
-                            <p style="color: var(--text-muted); font-size: 14px;" th:text="${order.user.email}">jan@email.com</p>
+                            <!-- Dane klienta zalogowanego -->
+                            <div th:if="${order.user != null}">
+                                <p><strong th:text="${order.user.firstName + ' ' + order.user.lastName}">Jan Kowalski</strong></p>
+                                <p style="color: var(--text-muted); font-size: 14px;" th:text="${order.user.email}">jan@email.com</p>
+                            </div>
+                            <!-- Dane gościa -->
+                            <div th:if="${order.user == null}">
+                                <p><strong th:text="${order.guestName}">Jan Kowalski</strong></p>
+                                <p style="color: var(--text-muted); font-size: 14px;" th:text="${order.guestEmail}">jan@email.com</p>
+                                <p th:if="${order.guestPhone}" style="color: var(--text-muted); font-size: 14px;" th:text="'Tel: ' + ${order.guestPhone}"></p>
+                            </div>
                             <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
                             <h4 style="font-size: 14px; text-transform: uppercase; color: gray;">Adres dostawy</h4>
-                            <p>
-                                <span th:text="${order.shippingAddress.street}">Ulica</span><br>
-                                <span th:text="${order.shippingAddress.zipCode}">00-000</span>
-                                <span th:text="${order.shippingAddress.city}">Miasto</span>
-                            </p>
+                            <div th:if="${order.shippingAddress != null}">
+                                <p>
+                                    <span th:text="${order.shippingAddress.street}">Ulica</span><br>
+                                    <span th:if="${order.shippingAddress.zipCode != null and !order.shippingAddress.zipCode.isEmpty()}" th:text="${order.shippingAddress.zipCode + ' '}">00-000 </span>
+                                    <span th:text="${order.shippingAddress.city}">Miasto</span>
+                                </p>
+                            </div>
+                            <div th:if="${order.shippingAddress == null}">
+                                <p style="color: gray; font-style: italic;">Brak adresu (odbiór osobisty)</p>
+                            </div>
                         </div>
                     </div>
 
