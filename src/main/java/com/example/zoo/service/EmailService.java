@@ -9,4 +9,6 @@ public interface EmailService {
     void sendActivationEmail(String to, String activationCode);
 
     void sendShippingNotification(Order order);
+
+    void sendOrderConfirmationEmail(Order order);
 }

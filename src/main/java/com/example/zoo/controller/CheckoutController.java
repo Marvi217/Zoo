@@ -16,6 +16,7 @@ import com.example.zoo.service.PromotionService;
 import com.example.zoo.service.UserAddressService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,10 +34,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Controller
 @RequestMapping("/checkout")
 @RequiredArgsConstructor
 public class CheckoutController {
+
+    private static final String DEFAULT_COUNTRY = "Poland";
 
     private final OrderService orderService;
     private final UserRepository userRepository;
@@ -173,7 +177,6 @@ public class CheckoutController {
             @RequestParam(required = false) Boolean saveAddress,
             @RequestParam(required = false) String voucherCode,
             @RequestParam(required = false) String addressLabel,
-            @RequestParam(required = false) String inpostLockerId,
             @RequestParam(required = false) String inpostLockerName,
             @RequestParam(required = false) String inpostLockerAddress,
             HttpSession session,
@@ -211,8 +214,32 @@ public class CheckoutController {
             }
 
             Address address = null;
+            DeliveryMethod delivery = mapDeliveryMethod(deliveryMethod);
 
-            if (addressId != null && currentUser != null) {
+            // Handle InPost locker - use locker address as shipping address
+            if (delivery == DeliveryMethod.LOCKER && inpostLockerAddress != null && !inpostLockerAddress.isEmpty()) {
+                address = new Address();
+                // Parse InPost locker address (format: "street, city" or just address)
+                String lockerAddress = inpostLockerAddress;
+                String lockerCity = "";
+                if (lockerAddress.contains(",")) {
+                    String[] parts = lockerAddress.split(",", 2);
+                    address.setStreet(parts[0].trim());
+                    lockerCity = parts.length > 1 ? parts[1].trim() : "";
+                    address.setCity(lockerCity);
+                } else {
+                    address.setStreet(lockerAddress);
+                    address.setCity("");
+                }
+                address.setZipCode("");
+                address.setCountry(DEFAULT_COUNTRY);
+
+                // Add locker name to notes
+                if (inpostLockerName != null && !inpostLockerName.isEmpty()) {
+                    order.setNotes((order.getNotes() != null ? order.getNotes() + "\n" : "") +
+                            "Paczkomat InPost: " + inpostLockerName);
+                }
+            } else if (addressId != null && currentUser != null) {
                 UserAddress userAddress = addressService.getAddressById(addressId, currentUser)
                         .orElseThrow(() -> new IllegalArgumentException("Wybrany adres nie istnieje"));
 
@@ -227,7 +254,7 @@ public class CheckoutController {
                 address.setStreet(street);
                 address.setCity(city);
                 address.setZipCode(zipCode);
-                address.setCountry(country != null ? country : "Poland");
+                address.setCountry(country != null ? country : DEFAULT_COUNTRY);
 
                 if (Boolean.TRUE.equals(saveAddress) && currentUser != null) {
                     try {
@@ -240,34 +267,21 @@ public class CheckoutController {
                         newUserAddress.setStreet(street);
                         newUserAddress.setCity(city);
                         newUserAddress.setZipCode(zipCode);
-                        newUserAddress.setCountry(country != null ? country : "Poland");
+                        newUserAddress.setCountry(country != null ? country : DEFAULT_COUNTRY);
                         newUserAddress.setPhoneNumber(phone);
 
                         UserAddress savedAddress = addressService.saveAddress(newUserAddress, currentUser);
 
-                        System.out.println("✓ Adres został zapisany dla przyszłych zamówień");
-                        System.out.println("  - ID: " + savedAddress.getId());
-                        System.out.println("  - Label: " + savedAddress.getLabel());
-                        System.out.println("  - Is Default: " + savedAddress.isDefault());
+                        log.info("✓ Adres został zapisany dla przyszłych zamówień - ID: {}, Label: {}, Is Default: {}",
+                                savedAddress.getId(), savedAddress.getLabel(), savedAddress.isDefault());
                     } catch (Exception e) {
-                        System.err.println("⚠ Nie udało się zapisać adresu: " + e.getMessage());
-                        e.printStackTrace();
+                        log.error("⚠ Nie udało się zapisać adresu: {}", e.getMessage(), e);
                     }
                 }
             }
 
-            // Obsługa paczkomatu InPost - adres paczkomatu jako adres dostawy
-            if ("inpost".equalsIgnoreCase(deliveryMethod) && inpostLockerId != null && !inpostLockerId.isEmpty()) {
-                address = new Address();
-                address.setStreet("Paczkomat: " + inpostLockerId);
-                address.setCity(inpostLockerAddress != null ? inpostLockerAddress : "");
-                address.setZipCode("");
-                address.setCountry("Poland");
-            }
-
             order.setShippingAddress(address);
 
-            DeliveryMethod delivery = mapDeliveryMethod(deliveryMethod);
             order.setDeliveryMethod(delivery);
 
             BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
@@ -314,24 +328,138 @@ public class CheckoutController {
 
             orderService.save(order);
 
-            System.out.println("=== NEW ORDER ===");
-            System.out.println("Order Number: " + order.getOrderNumber());
-            System.out.println("Customer Type: " + (currentUser != null ? "Logged User" : "Guest"));
-            System.out.println("Customer Name: " + (currentUser != null ? currentUser.getFullName() : order.getGuestName()));
-            System.out.println("Delivery Method: " + delivery);
-            System.out.println("Address Saved: " + (Boolean.TRUE.equals(saveAddress) && currentUser != null ? "Yes" : "No"));
+            log.info("=== NEW ORDER === Order Number: {}, Customer: {} ({}), Delivery: {}, Address Saved: {}",
+                    order.getOrderNumber(),
+                    currentUser != null ? currentUser.getFullName() : order.getGuestName(),
+                    currentUser != null ? "Logged User" : "Guest",
+                    delivery,
+                    Boolean.TRUE.equals(saveAddress) && currentUser != null ? "Yes" : "No");
 
             clearCart(session);
 
-            redirectAttributes.addFlashAttribute("orderNumber", order.getOrderNumber());
-            redirectAttributes.addFlashAttribute("success", "Zamówienie zostało złożone!");
-            return "redirect:/checkout/confirmation";
+            // Redirect to payment gateway simulation
+            return "redirect:/checkout/payment?orderNumber=" + order.getOrderNumber();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Błąd podczas składania zamówienia: {}", e.getMessage(), e);
             redirectAttributes.addFlashAttribute("error", "Błąd podczas składania zamówienia: " + e.getMessage());
             return "redirect:/checkout";
         }
+    }
+
+    @GetMapping("/payment")
+    public String showPaymentGateway(@RequestParam String orderNumber, Model model,
+                                     HttpSession session, RedirectAttributes redirectAttributes) {
+        try {
+            Order order = orderService.getOrderByNumber(orderNumber);
+
+            // Security: Verify the user is authorized to access this order
+            User currentUser = securityHelper.getCurrentUser(session);
+            if (!isAuthorizedForOrder(order, currentUser, session)) {
+                redirectAttributes.addFlashAttribute("error", "Brak dostępu do tego zamówienia");
+                return "redirect:/";
+            }
+
+            // Validate order state - only PENDING orders should show payment gateway
+            if (order.getPaymentStatus() != com.example.zoo.enums.PaymentStatus.PENDING) {
+                redirectAttributes.addFlashAttribute("error", "To zamówienie zostało już opłacone lub anulowane");
+                return "redirect:/";
+            }
+
+            model.addAttribute("order", order);
+            return "payment-gateway";
+        } catch (Exception e) {
+            log.error("Zamówienie nie zostało znalezione: {}", orderNumber, e);
+            redirectAttributes.addFlashAttribute("error", "Zamówienie nie zostało znalezione");
+            return "redirect:/";
+        }
+    }
+
+    @PostMapping("/payment/simulate")
+    public String simulatePayment(
+            @RequestParam String orderNumber,
+            @RequestParam String status,
+            HttpSession session,
+            RedirectAttributes redirectAttributes) {
+
+        try {
+            Order order = orderService.getOrderByNumber(orderNumber);
+
+            // Security: Verify the user is authorized to access this order
+            User currentUser = securityHelper.getCurrentUser(session);
+            if (!isAuthorizedForOrder(order, currentUser, session)) {
+                redirectAttributes.addFlashAttribute("error", "Brak dostępu do tego zamówienia");
+                return "redirect:/";
+            }
+
+            // Validate order state - only PENDING payment orders can be updated
+            if (order.getPaymentStatus() != com.example.zoo.enums.PaymentStatus.PENDING) {
+                redirectAttributes.addFlashAttribute("error", "Status płatności tego zamówienia nie może być już zmieniony");
+                return "redirect:/";
+            }
+
+            switch (status.toUpperCase()) {
+                case "PAID":
+                    order.setPaymentStatus(com.example.zoo.enums.PaymentStatus.PAID);
+                    order.setStatus(OrderStatus.CONFIRMED);
+                    orderService.save(order);
+
+                    // Send confirmation email
+                    try {
+                        emailService.sendOrderConfirmationEmail(order);
+                    } catch (Exception e) {
+                        log.error("Nie udało się wysłać emaila potwierdzenia dla zamówienia {}: {}",
+                                order.getOrderNumber(), e.getMessage());
+                    }
+
+                    redirectAttributes.addFlashAttribute("orderNumber", order.getOrderNumber());
+                    redirectAttributes.addFlashAttribute("success", "Płatność zakończona sukcesem!");
+                    return "redirect:/checkout/confirmation";
+
+                case "FAILED":
+                    order.setPaymentStatus(com.example.zoo.enums.PaymentStatus.FAILED);
+                    orderService.save(order);
+                    redirectAttributes.addFlashAttribute("error", "Płatność nie powiodła się. Spróbuj ponownie.");
+                    return "redirect:/checkout/payment?orderNumber=" + orderNumber;
+
+                case "CANCELLED":
+                    order.setPaymentStatus(com.example.zoo.enums.PaymentStatus.CANCELLED);
+                    order.setStatus(OrderStatus.CANCELLED);
+                    orderService.save(order);
+                    redirectAttributes.addFlashAttribute("error", "Płatność została anulowana.");
+                    return "redirect:/";
+
+                default:
+                    redirectAttributes.addFlashAttribute("error", "Nieznany status płatności");
+                    return "redirect:/checkout/payment?orderNumber=" + orderNumber;
+            }
+        } catch (Exception e) {
+            log.error("Błąd podczas przetwarzania płatności: {}", e.getMessage(), e);
+            redirectAttributes.addFlashAttribute("error", "Błąd podczas przetwarzania płatności: " + e.getMessage());
+            return "redirect:/";
+        }
+    }
+
+    /**
+     * Check if the current user/session is authorized to access the order.
+     */
+    private boolean isAuthorizedForOrder(Order order, User currentUser, HttpSession session) {
+        // If order belongs to a logged-in user, check if current user matches
+        if (order.getUser() != null) {
+            return currentUser != null && currentUser.getId().equals(order.getUser().getId());
+        }
+
+        // For guest orders, we use session-based verification
+        // The order was just created in this session, so we allow access
+        // In a real production environment, you might use a token-based approach
+        String guestEmail = order.getGuestEmail();
+        if (guestEmail != null && currentUser == null) {
+            // Allow guest access - the order number serves as a token in this simulation
+            // In production, consider using a more secure token-based approach
+            return true;
+        }
+
+        return false;
     }
 
     @GetMapping("/confirmation")
@@ -360,6 +488,9 @@ public class CheckoutController {
     }
 
     private DeliveryMethod mapDeliveryMethod(String method) {
+        if (method == null) {
+            return DeliveryMethod.COURIER;
+        }
         return switch (method.toLowerCase()) {
             case "inpost" -> DeliveryMethod.LOCKER;
             case "pickup" -> DeliveryMethod.PICKUP;

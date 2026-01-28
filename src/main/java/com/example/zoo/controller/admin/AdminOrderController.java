@@ -176,21 +176,6 @@ public class AdminOrderController {
             @RequestParam PaymentStatus paymentStatus,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
-
-        User currentUser = securityHelper.getCurrentUser(session);
-
-        if (currentUser == null || !currentUser.isAdmin()) {
-            redirectAttributes.addFlashAttribute("error", "Brak dostępu");
-            return "redirect:/";
-        }
-
-        try {
-            orderService.updatePaymentStatus(id, paymentStatus);
-            redirectAttributes.addFlashAttribute("success", "Status płatności został zaktualizowany");
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Błąd podczas aktualizacji statusu płatności: " + e.getMessage());
-        }
-
         return "redirect:/admin/orders/" + id;
     }
 
@@ -239,31 +224,6 @@ public class AdminOrderController {
             redirectAttributes.addFlashAttribute("success", "Numer przesyłki został dodany");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Błąd podczas dodawania numeru przesyłki: " + e.getMessage());
-        }
-
-        return "redirect:/admin/orders/" + id;
-    }
-
-    @PostMapping("/{id}/generate-tracking")
-    public String generateTracking(
-            @PathVariable Long id,
-            HttpSession session,
-            RedirectAttributes redirectAttributes) {
-
-        User currentUser = securityHelper.getCurrentUser(session);
-
-        if (currentUser == null || !currentUser.isAdmin()) {
-            redirectAttributes.addFlashAttribute("error", "Brak dostępu");
-            return "redirect:/";
-        }
-
-        try {
-            orderService.generateTrackingAndNotify(id);
-            redirectAttributes.addFlashAttribute("success", "Numer przesyłki został wygenerowany i klient otrzymał powiadomienie email");
-        } catch (IllegalStateException e) {
-            redirectAttributes.addFlashAttribute("error", e.getMessage());
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Błąd podczas generowania numeru przesyłki: " + e.getMessage());
         }
 
         return "redirect:/admin/orders/" + id;

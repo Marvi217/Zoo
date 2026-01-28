@@ -63,36 +63,37 @@
                         </div>
                     </div>
 
-                    <div class="card" style="margin-top: 20px;">
+                    <!-- Logistics section - hidden when order is cancelled -->
+                    <div class="card" style="margin-top: 20px;" th:if="${order.status.name() != 'CANCELLED'}">
                         <div class="card-header"><h2 class="card-title">Logistyka</h2></div>
                         <div class="card-body">
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                            <form th:action="@{/admin/orders/{id}/tracking(id=${order.id})}" method="post" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 15px; align-items: flex-end;">
                                 <div>
-                                    <label style="font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase;">Przewoźnik (wybrany przez klienta)</label>
-                                    <div style="padding: 10px; background: #f5f5f5; border-radius: 6px; font-weight: 500;"
-                                         th:text="${order.deliveryMethod != null ? order.deliveryMethod.description : 'Nie wybrano'}">
-                                        Kurier InPost
-                                    </div>
+                                    <label>Przewoźnik</label>
+                                    <select name="carrier" class="form-control" required>
+                                        <option value="" disabled th:selected="${order.deliveryMethod == null}">Wybierz...</option>
+                                        <option th:each="method : ${T(com.example.zoo.enums.DeliveryMethod).values()}"
+                                                th:value="${method}"
+                                                th:text="${method}"
+                                                th:selected="${method == order.deliveryMethod}"></option>
+                                    </select>
                                 </div>
                                 <div>
-                                    <label style="font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase;">Numer przesyłki</label>
-                                    <div th:if="${order.trackingNumber != null}" style="padding: 10px; background: #e8f5e9; border-radius: 6px; font-weight: 500; color: #2e7d32;"
-                                         th:text="${order.trackingNumber}">
-                                        123456789
-                                    </div>
-                                    <div th:if="${order.trackingNumber == null}" style="padding: 10px; background: #fff3e0; border-radius: 6px; color: #e65100;">
-                                        Brak - wygeneruj numer
-                                    </div>
+                                    <label>Numer przesyłki</label>
+                                    <input type="text" name="trackingNumber" th:value="${order.trackingNumber}" class="form-control" placeholder="np. 123456789" required>
                                 </div>
-                            </div>
-                            <form th:action="@{/admin/orders/{id}/generate-tracking(id=${order.id})}" method="post" th:if="${order.trackingNumber == null}">
-                                <button type="submit" class="btn btn-primary" style="width: 100%;">
-                                    Generuj numer przesyłki i wyślij powiadomienie
-                                </button>
+                                <button type="submit" class="btn btn-primary">Zapisz i wyślij</button>
                             </form>
-                            <div th:if="${order.trackingNumber != null}" style="padding: 10px; background: #e8f5e9; border-radius: 6px; text-align: center; color: #2e7d32;">
-                                Przesyłka została utworzona i klient otrzymał powiadomienie
-                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info when order is cancelled -->
+                    <div class="card" style="margin-top: 20px;" th:if="${order.status.name() == 'CANCELLED'}">
+                        <div class="card-header"><h2 class="card-title">Logistyka</h2></div>
+                        <div class="card-body">
+                            <p style="color: #dc3545; text-align: center; padding: 20px;">
+                                ⚠️ Zamówienie anulowane - generowanie numeru przesyłki jest zablokowane.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -111,34 +112,54 @@
                                 </select>
                             </form>
 
-                            <form th:action="@{/admin/orders/{id}/payment-status(id=${order.id})}" method="post">
+                            <!-- Payment status - read-only display -->
+                            <div style="margin-top: 15px;">
                                 <label>Status płatności</label>
-                                <select name="paymentStatus" class="form-control" onchange="this.form.submit()">
-                                    <option th:each="ps : ${paymentStatuses}"
-                                            th:value="${ps}"
-                                            th:text="${ps.displayName}"
-                                            th:selected="${ps == order.paymentStatus}"></option>
-                                </select>
-                            </form>
+                                <div class="form-control" style="background-color: #f5f5f5; cursor: not-allowed; display: flex; align-items: center; gap: 8px;">
+                                    <span class="badge" th:classappend="${'badge-' + order.paymentStatus.color}" th:text="${order.paymentStatus.displayName}">Status</span>
+                                    <small style="color: #888;">(tylko do odczytu)</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="card" style="margin-top: 20px;">
                         <div class="card-header"><h2 class="card-title">Klient</h2></div>
                         <div class="card-body">
-                            <p><strong th:text="${order.user.firstName + ' ' + order.user.lastName}">Jan Kowalski</strong></p>
-                            <p style="color: var(--text-muted); font-size: 14px;" th:text="${order.user.email}">jan@email.com</p>
+                            <!-- Handle both logged-in user and guest orders -->
+                            <th:block th:if="${order.user != null}">
+                                <p><strong th:text="${order.user.firstName + ' ' + order.user.lastName}">Jan Kowalski</strong></p>
+                                <p style="color: var(--text-muted); font-size: 14px;" th:text="${order.user.email}">jan@email.com</p>
+                            </th:block>
+                            <th:block th:if="${order.user == null}">
+                                <p><strong th:text="${order.guestName}">Gość</strong></p>
+                                <p style="color: var(--text-muted); font-size: 14px;" th:text="${order.guestEmail}">guest@email.com</p>
+                                <p th:if="${order.guestPhone}" style="color: var(--text-muted); font-size: 14px;">Tel: <span th:text="${order.guestPhone}"></span></p>
+                            </th:block>
                             <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
                             <h4 style="font-size: 14px; text-transform: uppercase; color: gray;">Adres dostawy</h4>
-                            <p>
-                                <span th:text="${order.shippingAddress.street}">Ulica</span><br>
-                                <span th:text="${order.shippingAddress.zipCode}">00-000</span>
-                                <span th:text="${order.shippingAddress.city}">Miasto</span>
-                            </p>
+                            <th:block th:if="${order.shippingAddress != null}">
+                                <p>
+                                    <span th:text="${order.shippingAddress.street}">Ulica</span><br>
+                                    <span th:text="${order.shippingAddress.zipCode}">00-000</span>
+                                    <span th:text="${order.shippingAddress.city}">Miasto</span>
+                                </p>
+                            </th:block>
+                            <th:block th:if="${order.shippingAddress == null}">
+                                <p style="color: #888;">Brak adresu (odbiór osobisty lub paczkomat)</p>
+                            </th:block>
+                            <!-- Show InPost locker info based on delivery method -->
+                            <th:block th:if="${order.deliveryMethod != null and order.deliveryMethod.name() == 'LOCKER'}">
+                                <p style="margin-top: 10px; font-size: 13px; color: #333; background: #fffdf5; padding: 8px; border-radius: 4px; border-left: 3px solid #ffcd00;">
+                                    <strong>📦 Paczkomat InPost</strong>
+                                    <span th:if="${order.notes != null}" th:text="${order.notes}"></span>
+                                </p>
+                            </th:block>
                         </div>
                     </div>
 
-                    <div style="margin-top: 20px;">
+                    <!-- Cancel button - hidden for terminal statuses -->
+                    <div style="margin-top: 20px;" th:if="${order.status.name() != 'CANCELLED' and order.status.name() != 'DELIVERED' and order.status.name() != 'RETURNED' and order.status.name() != 'REFUNDED'}">
                         <form th:action="@{/admin/orders/{id}/cancel(id=${order.id})}" method="post"
                               onsubmit="return confirm('Czy na pewno chcesz anulować to zamówienie?')">
                             <button type="submit" class="btn btn-error" style="width: 100%;">Anuluj zamówienie</button>
