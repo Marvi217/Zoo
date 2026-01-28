@@ -261,7 +261,10 @@ public class CheckoutController {
             BigDecimal deliveryCost = calculateDeliveryCost(delivery, cartData.total);
             order.setDeliveryCost(deliveryCost);
 
-            order.setPaymentMethod(mapPaymentMethod(paymentMethod));
+            PaymentMethod payment = mapPaymentMethod(paymentMethod);
+            order.setPaymentMethod(payment);
+            
+            BigDecimal paymentSurcharge = calculatePaymentSurcharge(payment);
 
             List<OrderItem> orderItems = new ArrayList<>();
             for (var cartItem : cartData.items) {
@@ -296,7 +299,7 @@ public class CheckoutController {
                 }
             }
 
-            order.setTotalAmount(cartData.total.subtract(discountAmount).add(deliveryCost));
+            order.setTotalAmount(cartData.total.subtract(discountAmount).add(deliveryCost).add(paymentSurcharge));
 
             orderService.save(order);
 
@@ -359,13 +362,21 @@ public class CheckoutController {
 
     private PaymentMethod mapPaymentMethod(String method) {
         if (method == null) {
-            return PaymentMethod.CARD;
+            return PaymentMethod.TRANSFER;
         }
-        return switch (method.toLowerCase()) {
-            case "transfer" -> PaymentMethod.TRANSFER;
-            case "cod" -> PaymentMethod.CASH_ON_DELIVERY;
-            case "blik" -> PaymentMethod.BLIK;
-            default -> PaymentMethod.CARD;
+        return switch (method.toUpperCase()) {
+            case "TRANSFER" -> PaymentMethod.TRANSFER;
+            case "CARD" -> PaymentMethod.CARD;
+            case "BLIK" -> PaymentMethod.BLIK;
+            case "CASH_ON_DELIVERY" -> PaymentMethod.CASH_ON_DELIVERY;
+            default -> PaymentMethod.TRANSFER;
         };
+    }
+
+    private BigDecimal calculatePaymentSurcharge(PaymentMethod method) {
+        if (method == PaymentMethod.CASH_ON_DELIVERY) {
+            return new BigDecimal("5.00");
+        }
+        return BigDecimal.ZERO;
     }
 }

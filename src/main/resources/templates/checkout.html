@@ -432,25 +432,33 @@
 
                     <div class="payment-options">
                         <label class="payment-option">
-                            <input type="radio" name="paymentMethod" value="online" checked>
+                            <input type="radio" name="paymentMethod" value="TRANSFER" checked onchange="handlePaymentChange()">
                             <div class="option-content">
-                                <span class="option-name" th:text="#{checkout.payment.online}">Płatność online</span>
-                                <p class="option-desc" th:text="#{checkout.payment.online.desc}">Szybkie i bezpieczne płatności</p>
-                            </div>
-                        </label>
-
-                        <label class="payment-option">
-                            <input type="radio" name="paymentMethod" value="transfer">
-                            <div class="option-content">
-                                <span class="option-name" th:text="#{checkout.payment.transfer}">Przelew tradycyjny</span>
+                                <span class="option-name" th:text="#{checkout.payment.transfer}">Przelew bankowy</span>
                                 <p class="option-desc" th:text="#{checkout.payment.transfer.desc}">Realizacja po zaksięgowaniu wpłaty</p>
                             </div>
                         </label>
 
                         <label class="payment-option">
-                            <input type="radio" name="paymentMethod" value="cod">
+                            <input type="radio" name="paymentMethod" value="CARD" onchange="handlePaymentChange()">
                             <div class="option-content">
-                                <span class="option-name" th:text="#{checkout.payment.cod}">Za pobraniem</span>
+                                <span class="option-name" th:text="#{checkout.payment.card}">Karta płatnicza</span>
+                                <p class="option-desc" th:text="#{checkout.payment.card.desc}">Szybkie i bezpieczne płatności</p>
+                            </div>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="BLIK" onchange="handlePaymentChange()">
+                            <div class="option-content">
+                                <span class="option-name" th:text="#{checkout.payment.blik}">BLIK</span>
+                                <p class="option-desc" th:text="#{checkout.payment.blik.desc}">Płatność kodem BLIK</p>
+                            </div>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="CASH_ON_DELIVERY" onchange="handlePaymentChange()">
+                            <div class="option-content">
+                                <span class="option-name" th:text="#{checkout.payment.cod}">Płatność przy odbiorze</span>
                                 <p class="option-desc" th:text="#{checkout.payment.cod.desc}">Płatność przy odbiorze + 5 zł</p>
                             </div>
                         </label>
@@ -500,9 +508,14 @@
                         <span th:if="${cart.deliveryCost == 0}" th:text="#{cart.free}">Gratis</span>
                     </div>
 
+                    <div class="summary-row" id="payment-surcharge-row" style="display: none;">
+                        <span th:text="#{checkout.payment.cod.surcharge}">Opłata za pobranie</span>
+                        <span id="payment-surcharge-amount">5,00 zł</span>
+                    </div>
+
                     <div class="summary-total">
                         <span th:text="#{cart.order.total}">Do zapłaty</span>
-                        <span th:text="${#numbers.formatDecimal(cart.totalAmount, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
+                        <span id="total-amount" th:text="${#numbers.formatDecimal(cart.totalAmount, 1, 2)} + ' ' + #{general.currency}">0.00 zł</span>
                     </div>
                 </div>
 
@@ -674,6 +687,32 @@
         } else if (addressFormContainer) {
             addressFormContainer.style.display = '';
             setFormFieldsRequired(true);
+        }
+    }
+
+    // Obsługa zmiany metody płatności
+    const baseTotalAmount = parseFloat('[[${cart.totalAmount}]]'.replace(',', '.')) || 0;
+    const paymentSurcharge = 5.00;
+    
+    function handlePaymentChange() {
+        const selectedRadio = document.querySelector('input[name="paymentMethod"]:checked');
+        if (!selectedRadio) return;
+        
+        const selectedMethod = selectedRadio.value;
+        const surchargeRow = document.getElementById('payment-surcharge-row');
+        const totalAmountElement = document.getElementById('total-amount');
+        
+        if (selectedMethod === 'CASH_ON_DELIVERY') {
+            if (surchargeRow) surchargeRow.style.display = '';
+            if (totalAmountElement) {
+                const newTotal = baseTotalAmount + paymentSurcharge;
+                totalAmountElement.textContent = newTotal.toFixed(2).replace('.', ',') + ' zł';
+            }
+        } else {
+            if (surchargeRow) surchargeRow.style.display = 'none';
+            if (totalAmountElement) {
+                totalAmountElement.textContent = baseTotalAmount.toFixed(2).replace('.', ',') + ' zł';
+            }
         }
     }
 
