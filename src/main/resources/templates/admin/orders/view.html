@@ -70,11 +70,10 @@
                                 <div>
                                     <label>Przewoźnik</label>
                                     <select name="carrier" class="form-control" required>
-                                        <option value="" disabled th:selected="${order.deliveryMethod == null}">Wybierz...</option>
                                         <option th:each="method : ${T(com.example.zoo.enums.DeliveryMethod).values()}"
                                                 th:value="${method}"
-                                                th:text="${method}"
-                                                th:selected="${method == order.deliveryMethod}"></option>
+                                                th:text="${method.description}"
+                                                th:selected="${order.deliveryMethod != null and method.name() == order.deliveryMethod.name()}"></option>
                                     </select>
                                 </div>
                                 <div>

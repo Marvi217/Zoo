@@ -277,13 +277,18 @@ public class OrderService {
                 .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono zamówienia o ID: " + orderId));
 
         order.setTrackingNumber(trackingNumber);
-        order.setDeliveryMethod(carrier);
+
+        // Użyj przekazanego przewoźnika lub zachowaj istniejącą metodę dostawy (wybraną przez klienta)
+        DeliveryMethod effectiveCarrier = carrier != null ? carrier : order.getDeliveryMethod();
+        if (effectiveCarrier != null) {
+            order.setDeliveryMethod(effectiveCarrier);
+        }
 
         order.setStatus(OrderStatus.SHIPPED);
 
         String shippingNote = String.format("[%s] Zamówienie wysłane. Przewoźnik: %s, Numer: %s",
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),
-                carrier,
+                effectiveCarrier != null ? effectiveCarrier.getDescription() : "Nieznany",
                 trackingNumber);
 
         order.setAdminNotes(order.getAdminNotes() != null ?
