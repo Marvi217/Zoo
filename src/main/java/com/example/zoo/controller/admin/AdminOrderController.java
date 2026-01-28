@@ -229,6 +229,31 @@ public class AdminOrderController {
         return "redirect:/admin/orders/" + id;
     }
 
+    @PostMapping("/{id}/generate-tracking")
+    public String generateTrackingNumber(
+            @PathVariable Long id,
+            HttpSession session,
+            RedirectAttributes redirectAttributes) {
+
+        User currentUser = securityHelper.getCurrentUser(session);
+
+        if (currentUser == null || !currentUser.isAdmin()) {
+            redirectAttributes.addFlashAttribute("error", "Brak dostępu");
+            return "redirect:/";
+        }
+
+        try {
+            String trackingNumber = orderService.generateAndSetTrackingNumber(id);
+            redirectAttributes.addFlashAttribute("success", "Wygenerowano numer przesyłki: " + trackingNumber + ". Status zmieniony na: Wysłane");
+        } catch (IllegalStateException e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Błąd podczas generowania numeru przesyłki: " + e.getMessage());
+        }
+
+        return "redirect:/admin/orders/" + id;
+    }
+
     @GetMapping("/export")
     public ResponseEntity<byte[]> exportOrders(
             @RequestParam(required = false) OrderStatus status,

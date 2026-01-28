@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -273,19 +274,105 @@ public class OrderService {
                 .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono zamówienia o ID: " + orderId));
 
         order.setTrackingNumber(trackingNumber);
-        order.setDeliveryMethod(carrier);
+        // Do not change carrier - keep the one selected by buyer
+        if (carrier != null) {
+            order.setDeliveryMethod(carrier);
+        }
 
         order.setStatus(OrderStatus.SHIPPED);
 
         String shippingNote = String.format("[%s] Zamówienie wysłane. Przewoźnik: %s, Numer: %s",
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),
-                carrier,
+                order.getDeliveryMethod(),
                 trackingNumber);
 
         order.setAdminNotes(order.getAdminNotes() != null ?
                 order.getAdminNotes() + "\n" + shippingNote : shippingNote);
 
         orderRepository.save(order);
+    }
+
+    @Transactional
+    public String generateAndSetTrackingNumber(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono zamówienia o ID: " + orderId));
+
+        if (order.getTrackingNumber() != null && !order.getTrackingNumber().isEmpty()) {
+            throw new IllegalStateException("Zamówienie ma już wygenerowany numer przesyłki: " + order.getTrackingNumber());
+        }
+
+        // Generate tracking number based on delivery method
+        String trackingNumber = generateTrackingNumber(order.getDeliveryMethod());
+        order.setTrackingNumber(trackingNumber);
+        order.setStatus(OrderStatus.SHIPPED);
+
+        String shippingNote = String.format("[%s] Wygenerowano numer przesyłki. Przewoźnik: %s, Numer: %s. Status: Wysłane",
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),
+                order.getDeliveryMethod() != null ? order.getDeliveryMethod().getDescription() : "Brak",
+                trackingNumber);
+
+        order.setAdminNotes(order.getAdminNotes() != null ?
+                order.getAdminNotes() + "\n" + shippingNote : shippingNote);
+
+        orderRepository.save(order);
+        return trackingNumber;
+    }
+
+    private String generateTrackingNumber(DeliveryMethod deliveryMethod) {
+        String prefix;
+        if (deliveryMethod == null) {
+            prefix = "PKG";
+        } else {
+            switch (deliveryMethod) {
+                case LOCKER:
+                    prefix = "INP"; // InPost Paczkomat
+                    break;
+                case COURIER:
+                    prefix = "KUR"; // Kurier
+                    break;
+                case PICKUP:
+                    prefix = "ODB"; // Odbiór osobisty
+                    break;
+                default:
+                    prefix = "PKG";
+            }
+        }
+        // Format: PREFIX + timestamp + random 6 digits
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMddHHmm"));
+        String random = String.format("%06d", (int) (Math.random() * 1000000));
+        return prefix + timestamp + random;
+    }
+
+    /**
+     * Schedules a status change from CONFIRMED to PROCESSING after 30 seconds.
+     * Called after successful payment.
+     */
+    @Async
+    public void scheduleStatusChangeToProcessing(Long orderId) {
+        try {
+            // Wait 30 seconds
+            Thread.sleep(30000);
+
+            // Change status to PROCESSING
+            Order order = orderRepository.findById(orderId).orElse(null);
+            if (order != null && order.getStatus() == OrderStatus.CONFIRMED) {
+                order.setStatus(OrderStatus.PROCESSING);
+                order.setStatusChangedAt(LocalDateTime.now());
+
+                String note = String.format("[%s] Status automatycznie zmieniony na: W realizacji (po 30 sekundach od potwierdzenia płatności)",
+                        LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                order.setAdminNotes(order.getAdminNotes() != null ?
+                        order.getAdminNotes() + "\n" + note : note);
+
+                orderRepository.save(order);
+                log.info("Order {} status changed from CONFIRMED to PROCESSING after 30 seconds", orderId);
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            log.error("Interrupted while waiting to change order {} status", orderId, e);
+        } catch (Exception e) {
+            log.error("Error changing order {} status to PROCESSING", orderId, e);
+        }
     }
 
     @Transactional
