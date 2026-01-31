@@ -207,7 +207,10 @@ public class ProductService {
         product.setPrice(dto.getPrice());
         product.setDiscountedPrice(dto.getDiscountedPrice());
         product.setStockQuantity(dto.getStockQuantity());
-        product.setStatus(dto.getStatus());
+        // Only update status if provided, otherwise keep existing status
+        if (dto.getStatus() != null) {
+            product.setStatus(dto.getStatus());
+        }
         product.setSubcategory(subcategory);
         product.setCategory(subcategory.getCategory());
         product.setBrand(brand);
