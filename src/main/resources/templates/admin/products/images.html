@@ -33,6 +33,11 @@
             <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
             <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
 
+            <!-- Info about ordering -->
+            <div class="alert alert-info" style="margin-bottom: 20px; background: #e0f2fe; border: 1px solid #0284c7; padding: 15px; border-radius: 8px;">
+                ℹ️ <strong>Kolejność zdjęć:</strong> Użyj przycisków ↑ i ↓ aby zmienić kolejność. Pierwsze zdjęcie (z najniższym numerem) jest automatycznie ustawiane jako główne.
+            </div>
+
             <!-- Upload new images -->
             <div class="card" style="margin-bottom: 20px;">
                 <div class="card-header">
@@ -65,39 +70,53 @@
                     </div>
 
                     <div th:if="${images != null and !images.isEmpty()}" 
-                         style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
-                        <div th:each="img : ${images}" 
-                             style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+                         style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
+                        <div th:each="img, iterStat : ${images}" 
+                             style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;"
+                             th:styleappend="${iterStat.first} ? 'border: 2px solid #16a34a;' : ''">
                             <div style="position: relative;">
                                 <img th:src="${img.imageUrl}" alt="Product image"
                                      style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;">
-                                <span th:if="${img.isMain}" 
+                                <span th:if="${iterStat.first}" 
                                       style="position: absolute; top: 5px; left: 5px; background: #16a34a; color: white; font-size: 11px; padding: 3px 8px; border-radius: 4px;">
-                                    ✓ Główne
+                                    ⭐ Główne
                                 </span>
                             </div>
                             
                             <div style="margin-top: 10px; font-size: 12px; color: #666;">
-                                <div>Kolejność: <span th:text="${img.displayOrder}">0</span></div>
+                                <div>Pozycja: <strong th:text="${img.displayOrder}">0</strong></div>
                                 <div th:if="${img.fileSize != null}">
                                     Rozmiar: <span th:text="${#numbers.formatDecimal(img.fileSizeMB, 1, 2)}">0</span> MB
                                 </div>
                             </div>
 
-                            <div style="margin-top: 10px; display: flex; gap: 5px; flex-wrap: wrap;">
-                                <form th:unless="${img.isMain}" 
-                                      th:action="@{/admin/products/{productId}/images/{imageId}/set-main(productId=${product.id}, imageId=${img.id})}"
+                            <div style="margin-top: 10px; display: flex; gap: 5px; flex-wrap: wrap; align-items: center;">
+                                <!-- Move up button -->
+                                <form th:unless="${iterStat.first}"
+                                      th:action="@{/admin/products/{productId}/images/{imageId}/move-up(productId=${product.id}, imageId=${img.id})}"
                                       method="post" style="display: inline;">
-                                    <button type="submit" class="btn btn-sm btn-outline" title="Ustaw jako główne">
-                                        ⭐ Główne
+                                    <button type="submit" class="btn btn-sm btn-outline" title="Przesuń w górę">
+                                        ↑
                                     </button>
                                 </form>
+                                <span th:if="${iterStat.first}" class="btn btn-sm btn-disabled" style="opacity: 0.3; cursor: not-allowed;">↑</span>
                                 
+                                <!-- Move down button -->
+                                <form th:unless="${iterStat.last}"
+                                      th:action="@{/admin/products/{productId}/images/{imageId}/move-down(productId=${product.id}, imageId=${img.id})}"
+                                      method="post" style="display: inline;">
+                                    <button type="submit" class="btn btn-sm btn-outline" title="Przesuń w dół">
+                                        ↓
+                                    </button>
+                                </form>
+                                <span th:if="${iterStat.last}" class="btn btn-sm btn-disabled" style="opacity: 0.3; cursor: not-allowed;">↓</span>
+                                
+                                <!-- Delete button -->
                                 <form th:action="@{/admin/products/{productId}/images/{imageId}/delete(productId=${product.id}, imageId=${img.id})}"
-                                      method="post" style="display: inline;"
+                                      method="post" style="display: inline; margin-left: auto;"
                                       onsubmit="return confirm('Czy na pewno chcesz usunąć to zdjęcie?')">
                                     <button type="submit" class="btn btn-sm btn-danger" title="Usuń">
-                                        🗑️ Usuń
+                                        🗑️
                                     </button>
                                 </form>
                             </div>
@@ -113,11 +132,14 @@
     .btn-sm {
         padding: 5px 10px;
         font-size: 12px;
+        min-width: 32px;
+        text-align: center;
     }
     .btn-outline {
         background: transparent;
         border: 1px solid #ddd;
         color: #333;
+        cursor: pointer;
     }
     .btn-outline:hover {
         background: #f5f5f5;
@@ -126,9 +148,15 @@
         background: #dc2626;
         color: white;
         border: none;
+        cursor: pointer;
     }
     .btn-danger:hover {
         background: #b91c1c;
+    }
+    .btn-disabled {
+        background: transparent;
+        border: 1px solid #ddd;
+        color: #999;
     }
 </style>
 </body>

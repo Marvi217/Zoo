@@ -382,6 +382,36 @@ public class AdminProductController {
         return "redirect:/admin/products/" + productId + "/images";
     }
 
+    @PostMapping("/{productId}/images/{imageId}/move-up")
+    public String moveImageUp(
+            @PathVariable Long productId,
+            @PathVariable Long imageId,
+            RedirectAttributes redirectAttributes) {
+        try {
+            productImageService.moveUp(imageId);
+            redirectAttributes.addFlashAttribute("success", "Kolejność zdjęcia została zmieniona");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas zmiany kolejności: " + e.getMessage());
+        }
+        return "redirect:/admin/products/" + productId + "/images";
+    }
+
+    @PostMapping("/{productId}/images/{imageId}/move-down")
+    public String moveImageDown(
+            @PathVariable Long productId,
+            @PathVariable Long imageId,
+            RedirectAttributes redirectAttributes) {
+        try {
+            productImageService.moveDown(imageId);
+            redirectAttributes.addFlashAttribute("success", "Kolejność zdjęcia została zmieniona");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas zmiany kolejności: " + e.getMessage());
+        }
+        return "redirect:/admin/products/" + productId + "/images";
+    }
+
     @PostMapping("/{id}/delete")
     public String deleteProduct(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
