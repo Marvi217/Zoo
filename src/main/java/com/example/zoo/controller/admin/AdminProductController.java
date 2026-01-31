@@ -218,23 +218,29 @@ public class AdminProductController {
 
     @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
-        Product product = productService.getProductById(id);
+        try {
+            Product product = productService.getProductById(id);
 
-        if (product == null) {
-            redirectAttributes.addFlashAttribute("error", "Produkt nie został znaleziony");
+            if (product == null) {
+                redirectAttributes.addFlashAttribute("error", "Produkt nie został znaleziony");
+                return "redirect:/admin/products";
+            }
+
+            ProductDTO productDTO = getProductDTO(product);
+
+            model.addAttribute("productDTO", productDTO);
+            model.addAttribute("product", product);
+            model.addAttribute("categories", categoryService.getAllActiveCategories());
+            model.addAttribute("brands", brandService.getAllActiveBrands());
+            model.addAttribute("statuses", ProductStatus.values());
+            model.addAttribute("subcategories", subcategoryService.getActiveSubcategoriesByCategory(product.getSubcategory().getCategory().getId()));
+
+            return "admin/products/form";
+        } catch (Exception e) {
+            log.warn("Product not found: {}", id);
+            redirectAttributes.addFlashAttribute("error", "Produkt o ID " + id + " nie został znaleziony");
             return "redirect:/admin/products";
         }
-
-        ProductDTO productDTO = getProductDTO(product);
-
-        model.addAttribute("productDTO", productDTO);
-        model.addAttribute("product", product);
-        model.addAttribute("categories", categoryService.getAllActiveCategories());
-        model.addAttribute("brands", brandService.getAllActiveBrands());
-        model.addAttribute("statuses", ProductStatus.values());
-        model.addAttribute("subcategories", subcategoryService.getActiveSubcategoriesByCategory(product.getSubcategory().getCategory().getId()));
-
-        return "admin/products/form";
     }
 
     private static ProductDTO getProductDTO(Product product) {
@@ -253,6 +259,15 @@ public class AdminProductController {
         productDTO.setWeight(product.getWeight());
         productDTO.setDimensions(product.getDimensions());
         return productDTO;
+    }
+
+    /**
+     * Redirect GET requests for /admin/products/{id} to the edit page.
+     * This prevents 500 errors when users accidentally navigate to this URL.
+     */
+    @GetMapping("/{id}")
+    public String redirectToEdit(@PathVariable Long id) {
+        return "redirect:/admin/products/" + id + "/edit";
     }
 
     @PostMapping("/{id}")
