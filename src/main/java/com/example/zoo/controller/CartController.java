@@ -7,6 +7,8 @@ import com.example.zoo.service.ProductService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,7 @@ public class CartController {
     private final ProductService productService;
     private final SecurityHelper securityHelper;
     private final UserCartRepository userCartRepository;
+    private final MessageSource messageSource;
 
     private Cart getSessionCart(HttpSession session) {
         Cart cart = (Cart) session.getAttribute("cart");
@@ -47,6 +50,28 @@ public class CartController {
 
     private boolean isLoggedIn(HttpSession session) {
         return securityHelper.getCurrentUser(session) != null;
+    }
+
+    private int getCurrentCartQuantity(Long productId, User user, HttpSession session) {
+        if (user != null) {
+            UserCart userCart = getUserCart(user);
+            return userCart.getItems().stream()
+                    .filter(item -> item.getProduct().getId().equals(productId))
+                    .findFirst()
+                    .map(item -> item.getQuantity())
+                    .orElse(0);
+        } else {
+            Cart cart = getSessionCart(session);
+            return cart.getItems().stream()
+                    .filter(item -> item.getProduct().getId().equals(productId))
+                    .findFirst()
+                    .map(item -> item.getQuantity())
+                    .orElse(0);
+        }
+    }
+
+    private String getMessage(String key, Object... args) {
+        return messageSource.getMessage(key, args, LocaleContextHolder.getLocale());
     }
 
     public void mergeSessionCartToUserCart(HttpSession session, User user) {
@@ -94,16 +119,32 @@ public class CartController {
             Product product = productService.getProductById(productId);
 
             if (product == null) {
-                redirectAttributes.addFlashAttribute("error", "Produkt nie został znaleziony");
+                redirectAttributes.addFlashAttribute("error", getMessage("cart.error.product.not.found"));
                 return "redirect:/";
             }
 
             if (!product.isAvailable()) {
-                redirectAttributes.addFlashAttribute("error", "Produkt jest niedostępny");
+                redirectAttributes.addFlashAttribute("error", getMessage("cart.error.product.unavailable"));
                 return "redirect:/product/" + productId;
             }
 
+            // Check stock availability
             User user = securityHelper.getCurrentUser(session);
+            int currentInCart = getCurrentCartQuantity(productId, user, session);
+
+            int totalRequested = currentInCart + quantity;
+            if (totalRequested > product.getStockQuantity()) {
+                int canAdd = product.getStockQuantity() - currentInCart;
+                if (canAdd <= 0) {
+                    redirectAttributes.addFlashAttribute("error",
+                            getMessage("cart.error.stock.max", product.getStockQuantity()));
+                } else {
+                    redirectAttributes.addFlashAttribute("error",
+                            getMessage("cart.error.stock.limit", canAdd, product.getStockQuantity()));
+                }
+                return "redirect:/product/" + productId;
+            }
+
             if (user != null) {
                 UserCart userCart = getUserCart(user);
                 userCart.addItem(product, quantity);
@@ -113,10 +154,10 @@ public class CartController {
                 cart.addItem(product, quantity);
             }
 
-            redirectAttributes.addFlashAttribute("success", "Produkt dodany do koszyka!");
+            redirectAttributes.addFlashAttribute("success", getMessage("cart.success.added"));
 
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Wystąpił błąd podczas dodawania produktu");
+            redirectAttributes.addFlashAttribute("error", getMessage("cart.error.adding"));
         }
 
         String referer = request.getHeader("Referer");
@@ -131,6 +172,9 @@ public class CartController {
             HttpSession session) {
 
         try {
+            Product product = productService.getProductById(productId);
+            int stockQuantity = product.getStockQuantity();
+
             User user = securityHelper.getCurrentUser(session);
 
             if (user != null) {
@@ -142,7 +186,7 @@ public class CartController {
                             .findFirst()
                             .ifPresent(item -> {
                                 int newQty = item.getQuantity() + 1;
-                                if (newQty <= 99) {
+                                if (newQty <= stockQuantity) {
                                     item.setQuantity(newQty);
                                 }
                             });
@@ -167,7 +211,7 @@ public class CartController {
                             .findFirst()
                             .ifPresent(item -> {
                                 int newQty = item.getQuantity() + 1;
-                                if (newQty <= 99) {
+                                if (newQty <= stockQuantity) {
                                     item.setQuantity(newQty);
                                 }
                             });
@@ -351,10 +395,29 @@ public class CartController {
             Product product = productService.getProductById(productId);
 
             if (product == null) {
-                return ResponseEntity.status(404).body("Nie znaleziono produktu");
+                return ResponseEntity.status(404).body(getMessage("cart.error.product.not.found"));
             }
 
+            if (!product.isAvailable()) {
+                return ResponseEntity.status(400).body(getMessage("cart.error.product.unavailable"));
+            }
+
+            // Check stock availability
             User user = securityHelper.getCurrentUser(session);
+            int currentInCart = getCurrentCartQuantity(productId, user, session);
+
+            int totalRequested = currentInCart + quantity;
+            if (totalRequested > product.getStockQuantity()) {
+                int canAdd = product.getStockQuantity() - currentInCart;
+                if (canAdd <= 0) {
+                    return ResponseEntity.status(400).body(
+                            getMessage("cart.error.stock.max", product.getStockQuantity()));
+                } else {
+                    return ResponseEntity.status(400).body(
+                            getMessage("cart.error.stock.limit", canAdd, product.getStockQuantity()));
+                }
+            }
+
             int totalItems;
 
             if (user != null) {
