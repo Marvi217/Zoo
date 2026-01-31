@@ -218,13 +218,13 @@ public class AdminProductController {
 
     @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
+        if (id == null || id <= 0) {
+            redirectAttributes.addFlashAttribute("error", "Nieprawidłowe ID produktu");
+            return "redirect:/admin/products";
+        }
+        
         try {
             Product product = productService.getProductById(id);
-
-            if (product == null) {
-                redirectAttributes.addFlashAttribute("error", "Produkt nie został znaleziony");
-                return "redirect:/admin/products";
-            }
 
             ProductDTO productDTO = getProductDTO(product);
 
@@ -236,7 +236,7 @@ public class AdminProductController {
             model.addAttribute("subcategories", subcategoryService.getActiveSubcategoriesByCategory(product.getSubcategory().getCategory().getId()));
 
             return "admin/products/form";
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             log.warn("Product not found: {}", id);
             redirectAttributes.addFlashAttribute("error", "Produkt o ID " + id + " nie został znaleziony");
             return "redirect:/admin/products";
@@ -267,6 +267,9 @@ public class AdminProductController {
      */
     @GetMapping("/{id}")
     public String redirectToEdit(@PathVariable Long id) {
+        if (id == null || id <= 0) {
+            return "redirect:/admin/products";
+        }
         return "redirect:/admin/products/" + id + "/edit";
     }
 
