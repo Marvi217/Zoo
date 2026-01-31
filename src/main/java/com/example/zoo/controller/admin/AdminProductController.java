@@ -476,7 +476,8 @@ public class AdminProductController {
             productService.increaseStock(id, quantity);
             return "success";
         } catch (Exception e) {
-            return "error: " + e.getMessage();
+            log.error("Error increasing stock for product {}: {}", id, e.getMessage(), e);
+            return "error: Nie udało się zaktualizować stanu magazynowego";
         }
     }
 

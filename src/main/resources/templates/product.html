@@ -332,7 +332,9 @@
     <p th:text="#{footer.copyright}">&copy; 2026 PetMarket - Wszystkie prawa zastrzeżone</p>
 </footer>
 
-<script>
+<script th:inline="javascript">
+    const stockLimitMessage = /*[[#{cart.stock.limit.warning}]]*/ 'You cannot order more than {0} units of this product';
+    
     // Quantity controls
     function increaseQty() {
         const input = document.getElementById('quantity');
@@ -359,7 +361,7 @@
         
         if (currentValue > maxStock) {
             e.preventDefault();
-            alert('Nie możesz zamówić więcej niż ' + maxStock + ' sztuk tego produktu.');
+            alert(stockLimitMessage.replace('{0}', maxStock));
             input.value = maxStock;
             return false;
         }
