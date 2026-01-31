@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarządzanie zdjęciami produktu</title>
+    <link rel="stylesheet" th:href="@{/css/admin-styles.css}">
+</head>
+<body>
+<div class="admin-wrapper">
+    <aside th:replace="~{fragments/admin-fragments :: sidebar('products')}"></aside>
+    <main class="admin-main">
+        <div class="admin-content">
+            <div class="breadcrumb">
+                <a th:href="@{/admin}">Dashboard</a>
+                <span class="breadcrumb-separator">›</span>
+                <a th:href="@{/admin/products}">Produkty</a>
+                <span class="breadcrumb-separator">›</span>
+                <span th:text="${product.name}">Produkt</span>
+                <span class="breadcrumb-separator">›</span>
+                <span>Zdjęcia</span>
+            </div>
+
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">🖼️ Zdjęcia produktu</h1>
+                    <p class="page-subtitle" th:text="${product.name}">Nazwa produktu</p>
+                </div>
+                <div class="page-actions">
+                    <a th:href="@{/admin/products/{id}/edit(id=${product.id})}" class="btn btn-secondary">← Powrót do edycji</a>
+                </div>
+            </div>
+
+            <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+            <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+
+            <!-- Upload new images -->
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="card-header">
+                    <h3>📤 Dodaj nowe zdjęcia</h3>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/admin/products/{id}/images/upload(id=${product.id})}" 
+                          method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="file" name="images" class="form-control" accept="image/*" multiple required>
+                            <small style="color: #666; display: block; margin-top: 5px;">
+                                Obsługiwane formaty: JPG, PNG, GIF, WEBP. Maksymalny rozmiar: 5MB na plik.
+                            </small>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
+                            📤 Prześlij zdjęcia
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Existing images -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>📸 Obecne zdjęcia (<span th:text="${images != null ? images.size() : 0}">0</span>)</h3>
+                </div>
+                <div class="card-body">
+                    <div th:if="${images == null or images.isEmpty()}" style="text-align: center; padding: 40px; color: #666;">
+                        Brak zdjęć dla tego produktu
+                    </div>
+
+                    <div th:if="${images != null and !images.isEmpty()}" 
+                         style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+                        <div th:each="img : ${images}" 
+                             style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+                            <div style="position: relative;">
+                                <img th:src="${img.imageUrl}" alt="Product image"
+                                     style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;">
+                                <span th:if="${img.isMain}" 
+                                      style="position: absolute; top: 5px; left: 5px; background: #16a34a; color: white; font-size: 11px; padding: 3px 8px; border-radius: 4px;">
+                                    ✓ Główne
+                                </span>
+                            </div>
+                            
+                            <div style="margin-top: 10px; font-size: 12px; color: #666;">
+                                <div>Kolejność: <span th:text="${img.displayOrder}">0</span></div>
+                                <div th:if="${img.fileSize != null}">
+                                    Rozmiar: <span th:text="${#numbers.formatDecimal(img.fileSizeMB, 1, 2)}">0</span> MB
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 10px; display: flex; gap: 5px; flex-wrap: wrap;">
+                                <form th:unless="${img.isMain}" 
+                                      th:action="@{/admin/products/{productId}/images/{imageId}/set-main(productId=${product.id}, imageId=${img.id})}"
+                                      method="post" style="display: inline;">
+                                    <button type="submit" class="btn btn-sm btn-outline" title="Ustaw jako główne">
+                                        ⭐ Główne
+                                    </button>
+                                </form>
+                                
+                                <form th:action="@{/admin/products/{productId}/images/{imageId}/delete(productId=${product.id}, imageId=${img.id})}"
+                                      method="post" style="display: inline;"
+                                      onsubmit="return confirm('Czy na pewno chcesz usunąć to zdjęcie?')">
+                                    <button type="submit" class="btn btn-sm btn-danger" title="Usuń">
+                                        🗑️ Usuń
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<style>
+    .btn-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .btn-outline {
+        background: transparent;
+        border: 1px solid #ddd;
+        color: #333;
+    }
+    .btn-outline:hover {
+        background: #f5f5f5;
+    }
+    .btn-danger {
+        background: #dc2626;
+        color: white;
+        border: none;
+    }
+    .btn-danger:hover {
+        background: #b91c1c;
+    }
+</style>
+</body>
+</html>

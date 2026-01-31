@@ -293,6 +293,30 @@ public class AdminProductController {
         return "admin/products/images";
     }
 
+    @PostMapping("/{id}/images/upload")
+    public String uploadImages(
+            @PathVariable Long id,
+            @RequestParam("images") MultipartFile[] images,
+            RedirectAttributes redirectAttributes) {
+        try {
+            int uploadedCount = 0;
+            for (MultipartFile image : images) {
+                if (!image.isEmpty()) {
+                    productImageService.addImage(id, image);
+                    uploadedCount++;
+                }
+            }
+            if (uploadedCount > 0) {
+                redirectAttributes.addFlashAttribute("success", 
+                        "Pomyślnie przesłano " + uploadedCount + " zdjęć");
+            }
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas przesyłania zdjęć: " + e.getMessage());
+        }
+        return "redirect:/admin/products/" + id + "/images";
+    }
+
     @PostMapping("/{productId}/images/{imageId}/delete")
     public String deleteImage(
             @PathVariable Long productId,
@@ -365,21 +389,21 @@ public class AdminProductController {
     }
 
     @GetMapping("/export")
-    public String exportProducts(
+    public void exportProducts(
             @RequestParam(required = false) String search,
             @RequestParam(required = false) Long categoryId,
             @RequestParam(required = false) Long subcategoryId,
             @RequestParam(required = false) Long brandId,
             @RequestParam(required = false) ProductStatus status,
-            RedirectAttributes redirectAttributes) {
+            jakarta.servlet.http.HttpServletResponse response) {
         try {
-            String filename = productService.exportToCSV(search, categoryId, subcategoryId, brandId, status);
-            redirectAttributes.addFlashAttribute("success",
-                    "Produkty zostały wyeksportowane do pliku: " + filename);
+            response.setContentType("text/csv; charset=UTF-8");
+            response.setHeader("Content-Disposition", 
+                    "attachment; filename=\"products_export_" + System.currentTimeMillis() + ".csv\"");
+            
+            productService.exportToCSV(search, categoryId, subcategoryId, brandId, status, response.getWriter());
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error",
-                    "Błąd podczas eksportu: " + e.getMessage());
+            e.printStackTrace();
         }
-        return "redirect:/admin/products";
     }
 }

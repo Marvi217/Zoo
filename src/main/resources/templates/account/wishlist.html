@@ -81,7 +81,13 @@
                      th:text="${'-' + product.discountPercent + '%'}">-25%</div>
 
                 <a th:href="@{/product/{id}(id=${product.id})}" style="text-decoration: none; color: inherit; display: block;">
-                    <div class="product-image" th:text="${product.imageUrl}">🦴</div>
+                    <div class="product-image">
+                        <img th:if="${product.mainImageUrl != null and !product.mainImageUrl.startsWith('/images/')}"
+                             th:src="${product.mainImageUrl}" th:alt="${product.name}"
+                             style="max-width: 100%; max-height: 150px; object-fit: contain;">
+                        <span th:if="${product.mainImageUrl == null or product.mainImageUrl.startsWith('/images/')}"
+                              style="font-size: 48px;">🦴</span>
+                    </div>
 
                     <div class="product-info">
                         <div class="product-rating">

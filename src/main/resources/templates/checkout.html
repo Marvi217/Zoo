@@ -482,7 +482,13 @@
                 <!-- CART ITEMS -->
                 <div class="summary-items">
                     <div th:each="item : ${cart.items}" class="summary-item">
-                        <div class="summary-item-image" th:text="${item.product.imageUrl}">🦴</div>
+                        <div class="summary-item-image">
+                            <img th:if="${item.product.mainImageUrl != null and !item.product.mainImageUrl.startsWith('/images/')}"
+                                 th:src="${item.product.mainImageUrl}" th:alt="${item.product.name}"
+                                 style="max-width: 50px; max-height: 50px; object-fit: contain;">
+                            <span th:if="${item.product.mainImageUrl == null or item.product.mainImageUrl.startsWith('/images/')}"
+                                  style="font-size: 24px;">🦴</span>
+                        </div>
                         <div class="summary-item-info">
                             <div class="summary-item-name" th:text="${item.product.name}">Produkt</div>
                             <div class="summary-item-quantity">

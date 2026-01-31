@@ -347,13 +347,59 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public String exportToCSV(
+    public void exportToCSV(
             String search,
             Long categoryId,
             Long subcategoryId,
             Long brandId,
-            ProductStatus status) {
-        return "products_export_" + System.currentTimeMillis() + ".csv";
+            ProductStatus status,
+            java.io.PrintWriter writer) {
+        
+        // Get filtered products
+        List<Product> products;
+        if (search != null && !search.isEmpty()) {
+            products = productRepository.searchProducts(search, null, null, null, false, 
+                    PageRequest.of(0, Integer.MAX_VALUE)).getContent();
+        } else if (categoryId != null || subcategoryId != null || brandId != null || status != null) {
+            products = productRepository.filterProducts(categoryId, subcategoryId, brandId, status, 
+                    PageRequest.of(0, Integer.MAX_VALUE)).getContent();
+        } else {
+            products = productRepository.findAll();
+        }
+
+        // Write CSV header with BOM for Excel compatibility
+        writer.print("\uFEFF");
+        writer.println("ID,Nazwa,SKU,Kategoria,Podkategoria,Marka,Cena,Cena promocyjna,Stan magazynowy,Status,Opis");
+        
+        // Write product rows
+        for (Product product : products) {
+            writer.println(String.format("%d,%s,%s,%s,%s,%s,%s,%s,%d,%s,%s",
+                    product.getId(),
+                    escapeCSV(product.getName()),
+                    escapeCSV(product.getSku()),
+                    escapeCSV(product.getCategory() != null ? product.getCategory().getName() : ""),
+                    escapeCSV(product.getSubcategory() != null ? product.getSubcategory().getName() : ""),
+                    escapeCSV(product.getBrand() != null ? product.getBrand().getName() : ""),
+                    product.getPrice() != null ? product.getPrice().toString() : "",
+                    product.getDiscountedPrice() != null ? product.getDiscountedPrice().toString() : "",
+                    product.getStockQuantity() != null ? product.getStockQuantity() : 0,
+                    product.getStatus() != null ? product.getStatus().name() : "",
+                    escapeCSV(product.getDescription())
+            ));
+        }
+        
+        writer.flush();
+    }
+
+    private String escapeCSV(String value) {
+        if (value == null) {
+            return "";
+        }
+        // Escape quotes and wrap in quotes if contains comma, quote, or newline
+        if (value.contains(",") || value.contains("\"") || value.contains("\n") || value.contains("\r")) {
+            return "\"" + value.replace("\"", "\"\"") + "\"";
+        }
+        return value;
     }
 
     private void validateProductDTO(ProductDTO dto) {
