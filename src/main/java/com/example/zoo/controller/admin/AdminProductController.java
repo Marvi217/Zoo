@@ -12,6 +12,7 @@ import com.example.zoo.service.*;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/admin/products")
 @RequiredArgsConstructor
+@Slf4j
 public class AdminProductController {
 
     private final ProductService productService;
@@ -187,7 +189,7 @@ public class AdminProductController {
                             productImageService.addImage(saved.getId(), image);
                             uploadedCount++;
                         } catch (Exception imageError) {
-                            System.err.println("Error uploading image: " + imageError.getMessage());
+                            log.warn("Error uploading image for product {}: {}", saved.getId(), imageError.getMessage());
                             failedCount++;
                         }
                     }
@@ -206,7 +208,7 @@ public class AdminProductController {
             return "redirect:/admin/products";
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error creating product: {}", e.getMessage(), e);
 
             redirectAttributes.addFlashAttribute("error",
                     "Błąd podczas tworzenia produktu: " + e.getMessage());
@@ -284,7 +286,7 @@ public class AdminProductController {
                             productImageService.addImage(product.getId(), image);
                             uploadedCount++;
                         } catch (Exception imageError) {
-                            System.err.println("Error uploading image: " + imageError.getMessage());
+                            log.warn("Error uploading image for product {}: {}", product.getId(), imageError.getMessage());
                             failedCount++;
                         }
                     }
@@ -302,8 +304,7 @@ public class AdminProductController {
             redirectAttributes.addFlashAttribute("success", message.toString());
             return "redirect:/admin/products";
         } catch (Exception e) {
-            System.err.println("Error updating product: " + e.getMessage());
-            e.printStackTrace();
+            log.error("Error updating product {}: {}", id, e.getMessage(), e);
             redirectAttributes.addFlashAttribute("error",
                     "Błąd podczas aktualizacji produktu: " + e.getMessage());
             return "redirect:/admin/products/" + id + "/edit";
@@ -437,7 +438,7 @@ public class AdminProductController {
             
             productService.exportToCSV(search, categoryId, subcategoryId, brandId, status, response.getWriter());
         } catch (Exception e) {
-            System.err.println("Error exporting products to CSV: " + e.getMessage());
+            log.error("Error exporting products to CSV: {}", e.getMessage(), e);
             try {
                 response.sendError(jakarta.servlet.http.HttpServletResponse.SC_INTERNAL_SERVER_ERROR, 
                         "Błąd podczas eksportu produktów");
