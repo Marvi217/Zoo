@@ -177,16 +177,32 @@ public class AdminProductController {
 
             Product saved = productService.save(product);
 
+            // Handle image uploads separately to provide better error feedback
+            int uploadedCount = 0;
+            int failedCount = 0;
             if (images != null) {
                 for (MultipartFile image : images) {
-                    if (!image.isEmpty()) {
-                        productImageService.addImage(saved.getId(), image);
+                    if (image != null && !image.isEmpty()) {
+                        try {
+                            productImageService.addImage(saved.getId(), image);
+                            uploadedCount++;
+                        } catch (Exception imageError) {
+                            System.err.println("Error uploading image: " + imageError.getMessage());
+                            failedCount++;
+                        }
                     }
                 }
             }
 
-            redirectAttributes.addFlashAttribute("success",
-                    "Produkt '" + saved.getName() + "' został utworzony pomyślnie");
+            StringBuilder message = new StringBuilder("Produkt '" + saved.getName() + "' został utworzony pomyślnie");
+            if (uploadedCount > 0) {
+                message.append(". Dodano ").append(uploadedCount).append(" zdjęć");
+            }
+            if (failedCount > 0) {
+                message.append(". Nie udało się dodać ").append(failedCount).append(" zdjęć");
+            }
+
+            redirectAttributes.addFlashAttribute("success", message.toString());
             return "redirect:/admin/products";
 
         } catch (Exception e) {
@@ -258,18 +274,36 @@ public class AdminProductController {
         try {
             Product product = productService.updateProduct(id, productDTO);
 
+            // Handle image uploads separately to provide better error feedback
+            int uploadedCount = 0;
+            int failedCount = 0;
             if (images != null) {
                 for (MultipartFile image : images) {
-                    if (!image.isEmpty()) {
-                        productImageService.addImage(product.getId(), image);
+                    if (image != null && !image.isEmpty()) {
+                        try {
+                            productImageService.addImage(product.getId(), image);
+                            uploadedCount++;
+                        } catch (Exception imageError) {
+                            System.err.println("Error uploading image: " + imageError.getMessage());
+                            failedCount++;
+                        }
                     }
                 }
             }
 
-            redirectAttributes.addFlashAttribute("success",
-                    "Produkt '" + product.getName() + "' został zaktualizowany pomyślnie");
+            StringBuilder message = new StringBuilder("Produkt '" + product.getName() + "' został zaktualizowany pomyślnie");
+            if (uploadedCount > 0) {
+                message.append(". Dodano ").append(uploadedCount).append(" zdjęć");
+            }
+            if (failedCount > 0) {
+                message.append(". Nie udało się dodać ").append(failedCount).append(" zdjęć");
+            }
+            
+            redirectAttributes.addFlashAttribute("success", message.toString());
             return "redirect:/admin/products";
         } catch (Exception e) {
+            System.err.println("Error updating product: " + e.getMessage());
+            e.printStackTrace();
             redirectAttributes.addFlashAttribute("error",
                     "Błąd podczas aktualizacji produktu: " + e.getMessage());
             return "redirect:/admin/products/" + id + "/edit";
