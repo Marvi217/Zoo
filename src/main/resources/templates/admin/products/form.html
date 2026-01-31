@@ -11,10 +11,16 @@
     <main class="admin-main">
         <div class="admin-content">
             <h1 th:text="${productDTO.id == null ? 'Dodaj nowy produkt' : 'Edytuj produkt'}"></h1>
+            
+            <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+            <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+            
             <div class="card">
-                <form th:action="${productDTO.id == null ? '/admin/products' : '/admin/products/' + productDTO.id}"
+                <!--/* Use th:with to set form action URL based on whether we're creating or editing */-->
+                <form th:with="formAction=${productDTO.id == null ? '/admin/products' : '/admin/products/' + productDTO.id}"
+                      th:action="@{${formAction}}"
                       th:object="${productDTO}" method="post" enctype="multipart/form-data">
-
+                    
                     <input type="hidden" th:field="*{id}">
 
                     <div class="form-group">
@@ -62,6 +68,29 @@
                         </select>
                     </div>
 
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>Zdjęcia produktu</label>
+                        <input type="file" name="images" class="form-control" accept="image/*" multiple>
+                        <small style="color: #666; display: block; margin-top: 5px;">
+                            Obsługiwane formaty: JPG, PNG, GIF, WEBP. Maksymalny rozmiar: 5MB na plik.
+                        </small>
+                    </div>
+
+                    <div th:if="${product != null and product.images != null and !product.images.isEmpty()}" 
+                         class="form-group" style="margin-top: 15px;">
+                        <label>Obecne zdjęcia</label>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+                            <div th:each="img : ${product.images}" style="position: relative;">
+                                <img th:src="${img.imageUrl}" alt="Product image" 
+                                     style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; border: 2px solid #ddd;">
+                                <span th:if="${img.isMain}" style="position: absolute; top: 2px; left: 2px; background: #16a34a; color: white; font-size: 10px; padding: 2px 5px; border-radius: 3px;">Główne</span>
+                            </div>
+                        </div>
+                        <a th:href="@{/admin/products/{id}/images(id=${product.id})}" class="btn btn-outline" style="margin-top: 10px;">
+                            🖼️ Zarządzaj zdjęciami
+                        </a>
+                    </div>
+
                     <div style="margin-top: 30px;">
                         <button type="submit" class="btn btn-primary">Zapisz produkt</button>
                         <a th:href="@{/admin/products}" class="btn btn-secondary">Anuluj</a>
@@ -77,7 +106,7 @@
         const categoryId = this.value;
         const subcategorySelect = document.getElementById('subcategorySelect');
 
-        // Czyścimy listę podkategorii
+        // Clear subcategory list
         subcategorySelect.innerHTML = '<option value="">Ładowanie...</option>';
 
         if (!categoryId) {
@@ -85,7 +114,7 @@
             return;
         }
 
-        // Wywołanie Twojego endpointu AJAX w AdminProductController
+        // Call AJAX endpoint
         fetch('/admin/products/subcategories-by-category/' + categoryId)
             .then(response => response.json())
             .then(data => {

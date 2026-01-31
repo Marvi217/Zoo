@@ -133,15 +133,19 @@ public class ProductImageService {
     public void moveUp(Long imageId) {
         ProductImage image = getImageById(imageId);
         int currentOrder = image.getDisplayOrder();
+        Long productId = image.getProduct().getId();
 
         if (currentOrder > 1) {
-            productImageRepository.findByProductIdAndDisplayOrder(image.getProduct().getId(), currentOrder - 1)
+            productImageRepository.findByProductIdAndDisplayOrder(productId, currentOrder - 1)
                     .ifPresent(prevImage -> {
                         prevImage.setDisplayOrder(currentOrder);
                         image.setDisplayOrder(currentOrder - 1);
                         productImageRepository.save(prevImage);
                         productImageRepository.save(image);
                     });
+            
+            // Update main image - first image (lowest order) is always main
+            updateMainImageByOrder(productId);
         }
     }
 
@@ -149,14 +153,43 @@ public class ProductImageService {
     public void moveDown(Long imageId) {
         ProductImage image = getImageById(imageId);
         int currentOrder = image.getDisplayOrder();
+        Long productId = image.getProduct().getId();
 
-        productImageRepository.findByProductIdAndDisplayOrder(image.getProduct().getId(), currentOrder + 1)
+        productImageRepository.findByProductIdAndDisplayOrder(productId, currentOrder + 1)
                 .ifPresent(nextImage -> {
                     nextImage.setDisplayOrder(currentOrder);
                     image.setDisplayOrder(currentOrder + 1);
                     productImageRepository.save(nextImage);
                     productImageRepository.save(image);
                 });
+        
+        // Update main image - first image (lowest order) is always main
+        updateMainImageByOrder(productId);
+    }
+
+    /**
+     * Sets the first image (lowest displayOrder) as the main image.
+     * This ensures the main image is always the first in order.
+     */
+    @Transactional
+    public void updateMainImageByOrder(Long productId) {
+        List<ProductImage> images = productImageRepository.findByProductIdOrderByDisplayOrderAsc(productId);
+        if (images == null || images.isEmpty()) {
+            return;
+        }
+        
+        // Clear all main flags
+        productImageRepository.clearMainFlag(productId);
+        
+        // Set the first image as main
+        ProductImage firstImage = images.get(0);
+        firstImage.setMain(true);
+        productImageRepository.save(firstImage);
+        
+        // Update product's main image URL
+        Product product = firstImage.getProduct();
+        product.setImageUrl(firstImage.getImageUrl());
+        productRepository.save(product);
     }
 
     public long countProductImages(Long productId) {

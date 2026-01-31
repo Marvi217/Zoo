@@ -207,7 +207,10 @@ public class ProductService {
         product.setPrice(dto.getPrice());
         product.setDiscountedPrice(dto.getDiscountedPrice());
         product.setStockQuantity(dto.getStockQuantity());
-        product.setStatus(dto.getStatus());
+        // Only update status if provided, otherwise keep existing status
+        if (dto.getStatus() != null) {
+            product.setStatus(dto.getStatus());
+        }
         product.setSubcategory(subcategory);
         product.setCategory(subcategory.getCategory());
         product.setBrand(brand);
@@ -347,13 +350,73 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public String exportToCSV(
+    private static final int MAX_EXPORT_RECORDS = 10000;
+
+    public void exportToCSV(
             String search,
             Long categoryId,
             Long subcategoryId,
             Long brandId,
-            ProductStatus status) {
-        return "products_export_" + System.currentTimeMillis() + ".csv";
+            ProductStatus status,
+            java.io.PrintWriter writer) {
+        
+        // Get filtered products with a reasonable limit to prevent memory issues
+        List<Product> products;
+        if (search != null && !search.isEmpty()) {
+            products = productRepository.searchProducts(search, null, null, null, false, 
+                    PageRequest.of(0, MAX_EXPORT_RECORDS)).getContent();
+        } else if (categoryId != null || subcategoryId != null || brandId != null || status != null) {
+            products = productRepository.filterProducts(categoryId, subcategoryId, brandId, status, 
+                    PageRequest.of(0, MAX_EXPORT_RECORDS)).getContent();
+        } else {
+            products = productRepository.findAll(PageRequest.of(0, MAX_EXPORT_RECORDS)).getContent();
+        }
+
+        // Write UTF-8 BOM (Byte Order Mark) for Excel compatibility
+        // This ensures Excel correctly interprets the file as UTF-8 encoded
+        writer.print("\uFEFF");
+        writer.println("ID,Nazwa,SKU,Kategoria,Podkategoria,Marka,Cena,Cena promocyjna,Stan magazynowy,Status,Opis");
+        
+        // Write product rows
+        for (Product product : products) {
+            writer.println(String.format("%d,%s,%s,%s,%s,%s,%s,%s,%d,%s,%s",
+                    product.getId(),
+                    escapeCSV(product.getName()),
+                    escapeCSV(product.getSku()),
+                    escapeCSV(product.getCategory() != null ? product.getCategory().getName() : ""),
+                    escapeCSV(product.getSubcategory() != null ? product.getSubcategory().getName() : ""),
+                    escapeCSV(product.getBrand() != null ? product.getBrand().getName() : ""),
+                    product.getPrice() != null ? product.getPrice().toString() : "",
+                    product.getDiscountedPrice() != null ? product.getDiscountedPrice().toString() : "",
+                    product.getStockQuantity() != null ? product.getStockQuantity() : 0,
+                    product.getStatus() != null ? product.getStatus().name() : "",
+                    escapeCSV(sanitizeDescription(product.getDescription()))
+            ));
+        }
+        
+        writer.flush();
+    }
+
+    private String sanitizeDescription(String description) {
+        if (description == null) {
+            return "";
+        }
+        // Remove HTML tags and normalize whitespace
+        return description
+                .replaceAll("<[^>]*>", "") // Remove HTML tags
+                .replaceAll("\\s+", " ")   // Normalize whitespace
+                .trim();
+    }
+
+    private String escapeCSV(String value) {
+        if (value == null) {
+            return "";
+        }
+        // Escape quotes and wrap in quotes if contains comma, quote, or newline
+        if (value.contains(",") || value.contains("\"") || value.contains("\n") || value.contains("\r")) {
+            return "\"" + value.replace("\"", "\"\"") + "\"";
+        }
+        return value;
     }
 
     private void validateProductDTO(ProductDTO dto) {
