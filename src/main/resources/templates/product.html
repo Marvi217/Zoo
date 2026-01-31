@@ -374,7 +374,14 @@
             if (existingImg) {
                 existingImg.src = imgUrl;
             } else {
-                mainImageContainer.innerHTML = '<img src="' + imgUrl + '" style="max-width: 100%; max-height: 400px; object-fit: contain;">';
+                // Create image element safely to avoid XSS
+                const newImg = document.createElement('img');
+                newImg.src = imgUrl;
+                newImg.style.maxWidth = '100%';
+                newImg.style.maxHeight = '400px';
+                newImg.style.objectFit = 'contain';
+                mainImageContainer.innerHTML = '';
+                mainImageContainer.appendChild(newImg);
             }
         }
     }

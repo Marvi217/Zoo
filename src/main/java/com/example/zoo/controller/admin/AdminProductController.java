@@ -403,7 +403,13 @@ public class AdminProductController {
             
             productService.exportToCSV(search, categoryId, subcategoryId, brandId, status, response.getWriter());
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Error exporting products to CSV: " + e.getMessage());
+            try {
+                response.sendError(jakarta.servlet.http.HttpServletResponse.SC_INTERNAL_SERVER_ERROR, 
+                        "Błąd podczas eksportu produktów");
+            } catch (java.io.IOException ignored) {
+                // Response already committed
+            }
         }
     }
 }

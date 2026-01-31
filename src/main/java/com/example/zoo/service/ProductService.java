@@ -347,6 +347,8 @@ public class ProductService {
         productRepository.save(product);
     }
 
+    private static final int MAX_EXPORT_RECORDS = 10000;
+
     public void exportToCSV(
             String search,
             Long categoryId,
@@ -355,19 +357,20 @@ public class ProductService {
             ProductStatus status,
             java.io.PrintWriter writer) {
         
-        // Get filtered products
+        // Get filtered products with a reasonable limit to prevent memory issues
         List<Product> products;
         if (search != null && !search.isEmpty()) {
             products = productRepository.searchProducts(search, null, null, null, false, 
-                    PageRequest.of(0, Integer.MAX_VALUE)).getContent();
+                    PageRequest.of(0, MAX_EXPORT_RECORDS)).getContent();
         } else if (categoryId != null || subcategoryId != null || brandId != null || status != null) {
             products = productRepository.filterProducts(categoryId, subcategoryId, brandId, status, 
-                    PageRequest.of(0, Integer.MAX_VALUE)).getContent();
+                    PageRequest.of(0, MAX_EXPORT_RECORDS)).getContent();
         } else {
-            products = productRepository.findAll();
+            products = productRepository.findAll(PageRequest.of(0, MAX_EXPORT_RECORDS)).getContent();
         }
 
-        // Write CSV header with BOM for Excel compatibility
+        // Write UTF-8 BOM (Byte Order Mark) for Excel compatibility
+        // This ensures Excel correctly interprets the file as UTF-8 encoded
         writer.print("\uFEFF");
         writer.println("ID,Nazwa,SKU,Kategoria,Podkategoria,Marka,Cena,Cena promocyjna,Stan magazynowy,Status,Opis");
         
@@ -384,11 +387,22 @@ public class ProductService {
                     product.getDiscountedPrice() != null ? product.getDiscountedPrice().toString() : "",
                     product.getStockQuantity() != null ? product.getStockQuantity() : 0,
                     product.getStatus() != null ? product.getStatus().name() : "",
-                    escapeCSV(product.getDescription())
+                    escapeCSV(sanitizeDescription(product.getDescription()))
             ));
         }
         
         writer.flush();
+    }
+
+    private String sanitizeDescription(String description) {
+        if (description == null) {
+            return "";
+        }
+        // Remove HTML tags and normalize whitespace
+        return description
+                .replaceAll("<[^>]*>", "") // Remove HTML tags
+                .replaceAll("\\s+", " ")   // Normalize whitespace
+                .trim();
     }
 
     private String escapeCSV(String value) {
