@@ -24,24 +24,12 @@
 
         <!-- GALLERY -->
         <div class="product-gallery">
-            <div class="main-image" id="mainImage">
-                <img th:if="${product.mainImageUrl != null and product.mainImageUrl.startsWith('/products/')}"
-                     th:src="${product.mainImageUrl}" th:alt="${product.name}"
-                     style="max-width: 100%; max-height: 400px; object-fit: contain;">
-                <span th:if="${product.mainImageUrl == null or !product.mainImageUrl.startsWith('/products/')}"
-                      style="font-size: 120px;">🦴</span>
-            </div>
-            <div class="thumbnail-gallery" th:if="${product.images != null and !product.images.isEmpty()}">
-                <div th:each="img, iterStat : ${product.images}"
-                     class="thumbnail"
-                     th:classappend="${iterStat.first} ? 'active' : ''"
-                     th:data-img="${img.imageUrl}"
-                     onclick="switchMainImage(this)">
-                    <img th:src="${img.imageUrl}" th:alt="${product.name}" style="width: 60px; height: 60px; object-fit: cover;">
-                </div>
-            </div>
-            <div class="thumbnail-gallery" th:if="${product.images == null or product.images.isEmpty()}">
-                <div class="thumbnail active">🦴</div>
+            <div class="main-image" id="mainImage" th:text="${product.imageUrl}">🦴</div>
+            <div class="thumbnail-gallery">
+                <div class="thumbnail active" th:text="${product.imageUrl}">🦴</div>
+                <div class="thumbnail">📦</div>
+                <div class="thumbnail">🍖</div>
+                <div class="thumbnail">📊</div>
             </div>
         </div>
 
@@ -309,13 +297,7 @@
             <a th:each="prod : ${relatedProducts}"
                th:href="@{/product/{id}(id=${prod.id})}"
                class="product-card">
-                <div class="product-card-image">
-                    <img th:if="${prod.mainImageUrl != null and prod.mainImageUrl.startsWith('/products/')}"
-                         th:src="${prod.mainImageUrl}" th:alt="${prod.name}"
-                         style="max-width: 100%; max-height: 150px; object-fit: contain;">
-                    <span th:if="${prod.mainImageUrl == null or !prod.mainImageUrl.startsWith('/products/')}"
-                          style="font-size: 48px;">🦴</span>
-                </div>
+                <div class="product-card-image" th:text="${prod.imageUrl}">🦴</div>
                 <div class="product-card-info">
                     <h3 class="product-card-name" th:text="${prod.name}">Produkt</h3>
                     <div class="product-card-price"
@@ -389,32 +371,14 @@
         });
     }
 
-    // Thumbnail gallery - switch main image function
-    function switchMainImage(element) {
-        const imgUrl = element.getAttribute('data-img');
-        const mainImageContainer = document.getElementById('mainImage');
-
-        // Remove active class from all thumbnails
-        document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-        element.classList.add('active');
-
-        // Update main image
-        if (imgUrl) {
-            const existingImg = mainImageContainer.querySelector('img');
-            if (existingImg) {
-                existingImg.src = imgUrl;
-            } else {
-                // Create image element safely to avoid XSS
-                const newImg = document.createElement('img');
-                newImg.src = imgUrl;
-                newImg.style.maxWidth = '100%';
-                newImg.style.maxHeight = '400px';
-                newImg.style.objectFit = 'contain';
-                mainImageContainer.innerHTML = '';
-                mainImageContainer.appendChild(newImg);
-            }
-        }
-    }
+    // Thumbnail gallery
+    document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+        thumb.addEventListener('click', function() {
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            document.getElementById('mainImage').textContent = this.textContent;
+        });
+    });
 
     // Star rating functionality
     function setRating(value) {
