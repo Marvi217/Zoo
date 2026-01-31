@@ -97,14 +97,21 @@
                 <span class="availability-text"
                       th:unless="${product.available}" th:text="#{product.unavailable}">Niedostępny</span>
             </div>
+            
+            <!-- STOCK QUANTITY -->
+            <div class="stock-quantity" th:if="${product.available}" style="margin-top: 10px; font-size: 14px; color: #666;">
+                <span th:text="#{product.stock.available}">Dostępne sztuki:</span>
+                <strong th:text="${product.stockQuantity}">10</strong>
+            </div>
 
             <!-- PURCHASE SECTION -->
-            <form th:action="@{/cart/add}" method="post" style="display: inline;">
+            <form th:action="@{/cart/add}" method="post" style="display: inline;" th:if="${product.available}">
                 <input type="hidden" name="productId" th:value="${product.id}">
                 <div class="purchase-section">
                     <div class="quantity-selector">
                         <button type="button" class="quantity-btn" onclick="decreaseQty()">−</button>
-                        <input type="number" class="quantity-input" id="quantity" name="quantity" value="1" min="1" max="10">
+                        <input type="number" class="quantity-input" id="quantity" name="quantity" value="1" min="1" 
+                               th:max="${product.stockQuantity}" th:data-stock="${product.stockQuantity}">
                         <button type="button" class="quantity-btn" onclick="increaseQty()">+</button>
                     </div>
                     <button type="submit" class="btn-add-to-cart">
@@ -113,6 +120,12 @@
                     </button>
                 </div>
             </form>
+            <div th:unless="${product.available}" class="purchase-section">
+                <button type="button" class="btn-add-to-cart" disabled style="background-color: #ccc; cursor: not-allowed;">
+                    <span style="font-size: 20px;">🛒</span>
+                    <span th:text="#{product.unavailable}">Niedostępny</span>
+                </button>
+            </div>
 
             <!-- DELIVERY INFO -->
             <div class="delivery-info">
@@ -324,7 +337,8 @@
     function increaseQty() {
         const input = document.getElementById('quantity');
         const currentValue = parseInt(input.value);
-        if (currentValue < parseInt(input.max)) {
+        const maxStock = parseInt(input.getAttribute('data-stock')) || parseInt(input.max) || 99;
+        if (currentValue < maxStock) {
             input.value = currentValue + 1;
         }
     }
@@ -336,6 +350,20 @@
             input.value = currentValue - 1;
         }
     }
+    
+    // Validate quantity on form submit
+    document.querySelector('form[action*="/cart/add"]')?.addEventListener('submit', function(e) {
+        const input = document.getElementById('quantity');
+        const maxStock = parseInt(input.getAttribute('data-stock')) || parseInt(input.max) || 99;
+        const currentValue = parseInt(input.value);
+        
+        if (currentValue > maxStock) {
+            e.preventDefault();
+            alert('Nie możesz zamówić więcej niż ' + maxStock + ' sztuk tego produktu.');
+            input.value = maxStock;
+            return false;
+        }
+    });
 
     // Tab switching
     function switchTab(index) {

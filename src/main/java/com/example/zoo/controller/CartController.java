@@ -103,7 +103,38 @@ public class CartController {
                 return "redirect:/product/" + productId;
             }
 
+            // Check stock availability
+            int currentInCart = 0;
             User user = securityHelper.getCurrentUser(session);
+            if (user != null) {
+                UserCart userCart = getUserCart(user);
+                currentInCart = userCart.getItems().stream()
+                        .filter(item -> item.getProduct().getId().equals(productId))
+                        .findFirst()
+                        .map(item -> item.getQuantity())
+                        .orElse(0);
+            } else {
+                Cart cart = getSessionCart(session);
+                currentInCart = cart.getItems().stream()
+                        .filter(item -> item.getProduct().getId().equals(productId))
+                        .findFirst()
+                        .map(item -> item.getQuantity())
+                        .orElse(0);
+            }
+
+            int totalRequested = currentInCart + quantity;
+            if (totalRequested > product.getStockQuantity()) {
+                int canAdd = product.getStockQuantity() - currentInCart;
+                if (canAdd <= 0) {
+                    redirectAttributes.addFlashAttribute("error", 
+                            "Nie możesz dodać więcej sztuk tego produktu. Maksymalna ilość: " + product.getStockQuantity());
+                } else {
+                    redirectAttributes.addFlashAttribute("error", 
+                            "Możesz dodać jeszcze tylko " + canAdd + " szt. tego produktu (dostępne: " + product.getStockQuantity() + ")");
+                }
+                return "redirect:/product/" + productId;
+            }
+
             if (user != null) {
                 UserCart userCart = getUserCart(user);
                 userCart.addItem(product, quantity);
@@ -131,6 +162,9 @@ public class CartController {
             HttpSession session) {
 
         try {
+            Product product = productService.getProductById(productId);
+            int stockQuantity = product.getStockQuantity();
+            
             User user = securityHelper.getCurrentUser(session);
 
             if (user != null) {
@@ -142,7 +176,7 @@ public class CartController {
                             .findFirst()
                             .ifPresent(item -> {
                                 int newQty = item.getQuantity() + 1;
-                                if (newQty <= 99) {
+                                if (newQty <= stockQuantity) {
                                     item.setQuantity(newQty);
                                 }
                             });
@@ -167,7 +201,7 @@ public class CartController {
                             .findFirst()
                             .ifPresent(item -> {
                                 int newQty = item.getQuantity() + 1;
-                                if (newQty <= 99) {
+                                if (newQty <= stockQuantity) {
                                     item.setQuantity(newQty);
                                 }
                             });
@@ -354,7 +388,41 @@ public class CartController {
                 return ResponseEntity.status(404).body("Nie znaleziono produktu");
             }
 
+            if (!product.isAvailable()) {
+                return ResponseEntity.status(400).body("Produkt jest niedostępny");
+            }
+
+            // Check stock availability
+            int currentInCart = 0;
             User user = securityHelper.getCurrentUser(session);
+            if (user != null) {
+                UserCart userCart = getUserCart(user);
+                currentInCart = userCart.getItems().stream()
+                        .filter(item -> item.getProduct().getId().equals(productId))
+                        .findFirst()
+                        .map(item -> item.getQuantity())
+                        .orElse(0);
+            } else {
+                Cart cart = getSessionCart(session);
+                currentInCart = cart.getItems().stream()
+                        .filter(item -> item.getProduct().getId().equals(productId))
+                        .findFirst()
+                        .map(item -> item.getQuantity())
+                        .orElse(0);
+            }
+
+            int totalRequested = currentInCart + quantity;
+            if (totalRequested > product.getStockQuantity()) {
+                int canAdd = product.getStockQuantity() - currentInCart;
+                if (canAdd <= 0) {
+                    return ResponseEntity.status(400).body(
+                            "Nie możesz dodać więcej sztuk tego produktu. Maksymalna ilość: " + product.getStockQuantity());
+                } else {
+                    return ResponseEntity.status(400).body(
+                            "Możesz dodać jeszcze tylko " + canAdd + " szt. tego produktu");
+                }
+            }
+
             int totalItems;
 
             if (user != null) {

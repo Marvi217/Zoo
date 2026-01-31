@@ -71,8 +71,16 @@
                 <div class="item-quantity">
                     <div class="quantity-form">
                         <button type="button" class="qty-btn" th:data-product-id="${item.product.id}" th:data-action="decrease" onclick="updateCartQuantity(this)">−</button>
-                        <input type="number" th:value="${item.quantity}" min="1" max="10" readonly class="qty-input">
-                        <button type="button" class="qty-btn" th:data-product-id="${item.product.id}" th:data-action="increase" onclick="updateCartQuantity(this)">+</button>
+                        <input type="number" th:value="${item.quantity}" min="1" th:max="${item.product.stockQuantity}" 
+                               th:data-stock="${item.product.stockQuantity}" readonly class="qty-input">
+                        <button type="button" class="qty-btn" th:data-product-id="${item.product.id}" th:data-action="increase" 
+                                th:data-stock="${item.product.stockQuantity}" th:data-current="${item.quantity}"
+                                th:disabled="${item.quantity >= item.product.stockQuantity}"
+                                onclick="updateCartQuantity(this)">+</button>
+                    </div>
+                    <div th:if="${item.quantity >= item.product.stockQuantity}" class="stock-limit-warning" 
+                         style="font-size: 11px; color: #dc2626; margin-top: 4px;">
+                        Maksymalna ilość
                     </div>
                 </div>
 
@@ -153,6 +161,16 @@
     function updateCartQuantity(button) {
         const productId = button.getAttribute('data-product-id');
         const action = button.getAttribute('data-action');
+        
+        // Check stock limit for increase action
+        if (action === 'increase') {
+            const stock = parseInt(button.getAttribute('data-stock')) || 99;
+            const current = parseInt(button.getAttribute('data-current')) || 0;
+            if (current >= stock) {
+                alert('Nie możesz zamówić więcej niż ' + stock + ' sztuk tego produktu.');
+                return;
+            }
+        }
 
         button.disabled = true;
 

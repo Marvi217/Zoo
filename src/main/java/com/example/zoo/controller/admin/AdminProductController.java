@@ -464,6 +464,22 @@ public class AdminProductController {
         }
     }
 
+    @PostMapping("/{id}/increase-stock")
+    @ResponseBody
+    public String increaseStock(
+            @PathVariable Long id,
+            @RequestParam Integer quantity) {
+        try {
+            if (quantity == null || quantity <= 0) {
+                return "error: Ilość musi być większa od 0";
+            }
+            productService.increaseStock(id, quantity);
+            return "success";
+        } catch (Exception e) {
+            return "error: " + e.getMessage();
+        }
+    }
+
     @GetMapping("/export")
     public void exportProducts(
             @RequestParam(required = false) String search,
