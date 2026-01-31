@@ -174,7 +174,7 @@ public class ProductImageService {
     @Transactional
     public void updateMainImageByOrder(Long productId) {
         List<ProductImage> images = productImageRepository.findByProductIdOrderByDisplayOrderAsc(productId);
-        if (images.isEmpty()) {
+        if (images == null || images.isEmpty()) {
             return;
         }
         
