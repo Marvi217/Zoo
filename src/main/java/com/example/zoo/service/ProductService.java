@@ -347,13 +347,53 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public String exportToCSV(
+    public byte[] exportToCSV(
             String search,
             Long categoryId,
             Long subcategoryId,
             Long brandId,
             ProductStatus status) {
-        return "products_export_" + System.currentTimeMillis() + ".csv";
+
+        List<Product> products;
+
+        if (search != null && !search.isEmpty()) {
+            products = productRepository.searchProducts(search, null, null, null, false, Pageable.unpaged()).getContent();
+        } else if (categoryId != null || subcategoryId != null || brandId != null || status != null) {
+            products = productRepository.filterProducts(categoryId, subcategoryId, brandId, status, Pageable.unpaged()).getContent();
+        } else {
+            products = productRepository.findAll();
+        }
+
+        StringBuilder csv = new StringBuilder();
+        csv.append("ID;SKU;Nazwa;Kategoria;Podkategoria;Marka;Cena;Cena promocyjna;Stan magazynowy;Status;Opis\n");
+
+        for (Product product : products) {
+            csv.append(product.getId()).append(";");
+            csv.append(escapeCsvField(product.getSku())).append(";");
+            csv.append(escapeCsvField(product.getName())).append(";");
+            csv.append(escapeCsvField(product.getCategory() != null ? product.getCategory().getName() : "")).append(";");
+            csv.append(escapeCsvField(product.getSubcategory() != null ? product.getSubcategory().getName() : "")).append(";");
+            csv.append(escapeCsvField(product.getBrand() != null ? product.getBrand().getName() : "")).append(";");
+            csv.append(product.getPrice() != null ? product.getPrice().toString() : "0").append(";");
+            csv.append(product.getDiscountedPrice() != null ? product.getDiscountedPrice().toString() : "").append(";");
+            csv.append(product.getStockQuantity() != null ? product.getStockQuantity() : 0).append(";");
+            csv.append(product.getStatus() != null ? product.getStatus().name() : "").append(";");
+            csv.append(escapeCsvField(product.getDescription()));
+            csv.append("\n");
+        }
+
+        return csv.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8);
+    }
+
+    private String escapeCsvField(String field) {
+        if (field == null) {
+            return "";
+        }
+        // Unikaj problematycznych znaków w CSV
+        if (field.contains(";") || field.contains("\"") || field.contains("\n")) {
+            return "\"" + field.replace("\"", "\"\"") + "\"";
+        }
+        return field;
     }
 
     private void validateProductDTO(ProductDTO dto) {

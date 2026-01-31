@@ -22,7 +22,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -365,21 +371,28 @@ public class AdminProductController {
     }
 
     @GetMapping("/export")
-    public String exportProducts(
+    public ResponseEntity<byte[]> exportProducts(
             @RequestParam(required = false) String search,
             @RequestParam(required = false) Long categoryId,
             @RequestParam(required = false) Long subcategoryId,
             @RequestParam(required = false) Long brandId,
-            @RequestParam(required = false) ProductStatus status,
-            RedirectAttributes redirectAttributes) {
+            @RequestParam(required = false) ProductStatus status) {
         try {
-            String filename = productService.exportToCSV(search, categoryId, subcategoryId, brandId, status);
-            redirectAttributes.addFlashAttribute("success",
-                    "Produkty zostały wyeksportowane do pliku: " + filename);
+            byte[] csvData = productService.exportToCSV(search, categoryId, subcategoryId, brandId, status);
+
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+            String filename = "produkty_" + timestamp + ".csv";
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.parseMediaType("text/csv; charset=UTF-8"));
+            headers.setContentDispositionFormData("attachment", filename);
+            headers.set("Content-Disposition", "attachment; filename=\"" + filename + "\"");
+
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .body(csvData);
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error",
-                    "Błąd podczas eksportu: " + e.getMessage());
+            return ResponseEntity.internalServerError().build();
         }
-        return "redirect:/admin/products";
     }
 }
