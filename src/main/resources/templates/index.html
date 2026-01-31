@@ -57,8 +57,13 @@
                 <a th:href="@{/product/{id}(id=${product.id})}" class="product-card">
 
                     <!-- Obrazek -->
-                    <div class="product-image"
-                         th:text="${product.imageUrl != null ? product.imageUrl : '📦'}">📦</div>
+                    <div class="product-image">
+                        <img th:if="${product.mainImageUrl != null and product.mainImageUrl.startsWith('/products/')}"
+                             th:src="${product.mainImageUrl}" th:alt="${product.name}"
+                             style="max-width: 100%; max-height: 150px; object-fit: contain;">
+                        <span th:if="${product.mainImageUrl == null or !product.mainImageUrl.startsWith('/products/')}"
+                              style="font-size: 48px;">📦</span>
+                    </div>
 
                     <!-- Informacje -->
                     <div class="product-info">

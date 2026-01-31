@@ -68,13 +68,13 @@
                         </select>
                     </div>
 
-                    <div class="form-group" style="margin-top: 15px;">
-                        <label>Zdjęcia produktu</label>
-                        <input type="file" name="images" class="form-control" accept="image/*" multiple>
-                        <small style="color: #666; display: block; margin-top: 5px;">
-                            Obsługiwane formaty: JPG, PNG, GIF, WEBP. Maksymalny rozmiar: 5MB na plik.
-                        </small>
-                    </div>
+                    <!--                    <div class="form-group" style="margin-top: 15px;">-->
+                    <!--                        <label>Zdjęcia produktu</label>-->
+                    <!--                        <input type="file" name="images" class="form-control" accept="image/*" multiple>-->
+                    <!--                        <small style="color: #666; display: block; margin-top: 5px;">-->
+                    <!--                            Obsługiwane formaty: JPG, PNG, GIF, WEBP. Maksymalny rozmiar: 5MB na plik.-->
+                    <!--                        </small>-->
+                    <!--                    </div>-->
 
                     <div th:if="${product != null and product.images != null and !product.images.isEmpty()}"
                          class="form-group" style="margin-top: 15px;">

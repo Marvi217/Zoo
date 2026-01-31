@@ -12,6 +12,7 @@ import com.example.zoo.service.*;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/admin/products")
 @RequiredArgsConstructor
+@Slf4j
 public class AdminProductController {
 
     private final ProductService productService;
@@ -177,20 +179,36 @@ public class AdminProductController {
 
             Product saved = productService.save(product);
 
+            // Handle image uploads separately to provide better error feedback
+            int uploadedCount = 0;
+            int failedCount = 0;
             if (images != null) {
                 for (MultipartFile image : images) {
-                    if (!image.isEmpty()) {
-                        productImageService.addImage(saved.getId(), image);
+                    if (image != null && !image.isEmpty()) {
+                        try {
+                            productImageService.addImage(saved.getId(), image);
+                            uploadedCount++;
+                        } catch (Exception imageError) {
+                            log.warn("Error uploading image for product {}: {}", saved.getId(), imageError.getMessage());
+                            failedCount++;
+                        }
                     }
                 }
             }
 
-            redirectAttributes.addFlashAttribute("success",
-                    "Produkt '" + saved.getName() + "' został utworzony pomyślnie");
+            StringBuilder message = new StringBuilder("Produkt '" + saved.getName() + "' został utworzony pomyślnie");
+            if (uploadedCount > 0) {
+                message.append(". Dodano ").append(uploadedCount).append(" zdjęć");
+            }
+            if (failedCount > 0) {
+                message.append(". Nie udało się dodać ").append(failedCount).append(" zdjęć");
+            }
+
+            redirectAttributes.addFlashAttribute("success", message.toString());
             return "redirect:/admin/products";
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error creating product: {}", e.getMessage(), e);
 
             redirectAttributes.addFlashAttribute("error",
                     "Błąd podczas tworzenia produktu: " + e.getMessage());
@@ -200,23 +218,29 @@ public class AdminProductController {
 
     @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
-        Product product = productService.getProductById(id);
+        try {
+            Product product = productService.getProductById(id);
 
-        if (product == null) {
-            redirectAttributes.addFlashAttribute("error", "Produkt nie został znaleziony");
+            if (product == null) {
+                redirectAttributes.addFlashAttribute("error", "Produkt nie został znaleziony");
+                return "redirect:/admin/products";
+            }
+
+            ProductDTO productDTO = getProductDTO(product);
+
+            model.addAttribute("productDTO", productDTO);
+            model.addAttribute("product", product);
+            model.addAttribute("categories", categoryService.getAllActiveCategories());
+            model.addAttribute("brands", brandService.getAllActiveBrands());
+            model.addAttribute("statuses", ProductStatus.values());
+            model.addAttribute("subcategories", subcategoryService.getActiveSubcategoriesByCategory(product.getSubcategory().getCategory().getId()));
+
+            return "admin/products/edit";
+        } catch (Exception e) {
+            log.warn("Product not found: {}", id);
+            redirectAttributes.addFlashAttribute("error", "Produkt o ID " + id + " nie został znaleziony");
             return "redirect:/admin/products";
         }
-
-        ProductDTO productDTO = getProductDTO(product);
-
-        model.addAttribute("productDTO", productDTO);
-        model.addAttribute("product", product);
-        model.addAttribute("categories", categoryService.getAllActiveCategories());
-        model.addAttribute("brands", brandService.getAllActiveBrands());
-        model.addAttribute("statuses", ProductStatus.values());
-        model.addAttribute("subcategories", subcategoryService.getActiveSubcategoriesByCategory(product.getSubcategory().getCategory().getId()));
-
-        return "admin/products/form";
     }
 
     private static ProductDTO getProductDTO(Product product) {
@@ -235,6 +259,11 @@ public class AdminProductController {
         productDTO.setWeight(product.getWeight());
         productDTO.setDimensions(product.getDimensions());
         return productDTO;
+    }
+
+    @GetMapping("/{id}")
+    public String redirectToEdit(@PathVariable Long id) {
+        return "redirect:/admin/products/" + id + "/edit";
     }
 
     @PostMapping("/{id}")
@@ -258,18 +287,35 @@ public class AdminProductController {
         try {
             Product product = productService.updateProduct(id, productDTO);
 
+            // Handle image uploads separately to provide better error feedback
+            int uploadedCount = 0;
+            int failedCount = 0;
             if (images != null) {
                 for (MultipartFile image : images) {
-                    if (!image.isEmpty()) {
-                        productImageService.addImage(product.getId(), image);
+                    if (image != null && !image.isEmpty()) {
+                        try {
+                            productImageService.addImage(product.getId(), image);
+                            uploadedCount++;
+                        } catch (Exception imageError) {
+                            log.warn("Error uploading image for product {}: {}", product.getId(), imageError.getMessage());
+                            failedCount++;
+                        }
                     }
                 }
             }
 
-            redirectAttributes.addFlashAttribute("success",
-                    "Produkt '" + product.getName() + "' został zaktualizowany pomyślnie");
+            StringBuilder message = new StringBuilder("Produkt '" + product.getName() + "' został zaktualizowany pomyślnie");
+            if (uploadedCount > 0) {
+                message.append(". Dodano ").append(uploadedCount).append(" zdjęć");
+            }
+            if (failedCount > 0) {
+                message.append(". Nie udało się dodać ").append(failedCount).append(" zdjęć");
+            }
+
+            redirectAttributes.addFlashAttribute("success", message.toString());
             return "redirect:/admin/products";
         } catch (Exception e) {
+            log.error("Error updating product {}: {}", id, e.getMessage(), e);
             redirectAttributes.addFlashAttribute("error",
                     "Błąd podczas aktualizacji produktu: " + e.getMessage());
             return "redirect:/admin/products/" + id + "/edit";
@@ -291,6 +337,30 @@ public class AdminProductController {
         model.addAttribute("images", productImageService.getProductImages(id));
 
         return "admin/products/images";
+    }
+
+    @PostMapping("/{id}/images/upload")
+    public String uploadImages(
+            @PathVariable Long id,
+            @RequestParam("images") MultipartFile[] images,
+            RedirectAttributes redirectAttributes) {
+        try {
+            int uploadedCount = 0;
+            for (MultipartFile image : images) {
+                if (!image.isEmpty()) {
+                    productImageService.addImage(id, image);
+                    uploadedCount++;
+                }
+            }
+            if (uploadedCount > 0) {
+                redirectAttributes.addFlashAttribute("success",
+                        "Pomyślnie przesłano " + uploadedCount + " zdjęć");
+            }
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas przesyłania zdjęć: " + e.getMessage());
+        }
+        return "redirect:/admin/products/" + id + "/images";
     }
 
     @PostMapping("/{productId}/images/{imageId}/delete")
@@ -319,6 +389,36 @@ public class AdminProductController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error",
                     "Błąd podczas ustawiania głównego obrazu: " + e.getMessage());
+        }
+        return "redirect:/admin/products/" + productId + "/images";
+    }
+
+    @PostMapping("/{productId}/images/{imageId}/move-up")
+    public String moveImageUp(
+            @PathVariable Long productId,
+            @PathVariable Long imageId,
+            RedirectAttributes redirectAttributes) {
+        try {
+            productImageService.moveUp(imageId);
+            redirectAttributes.addFlashAttribute("success", "Kolejność zdjęcia została zmieniona");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas zmiany kolejności: " + e.getMessage());
+        }
+        return "redirect:/admin/products/" + productId + "/images";
+    }
+
+    @PostMapping("/{productId}/images/{imageId}/move-down")
+    public String moveImageDown(
+            @PathVariable Long productId,
+            @PathVariable Long imageId,
+            RedirectAttributes redirectAttributes) {
+        try {
+            productImageService.moveDown(imageId);
+            redirectAttributes.addFlashAttribute("success", "Kolejność zdjęcia została zmieniona");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error",
+                    "Błąd podczas zmiany kolejności: " + e.getMessage());
         }
         return "redirect:/admin/products/" + productId + "/images";
     }
@@ -365,21 +465,27 @@ public class AdminProductController {
     }
 
     @GetMapping("/export")
-    public String exportProducts(
+    public void exportProducts(
             @RequestParam(required = false) String search,
             @RequestParam(required = false) Long categoryId,
             @RequestParam(required = false) Long subcategoryId,
             @RequestParam(required = false) Long brandId,
             @RequestParam(required = false) ProductStatus status,
-            RedirectAttributes redirectAttributes) {
+            jakarta.servlet.http.HttpServletResponse response) {
         try {
-            String filename = productService.exportToCSV(search, categoryId, subcategoryId, brandId, status);
-            redirectAttributes.addFlashAttribute("success",
-                    "Produkty zostały wyeksportowane do pliku: " + filename);
+            response.setContentType("text/csv; charset=UTF-8");
+            response.setHeader("Content-Disposition",
+                    "attachment; filename=\"products_export_" + System.currentTimeMillis() + ".csv\"");
+
+            productService.exportToCSV(search, categoryId, subcategoryId, brandId, status, response.getWriter());
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error",
-                    "Błąd podczas eksportu: " + e.getMessage());
+            log.error("Error exporting products to CSV: {}", e.getMessage(), e);
+            try {
+                response.sendError(jakarta.servlet.http.HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                        "Błąd podczas eksportu produktów");
+            } catch (java.io.IOException ignored) {
+                // Response already committed
+            }
         }
-        return "redirect:/admin/products";
     }
 }

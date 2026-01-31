@@ -118,7 +118,13 @@
                 <h2 class="section-title" th:text="#{order.details.products}">Zamówione produkty</h2>
 
                 <div th:each="item : ${order.items}" class="product-item">
-                    <div class="product-image" th:text="${item.product.imageUrl ?: '🦴'}">🦴</div>
+                    <div class="product-image">
+                        <img th:if="${item.product.mainImageUrl != null and item.product.mainImageUrl.startsWith('/products/')}"
+                             th:src="${item.product.mainImageUrl}" th:alt="${item.product.name}"
+                             style="max-width: 80px; max-height: 80px; object-fit: contain;">
+                        <span th:if="${item.product.mainImageUrl == null or !item.product.mainImageUrl.startsWith('/products/')}"
+                              style="font-size: 32px;">🦴</span>
+                    </div>
 
                     <div class="product-details">
                         <h3 class="product-name" th:text="${item.product.name}">Nazwa produktu</h3>
