@@ -25,10 +25,10 @@
         <!-- GALLERY -->
         <div class="product-gallery">
             <div class="main-image" id="mainImage">
-                <img th:if="${product.mainImageUrl != null and !product.mainImageUrl.startsWith('/images/')}"
+                <img th:if="${product.mainImageUrl != null and product.mainImageUrl.startsWith('/products/')}"
                      th:src="${product.mainImageUrl}" th:alt="${product.name}"
                      style="max-width: 100%; max-height: 400px; object-fit: contain;">
-                <span th:if="${product.mainImageUrl == null or product.mainImageUrl.startsWith('/images/')}"
+                <span th:if="${product.mainImageUrl == null or !product.mainImageUrl.startsWith('/products/')}"
                       style="font-size: 120px;">🦴</span>
             </div>
             <div class="thumbnail-gallery" th:if="${product.images != null and !product.images.isEmpty()}">
@@ -297,10 +297,10 @@
                th:href="@{/product/{id}(id=${prod.id})}"
                class="product-card">
                 <div class="product-card-image">
-                    <img th:if="${prod.mainImageUrl != null and !prod.mainImageUrl.startsWith('/images/')}"
+                    <img th:if="${prod.mainImageUrl != null and prod.mainImageUrl.startsWith('/products/')}"
                          th:src="${prod.mainImageUrl}" th:alt="${prod.name}"
                          style="max-width: 100%; max-height: 150px; object-fit: contain;">
-                    <span th:if="${prod.mainImageUrl == null or prod.mainImageUrl.startsWith('/images/')}"
+                    <span th:if="${prod.mainImageUrl == null or !prod.mainImageUrl.startsWith('/products/')}"
                           style="font-size: 48px;">🦴</span>
                 </div>
                 <div class="product-card-info">

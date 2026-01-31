@@ -119,10 +119,10 @@
 
                 <div th:each="item : ${order.items}" class="product-item">
                     <div class="product-image">
-                        <img th:if="${item.product.mainImageUrl != null and !item.product.mainImageUrl.startsWith('/images/')}"
+                        <img th:if="${item.product.mainImageUrl != null and item.product.mainImageUrl.startsWith('/products/')}"
                              th:src="${item.product.mainImageUrl}" th:alt="${item.product.name}"
                              style="max-width: 80px; max-height: 80px; object-fit: contain;">
-                        <span th:if="${item.product.mainImageUrl == null or item.product.mainImageUrl.startsWith('/images/')}"
+                        <span th:if="${item.product.mainImageUrl == null or !item.product.mainImageUrl.startsWith('/products/')}"
                               style="font-size: 32px;">🦴</span>
                     </div>
 
